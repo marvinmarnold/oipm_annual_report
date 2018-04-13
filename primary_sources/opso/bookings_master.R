@@ -1,0 +1,49 @@
+# Global constants
+
+# Working directory
+wd <- "/media/sf_oipm/code/repo" 
+
+# File with all bookings
+bookingsFile <- "data/OPSO/JFI12M_20180110/JFI12M.TXT"
+
+# Two different ways to change encoding from 8859 to UTF-8
+# iconv -f ISO_8859-1 -t UTF-8 JFI12M.TXT> JFI12M_SANITIZED.TXT
+# sed -e 's/<A6>/A/g' JFI12M.TXT > JFI12M_SANITIZED.TXT
+
+# The year to analyze
+year <- 2017 
+
+########################################################################################################
+########################################################################################################
+
+# Set working directory
+setwd(wd)
+
+# Load libraries
+library(dplyr)
+
+allNames <- c("Folder number", "CCN", "Name", "DOB Year", "DOB Month", "DOB Day", "Race", "Sex", 
+            "In Year", "In Month", "In Day", "In time", 
+            "Release Year", "Release Month", "Release Day", "Release time", "Release reason", 
+            "Agency booking",
+            "Building", "Tier", "Side", "Cell", "Type booking", "Gang affiliation", "Reason booking", 
+            "Security level", "Ctl level", "OPSO facility", "Bond amount")
+
+safeNames <- c("Folder.number", "DOB.Year", "DOB.Month", "DOB.Day", "Race", "Sex", 
+              "In.Year", "In.Month", "In.Day", "In.time", 
+              "Release.Year", "Release.Month", "Release.Day", "Release.time", "Release.reason", 
+              "Agency.booking",
+              "Building", "Tier", "Side", "Cell", "Type.booking", "Gang.affiliation", "Reason.booking", 
+              "Security.level", "Ctl.level", "OPSO.facility", "Bond.amount")
+
+bookingsAll <- read.fwf(bookingsFile,
+  col.names = allNames,
+  fileEncoding = "ISO_8859-1",
+  header = FALSE,
+  comment.char="",
+  widths=c(9, 9, 35, 4, 2, 2, 1, 1, 4, 2, 2, 6, 4, 2, 2, 6, 50, 6, 3, 2, 1, 3, 4, 20, 4, 1, 1, 6, 10))
+
+bookings2017 <- filter(bookingsAll, In.Year == year) %>% select(safeNames)
+
+# Uncomment to create a new file that does not contain sensitive information
+# write.csv(arrests, file = "OPSO_Bookings_20160101_20171003_SANITIZED.csv")

@@ -1,0 +1,78 @@
+---
+title: "2017 Annual Report"
+author: "by OIPM"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: yeti
+    vertical_layout: scroll
+    logo: img/logo.png
+    favicon: img/fav.png
+    navbar:
+      - { title: "OIPM Home", href: "http://nolaipm.gov", align: right }
+---
+
+```{r setup, echo = FALSE, cache = FALSE, include = FALSE}
+source("reports/AnnualReport2017/annual_report_2017.R")
+source("analysis/force/force_by_year.R")
+library(flexdashboard)
+```
+
+Introduction
+===================================== 
+
+### Navigating the report
+This website is an interactive version of the statiscal analysis from OIPM's 2017 Annual Report. Analysis is divided into three sections:
+1. Use of Force
+2. Complaints & Discipline
+3. Officer Demographics
+4. Body-worn camera adherence
+
+### Reproducing this report
+
+#### Source
+The data and scripts used to generate this website are available [here](https://github.com).
+
+#### Dependencies
+The report was written in Rmarkdown using Rstudio and depends on the following dependencies that can be installed using `install.packages("LIBRARY_NAME")`:
+
+- dplyr
+- tidyr
+- ggplot2
+- rmarkdown
+- flexdashboard
+- plotly
+
+#### Build and run
+Once you have all the dependencies installed, you can clone the repository and use Knit in Rstudio to compile `annual_report_2017.Rmd`
+in the project's root.
+
+Use of force
+===================================== 
+
+### FTN vs UOF
+FTN stands for “force tracking number”. It is the designation given to track the entirety
+of an interaction between NOPD and one or more individuals wherein force was used.
+
+A single FTN corresponds to one or more UOF. If Officer A and Officer B both use their
+hands against Individual C, the result would be one FTN, corresponding to two UOFs
+(one for each officer). The same pattern would apply if there were multiple types of
+force used or multiple individuals that force was used on.
+
+This report will always clearly label whether FTN or UOF is being used for a particular
+analysis but the onus is on the reader to remain vigilant of the distinction.
+
+### FTN & UOF in 2017 by month
+
+### Use of force by year
+```{r}
+force.by.year
+```
+
+Complaints and discipline
+=====================================
+
+Officer demographics
+===================================== 
+
+BWC adherence
+===================================== 
