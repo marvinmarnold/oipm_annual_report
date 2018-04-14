@@ -13,6 +13,7 @@ output:
 ```{r setup, echo = FALSE, cache = FALSE, include = FALSE}
 source("annual_report_2017.R")
 source("analysis/force/force_by_year.R")
+source("analysis/force/force_by_month.R")
 ```
 
 Introduction 
@@ -30,12 +31,8 @@ This website is an interactive version of the statiscal analysis from OIPM's 201
 
 #### tl;dr
 ```
-# Clone repo
 git clone https://github.com/marvinmarnold/oipm_annual_report
-
-# Open in R then run
-setwd("/path/to/repo")
-rmarkdown::render_site()
+Rscript run.R
 ```
 
 #### Source
@@ -50,10 +47,14 @@ The report was written in Rmarkdown using Rstudio and depends on the following d
 - rmarkdown
 - flexdashboard
 - plotly
+- pandoc (read troubleshooting notes)
 
 #### Build and run
 Once you have all the dependencies installed, you can clone the repository and use Knit in Rstudio to compile `index.Rmd`
 in the project's root.
+
+#### Troubleshooting
+If you have trouble with Pandoc on Linux, check out [these instructions](https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md#newer-systems-debianubuntufedora).
 
 Use of force
 ===================================== 
@@ -71,6 +72,12 @@ This report will always clearly label whether FTN or UOF is being used for a par
 analysis but the onus is on the reader to remain vigilant of the distinction.
 
 ### FTN & UOF in 2017 by month
+UOF and FTN both peak in Feb and Aug. This corresponds with Mardi Gras and the summer.
+UOF per FTN ranges from 2.6 - 4.5.
+
+```{r}
+force.by.month
+```
 
 ### Use of force by year
 ```{r}

@@ -1,4 +1,4 @@
-check.vars(c("officers.all", "uof.csv", "year"))
+check.vars(c("uof.csv", "year"))
 
 ########################################################################################################
 ########################################################################################################
@@ -10,7 +10,7 @@ uof.all <- read.csv(uof.csv)
 uof.for.year <- uof.all %>% filter(Year.reported == year)
 
 # create dataframe with FTN ids and counts
-ftn.ids.counts <- setNames(
+ftn.for.year <- setNames(
   aggregate(
     uof.for.year$FIT.Number, 
     list(FTN = uof.for.year$FIT.Number, month = uof.for.year$Month.occurred), 

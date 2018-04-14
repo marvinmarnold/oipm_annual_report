@@ -6,13 +6,13 @@ rm(list = ls())
 
 ########################################################################################################
 ######################################## GLOBAL VARIABLES ##############################################
-
+setwd("/media/sf_oipm/code/repo")
 # The current year to analyze
 year <- 2017
 
 # Filenames relative to wd
 officers.csv <- "data/IAPro/2017AnnualReport/officers_201803302203.csv"
-uof.csv <- "data/IAPro/2017AnnualReport/uof_201804121756.csv"
+uof.csv <- "data_2017/uof_201804141313.csv"
 
 # File with all complaints and misconduct
 # Each row is a <officer, allegation, action-taken> tuple. This mean that one incidents may be represented by more than one line
@@ -42,6 +42,6 @@ source("lib/utils.R")
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################
 
-source("primary_sources/iapro/officers_master.R")
+#source("primary_sources/iapro/officers_master.R")
 source("primary_sources/iapro/uof_ftn_master.R")
-source("primary_sources/iapro/complaints_misconduct_master.R")
+#source("primary_sources/iapro/complaints_misconduct_master.R")

@@ -1,22 +1,26 @@
-source("iapro/uof_ftn_master.R")
+check.vars(c("uof.for.year", "ftn.for.year"))
 title <- "Force by month"
 
 ########################################################################################################
 ########################################################################################################
 
 months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-uof.by.month <- uof2017 %>% group_by(Month.occurred) %>% summarize(num.uof = n())
-ftn.by.month <- ftn2017 %>% group_by(month) %>% summarize(num.ftn = n())
+uof.by.month <- uof.for.year %>% group_by(Month.occurred) %>% summarize(num.uof = n())
+ftn.by.month <- ftn.for.year %>% group_by(month) %>% summarize(num.ftn = n())
 df <- data.frame(month = months, 
                  uof.by.month = uof.by.month$num.uof, 
                  ftn.by.month = ftn.by.month$num.ftn)
 
+df <- df %>% mutate(
+  uof.per.ftn = uof.by.month / ftn.by.month
+)
+
 xform <- list(categoryorder = "array",
               categoryarray = months,
-              title = "Month", 
+              title = "Month in 2017", 
               showgrid = T)
 
-p <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN by month', type = 'scatter', 
+force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN by month', type = 'scatter', 
              mode = 'lines+markers', 
              line = list(color = 'rgb(22, 96, 167)', width = 2, dash = 'solid')) %>%
 
@@ -24,6 +28,13 @@ p <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN by month', type = 's
             mode = 'lines+markers',
             line = list(color = 'rgb(205, 12, 24)', width = 2, dash = 'solid')) %>%
   
-  layout(title = title, xaxis = xform, yaxis = list(title = 'Num instance'))
+  add_trace(y = ~uof.per.ftn, name = "UOF per FTN", yaxis = 'y2',
+            mode = 'lines+markers',
+            line = list(color = 'rgb(25, 12, 24)', width = 2, dash = 'dashdot')) %>%
+  
+  layout(
+    xaxis = xform, 
+    yaxis = list(title = 'Instances'),
+    yaxis2 = list(side = 'right', overlaying = "y", title = "Avg UOF per FTN", range = c(0, 10)))
 
-api_create(p, filename=title, sharing = "public")
+force.by.month

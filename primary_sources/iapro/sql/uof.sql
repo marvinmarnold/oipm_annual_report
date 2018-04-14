@@ -7,18 +7,6 @@ officerLink as (
 officer as (
 	select * from iadata_oipm.ia_adm.officers
 ),
-addrLink as (
-	select * from iadata_oipm.ia_adm.assoc_addr where LINKSTO = 'Incident'
-),
-addr as (
-	select * from iadata_oipm.ia_adm.addresses
-),
-summary as (
-	select * from iadata_oipm.ia_adm.summaries
-),
-allegation as (
-	select * from iadata_oipm.ia_adm.allegations
-),
 actionTaken as (
 	select * from iadata_oipm.ia_adm.actions_taken
 ),
@@ -65,7 +53,25 @@ end as "Force type",
 
 uof.uof_effective as "UOF effective",
 uof.accidental_dis as "Accidental discharge",
-
+uof.deployed_only AS "Deployed only",
+uof.arc_display_only AS "Arc display only",
+uof.ds_contact AS "DS contact",
+uof.ds_injury AS "DS injury",
+uof.proj_contact AS "Proj contact",
+uof.proj_injury AS "Proj injury",
+uof.skin_penet AS "Skin penetration",
+uof.ds_body_area AS "DS body area",
+uof.proj_body_area AS "Proj body area",
+uof.ds_num AS "DS num",
+uof.air_cart_num AS "Air cart num",
+uof.cycles_num AS "Cycles num",
+uof.darts_hit_num AS "Num darts hit",
+uof.darts_used_num AS "Num darts used",
+uof.less_than_lethal AS "Less than lethal",
+uof.citizen_painted AS "Citizen painted",
+uof.cart_attached AS "Cartridge attached",
+uof.followup_ds AS "Follow up discharge",
+uof.additional_cart AS "Additional cartridge",
 occurred_day as "Day of week",
 occurred_hour_i as "Hour of day",
 cast(occurred_tm as time) as "Ocurred time",
@@ -76,13 +82,6 @@ due_dt as "Due date",
 assigned_dt as "Assigned date",
 completed_dt as "Completed date",
 incident.created_dt as "Created date",
-a.street_n as "Street number",
-a.street as "Street name",
-a.street_t as "Street type (St, Rd, Blvd, etc)",
-a.street_g as "Street direction (N, S, E, W)",
-a.city as "City",
-a.state as "State",
-a.zipcode as "ZIP",
 inv_unit as "Assigned unit",
 
 -- The real values for these are in table AIO_COLS
@@ -159,15 +158,11 @@ Else c.race
 end as "Citizen race",
 
 c.narrative as "Citizen narrative",
-c.dob as "Citizen dob",
+datediff(yy, c.DOB, occurred_Dt) as "Citizen age",
 
 -- Sensitive info
 o.OFFNUM as "Officer DB primary key",
-o.CURRENT_BADGE_NO as "Officer badge number",
 o.CURRENT_SUP_OFFNUM as "Officer current supervisor",
-s.SUMMARY as "Narrative",
-s.ented_dt as "Narrative entered",
-o.UDTEXT24G as "Officer UNKNOWN ID",
 
 -- Officer shareable info
 o.TITLE as "Officer title",
@@ -196,6 +191,7 @@ o.STATE1 as "Officer state",
 o.ZIPCODE1 as "Officer ZIP"
 
 from iadata_oipm.ia_adm.incidents incident 
+
 -- Join officer
 left join officerLink as oL on incident.incnum = oL.incnum
 left join officer o on o.offnum = oL.offnum
@@ -204,18 +200,10 @@ left join officer o on o.offnum = oL.offnum
 left join citLink as cL on incident.INCNUM = cL.INCNUM
 left join cit c on c.CITNUM = cL.CITNUM
 
--- Join address
-left join addrLink as aL on incident.incnum = aL.INCNUM
-left join addr a on a.addrnum = aL.addrnum
-
--- Join summaries
-left join summary as s on incident.incnum = s.incnum
-
 -- Join info about the incident
 left join useOfForce as uof on ol.aio_num = uof.aio_num
 
 where 
 --incident.OCCURRED_DT >= '2015-01-01 00:00:00' and 
-incident.INCIDENT_TYPE in ('Show of force', 'Use of force')
-and incident.filenum LIKE 'FTN%'
+incident.filenum LIKE 'FTN2017%'
 order by occurred_dt DESC
