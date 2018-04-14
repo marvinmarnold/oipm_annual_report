@@ -14,6 +14,7 @@ output:
 source("annual_report_2017.R")
 source("analysis/force/force_by_year.R")
 source("analysis/force/force_by_month.R")
+source("analysis/force/uof_by_type.R")
 ```
 
 Introduction 
@@ -83,8 +84,8 @@ we find discrepancies with what NOPD previously reported to us.
 
 As of this writing, there are no major differences in FTNs in 2015
 
-```{r, fig.height = 7}
-force.by.year
+```{r, fig.height = 8}
+p.force.by.year
 ```
 
 ### FTN & UOF in 2017 by month
@@ -93,11 +94,14 @@ UOF per FTN ranges from 2.6 - 4.5.
 
 TODO: What is driving UOF most: citizens, types of force, num officers
 
-```{r}
-force.by.month
+```{r, fig.height = 5}
+p.force.by.month
 ```
 
-
+### Force by level and type of force
+```{r, fig.height = 7}
+p.uof.by.type
+```
 
 Complaints and discipline
 =====================================

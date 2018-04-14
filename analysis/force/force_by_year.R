@@ -46,7 +46,7 @@ annual.summary <- rbind(ftn.previous, ftn.by.year, uof.previous, uof.by.year)
 colnames(annual.summary) <- years
 annual.summary <- data.frame(annual.summary)
 
-force.by.year <- plot_ly(annual.summary, x = years, 
+p.force.by.year <- plot_ly(annual.summary, x = years, 
                          # Start with FTN according to NOPD
                          y = ~ftn.previous, name = 'FTN from NOPD', 
                          type = 'scatter', 
@@ -79,6 +79,4 @@ force.by.year <- plot_ly(annual.summary, x = years,
          hovermode = 'compare')
   
 
-force.by.year
-#api_create(p, filename=title, sharing = "public")
-
+p.force.by.year

@@ -20,11 +20,11 @@ xform <- list(categoryorder = "array",
               title = "Month in 2017", 
               showgrid = T)
 
-force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN by month', type = 'scatter', 
+p.force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN', type = 'scatter', 
              mode = 'lines+markers', 
              line = list(color = 'rgb(22, 96, 167)', width = 2, dash = 'solid')) %>%
 
-  add_trace(y = ~uof.by.month, name = 'UOF by month', 
+  add_trace(y = ~uof.by.month, name = 'UOF', 
             mode = 'lines+markers',
             line = list(color = 'rgb(205, 12, 24)', width = 2, dash = 'solid')) %>%
   
@@ -33,8 +33,9 @@ force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN by mont
             line = list(color = 'rgb(25, 12, 24)', width = 2, dash = 'dashdot')) %>%
   
   layout(
+    hovermode = 'compare',
     xaxis = xform, 
     yaxis = list(title = 'Instances'),
     yaxis2 = list(side = 'right', overlaying = "y", title = "Avg UOF per FTN", range = c(0, 10)))
 
-force.by.month
+p.force.by.month

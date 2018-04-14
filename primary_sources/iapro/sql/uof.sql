@@ -34,22 +34,43 @@ o.offnum as "Officer primary key",
 c.citnum as "Citizen primary key",
 
 -- type
-case
-when uof.uof_force_type is null or datalength(uof.uof_force_type) = 0 then 'L0-Not reported'
-Else uof.uof_force_type
-end as "Force descr",
-
-case
-when uof.uof_force_type is null or datalength(uof.uof_force_type) = 0 then 'Not defined'
-Else SUBSTRING(uof.uof_force_type, 2, 1)
-end as "Force level",
+uof.uof_force_type as "Description of force",
 
 case
 when uof.uof_force_type is null or datalength(uof.uof_force_type) = 0 then 'Not reported'
--- Other is repeated so need to diambiguate it
-when SUBSTRING(uof.uof_force_type, 4, 30) = 'Other' then uof.uof_force_type
-else SUBSTRING(uof.uof_force_type, 4, 30) 
+when uof.uof_force_type = 'L1-CEW Exhibited/Laser' then 'Taser Exhibited'
+
+when uof.uof_force_type = 'L1-Firearm (Exhibited)' then 'Firearm Exhibited'
+when uof.uof_force_type = 'L1-Shotgun (Pointed)' then 'Firearm Exhibited'
+when uof.uof_force_type = 'L1-Rifle (Pointed)' then 'Firearm Exhibited'
+
+when uof.uof_force_type = 'L1-Other' then uof.uof_force_type
+when uof.uof_force_type = 'L1-Hands' then 'Hands / Escort tech'
+when uof.uof_force_type = 'L1-Force (Escort Tech)' then 'Hands / Escort tech'
+
+when uof.uof_force_type = 'L2-Force (Defense Tech)' then 'Defense Tech / Take-down'
+when uof.uof_force_type = 'L2-Force (Take Down)' then 'Defense Tech / Take-down'
+when uof.uof_force_type = 'L2-Other' then uof.uof_force_type
+when uof.uof_force_type = 'L2-Baton/PR-24(NonStrk)' then 'Baton'
+when uof.uof_force_type = 'L2-CEW Deployment' then 'Taser No-Hit'
+
+when uof.uof_force_type = 'L3-CEW' then 'Taser Hit'
+when uof.uof_force_type = 'L4-Handcuffed Subject' then 'Taser while Handcuffed'
+when uof.uof_force_type = 'L4-CEW' then 'Taser while Handcuffed'
+else substring(uof.uof_force_type, 4, 99)
 end as "Force type",
+
+case
+when uof.uof_force_type is null or datalength(uof.uof_force_type) = 0 then 'Not reported'
+Else SUBSTRING(uof.uof_force_type, 1, 2)
+end as "Force level",
+
+--case
+--when uof.uof_force_type is null or datalength(uof.uof_force_type) = 0 then 'Not reported'
+-- Other is repeated so need to diambiguate it
+--when SUBSTRING(uof.uof_force_type, 4, 30) = 'Other' then uof.uof_force_type
+--else SUBSTRING(uof.uof_force_type, 4, 30) 
+--end as "Force type",
 
 uof.uof_effective as "UOF effective",
 uof.accidental_dis as "Accidental discharge",
@@ -190,6 +211,7 @@ o.CITY1 as "Officer city",
 o.STATE1 as "Officer state",
 o.ZIPCODE1 as "Officer ZIP"
 
+-- SELECT FROM
 from iadata_oipm.ia_adm.incidents incident 
 
 -- Join officer
@@ -203,6 +225,12 @@ left join cit c on c.CITNUM = cL.CITNUM
 -- Join info about the incident
 left join useOfForce as uof on ol.aio_num = uof.aio_num
 
+-- Filter
 where 
-incident.filenum LIKE 'FTN%'
+incident.filenum LIKE 'FTN%' and
+
+--We do not want to include any forms that have not been submitted by a Commander to PIB.
+field_status not in ('Initial entry', 'In chain')
+
+-- Order by
 order by occurred_dt DESC
