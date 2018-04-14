@@ -71,18 +71,33 @@ force used or multiple individuals that force was used on.
 This report will always clearly label whether FTN or UOF is being used for a particular
 analysis but the onus is on the reader to remain vigilant of the distinction.
 
+### Use of force by year
+
+Force jumps between 2014 and 2015 because of new rules about what constitutes force. 
+UOF has been rising but FTN about steady. More <officers, victims, types of force> used per force incident.
+2015 is the first year that the database that we access (IAPro) was used. Before then, we have to rely on
+historic numbers from NOPD.
+
+Furthermore, 2017 is the first year th OIPM has had access to the underlying database. Now that we have access
+we find discrepancies with what NOPD previously reported to us. 
+
+As of this writing, there are no major differences in FTNs in 2015
+
+```{r, fig.height = 7}
+force.by.year
+```
+
 ### FTN & UOF in 2017 by month
 UOF and FTN both peak in Feb and Aug. This corresponds with Mardi Gras and the summer.
 UOF per FTN ranges from 2.6 - 4.5.
+
+TODO: What is driving UOF most: citizens, types of force, num officers
 
 ```{r}
 force.by.month
 ```
 
-### Use of force by year
-```{r}
-force.by.year
-```
+
 
 Complaints and discipline
 =====================================

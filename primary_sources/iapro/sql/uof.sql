@@ -204,6 +204,5 @@ left join cit c on c.CITNUM = cL.CITNUM
 left join useOfForce as uof on ol.aio_num = uof.aio_num
 
 where 
---incident.OCCURRED_DT >= '2015-01-01 00:00:00' and 
-incident.filenum LIKE 'FTN2017%'
+incident.filenum LIKE 'FTN%'
 order by occurred_dt DESC
