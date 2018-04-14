@@ -12,7 +12,7 @@ output:
 ---
 
 ```{r setup, echo = FALSE, cache = FALSE, include = FALSE}
-source("reports/AnnualReport2017/annual_report_2017.R")
+source("annual_report_2017.R")
 source("analysis/force/force_by_year.R")
 library(flexdashboard)
 ```

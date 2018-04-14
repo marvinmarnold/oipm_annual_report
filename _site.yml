@@ -1,0 +1,4 @@
+name: "oipm-annual-report-2017"
+output_dir: "."
+include: ["annual_report_2017.Rmd"]
+exclude: ["*.csv"]
