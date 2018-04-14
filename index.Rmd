@@ -1,6 +1,6 @@
 ---
 title: "2017 Annual Report"
-author: "by OIPM"
+author: "OIPM"
 output: 
   flexdashboard::flex_dashboard:
     theme: yeti
