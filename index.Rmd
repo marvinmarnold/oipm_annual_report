@@ -20,6 +20,7 @@ source("analysis/force/uof_pies_each_type.R")
 source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
+source("analysis/officers/officer_demographics.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -258,6 +259,24 @@ Complaints
 
 Officers
 ===================================== 
+
+Row
+-------------------------------------
+
+### Total number active officers
+```{r, fig.width = 5, fig.height = 5}
+p.active.officers
+```
+
+### 2017 active officers by race
+```{r, fig.width = 5, fig.height = 5}
+p.officers.by.race
+```
+
+### 2017 active officers by sex
+```{r, fig.width = 5, fig.height = 5}
+p.officers.by.sex
+```
 
 Bodyworn Cameras
 ===================================== 

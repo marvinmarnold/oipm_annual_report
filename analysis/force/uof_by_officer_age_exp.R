@@ -1,4 +1,4 @@
-check.vars(c("uof.for.year", "officers.all"))
+check.vars(c("uof.for.year", "active.officers.for.year"))
 title <- "Force by officer age and experience"
 
 ordered.age.buckets <- c('25 or younger', '26 - 30', '31 - 35', '36 - 40', '41 - 45', '46 - 50', '51 or older', 'Unknown age')
@@ -32,11 +32,11 @@ uof.by.age.exp <- uof.bucketed %>% group_by(age.bucket, exp.bucket)
 count.by.age.exp <- summarise(uof.by.age.exp, num.uof = n())
 
 # pct of active officers in each age bucket
-num.officers <- nrow(officers.all)
+num.officers <- nrow(active.officers.for.year)
 age.buckets <- uof.bucketed %>% select(age.bucket) %>% distinct
 age.buckets <- age.buckets %>% mutate(
   count = sapply(age.buckets$age.bucket, function(age.bucket) {
-    sum(officers.all$age.bucket == age.bucket)
+    sum(active.officers.for.year$age.bucket == age.bucket)
   }),
   
   pct = count / num.officers * 100)
