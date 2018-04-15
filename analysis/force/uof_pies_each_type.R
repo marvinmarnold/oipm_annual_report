@@ -11,7 +11,7 @@ uof.pies.each.type <- lapply(lvls, function (lvl) {
   # Filter UOF by year
   uof.for.lvl <- uof.count.by.type %>% filter(Force.level == lvl)
   total.for.lvl <- sum(uof.for.lvl$count)
-  lvl.title <-paste(title, "for level", lvl, "(Total = ", total.for.lvl, ")")
+  lvl.title <-paste(lvl, "total = ", total.for.lvl)
 
   # Construct pie chart
   plot_ly(uof.for.lvl,  type = 'pie', name = lvl.title,
@@ -21,5 +21,5 @@ uof.pies.each.type <- lapply(lvls, function (lvl) {
           textinfo = 'label+value+percent',
           insidetextfont = list(color = '#FFFFFF')) %>%
     
-    layout(hovermode = "compare", title = lvl.title)
+    layout(hovermode = "compare", title = lvl.title, showlegend = FALSE)
 })

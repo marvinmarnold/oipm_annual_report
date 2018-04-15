@@ -16,6 +16,7 @@ source("annual_report_2017.R")
 source("analysis/force/force_by_year.R")
 source("analysis/force/force_by_month.R")
 source("analysis/force/uof_by_type.R")
+source("analysis/force/uof_pies_each_type.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -118,8 +119,32 @@ Row
 -------------------------------------
 
 ### Force by level and type of force
+
 ```{r, fig.width = 10, fig.height = 6}
 p.uof.by.type
+```
+
+Row
+-------------------------------------
+
+### Level 1
+```{r, fig.height = 3}
+uof.pies.each.type[[2]]
+```
+
+### Level 2
+```{r, fig.height = 3}
+uof.pies.each.type[[3]]
+```
+
+### Level 3
+```{r, fig.height = 3}
+uof.pies.each.type[[4]]
+```
+
+### Level 4
+```{r, fig.height = 3}
+uof.pies.each.type[[5]]
 ```
 
 Complaints
