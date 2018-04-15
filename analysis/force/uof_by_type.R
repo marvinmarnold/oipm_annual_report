@@ -13,18 +13,15 @@ uof.by.type <- group_by(uof.for.year, Force.level, Force.type)
 uof.count.by.type <- summarise(uof.by.type, count = n())
 uof.count.by.type
 
-# https://stackoverflow.com/questions/44929859/r-plotly-stacked-bar-chart-with-over-100-categories
-xform <- list(categoryorder = "array",
-              categoryarray = lvls,
-              title = "Level of force", 
-              showgrid = T)
-
 p.uof.by.type <- plot_ly(uof.count.by.type, 
                          x = ~Force.level, y = ~count, 
                          type = 'bar',  name = ~Force.type, 
                          color = ~Force.type) %>%
   
-  layout(xaxis = xform, 
+  layout(xaxis = list(categoryorder = "array",
+                      categoryarray = lvls,
+                      title = "Level of force", 
+                      showgrid = F), 
          yaxis = list(title = 'Number UOF'), 
          barmode = 'stack',
          hovermode = 'compare')

@@ -79,7 +79,8 @@ p.force.by.year <- plot_ly(annual.summary, x = ~years,
                y = 0, yend = 2500, 
                line = list(color = 'rgb(229, 221, 59)', dash = 'solid')) %>%
 
-  layout(xaxis = list(title = "Year", autosize = FALSE,
+  layout(xaxis = list(title = "Year", 
+                      autosize = FALSE,
                       ticks = "outside",
                       tick0 = 0,
                       dtick = 1,

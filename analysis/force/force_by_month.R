@@ -15,11 +15,6 @@ df <- df %>% mutate(
   uof.per.ftn = uof.by.month / ftn.by.month
 )
 
-xform <- list(categoryorder = "array",
-              categoryarray = months,
-              title = "Month in 2017", 
-              showgrid = T)
-
 p.force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN', type = 'scatter', 
              mode = 'lines+markers', 
              line = list(color = 'rgb(22, 96, 167)', width = 2, dash = 'solid')) %>%
@@ -35,8 +30,11 @@ p.force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN', typ
   layout(
     hovermode = 'compare',
     margin = list(b = 150),
-    xaxis = xform, 
-    yaxis = list(title = 'Instances'),
+    xaxis = list(categoryorder = "array",
+                 categoryarray = months,
+                 title = "Month in 2017", 
+                 showgrid = F), 
+    yaxis = list(title = 'Instances', showgrid = T),
     yaxis2 = list(side = 'right', overlaying = "y", title = "Avg UOF per FTN", range = c(0, 10)))
 
 p.force.by.month
