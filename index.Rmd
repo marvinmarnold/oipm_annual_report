@@ -17,6 +17,7 @@ source("analysis/force/force_by_year.R")
 source("analysis/force/force_by_month.R")
 source("analysis/force/uof_by_type.R")
 source("analysis/force/uof_pies_each_type.R")
+source("analysis/force/uof_by_officer_age_exp.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -68,7 +69,7 @@ If you have trouble with Pandoc on Linux, check out [these instructions](https:/
 Use of force {data-orientation=rows}
 ===================================== 
 
-Row
+Row 
 -------------------------------------
 
 ### FTN vs UOF
@@ -128,23 +129,36 @@ Row
 -------------------------------------
 
 ### Level 1
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[2]]
 ```
 
 ### Level 2
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[3]]
 ```
 
 ### Level 3
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[4]]
 ```
 
 ### Level 4
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[5]]
+```
+
+Row {data-height = 200}
+-------------------------------------
+
+### Force by officer age and experience 
+
+```{r, fig.width = 5, fig.height = 6}
+p.uof.by.officer.age.exp
 ```
 
 Complaints

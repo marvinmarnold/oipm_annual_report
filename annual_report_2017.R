@@ -11,7 +11,7 @@ setwd("/media/sf_oipm/code/repo")
 year <- 2017
 
 # Filenames relative to wd
-officers.csv <- "data/IAPro/2017AnnualReport/officers_201803302203.csv"
+officers.csv <- "data_public/officers_201804142022.csv"
 uof.csv <- "data_public/uof_201804141713.csv"
 
 # File with all complaints and misconduct
@@ -42,6 +42,6 @@ source("lib/utils.R")
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################
 
-#source("primary_sources/iapro/officers_master.R")
+source("primary_sources/iapro/officers_master.R")
 source("primary_sources/iapro/uof_ftn_master.R")
 #source("primary_sources/iapro/complaints_misconduct_master.R")

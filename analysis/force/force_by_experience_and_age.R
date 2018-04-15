@@ -1,29 +1,12 @@
-check.vars(c("uof.for.year"))
+check.vars(c("uof.for.year", "officers.all"))
 title <- "Force by officer age and experience"
+
+ordered.age.buckets <- c('25 or younger', '26 - 30', '31 - 35', '36 - 40', '41 - 45', '46 - 50', '51 or older', 'Unknown age')
 
 ########################################################################################################
 ########################################################################################################
 
 # Add columns containing officer age and experience in buckets
-age.bucket.function <- function(age) {
-  if (is.na(age)) {
-    'Unknown age'
-  } else  if (age < 26) {
-    'Age 25 or under'
-  } else if (age >= 26 & age < 31) {
-    'Age 26 to 30'
-  } else if (age >= 31 & age < 36) {
-    'Age 31 to 35'
-  } else if (age >= 36 & age < 41) {
-    'Age 36 to 40'
-  } else if (age >= 41 & age < 46) {
-    'Age 41 to 45'
-  } else if (age >= 46 & age < 50) {
-    'Age 46 to 50'
-  } else {
-    'Age 51 or older'
-  }
-}
 
 exp.bucket.function <- function(exp) {
   if (is.na(exp)) {
@@ -48,14 +31,43 @@ uof.bucketed <- uof.for.year %>% mutate(
 uof.by.age.exp <- uof.bucketed %>% group_by(age.bucket, exp.bucket) 
 count.by.age.exp <- summarise(uof.by.age.exp, num.uof = n())
 
-# plot the summary
-xform <- list(categoryorder = "array",
-              categoryarray = c('Unknown age', 'Age under 26', 'Age 26 to 30', 'Age 31 to 35', 'Age 36 to 40', 'Age 41 to 45', 'Age 46 to 50', 'Age 51 or older'),
-              title = "Age range", 
-              showgrid = T)
+# pct of active officers in each age bucket
+num.officers <- nrow(officers.all)
+age.buckets <- uof.bucketed %>% select(age.bucket) %>% distinct
+age.buckets <- age.buckets %>% mutate(
+  count = sapply(age.buckets$age.bucket, function(age.bucket) {
+    sum(officers.all$age.bucket == age.bucket)
+  }),
+  
+  pct = count / num.officers * 100)
 
-p <- plot_ly(count.by.age.exp, x = ~age.bucket, y = ~num.uof, type = 'bar',  name = ~exp.bucket, color = ~exp.bucket) %>%
-  layout(xaxis = xform, yaxis = list(title = 'Number UOF'), barmode = 'stack')
+p.force.by.officer.age.exp <- plot_ly(count.by.age.exp) %>%
+  
+  # Stacked bars by exp
+  add_trace(x = ~age.bucket, 
+            y = ~num.uof, 
+            type = 'bar',  
+            name = ~exp.bucket, 
+            color = ~exp.bucket) %>%
+  
+  # pct active officers at age
+  add_trace(x = ordered.age.buckets, 
+            y = age.buckets$pct,
+            name = "% officers this age", 
+            yaxis = 'y2',
+            type = "scatter",
+            mode = 'lines+markers',
+            line = list(color = 'rgb(0, 0, 0)', width = 2, dash = 'solid')) %>%
+  
+  layout(barmode = 'stack',
+         xaxis = list(categoryorder = "array",
+                      categoryarray = ordered.age.buckets,
+                      title = "Age range", 
+                      showgrid = F), 
+         
+         yaxis = list(title = "Number UOF", showgrid = T),
+         yaxis2 = list(side = 'right', overlaying = "y", 
+                       title = "Percent active officers same age", 
+                       range = c(0, 50), showgrid = F))
 
-p
-api_create(p, filename=title, sharing = "public")
+p.force.by.officer.age.exp

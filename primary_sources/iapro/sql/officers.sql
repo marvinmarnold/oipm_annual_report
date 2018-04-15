@@ -10,7 +10,6 @@ select
 -- Employment details
 offnum AS "Officer number",
 title as "Title",
-acc_lev as "Access level",
 emp_type as "Employee type",
 status as "Employment status",
 hire_dt as "Hired on",
@@ -60,7 +59,6 @@ zipcode1 as "Zip",
 -- fnam as "First name",
 -- mnam as "Middle initial",
 -- lnam as "Last name",
-current_badge_no as "Badge number",
 current_sup_offnum as "Current supervisor"
 
 from iadata_oipm.ia_adm.officers
