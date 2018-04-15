@@ -34,6 +34,7 @@ p.force.by.month <- plot_ly(df, x = ~month, y = ~ftn.by.month, name = 'FTN', typ
   
   layout(
     hovermode = 'compare',
+    margin = list(b = 150),
     xaxis = xform, 
     yaxis = list(title = 'Instances'),
     yaxis2 = list(side = 'right', overlaying = "y", title = "Avg UOF per FTN", range = c(0, 10)))
