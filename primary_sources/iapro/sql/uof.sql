@@ -195,7 +195,16 @@ when o.sex = 'Female' or o.sex = 'F' then 'F'
 Else 'Unknown sex'
 end as "Officer sex",
 
-o.RACE as "Race",
+-- Normalize officer race
+case
+when o.race = 'American Ind' then 'Native American'
+when o.race = 'Asian/Pacif' or o.race = 'Asian/Pacifi' then 'Asian / Pacific Islander'
+when o.race = 'Black' then 'Black / African American'
+when o.race = 'Hispanic' then 'Hispanic'
+when o.race = 'White' then 'White'
+Else 'Unknown race'
+end as "Officer race",
+
 incident.off_injured as "Officer injured",
 incident.off_hospital as "Officer hospital",
 datediff(yy, o.DOB, occurred_Dt) as "Officer age at time of UOF",

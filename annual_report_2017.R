@@ -12,7 +12,7 @@ year <- 2017
 
 # Filenames relative to wd
 officers.csv <- "data_public/officers_201804142022.csv"
-uof.csv <- "data_public/uof_201804141713.csv"
+uof.csv <- "data_public/uof_201804151339.csv"
 
 # File with all complaints and misconduct
 # Each row is a <officer, allegation, action-taken> tuple. This mean that one incidents may be represented by more than one line

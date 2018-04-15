@@ -29,7 +29,7 @@ case
 when sex = 'Male' or sex = 'M' then 'M'
 when sex = 'Female' or sex = 'F' then 'F'
 Else 'Unknown sex'
-end as "Sex",
+end as "Officer sex",
 
 -- Normalize officer race
 case
@@ -39,9 +39,7 @@ when race = 'Black' then 'Black / African American'
 when race = 'Hispanic' then 'Hispanic'
 when race = 'White' then 'White'
 Else 'Unknown race'
-end as "Race",
-
-ethnic as "Ethnicity",
+end as "Officer race",
 
 -- Department
 UDTEXT24A as "Officer department",

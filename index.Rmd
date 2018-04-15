@@ -19,6 +19,7 @@ source("analysis/force/uof_by_type.R")
 source("analysis/force/uof_pies_each_type.R")
 source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/uof_by_victim_sex_race.R")
+source("analysis/force/uof_by_officer_sex_race.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -50,7 +51,7 @@ Rscript run.R
 The data and scripts used to generate this website are available [here](https://github.com/marvinmarnold/oipm_annual_report).
 
 #### Dependencies
-The report was written in Rmarkdown using Rstudio and depends on the following dependencies that can be installed using `install.packages("LIBRARY_NAME")`:
+The report was written in Rmarkdown using Rstudio and has the following dependencies that can be installed using `install.packages("LIBRARY_NAME")`:
 
 - dplyr
 - tidyr
@@ -166,7 +167,7 @@ Experience levels are not enough to explain use of force.
 Officers older than 31 tends to have over 5 years experience but continue to use non-negligible amounts of force.
 
 
-```{r, fig.width = 5, fig.height = 6}
+```{r, fig.width = 10, fig.height = 5}
 p.uof.by.officer.age.exp
 ```
 
@@ -178,26 +179,78 @@ Row
 Males have force used against them more often. Racial breakdown of how force is used almost identical for both males and females.
 Black people of both genders are victims of force about 79% of the time.
 
+Black and hispanic people are most exposed to Firearms but white people get hands. Asians have so little force, can't say much 
+
 
 Row
 -------------------------------------
 
 ### UOF by victim gender and race
-
-```{r, fig.width = 5, fig.height = 6}
+```{r, fig.width = 5, fig.height = 4}
 p.uof.by.victim.sex.race
 ```
 
 ### UOF by female victim race
-
-```{r, fig.width = 5, fig.height = 6}
+```{r, fig.width = 5, fig.height = 4}
 p.uof.by.female.victim.race
 ```
 
 ### UOF by male victim race
-
-```{r, fig.width = 5, fig.height = 6}
+```{r, fig.width = 5, fig.height = 4}
 p.uof.by.male.victim.race
+```
+
+Row
+-------------------------------------
+
+### Female victim UOF by type and race
+```{r, fig.width = 5, fig.height = 5}
+p.female.victim.uof.by.type
+```
+
+### Male victim UOF by type and race
+```{r, fig.width = 5, fig.height = 5}
+p.male.victim.uof.by.type
+```
+
+
+Row
+-------------------------------------
+
+### Analysis of UOF by officer gender and race
+
+TODO
+
+
+Row
+-------------------------------------
+
+### UOF by officer gender and race
+```{r, fig.width = 5, fig.height = 4}
+p.uof.by.victim.sex.race
+```
+
+### UOF by female officer race
+```{r, fig.width = 5, fig.height = 4}
+p.uof.by.female.officer.race
+```
+
+### UOF by male officer race
+```{r, fig.width = 5, fig.height = 4}
+p.uof.by.male.officer.race
+```
+
+Row
+-------------------------------------
+
+### Female officer UOF by type and race
+```{r, fig.width = 5, fig.height = 5}
+p.female.uof.by.type
+```
+
+### Male officer UOF by type and race
+```{r, fig.width = 5, fig.height = 5}
+p.male.uof.by.type
 ```
 
 Complaints

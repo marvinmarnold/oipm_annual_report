@@ -60,6 +60,7 @@ p.uof.by.officer.age.exp <- plot_ly(count.by.age.exp) %>%
             line = list(color = 'rgb(0, 0, 0)', width = 2, dash = 'solid')) %>%
   
   layout(barmode = 'stack',
+         margin = list(b = 150),
          hovermode = 'compare',
          xaxis = list(categoryorder = "array",
                       categoryarray = ordered.age.buckets,
