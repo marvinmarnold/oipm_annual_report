@@ -18,6 +18,7 @@ source("analysis/force/force_by_month.R")
 source("analysis/force/uof_by_type.R")
 source("analysis/force/uof_pies_each_type.R")
 source("analysis/force/uof_by_officer_age_exp.R")
+source("analysis/force/uof_by_victim_sex_race.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -152,13 +153,51 @@ uof.pies.each.type[[4]]
 uof.pies.each.type[[5]]
 ```
 
-Row {data-height = 200}
+Row
 -------------------------------------
 
 ### Force by officer age and experience 
 
+As officers get older, they commit less force. Officers 31 - 35 make up 14% of the police department but are responsible for 
+over 500 incidents of force. In the next age bucket, officers 26 - 40 make up 35% of all police (nearly double the previous bucket)
+but amount of force decreases.
+
+Experience levels are not enough to explain use of force. 
+Officers older than 31 tends to have over 5 years experience but continue to use non-negligible amounts of force.
+
+
 ```{r, fig.width = 5, fig.height = 6}
 p.uof.by.officer.age.exp
+```
+
+Row
+-------------------------------------
+
+### Analysis of UOF by victim gender and race
+
+Males have force used against them more often. Racial breakdown of how force is used almost identical for both males and females.
+Black people of both genders are victims of force about 79% of the time.
+
+
+Row
+-------------------------------------
+
+### UOF by victim gender and race
+
+```{r, fig.width = 5, fig.height = 6}
+p.uof.by.victim.sex.race
+```
+
+### UOF by female victim race
+
+```{r, fig.width = 5, fig.height = 6}
+p.uof.by.female.victim.race
+```
+
+### UOF by male victim race
+
+```{r, fig.width = 5, fig.height = 6}
+p.uof.by.male.victim.race
 ```
 
 Complaints
