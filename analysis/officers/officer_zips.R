@@ -42,7 +42,9 @@ m <- leaflet(geo.zips.with.counts) %>%
   setView(center.lat, center.long, zoom) %>%
   addProviderTiles("MapBox", options = providerTileOptions(
     id = "mapbox.light",
-    accessToken = Sys.getenv('MAPBOX_TOKEN')))
+    
+    # Replace with your key
+    accessToken = 'pk.eyJ1IjoibWFydmluZ2Vla3kiLCJhIjoiY2pnMTkyMHVvMTJmZTJ3cDk1OGhjNjlwcyJ9.T6atnQVox1lO9tanVssIgA'))
 
 labels <- sprintf(
   "<strong>%s officers</strong> in %s",
