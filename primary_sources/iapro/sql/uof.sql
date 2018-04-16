@@ -11,7 +11,7 @@ actionTaken as (
 	select * from iadata_oipm.ia_adm.actions_taken
 ),
 citLink as (
-	select * from IADATA_OIPM.IA_ADM.ASSOC_INC_CIT
+	select * from IADATA_OIPM.IA_ADM.ASSOC_INC_CIT where LINK_TYPE = 'Complainant'
 ),
 cit as (
 	select * from IADATA_OIPM.IA_ADM.CITIZENS
