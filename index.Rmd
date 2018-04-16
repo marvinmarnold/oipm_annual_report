@@ -21,6 +21,7 @@ source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/officers/officer_demographics.R")
+source("analysis/officers/officer_zips.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -61,13 +62,31 @@ The report was written in Rmarkdown using Rstudio and has the following dependen
 - flexdashboard
 - plotly
 - pandoc (read troubleshooting notes)
+- maps
+- devtools::install_github('rstudio/leaflet')
+- geojsonio (on ubuntu, installation fails many times and instructs to install dependencies)
+
+e.g.: `install.packages(c("dplyr", "tidyr", "ggplot2", "rmarkdown", "plotly", "flexdashboard", "maps", "pandoc", "leaflet"))`
 
 #### Build and run
 Once you have all the dependencies installed, you can clone the repository and use Knit in Rstudio to compile `index.Rmd`
 in the project's root.
 
 #### Troubleshooting
+
+##### Pandoc
 If you have trouble with Pandoc on Linux, check out [these instructions](https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md#newer-systems-debianubuntufedora).
+
+##### geojsonio
+`sudo apt install libgdal1-dev libgdal1i libproj-dev libudunits2-dev` then `install.packages("rgdal", repos = "http://cran.us.r-project.org", type = "source")`. You'll probably also need to update your gdal version:
+
+https://stackoverflow.com/questions/37294127/python-gdal-2-1-installation-on-ubuntu-16-04#41613466
+
+Then finally: `install.packages("geojsonio")`
+
+#### Resources
+If you want to get map data for other states, check out: https://github.com/jgoodall/us-maps then convert with ogre.adc4gis.com.
+Use the entire ZIP that you download, when converting, don't need to extract. (Alternative = https://github.com/OpenDataDE/State-zip-code-GeoJSON)
 
 Use of force {data-orientation=rows}
 ===================================== 
@@ -228,7 +247,7 @@ Row
 
 ### UOF by officer gender and race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.victim.sex.race
+p.uof.by.officer.sex.race
 ```
 
 ### UOF by female officer race
@@ -276,6 +295,14 @@ p.officers.by.race
 ### 2017 active officers by sex
 ```{r, fig.width = 5, fig.height = 5}
 p.officers.by.sex
+```
+
+Row
+-------------------------------------
+
+### Where officers live by zip
+```{r, fig.width = 5, fig.height = 5}
+p.officer.map
 ```
 
 Bodyworn Cameras
