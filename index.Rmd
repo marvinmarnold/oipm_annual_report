@@ -34,9 +34,9 @@ Column
 This website is an interactive version of the statiscal analysis from OIPM's 2017 Annual Report. Analysis is divided into these sections:
 
 1. [Use of Force](#use-of-force)
-2. [Complaints & Discipline](#complaints-and-discipline)
-3. [Officer Demographics](#officer-demographics)
-4. [Body-worn camera adherence](#bwc-adherence)
+2. [Complaints & Discipline](#complaints)
+3. [Officer Demographics](#officers)
+4. [Body-worn camera adherence](#bodyworn-cameras)
 
 Column
 -------------------------------------
