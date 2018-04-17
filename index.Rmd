@@ -22,6 +22,7 @@ source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
+source("analysis/complaints/complaints_misconduct_by_month.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -275,6 +276,13 @@ p.male.uof.by.type
 
 Complaints
 =====================================
+Row
+-------------------------------------
+
+### Citizen and rank initiated complaints by month
+```{r, fig.width = 5, fig.height = 5}
+p.complaints.by.month
+```
 
 Officers
 ===================================== 

@@ -14,9 +14,8 @@ year <- 2017
 officers.csv <- "data_public/officers_201804142022.csv"
 uof.csv <- "data_public/uof_201804161706.csv"
 
-# File with all complaints and misconduct
-# Each row is a <officer, allegation, action-taken> tuple. This mean that one incidents may be represented by more than one line
-complaints.misconduct.alleg.act.csv <- "data/IAPro/2017AnnualReport/complaints_misconduct_201804121747.csv"
+# File with all complaints <complainant, officers, id, allegation>
+complaints.csv <- "data_public/complaints_201804161955.csv"
 
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################
@@ -44,4 +43,4 @@ source("lib/utils.R")
 
 source("primary_sources/iapro/officers_master.R")
 source("primary_sources/iapro/uof_ftn_master.R")
-#source("primary_sources/iapro/complaints_misconduct_master.R")
+source("primary_sources/iapro/complaints_misconduct_master.R")

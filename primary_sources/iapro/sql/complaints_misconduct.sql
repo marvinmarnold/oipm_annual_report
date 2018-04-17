@@ -6,23 +6,11 @@ officerLink as (
 officer as (
 	select * from iadata_oipm.ia_adm.officers
 ),
-addrLink as (
-	select * from iadata_oipm.ia_adm.assoc_addr where LINKSTO = 'Incident'
-),
-addr as (
-	select * from iadata_oipm.ia_adm.addresses
-),
-summary as (
-	select * from iadata_oipm.ia_adm.summaries
-),
 allegation as (
 	select * from iadata_oipm.ia_adm.allegations
 ),
-actionTaken as (
-	select * from iadata_oipm.ia_adm.actions_taken
-),
 citLink as (
-	select * from IADATA_OIPM.IA_ADM.ASSOC_INC_CIT
+	select * from IADATA_OIPM.IA_ADM.ASSOC_INC_CIT WHERE LINK_TYPE = 'Complainant'
 ),
 cit as (
 	select * from IADATA_OIPM.IA_ADM.CITIZENS
@@ -36,90 +24,131 @@ filenum as "FIT Number",
 incident_type as "Incident type",
 o.offnum as "Officer primary key",
 c.citnum as "Citizen primary key",
-act.atnum as "Action taken primary key",
 alleg.algnum as "Allegation primary key",
 
 CAST(occurred_dt AS date) as "Occurred date",
 year(occurred_dt) as "Year occurred",
 month(occurred_dt) as "Month occurred",
 
+-- Combine all allegations into one long string
+STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '') AS "All Findings",
+        
+-- tsql doesn't support regex so have to get creative
+-- when AllFindings contains more than one finding, select disposition in this order:
+-- sustained, withdrawn / mediated, dI2, pending, not sustained, unfounded, exonerated, NFIM, Illegitimate outcome
+case
+	-----    
+	-- Sustained
+	when PATINDEX('SUSTAINED%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Sustained'
+    
+    -- Don't confuse sustained and not sustained
+    when PATINDEX('%[^n][^o][^t] SUSTAINED%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Sustained'
+        
+    -- Negotiated settlement is sustained
+	when PATINDEX('%NEGOTIATED SETTLEMENT%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Sustained'
+     
+    -- Awaiting hearing is sustained
+	when PATINDEX('%AWAITING HEARINGT%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Sustained'    
+        
+    -----       
+    -- Mediation
+	when PATINDEX('%WITHDRAWN- MEDIATION%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Mediation'    
+        
+    -----    
+    -- DI-2
+	when PATINDEX('%DI-2%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'DI-2'  
+     
+    -- Redirection is DI2
+	when PATINDEX('%REDIRECTION%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'DI-2'  
+        
+    -----    
+    -- Pending
+    when PATINDEX('%PENDING INVESTIGATION%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Pending'      
+    
+    -----    
+    -- Not sustained
+    when PATINDEX('%NOT SUSTAINED%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Not Sustained' 
+        
+    -----    
+    -- Unfounded
+    when PATINDEX('%UNFOUNDED%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Unfounded' 
+        
+    -- No violations is not sustained
+    when PATINDEX('%NO VIOLATIONS OBSERVED%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Unfounded' 
+    
+    -----    
+    -- Exonerated
+    when PATINDEX('%EXONERATED%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'Exonerated'   
+        
+    -----    
+    -- NFIM
+    when PATINDEX('%NFIM%', STUFF((
+        SELECT N', ' + CAST([finding] AS VARCHAR(255))
+        FROM allegation alleg2
+        WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
+        FOR XML PATH ('')), 1, 2, '')) > 0 then 'NFIM' 
+        
+    -- Anything else that's not complete is pending    
+    when incident.status <> 'Completed' then 'Pending'
+    
+    -- But anything else that is complete is illegitimate
+	else 'Illegitimate outcome'
+END as 'Disposition OIPM',
+
 -- Disposition as reported
 incident.status as "Status",
-incident.Disposition as "Disposition Reported",
-
--- Disposition according to OIPM
-case
-	-- Incidents with status that is not Comppleted or Pending should be defined here
-	when Disposition = 'Sustained - Pending Suspension Served' then 'Sustained'
-	when Disposition = 'Cancelled - Investigation Cancelled' then 'NFIM'
-	when Disposition = 'Negotiated Settlement' then 'Negotiated Settlement'
-	when Disposition = 'NFIM' then 'NFIM'
-	when Disposition = 'NSA - Pending Suspension Served' then 'NSA'
-	when Disposition = 'Not Sustained' then 'Not Sustained'
-	when Disposition = 'NSA' then 'NSA'
-
-	-- Incidents that are not complete are pending
-	when incident.status <> 'Completed' then 'Pending'
-
-	-- Everything here is completed 
-	when Disposition = 'Deceased' then 'Other'
-	when Disposition = 'NVO' then 'Other'
-		
-	-- NFIM
-	when Disposition = 'Cancelled - Investigation Cancelled' then 'NFIM'
-	when Disposition = 'NFIM - Exonerated' then 'NFIM'
-	when Disposition = 'No Formal Investigation Merited (NFIM)' then 'NFIM'
-	when Disposition = 'NO FURTHER INVESTIGATION MERITED' then 'NFIM'
-	when Disposition = 'Unfounded' then 'NFIM'
-	when Disposition = 'Withdrawn - Investigation Withdrawn' then 'NFIM'
-	
-	-- Mediation
-	when Disposition = 'Withdrawn- Mediation' then 'Mediation'
-	
-	-- NSA
-	when Disposition = 'NSA - Oral reprimand' then 'NSA'
-	when Disposition = 'NSA - Pending Suspension Served' then 'NSA'
-	
-	-- Not Sustained
-	when Disposition = 'Not Sustained' then 'Not Sustained'
-	when Disposition = 'Use Of Force Authorized' then 'Not Sustained'
-	when Disposition = 'Exonerated' then 'Not Sustained'
-
-	-- Resigned under investigation
-	when Disposition = 'RUI - Awaiting Hearing' then 'Resigned under investigation'
-	when Disposition = 'RUI - Resigned Under Investigation' then 'Resigned under investigation'
-	when Disposition = 'RUI - Retired/Resigned - Exonerated' then 'Resigned under investigation'
-	when Disposition = 'Not Sustained - Resigned Under Investigations' then 'Resigned under investigation'
-	
-	-- Sustained
-	when Disposition = 'CHARGES PROVEN' then 'Sustained'
-	when Disposition = 'DI-2' then 'Sustained'
-	when Disposition = 'Dismissed Under Investigation' then 'Sustained'
-	when Disposition = 'Sustained' then 'Sustained'
-	when Disposition = 'Sustained Resign/Retired (1 PO RUI)' then 'Sustained'
-	when Disposition = 'Sustained RUI-Resigned Under Investigation' then 'Sustained'
-	when Disposition = 'Sustained RUI-Retired Under Investigation' then 'Sustained'
-	when Disposition = 'Sustained/Dismissal' then 'Sustained'
-	when Disposition = 'Sustained/Dismissal (1 PO Dismissed)' then 'Sustained'
-	when Disposition = 'Sustained-Awaiting Hearing' then 'Sustained'
-	when Disposition = 'Sustained - Oral Reprimand' then 'Sustained'
-	when Disposition = 'Sustained/Deceased' then 'Sustained'
-	when Disposition = 'Sustained - Dismissed' then 'Sustained'
-	when Disposition = 'Sustained - Redirection' then 'Sustained'
-	when Disposition = 'Use Of Force Not Authorized' then 'Sustained'
-	
-	-- Unclear data
-	when Disposition = 'Awaiting Hearing' then 'Unclear data' -- completed but awaiting hearing?
-	when Disposition = 'PENDING' then 'Unclear data' -- completed but pending?
-
-	when Disposition = 'DUI from another Case' then 'Unclear data'
-	when Disposition = 'Duplicate Investigation' then 'Unclear data'
-	when Disposition = 'INFO' then 'Unclear data'
-	when Disposition = 'NULL' then 'Unclear data'
-	when Disposition = 'Redirection' then 'Unclear data'
-	
-	Else Disposition
-END as "Disposition OIPM",
 	
 -- Disposition according to NOPD's classifications
 case when incident.status <> 'Completed' then 'Pending'
@@ -192,20 +221,6 @@ alleg.alert_processed as "Allegation alert processed",
 cast(alleg.alert_processed_dt as date) as "Allegation alert processed date",
 alleg.aus_alg_comment as "Allegation AUS ALG comment",
 
--- Actions taken
-act.actiontaken as "Action taken",
-act.actiontaken_dt as "Action taken on",
-act.dayssuspended as "Days suspended",
-act.completed as "Action taken completed",
-act.fieldunit_level as "Action taken field unit level",
-act.at_category as "Action taken category",
-act.summary as "Action taken summary",
-act.reckoning_period as "Allegation reckoning period",
-act.recommeded_discp as "Allegation recommended discipline",
-act.cvfilenum as "Allegation cv filenum",
-act.cvempid as "Allegation cv emp id",
-act.cvempid2 as "Allegation cv emp id2",
-
 occurred_day as "Day of week",
 occurred_hour_i as "Hour of day",
 cast(occurred_tm as time) as "Ocurred time",
@@ -241,7 +256,6 @@ length_of_job as "Length of job",
 sustained as "Sustained",
 bt_body_image as "Body worn camera available",
 created_app as "App used",
-s.ented_dt as "Narrative entered",
 
 -- Citizen info
 cit_arrested as "Citizen arrested",
@@ -314,13 +328,6 @@ left join cit c on c.CITNUM = cL.CITNUM
 
 -- Join allegations
 left join allegation as alleg on alleg.AIO_NUM = oL.AIO_NUM
-
--- Join actions taken
-left join actionTaken as act on act.aio_num = oL.aio_num
-
--- Join summaries
-left join summary as s on incident.incnum = s.incnum
-
 
 where incident.OCCURRED_DT >= '2015-01-01 00:00:00'
 and incident.INCIDENT_TYPE in (
