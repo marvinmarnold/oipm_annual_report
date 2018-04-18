@@ -26,6 +26,7 @@ source("analysis/complaints/complaints_allegations_by_year.R")
 source("analysis/complaints/complaints_allegations_by_month.R")
 source("analysis/complaints/allegations_by_type.R")
 source("analysis/complaints/complaints_by_outcome.R")
+source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -321,6 +322,13 @@ p.rank.complaint.by.outcome
 p.citizen.complaint.by.outcome
 ```
 
+Row
+-------------------------------------
+### How officer race impacts disposition
+```{r, fig.width = 5, fig.height = 7}
+p.allegation.race.disposition
+```
+
 Officers
 ===================================== 
 
@@ -347,6 +355,7 @@ Row
 ```{r, fig.width = 5, fig.height = 5}
 p.officer.map
 ```
+
 
 Bodyworn Cameras
 ===================================== 

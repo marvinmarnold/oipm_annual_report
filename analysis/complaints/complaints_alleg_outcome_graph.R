@@ -4,24 +4,17 @@ title <- "Allegation to Action"
 ########################################################################################################
 ########################################################################################################
 
-alleg.act <- allegations.for.year %>% select(Allegation, Allegation.class, Officer.race, Disposition.OIPM)
-allegs <- unique(alleg.act$Allegation)
-alleg.classes <- unique(alleg.act$Allegation.class)
-acts <- unique(alleg.act$Action.taken)
-dispositions <- unique(alleg.act$Disposition.OIPM)
-officer.races <- unique(alleg.act$Race)
+allegs <- unique(allegations.for.year$Allegation)
+dispositions <- unique(allegations.for.year$Allegation.Disposition.OIPM)
+officer.races <- unique(allegations.for.year$Officer.Race)
 
-alleg.act <- alleg.act %>% mutate(
+all.indices <- allegations.for.year %>% mutate(
   alleg.index = match(Allegation, allegs),
-  alleg.class.index = match(Allegation.class, alleg.classes),
-  act.index = match(Action.taken, acts),
-  race.index = match(Race, officer.races),
-  disposition.index = match(Disposition.OIPM, dispositions)
+  race.index = match(Officer.Race, officer.races),
+  disposition.index = match(Allegation.Disposition.OIPM, dispositions)
 )
 
-num.alleg <- length(allegs)
-num.alleg.classes <- length(alleg.classes)
-num.action <- length(acts)
+num.allegs <- length(allegs)
 num.dispositions <- length(dispositions)
 num.races <- length(officer.races)
 
@@ -33,8 +26,7 @@ m <- list(
   pad = 4
 )
 
-length(races)
-p <- plot_ly(alleg.act, 
+p.allegation.race.disposition <- plot_ly(all.indices, 
              type = 'parcoords', 
              labelfont = list(size = 20),
              tickfont = list(size = 12),
@@ -53,11 +45,11 @@ p <- plot_ly(alleg.act,
                values = ~race.index),
       
           # Allegations
-          list(range = c(1, num.alleg.classes),
-               label = 'Allegation class', 
-               tickvals = 1:num.alleg.classes,
-               ticktext = alleg.classes,
-               values = ~alleg.class.index),
+          list(range = c(1, num.allegs),
+               label = 'Allegation', 
+               tickvals = 1:num.allegs,
+               ticktext = allegs,
+               values = ~allegs),
           
           # Dispositions
           list(range = c(1, num.dispositions),
@@ -69,9 +61,4 @@ p <- plot_ly(alleg.act,
 ) %>%
   layout(autosize = T, margin = m)
 
-p
-api_create(p, filename=title)
-#chart_link
-
-########################################################################################################
-########################################################################################################
+p.allegation.race.disposition

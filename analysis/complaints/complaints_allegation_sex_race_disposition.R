@@ -1,32 +1,47 @@
-check.vars(c("year", "misconduct.alleg.act"))
-title <- "Impact of officer sex and race on disposition of complaints"
+check.vars(c("year", "allegations.for.year"))
+title <- "Impact of officer race on disposition of complaints"
 
 ########################################################################################################
 ########################################################################################################
 
 # Get unique allegation
-alleg.classes <- allegations.for.year %>% select(Allegation.class) %>% distinct
-colnames(alleg.classes) <- 'label'
+allegs <- allegations.for.year %>% select(Allegation.class) %>% distinct
+colnames(allegs) <- 'label'
 
 # Unique dispositions
 dispositions <- allegations.for.year %>% select(Disposition.OIPM) %>% distinct
 colnames(dispositions) <- 'label'
 
+# Officer races
+officer.races <- allegations.for.year %>% select(Officer.Race) %>% distinct
+colnames(officer.races) <- 'label'
+
 # Labels containing all
-all.labels <- rbind(alleg.classes, dispositions)
+all.labels <- rbind(allegs, officer.races, dispositions)
 
 # Compute edges
-alleg.by.dispo <- allegations.for.year %>% group_by(Allegation.class, Disposition.OIPM)
+alleg.by.race <- allegations.for.year %>% group_by(Allegation.class, Officer.Race)
+alleg.by.race.dispo <- allegations.for.year %>% group_by(Disposition.OIPM, Officer.Race)
 
-alleg.dispo.counts <- summarise(alleg.by.dispo, count = n())
+alleg.race.counts <- summarise(alleg.by.race, count = n())
+alleg.race.dispo.counts <- summarise(alleg.by.race.dispo, count = n())
 # loop over alleg.classes, count the number of times to each disposition
 
-alleg.dispo.counts <- alleg.dispo.counts %>% mutate(
-  alleg.label.index = match(Allegation.class, alleg.classes$label) - 1, # 0 indexed
-  dispo.label.index = match(Disposition.OIPM, dispositions$label) + nrow(alleg.classes) - 1 #0 indexed
+alleg.race.counts <- alleg.race.counts %>% mutate(
+  alleg.label.index = match(Allegation.class, allegs$label) - 1, # 0 indexed
+  race.label.index = match(Officer.Race, officer.races$label) + nrow(allegs) - 1 # 0 indexed
 )
 
-p <- plot_ly(
+alleg.race.dispo.counts <- alleg.race.dispo.counts %>% mutate(
+  race.label.index = match(Officer.Race, officer.races$label) + nrow(allegs) - 1, # 0 indexed
+  dispo.label.index = match(Disposition.OIPM, dispositions$label) + nrow(allegs) + nrow(officer.races) - 1 # 0 indexed
+)
+
+sankey.sources <- append(alleg.race.counts$alleg.label.index, alleg.race.dispo.counts$race.label.index)
+sankey.destinations <- append(alleg.race.counts$race.label.index, alleg.race.dispo.counts$dispo.label.index)
+sankey.values <- append(alleg.race.counts$count, alleg.race.dispo.counts$count)
+  
+p.allegation.race.disposition <- plot_ly(
   type = "sankey",
   orientation = "h",
   
@@ -41,9 +56,9 @@ p <- plot_ly(
   ),
   
   link = list(
-    source = alleg.dispo.counts$alleg.label.index,
-    target = alleg.dispo.counts$dispo.label.index,
-    value =  alleg.dispo.counts$count
+    source = sankey.sources,
+    target = sankey.destinations,
+    value =  sankey.values
   )
 ) %>% 
   layout(
@@ -53,6 +68,5 @@ p <- plot_ly(
     )
   )
 
-api_create(p, filename=title)
-#chart_link
+p.allegation.race.disposition
 
