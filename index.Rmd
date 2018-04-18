@@ -24,6 +24,8 @@ source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
 source("analysis/complaints/complaints_allegations_by_year.R")
 source("analysis/complaints/complaints_allegations_by_month.R")
+source("analysis/complaints/allegations_by_type.R")
+source("analysis/complaints/complaints_by_outcome.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -293,6 +295,30 @@ p.complaints.by.month
 ### Allegations by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
 p.allegations.by.month
+```
+
+Row
+-------------------------------------
+### Individual allegations by outcome
+```{r, fig.width = 5, fig.height = 10}
+p.allegation.by.type.disposition
+```
+
+Row
+-------------------------------------
+### All complaints by outcome
+```{r, fig.width = 5, fig.height = 4}
+p.complaint.by.outcome
+```
+
+### Rank complaints by outcome
+```{r, fig.width = 5, fig.height = 4}
+p.rank.complaint.by.outcome
+```
+
+### Citizen complaints by outcome
+```{r, fig.width = 5, fig.height = 4}
+p.citizen.complaint.by.outcome
 ```
 
 Officers

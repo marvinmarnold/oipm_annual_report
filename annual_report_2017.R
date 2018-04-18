@@ -15,7 +15,7 @@ officers.csv <- "data_public/officers_201804142022.csv"
 uof.csv <- "data_public/uof_201804161706.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
-allegations.csv <- "data_public/complaints_201804161955.csv"
+allegations.csv <- "data_public/complaints_201804172056.csv"
 
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################

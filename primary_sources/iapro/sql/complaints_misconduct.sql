@@ -147,6 +147,62 @@ case
 	else 'Illegitimate outcome'
 END as 'Disposition OIPM',
 
+-- Disposition / findings for individual allegations
+case
+	-----    
+	-- Sustained
+	when PATINDEX('SUSTAINED%', finding) > 0 then 'Sustained'
+    
+    -- Don't confuse sustained and not sustained
+    when PATINDEX('%[^n][^o][^t] SUSTAINED%', finding) > 0 then 'Sustained'
+        
+    -- Negotiated settlement is sustained
+	when PATINDEX('%NEGOTIATED SETTLEMENT%', finding) > 0 then 'Sustained'
+     
+    -- Awaiting hearing is sustained
+	when PATINDEX('%AWAITING HEARINGT%', finding) > 0 then 'Sustained'    
+        
+    -----       
+    -- Mediation
+	when PATINDEX('%WITHDRAWN- MEDIATION%', finding) > 0 then 'Mediation'    
+        
+    -----    
+    -- DI-2
+	when PATINDEX('%DI-2%', finding) > 0 then 'DI-2'  
+     
+    -- Redirection is DI2
+	when PATINDEX('%REDIRECTION%', finding) > 0 then 'DI-2'  
+        
+    -----    
+    -- Pending
+    when PATINDEX('%PENDING INVESTIGATION%', finding) > 0 then 'Pending'      
+    
+    -----    
+    -- Not sustained
+    when PATINDEX('%NOT SUSTAINED%', finding) > 0 then 'Not Sustained' 
+        
+    -----    
+    -- Unfounded
+    when PATINDEX('%UNFOUNDED%', finding) > 0 then 'Unfounded' 
+        
+    -- No violations is not sustained
+    when PATINDEX('%NO VIOLATIONS OBSERVED%', finding) > 0 then 'Unfounded' 
+    
+    -----    
+    -- Exonerated
+    when PATINDEX('%EXONERATED%', finding) > 0 then 'Exonerated'   
+        
+    -----    
+    -- NFIM
+    when PATINDEX('%NFIM%', finding) > 0 then 'NFIM' 
+        
+    -- Anything else that's not complete is pending    
+    when incident.status <> 'Completed' then 'Pending'
+    
+    -- But anything else that is complete is illegitimate
+	else 'Illegitimate outcome'
+END as 'Allegation Disposition OIPM',
+
 -- Disposition as reported
 incident.status as "Status",
 	
@@ -196,7 +252,7 @@ End as "Disposition NOPD",
 -- Allegations
 case
 when alleg.allegation IS NULL or datalength(alleg.allegation) = 0 then 'Unknown Allegation'
-Else alleg.allegation
+Else SUBSTRING(alleg.allegation, 16, 99)
 end as "Allegation",
 
 case

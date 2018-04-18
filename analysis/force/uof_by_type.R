@@ -11,7 +11,6 @@ uof.by.type <- group_by(uof.for.year, Force.level, Force.type)
 
 # make a simple summary of uof count by type
 uof.count.by.type <- summarise(uof.by.type, count = n())
-uof.count.by.type
 
 p.uof.by.type <- plot_ly(uof.count.by.type, 
                          x = ~Force.level, y = ~count, 

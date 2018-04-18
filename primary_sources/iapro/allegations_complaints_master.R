@@ -12,7 +12,8 @@ allegations.for.year <- allegations.all %>% filter(Year.occurred == year)
 # Complaints with the same FIT.Number shuold have the same disposition and assignment, so should be 
 # effectively the same as getting allegations by unique FIT number
 complaints.for.year <- allegations.for.year %>% 
-  select(FIT.Number, Disposition.NOPD, Disposition.OIPM, Assigned.department, Assigned.division, Assigned.unit, Incident.type, Month.occurred) %>% 
+  select(FIT.Number, Disposition.NOPD, Disposition.OIPM, Assigned.department, Assigned.division, Assigned.unit, 
+         Incident.type, Month.occurred) %>% 
   distinct
 
 # Print disposition normalization
