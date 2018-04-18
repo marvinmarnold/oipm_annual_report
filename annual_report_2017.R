@@ -15,7 +15,7 @@ officers.csv <- "data_public/officers_201804142022.csv"
 uof.csv <- "data_public/uof_201804161706.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
-complaints.csv <- "data_public/complaints_201804161955.csv"
+allegations.csv <- "data_public/complaints_201804161955.csv"
 
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################
@@ -43,4 +43,4 @@ source("lib/utils.R")
 
 source("primary_sources/iapro/officers_master.R")
 source("primary_sources/iapro/uof_ftn_master.R")
-source("primary_sources/iapro/complaints_misconduct_master.R")
+source("primary_sources/iapro/allegations_complaints_master.R")

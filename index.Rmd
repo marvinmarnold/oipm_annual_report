@@ -22,7 +22,8 @@ source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
-source("analysis/complaints/complaints_misconduct_by_month.R")
+source("analysis/complaints/complaints_allegations_by_year.R")
+source("analysis/complaints/complaints_allegations_by_month.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -94,7 +95,6 @@ Use of force {data-orientation=rows}
 
 Row 
 -------------------------------------
-
 ### FTN vs UOF
 FTN stands for “force tracking number”. It is the designation given to track the entirety
 of an interaction between NOPD and one or more individuals wherein force was used.
@@ -109,7 +109,6 @@ analysis but the onus is on the reader to remain vigilant of the distinction.
 
 Row
 -------------------------------------
-
 ### Use of force by year
 
 Force jumps between 2014 and 2015 because of new rules about what constitutes force. 
@@ -128,7 +127,6 @@ p.force.by.year
 
 Row
 -------------------------------------
-
 ### FTN & UOF in 2017 by month
 UOF and FTN both peak in Feb and Aug. This corresponds with Mardi Gras and the summer.
 UOF per FTN ranges from 2.6 - 4.5.
@@ -141,7 +139,6 @@ p.force.by.month
 
 Row
 -------------------------------------
-
 ### Force by level and type of force
 
 ```{r, fig.width = 10, fig.height = 6}
@@ -150,36 +147,29 @@ p.uof.by.type
 
 Row
 -------------------------------------
-
 ### Level 1
-
 ```{r, fig.height = 3}
 uof.pies.each.type[[2]]
 ```
 
 ### Level 2
-
 ```{r, fig.height = 3}
 uof.pies.each.type[[3]]
 ```
 
 ### Level 3
-
 ```{r, fig.height = 3}
 uof.pies.each.type[[4]]
 ```
 
 ### Level 4
-
 ```{r, fig.height = 3}
 uof.pies.each.type[[5]]
 ```
 
 Row
 -------------------------------------
-
 ### Force by officer age and experience 
-
 As officers get older, they commit less force. Officers 31 - 35 make up 14% of the police department but are responsible for 
 over 500 incidents of force. In the next age bucket, officers 26 - 40 make up 35% of all police (nearly double the previous bucket)
 but amount of force decreases.
@@ -187,16 +177,13 @@ but amount of force decreases.
 Experience levels are not enough to explain use of force. 
 Officers older than 31 tends to have over 5 years experience but continue to use non-negligible amounts of force.
 
-
 ```{r, fig.width = 10, fig.height = 5}
 p.uof.by.officer.age.exp
 ```
 
 Row
 -------------------------------------
-
 ### Analysis of UOF by victim gender and race
-
 Males have force used against them more often. Racial breakdown of how force is used almost identical for both males and females.
 Black people of both genders are victims of force about 79% of the time.
 
@@ -205,7 +192,6 @@ Black and hispanic people are most exposed to Firearms but white people get hand
 
 Row
 -------------------------------------
-
 ### UOF by victim gender and race
 ```{r, fig.width = 5, fig.height = 4}
 p.uof.by.victim.sex.race
@@ -223,7 +209,6 @@ p.uof.by.male.victim.race
 
 Row
 -------------------------------------
-
 ### Female victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
 p.female.victim.uof.by.type
@@ -237,7 +222,6 @@ p.male.victim.uof.by.type
 
 Row
 -------------------------------------
-
 ### Analysis of UOF by officer gender and race
 
 TODO
@@ -245,7 +229,6 @@ TODO
 
 Row
 -------------------------------------
-
 ### UOF by officer gender and race
 ```{r, fig.width = 5, fig.height = 4}
 p.uof.by.officer.sex.race
@@ -263,7 +246,6 @@ p.uof.by.male.officer.race
 
 Row
 -------------------------------------
-
 ### Female officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
 p.female.uof.by.type
@@ -276,12 +258,41 @@ p.male.uof.by.type
 
 Complaints
 =====================================
+
 Row
 -------------------------------------
+### Complaints vs allegation
+When one or more individuals complain about an officer, a single tracking number is created. Each of these unique tracking numbers is considered a single complaint. Each complaint can contain one or more allegations of misconduct. 
 
-### Citizen and rank initiated complaints by month
+Furthermore, its possible that each complaint/allegation is intiated by either a supervisor or anybody who is not their supervisor (including other officers). Complaints/allegations initiated by a superior are called "Rank Initiated" while all other complaints are "Citizen Initiated".
+
+Row
+-------------------------------------
+### Complaints by year
+```{r, fig.width = 5, fig.height = 3}
+p.complaints.by.year
+```
+
+### Allegations by year
+```{r, fig.width = 5, fig.height = 3}
+p.allegations.by.year
+```
+
+Row
+-------------------------------------
+### Complaints and allegations by month
+```{r, fig.width = 5, fig.height = 5}
+p.complaints.allegations.by.month
+```
+
+### Complaints by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
 p.complaints.by.month
+```
+
+### Allegations by month and initiator
+```{r, fig.width = 5, fig.height = 5}
+p.allegations.by.month
 ```
 
 Officers
@@ -289,7 +300,6 @@ Officers
 
 Row
 -------------------------------------
-
 ### Total number active officers
 ```{r, fig.width = 5, fig.height = 5}
 p.active.officers
@@ -307,7 +317,6 @@ p.officers.by.sex
 
 Row
 -------------------------------------
-
 ### Where officers live by zip
 ```{r, fig.width = 5, fig.height = 5}
 p.officer.map

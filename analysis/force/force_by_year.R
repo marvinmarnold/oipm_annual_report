@@ -39,17 +39,9 @@ ftn.by.year[1:5] <- ftn.previous[1:5]
 uof.by.year[1:5] <- uof.previous[1:5]
 
 # Add all data to summary
-annual.summary <- data.frame(
-  uof.now = uof.by.year, 
-  uof.reported = uof.previous, 
-  ftn.now = ftn.by.year, 
-  ftn.reported = ftn.previous,
-  years = years)
-rownames(annual.summary) <- years
-
 annual.summary <- rbind(ftn.previous, ftn.by.year, uof.previous, uof.by.year)
-colnames(annual.summary) <- years
 annual.summary <- data.frame(annual.summary)
+colnames(annual.summary) <- years
 
 p.force.by.year <- plot_ly(annual.summary, x = ~years, 
                          # Start with FTN according to NOPD
@@ -73,7 +65,7 @@ p.force.by.year <- plot_ly(annual.summary, x = ~years,
             line = list(color = 'rgb(205, 12, 24)', width = 2, dash = 'solid'), 
             mode = 'lines+markers') %>%
   
-  # Add vertival line showing the year IAPro started being used
+  # Add vertical line showing the year IAPro started being used
   add_segments(name = "First year DB access",
                x = iapro.year, xend = iapro.year, 
                y = 0, yend = 2500, 
