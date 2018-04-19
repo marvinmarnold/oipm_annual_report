@@ -6,6 +6,7 @@ output:
     logo: img/logo.png
     favicon: img/fav.png
     orientation: rows
+    self_contained: true
     navbar:
       - { title: "OIPM Home", href: "http://nolaipm.gov", align: right }
 ---
