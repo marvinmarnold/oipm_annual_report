@@ -4,13 +4,15 @@ title <- "Complaints and allegations by year"
 # Taken from 2016 annual report
 num.reported.complaints.2016 <- 850
 num.reported.allegations.2016 <- 1821
+num.reported.complaints.2017 <- 733
+num.reported.allegations.2017 <- 1505
 ########################################################################################################
 ########################################################################################################
 # Get 2017 counts
 num.complaints.2017 <- complaints.for.year %>% nrow
 num.allegations.2017 <- allegations.for.year %>% nrow
 
-allegations.2016 <- allegations.all %>% filter(Year.occurred == 2016)
+allegations.2016 <- allegations.all %>% filter(grepl("^2016", FIT.Number))
 complaints.2016 <- allegations.2016 %>% select(FIT.Number, Incident.type) %>% distinct
 
 num.calculated.complaints.2016 <- complaints.2016 %>% nrow
@@ -32,8 +34,8 @@ pct.citizen.allegations.2017 <-allegations.for.year %>% filter(Incident.type == 
 # Construct vectors
 complaints.calculated <- c(num.calculated.complaints.2016, num.complaints.2017)
 allegations.calculated <- c(num.calculated.allegations.2016, num.allegations.2017)
-complaints.nopd <- c(num.reported.complaints.2016, NA)
-allegations.nopd <- c(num.reported.allegations.2016, NA)
+complaints.nopd <- c(num.reported.complaints.2016, num.reported.complaints.2017)
+allegations.nopd <- c(num.reported.allegations.2016, num.reported.allegations.2017)
 pct.citizen.complaints <- c(pct.citizen.complaints.2016, pct.citizen.complaints.2017)
 pct.citizen.allegations <- c(pct.citizen.allegations.2016, pct.citizen.allegations.2017)
 

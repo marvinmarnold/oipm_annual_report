@@ -5,9 +5,10 @@ check.vars(c("year", "allegations.csv"))
 
 # Read data
 allegations.all <- read.csv(allegations.csv)
+#allegations.all <- allegations.all %>% filter(Allegation.final.disposition != "NFIM CASE")
 
 # 2017 analysis
-allegations.for.year <- allegations.all %>% filter(Year.occurred == year)
+allegations.for.year <- allegations.all %>% filter(grepl("2017", FIT.Number))
 
 # Complaints with the same FIT.Number shuold have the same disposition and assignment, so should be 
 # effectively the same as getting allegations by unique FIT number

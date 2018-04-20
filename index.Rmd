@@ -270,6 +270,17 @@ When one or more individuals complain about an officer, a single tracking number
 
 Furthermore, its possible that each complaint/allegation is intiated by either a supervisor or anybody who is not their supervisor (including other officers). Complaints/allegations initiated by a superior are called "Rank Initiated" while all other complaints are "Citizen Initiated".
 
+When a complaint/case contains more than one finding, select disposition in this order:
+1. Sustained
+2. Withdrawn / mediated
+3. DI-2
+4. Pending
+5. Not sustained
+6. Unfounded
+7. Exonerated
+8. NFIM
+9. Illegitimate outcome
+
 Row
 -------------------------------------
 ### Complaints by year

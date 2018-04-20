@@ -26,6 +26,10 @@ o.offnum as "Officer primary key",
 c.citnum as "Citizen primary key",
 alleg.algnum as "Allegation primary key",
 
+alleg.allegation as "Allegation",
+alleg.finding as "Allegation finding",
+alleg.final_dispo as "Allegation final disposition",
+
 CAST(occurred_dt AS date) as "Occurred date",
 year(occurred_dt) as "Year occurred",
 month(occurred_dt) as "Month occurred",
@@ -260,13 +264,11 @@ when alleg.alg_class IS NULL or datalength(alleg.alg_class) = 0 then 'Unknown Cl
 Else alleg.alg_class
 end as "Allegation class",
 
-alleg.allegation as "Allegation",
-alleg.finding as "Allegation finding",
+
 alleg.finding_dt as "Allegation finding date",
 alleg.created_dt as "Allegation created on",
 alleg.alg_code as "Allegation code",
 alleg.published as "Allegation published",
-alleg.final_dispo as "Allegation final disposition",
 cast(alleg.final_dispo_dt as date) as "Allegation final disposition date",
 alleg.directive as "Allegation directive",
 alleg.crim_charge as "Allegation criminal charges",
@@ -385,8 +387,7 @@ left join cit c on c.CITNUM = cL.CITNUM
 -- Join allegations
 left join allegation as alleg on alleg.AIO_NUM = oL.AIO_NUM
 
-where incident.OCCURRED_DT >= '2015-01-01 00:00:00'
-and incident.INCIDENT_TYPE in (
+where incident.INCIDENT_TYPE in (
 'Citizen Initiated', 'Rank Initiated'
 -- 'Firearm discharge', 'Vehicle accident', 'Civil lawsuit', 'Criminal lawsuit', 'Discretionary arrest',
 -- 'Forced entry', 'Integrity test', 'IPM Review', 'JPIP', 'K9 Utilization', 'MISC',

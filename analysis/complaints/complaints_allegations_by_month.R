@@ -10,6 +10,8 @@ rank.complaints <- complaints.for.year %>% filter(Incident.type == "Rank Initiat
 citizen.complaints.by.month <- citizen.complaints %>% group_by(Month.occurred) %>% summarize(num.complaints = n())
 rank.complaints.by.month <- rank.complaints %>% group_by(Month.occurred) %>% summarize(num.complaints = n())
 
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Unknown")
+
 df <- data.frame(month = months, 
                  citizen.complaints.by.month = citizen.complaints.by.month$num.complaints, 
                  rank.complaints.by.month = rank.complaints.by.month$num.complaints)
