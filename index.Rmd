@@ -360,3 +360,8 @@ p.officer.map
 
 Bodyworn Cameras
 ===================================== 
+Row
+-------------------------------------
+### Where officers live by zip
+27561 epr are missing corresponding bwc entries, that's equivalent to 22.7% missing
+
