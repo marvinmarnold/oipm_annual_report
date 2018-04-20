@@ -5,10 +5,10 @@ check.vars(c("uof.csv", "year"))
 
 # Read data
 uof.all <- read.csv(uof.csv)
-uof.all %>% filter(FIT.Number == "FTN-0563")
+uof.all <- uof.all %>% filter(Force.type != "No Force by Officer", Force.type != "Not reported")
 
 # 2017 analysis
-uof.for.year <- uof.all %>% filter(Year.reported == year, Force.type != "No Force by Officer", Force.type != "Not reported")
+uof.for.year <- uof.all %>% filter(Year.reported == year)
 nrow(uof.for.year)
 
 # create dataframe with FTN ids and counts
