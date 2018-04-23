@@ -17,6 +17,7 @@ source("annual_report_2017.R")
 source("analysis/force/force_by_year.R")
 source("analysis/force/force_by_month.R")
 source("analysis/force/uof_by_type.R")
+source("analysis/force/uof_by_level_and_year.R")
 source("analysis/force/uof_pies_each_type.R")
 source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/uof_by_victim_sex_race.R")
@@ -129,8 +130,7 @@ As of this writing, there are no major differences in FTNs in 2015
 p.force.by.year
 ```
 
-Row
--------------------------------------
+
 ### FTN & UOF in 2017 by month
 UOF and FTN both peak in Feb and Aug. This corresponds with Mardi Gras and the summer.
 UOF per FTN ranges from 2.6 - 4.5.
@@ -143,32 +143,57 @@ p.force.by.month
 
 Row
 -------------------------------------
+### Level 1
+```{r, fig.height = 3}
+p.lvl.by.year[[1]]
+```
+
+### Level 2
+```{r, fig.height = 3}
+p.lvl.by.year[[2]]
+```
+
+### Level 3
+```{r, fig.height = 3}
+p.lvl.by.year[[3]]
+```
+
+### Level 4
+```{r, fig.height = 3}
+p.lvl.by.year[[4]]
+```
+
+Row
+-------------------------------------
 ### Force by level and type of force
+Is canine (no bite) level 1 or level 2?
 
 ```{r, fig.width = 10, fig.height = 6}
 p.uof.by.type
 ```
 
+
+
 Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-uof.pies.each.type[[2]]
+uof.pies.each.type[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-uof.pies.each.type[[3]]
+uof.pies.each.type[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-uof.pies.each.type[[4]]
+uof.pies.each.type[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-uof.pies.each.type[[5]]
+uof.pies.each.type[[4]]
 ```
 
 Row

@@ -18,10 +18,13 @@ epr.2017.csv <- "data/data.nola.gov/Electronic_Police_Report_2017.csv"
 ########################################################################################################
 ######################################## GLOBAL VARIABLES ##############################################
 epr.2017 <- read.csv(epr.2017.csv)
-
+epr.2017 %>% filter(grepl("18", Signal_Type)) %>% select(Signal_Description) %>% distinct 
+elect(Signal_Description) %>% distinct
 colnames(epr.2017)
+nrow(epr.2017)
 warning("This file is over 400GB and will take a long time to load into memory from CSV")
 bwc.w.officer.2017 <- read.csv(bwc.w.officer.2017.csv)
+colnames(bwc.w.officer.2017)
 
 # To make command below a little faster
 bwc.with.legible.id <- bwc.w.officer.2017 %>% 
@@ -56,3 +59,7 @@ print(paste(num.mising, "epr are missing corresponding bwc entries, that's equiv
 #missing.bwc <- missing.bwc %>% arrange(Signal_Type)
 #write.csv(missing.bwc, paste0("missing_bwc", format(Sys.time(), "_%Y%m%d_%H%M%S"), ".csv"))
 
+# matt
+# add more columns to epr
+# back the idea of gettin cad data
+# will analyze 30 cases 
