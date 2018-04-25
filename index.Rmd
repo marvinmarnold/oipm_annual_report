@@ -37,6 +37,13 @@ Introduction {data-orientation=columns}
 Column
 -------------------------------------
 
+### ATTENTION: THIS IS A DRAFT!
+OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released. 
+
+**WORK IN PROGRESS**
+![alt text](img/wip.png "WORK IN PROGRESS")
+
 ### Navigating the report
 This website is an interactive version of the statiscal analysis from OIPM's 2017 Annual Report. Analysis is divided into these sections:
 
@@ -47,6 +54,12 @@ This website is an interactive version of the statiscal analysis from OIPM's 201
 
 Column
 -------------------------------------
+### ATTENTION: THIS IS A DRAFT!
+OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released. 
+
+**WORK IN PROGRESS**
+![alt text](img/wip.png "WORK IN PROGRESS")
 
 ### Reproducing this report
 
@@ -97,6 +110,15 @@ Use the entire ZIP that you download, when converting, don't need to extract. (A
 
 Use of force {data-orientation=rows}
 ===================================== 
+
+Row 
+-------------------------------------
+### ATTENTION: THIS IS A DRAFT!
+OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released. 
+
+**WORK IN PROGRESS**
+![alt text](img/wip.png "WORK IN PROGRESS")
 
 Row 
 -------------------------------------
@@ -288,6 +310,15 @@ p.male.uof.by.type
 Complaints
 =====================================
 
+Row 
+-------------------------------------
+### ATTENTION: THIS IS A DRAFT!
+OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released. 
+
+**WORK IN PROGRESS**
+![alt text](img/wip.png "WORK IN PROGRESS")
+
 Row
 -------------------------------------
 ### Complaints vs allegation
@@ -369,6 +400,15 @@ p.allegation.race.disposition
 Officers
 ===================================== 
 
+Row 
+-------------------------------------
+### ATTENTION: THIS IS A DRAFT!
+OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released. 
+
+**WORK IN PROGRESS**
+![alt text](img/wip.png "WORK IN PROGRESS")
+
 Row
 -------------------------------------
 ### Total number active officers
@@ -396,8 +436,18 @@ p.officer.map
 
 Bodyworn Cameras
 ===================================== 
+Row 
+-------------------------------------
+### ATTENTION: THIS IS A DRAFT!
+OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released. 
+
+**WORK IN PROGRESS**
+![alt text](img/wip.png "WORK IN PROGRESS")
+
+
 Row
 -------------------------------------
-### Where officers live by zip
+### Preliminary results
 27561 epr are missing corresponding bwc entries, that's equivalent to 22.7% missing
 
