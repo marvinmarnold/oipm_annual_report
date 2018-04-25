@@ -38,14 +38,14 @@ Column
 -------------------------------------
 
 ### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
 released. 
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
 
 ### Navigating the report
-This website is an interactive version of the statiscal analysis from OIPM's 2017 Annual Report. Analysis is divided into these sections:
+This website is an interactive version of the statiscal analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
 
 1. [Use of Force](#use-of-force)
 2. [Complaints & Discipline](#complaints)
@@ -55,7 +55,7 @@ This website is an interactive version of the statiscal analysis from OIPM's 201
 Column
 -------------------------------------
 ### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
 released. 
 
 **WORK IN PROGRESS**
@@ -114,7 +114,7 @@ Use of force {data-orientation=rows}
 Row 
 -------------------------------------
 ### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
 released. 
 
 **WORK IN PROGRESS**
@@ -313,7 +313,7 @@ Complaints
 Row 
 -------------------------------------
 ### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
 released. 
 
 **WORK IN PROGRESS**
@@ -403,7 +403,7 @@ Officers
 Row 
 -------------------------------------
 ### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
 released. 
 
 **WORK IN PROGRESS**
@@ -439,8 +439,8 @@ Bodyworn Cameras
 Row 
 -------------------------------------
 ### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
-released. 
+OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
+released later this year.
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
