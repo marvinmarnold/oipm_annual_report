@@ -22,6 +22,7 @@ source("analysis/force/uof_pies_each_type.R")
 source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
+source("analysis/force/uof_by_district_level.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
 source("analysis/complaints/complaints_allegations_by_year.R")
@@ -188,12 +189,14 @@ p.lvl.by.year[[4]]
 Row
 -------------------------------------
 ### Force by level and type of force
-Is canine (no bite) level 1 or level 2?
-
 ```{r, fig.width = 10, fig.height = 6}
 p.uof.by.type
 ```
 
+### Force by level and type of force
+```{r, fig.width = 10, fig.height = 6}
+p.uof.by.district.type
+```
 
 
 Row

@@ -109,7 +109,6 @@ inv_unit as "Assigned unit",
 
 -- The real values for these are in table AIO_COLS
 incident.udtext24A as "Bureau",
-incident.udtext24B as "District or division",
 incident.udtext24C as "Division assignment",
 incident.udtext24D as "Unit assignment",
 incident.udtext24E as "Working status",
@@ -164,6 +163,22 @@ cL.INMATE as "Citizen inmate",
 cL.CIT_PROBATION as "Citizen probation",
 cL.cit_parole as "Citizen parole",
 cL.cit_role as "Citizen role",
+
+-- Normalize division
+case
+when incident.udtext24B = 'First District' then '1st District'
+when incident.udtext24B = 'Second District' then '2nd District'
+when incident.udtext24B = 'Third District' then '3rd District'
+when incident.udtext24B = 'Fourth District' then '4th District'
+when incident.udtext24B = 'Fifth District' then '5th District'
+when incident.udtext24B = 'Sixth District' then '6th District'
+when incident.udtext24B = 'Seventh District' then '7th District'
+when incident.udtext24B = 'Eighth District' then '8th District'
+when incident.udtext24B = 'Special Investigations Division' or incident.udtext24B = 'Criminal Investigations Division' then 'Special or Criminal Investigations'
+when incident.udtext24B = 'Special Operations Division' then 'Special Operations'
+Else 'Other'
+end as "District or division",
+
 
 -- Normalize citizen gender
 case
