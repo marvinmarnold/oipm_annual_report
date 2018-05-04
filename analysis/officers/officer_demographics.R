@@ -17,11 +17,11 @@ p.active.officers
 
 ########################################################################################################
 ########################################################################################################
-officers.by.sex <- active.officers.for.year %>% group_by(Sex)
+officers.by.sex <- active.officers.for.year %>% group_by(Officer.sex)
 count.by.sex <- summarize(officers.by.sex, num.uof = n())
 count.by.sex
 
-p.officers.by.sex <- plot_ly(count.by.sex, labels = ~Sex, values = ~num.uof, type = 'pie',
+p.officers.by.sex <- plot_ly(count.by.sex, labels = ~Officer.sex, values = ~num.uof, type = 'pie',
              textposition = 'inside',
              textinfo = 'label+value+percent',
              insidetextfont = list(color = '#FFFFFF'),
@@ -33,11 +33,11 @@ p.officers.by.sex
 
 ########################################################################################################
 ########################################################################################################
-officers.by.race <- active.officers.for.year %>% group_by(Race)
+officers.by.race <- active.officers.for.year %>% group_by(Officer.race)
 count.by.race <- summarize(officers.by.race, num.uof = n())
 count.by.race
 
-p.officers.by.race <- plot_ly(count.by.race, labels = ~Race, values = ~num.uof, type = 'pie',
+p.officers.by.race <- plot_ly(count.by.race, labels = ~Officer.race, values = ~num.uof, type = 'pie',
              textposition = 'inside',
              textinfo = 'label+value+percent',
              insidetextfont = list(color = '#FFFFFF'),

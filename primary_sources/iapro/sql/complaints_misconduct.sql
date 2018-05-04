@@ -20,7 +20,7 @@ cit as (
 select 
 
 -- Incident info
-filenum as "FIT Number",
+filenum as "PIB Control Number",
 incident_type as "Incident type",
 o.offnum as "Officer primary key",
 c.citnum as "Citizen primary key",
@@ -149,10 +149,14 @@ case
     
     -- But anything else that is complete is illegitimate
 	else 'Illegitimate outcome'
-END as 'Disposition OIPM',
+END as 'Disposition OIPM by officer',
 
 -- Disposition / findings for individual allegations
 case
+---
+-- Pending
+--	when incident.status = 'Active' then 'Pending'
+	
 	-----    
 	-- Sustained
 	when PATINDEX('SUSTAINED%', finding) > 0 then 'Sustained'
@@ -164,7 +168,7 @@ case
 	when PATINDEX('%NEGOTIATED SETTLEMENT%', finding) > 0 then 'Sustained'
      
     -- Awaiting hearing is sustained
-	when PATINDEX('%AWAITING HEARINGT%', finding) > 0 then 'Sustained'    
+	when PATINDEX('%AWAITING HEARING%', finding) > 0 then 'Sustained'    
         
     -----       
     -- Mediation
@@ -199,13 +203,19 @@ case
     -----    
     -- NFIM
     when PATINDEX('%NFIM%', finding) > 0 then 'NFIM' 
-        
-    -- Anything else that's not complete is pending    
+    
+    -----    
+	-- Specific illigitimate outcomes
+	when PATINDEX('%DUPLICATE ALLEGATION%', finding) > 0 then 'Illegitimate outcome'
+	when PATINDEX('%CANCELLED%', finding) > 0 then 'Illegitimate outcome'
+    
+	----- 
+	 -- Anything else that's not complete is pending    
     when incident.status <> 'Completed' then 'Pending'
     
     -- But anything else that is complete is illegitimate
 	else 'Illegitimate outcome'
-END as 'Allegation Disposition OIPM',
+END as 'Allegation Finding OIPM',
 
 -- Disposition as reported
 incident.status as "Status",
@@ -296,7 +306,6 @@ incident.udtext24D as "Assigned sub-division B",
 incident.udtext24E as "Working status",
 incident.udtext24F as "Shift details",
 incident.priority as "Priority",
-disposition as "Disposition",
 source as "Source",
 service_type as "Service type",
 nypd_corruption as "Rule violation",
