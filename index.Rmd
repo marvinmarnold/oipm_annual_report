@@ -17,6 +17,7 @@ source("annual_report_2017.R")
 source("analysis/force/force_by_year.R")
 source("analysis/force/force_by_month.R")
 source("analysis/force/uof_by_type.R")
+source("analysis/force/uof_by_reason.R")
 source("analysis/force/uof_by_level_and_year.R")
 source("analysis/force/uof_pies_each_type.R")
 source("analysis/force/uof_by_officer_age_exp.R")
@@ -239,6 +240,23 @@ uof.pies.each.type[[3]]
 ### Level 4
 ```{r, fig.height = 3}
 uof.pies.each.type[[4]]
+```
+
+Row
+-------------------------------------
+### Reason for force
+```{r, fig.height = 3}
+p.uof.by.reason
+```
+
+### Reason for exhibiting firearms
+```{r, fig.height = 3}
+p.firearm.by.reason
+```
+
+### What preceded force
+```{r, fig.height = 3}
+p.uof.by.service.type
 ```
 
 Row
