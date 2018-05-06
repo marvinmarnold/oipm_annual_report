@@ -100,3 +100,4 @@ p.complaints.allegations.by.month <- plot_ly(df, x = ~month, y = ~allegations.by
          yaxis2 = list(side = 'right', overlaying = "y", title = "Avg allegations per complaint", range = c(0, 5)))
 
 p.complaints.allegations.by.month
+

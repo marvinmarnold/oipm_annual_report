@@ -9,7 +9,7 @@ allegs <- allegations.for.year %>% select(Allegation.class) %>% distinct
 colnames(allegs) <- 'label'
 
 # Unique dispositions
-dispositions <- allegations.for.year %>% select(Disposition.OIPM) %>% distinct
+dispositions <- allegations.for.year %>% select(Allegation.Finding.OIPM) %>% distinct
 colnames(dispositions) <- 'label'
 
 # Officer races
@@ -21,7 +21,7 @@ all.labels <- rbind(allegs, officer.races, dispositions)
 
 # Compute edges
 alleg.by.race <- allegations.for.year %>% group_by(Allegation.class, Officer.Race)
-alleg.by.race.dispo <- allegations.for.year %>% group_by(Disposition.OIPM, Officer.Race)
+alleg.by.race.dispo <- allegations.for.year %>% group_by(Allegation.Finding.OIPM, Officer.Race)
 
 alleg.race.counts <- summarise(alleg.by.race, count = n())
 alleg.race.dispo.counts <- summarise(alleg.by.race.dispo, count = n())
@@ -34,7 +34,7 @@ alleg.race.counts <- alleg.race.counts %>% mutate(
 
 alleg.race.dispo.counts <- alleg.race.dispo.counts %>% mutate(
   race.label.index = match(Officer.Race, officer.races$label) + nrow(allegs) - 1, # 0 indexed
-  dispo.label.index = match(Disposition.OIPM, dispositions$label) + nrow(allegs) + nrow(officer.races) - 1 # 0 indexed
+  dispo.label.index = match(Allegation.Finding.OIPM, dispositions$label) + nrow(allegs) + nrow(officer.races) - 1 # 0 indexed
 )
 
 sankey.sources <- append(alleg.race.counts$alleg.label.index, alleg.race.dispo.counts$race.label.index)

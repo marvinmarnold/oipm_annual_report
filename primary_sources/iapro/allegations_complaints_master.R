@@ -37,7 +37,7 @@ SelectDisp <- function(disp) {
 # effectively the same as getting allegations by unique PIB.Control.Number
 complaints.by.officer.for.year <- allegations.for.year %>% 
   select(PIB.Control.Number, Disposition.OIPM.by.officer, Disposition.NOPD, Assigned.department, Assigned.division, Assigned.unit, 
-         Incident.type, Month.occurred) %>% 
+         Incident.type, Month.occurred, Officer.Race) %>% 
   distinct
   
 complaints.for.year <- complaints.by.officer.for.year %>% 
@@ -45,7 +45,6 @@ complaints.for.year <- complaints.by.officer.for.year %>%
          Incident.type, Month.occurred) %>% 
   distinct
 
-complaints.by.officer.for.year <- 
 oipm.dispositions <- complaints.by.officer.for.year %>% 
   group_by(PIB.Control.Number) %>% 
   summarise_at(c("Disposition.OIPM.by.officer"), SelectDisp)

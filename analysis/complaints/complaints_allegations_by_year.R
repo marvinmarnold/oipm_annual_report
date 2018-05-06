@@ -129,3 +129,4 @@ p.complaints.by.year <- plot_ly(annual.summary, x = ~years,
                        range = c(0, 100), showgrid = F))
 
 p.complaints.by.year
+
