@@ -6,16 +6,18 @@ rm(list = ls())
 
 ########################################################################################################
 ######################################## GLOBAL VARIABLES ##############################################
-setwd("/home/pili/MEGA/code/repo")
+#setwd("/home/pili/MEGA/code/repo")
+setwd("/media/sf_oipm/code/repo/")
+
 # The current year to analyze
 year <- 2017
 
 # Filenames relative to wd
 officers.csv <- "data/officers_201805012117.csv"
-uof.csv <- "data/uof_201805012114.csv"
+uof.csv <- "data/uof_201805061225.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
-allegations.csv <- "data/allegations_201805041425.csv"
+allegations.csv <- "data/allegations_201805061225.csv"
 
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################

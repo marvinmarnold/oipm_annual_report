@@ -1,4 +1,4 @@
-if (!exists("officersAll")) source("iapro/officers_master.R")
+check.vars(c("officers.csv"))
 if (!exists("complaints.by.month")) source("iapro/complaints_misconduct_by_month.R")
 
 title <- paste("Percent of active duty officers with complaints and misconduct in", year)

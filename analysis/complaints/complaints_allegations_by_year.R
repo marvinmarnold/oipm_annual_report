@@ -12,8 +12,8 @@ num.reported.allegations.2017 <- 1505
 num.complaints.2017 <- complaints.for.year %>% nrow
 num.allegations.2017 <- allegations.for.year %>% nrow
 
-allegations.2016 <- allegations.all %>% filter(grepl("^2016", FIT.Number))
-complaints.2016 <- allegations.2016 %>% select(FIT.Number, Incident.type) %>% distinct
+allegations.2016 <- allegations.all %>% filter(grepl("^2016", PIB.Control.Number))
+complaints.2016 <- allegations.2016 %>% select(PIB.Control.Number, Incident.type) %>% distinct
 
 num.calculated.complaints.2016 <- complaints.2016 %>% nrow
 num.calculated.allegations.2016 <- allegations.2016 %>% nrow

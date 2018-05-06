@@ -24,7 +24,7 @@ useOfForce as (
 select 
 
 -- Incident info
-filenum as "FIT Number",
+TRIM(filenum) as "FIT Number",
 SUBSTRING(filenum, 4, 4) as "Year reported",
 year(occurred_dt) as "Year Occurred",
 occurred_dt as "Occurred date",
@@ -115,7 +115,6 @@ incident.udtext24E as "Working status",
 incident.udtext24F as "Shift details",
 incident.priority as "Priority",
 incident.status as "Status",
-disposition as "Disposition",
 source as "Source",
 service_type as "Service type",
 nypd_corruption as "Rule violation",
@@ -163,6 +162,12 @@ cL.INMATE as "Citizen inmate",
 cL.CIT_PROBATION as "Citizen probation",
 cL.cit_parole as "Citizen parole",
 cL.cit_role as "Citizen role",
+
+case
+when disposition = 'Use Of Force Authorized' then 'Authorized'
+when disposition = 'Use Of Force Not Authorized' then 'Not Authorized'
+ELSE 'Illigitimate outcome'
+end as "Disposition",
 
 -- Normalize division
 case

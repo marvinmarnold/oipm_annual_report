@@ -20,7 +20,7 @@ cit as (
 select 
 
 -- Incident info
-filenum as "PIB Control Number",
+TRIM(filenum) as "PIB Control Number",
 incident_type as "Incident type",
 o.offnum as "Officer primary key",
 c.citnum as "Citizen primary key",

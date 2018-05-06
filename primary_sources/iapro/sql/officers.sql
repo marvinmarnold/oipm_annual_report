@@ -60,5 +60,14 @@ zipcode1 as "Zip",
 current_sup_offnum as "Current supervisor"
 
 from iadata_oipm.ia_adm.officers
-where officers.emp_type in ('Commissioned')
-and officers.status in ('Active')
+where officers.emp_type in ('Commissioned') AND
+
+-- This is inacurrate but pending a resolution to alternative below
+status = 'Active'
+
+-- The code below won't work because end_employ_dt is often null
+-- Officers hired before the end of 2017
+--and HIRE_DT < '2018-01-01' AND
+
+-- Employment never ended or ended after jan 1, 2017
+--((END_EMPLOY_DT is null) or (END_EMPLOY_DT >= '2017-01-01'))

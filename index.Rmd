@@ -23,6 +23,8 @@ source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/force/uof_by_district_level.R")
+source("analysis/force/uof_by_effectiveness.R")
+source("analysis/force/uof_by_disposition.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
 source("analysis/complaints/complaints_allegations_by_year.R")
@@ -105,8 +107,6 @@ sudo add-apt-repository -y ppa:opencpu/jq
   sudo apt-get update
   sudo apt-get install libjq-dev libv8-3.14-dev
   
-`sudo apt install libgdal1-dev libgdal1i libproj-dev libudunits2-dev` then `install.packages("rgdal", repos = "http://cran.us.r-project.org", type = "source")`. You'll probably also need to update your gdal version:
-
 `sudo apt install libgdal1-dev libgdal1i libproj-dev libudunits2-dev` then `install.packages("rgdal", repos = "http://cran.us.r-project.org", type = "source")`. You'll probably also need to update your gdal version:
 
 https://stackoverflow.com/questions/37294127/python-gdal-2-1-installation-on-ubuntu-16-04#41613466
@@ -206,6 +206,17 @@ p.uof.by.type
 p.uof.by.district.type
 ```
 
+Row
+-------------------------------------
+### Force by type and effectiveness
+```{r, fig.width = 10, fig.height = 4}
+p.uof.by.effectiveness
+```
+
+### NOPD's determination of unauthorized force
+```{r, fig.width = 10, fig.height = 4}
+p.uof.by.disposition
+```
 
 Row
 -------------------------------------

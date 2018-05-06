@@ -3,7 +3,7 @@ uof.2015.csv <- "data/Dante/2015UOF.csv"
 ########################################################################################################
 ########################################################################################################
 
-uof.2015 <- read.csv(uof.2015.csv)
+uof.2015 <- read.csv(uof.2015.csv, stringsAsFactors = FALSE)
 
 recategorize.force.type <- function(force.types, force.levels) {
   mapply(function (force.type, force.level) {
