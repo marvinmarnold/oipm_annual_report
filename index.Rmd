@@ -26,6 +26,7 @@ source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/force/uof_by_district_level.R")
 source("analysis/force/uof_by_effectiveness.R")
 source("analysis/force/uof_by_disposition.R")
+source("analysis/force/force_per_officer.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
 source("analysis/complaints/complaints_allegations_by_year.R")
@@ -257,6 +258,18 @@ p.firearm.by.reason
 ### What preceded force
 ```{r, fig.height = 3}
 p.uof.by.service.type
+```
+
+Row
+-------------------------------------
+### Average force per officer
+```{r, fig.height = 3}
+p.force.per.officer
+```
+
+### Percentage of force my officers using most force
+```{r, fig.height = 3}
+p.force.per.bucket
 ```
 
 Row
