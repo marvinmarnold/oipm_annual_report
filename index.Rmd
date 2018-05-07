@@ -274,6 +274,20 @@ p.force.per.bucket
 
 Row
 -------------------------------------
+### Contribution to UOF by top 5 officers
+```{r, fig.height = 6}
+paste("They account for", top.5.uof.pct, "% of all force")
+paste(top.5.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+paste(top.5.uof.num.male, "are male")
+paste(top.5.uof.min.age, "-", top.5.uof.max.age, "years old")
+paste(top.5.uof.min.exp, "-", top.5.uof.max.exp, "years of experience")
+paste(top.5.uof.num.white, "are white,", top.5.uof.num.black, "are black,", top.5.uof.num.hispanic, "are hispanic,", top.5.uof.num.asian, "are asian,", top.5.uof.num.native, "are native american,", top.5.uof.num.asian, "are asian, and", top.5.uof.num.race, "have an unknown race")
+top.5.officers.uof.division
+top.5.officers.uof.unit
+```
+
+Row
+-------------------------------------
 ### Force by officer age and experience 
 As officers get older, they commit less force. Officers 31 - 35 make up 14% of the police department but are responsible for 
 over 500 incidents of force. In the next age bucket, officers 26 - 40 make up 35% of all police (nearly double the previous bucket)

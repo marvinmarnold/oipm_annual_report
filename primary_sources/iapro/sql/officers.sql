@@ -60,7 +60,8 @@ zipcode1 as "Zip",
 current_sup_offnum as "Current supervisor"
 
 from iadata_oipm.ia_adm.officers
-where officers.emp_type in ('Commissioned') AND
+where officers.emp_type in ('Commissioned') 
+AND
 
 -- This is inacurrate but pending a resolution to alternative below
 status = 'Active'

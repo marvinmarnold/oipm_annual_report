@@ -78,6 +78,7 @@ uof.count.per.bucket <- uof.count.per.bucket %>% mutate(
 )
 
 # FTN Analysis
+# This is a little fudged. Not using the count of FTN, instead using the count of unique <FTN, Officer>
 ftn.per.officer <- uof.for.year %>% select(FIT.Number, Officer.primary.key) %>% distinct %>% group_by(Officer.primary.key)
 ftn.count.per.officer <- ftn.per.officer %>% summarise(count = n())
 ftn.count.per.officer <- ftn.count.per.officer %>% mutate(
@@ -116,3 +117,55 @@ p.force.per.bucket <- plot_ly(force.count.per.bucket,
     barmode = 'group')
 
 p.force.per.bucket
+
+########################################################################################################
+########################################################################################################
+# Breakout information about officers using most force
+
+inspect.rank = 5
+top.5.uof <- uof.count.per.officer %>% filter(rank.bucket <= inspect.rank)
+colnames(active.officers.for.year)
+top.5.officers.uof <- merge(top.5.uof, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+
+# Number missing
+top.5.uof.num.missing <- inspect.rank - nrow(top.5.officers.uof)
+
+# Pct force
+top.5.uof.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank) %>% select(uof.pct.per.bucket)
+
+# Count males
+top.5.uof.num.male <- top.5.officers.uof %>% filter(Officer.sex == 'M') %>% nrow
+
+# Age
+top.5.uof.min.age <- min(top.5.officers.uof$Age)
+top.5.uof.max.age <- max(top.5.officers.uof$Age)
+
+# Experience
+top.5.uof.min.exp <- min(top.5.officers.uof$Years.employed)
+top.5.uof.max.exp <- max(top.5.officers.uof$Years.employed)
+
+# Race
+#top.5.uof.races <- top.5.officers.uof %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())
+top.5.uof.num.white <- top.5.officers.uof %>% filter(Officer.race == 'White') %>% nrow
+top.5.uof.num.black <- top.5.officers.uof %>% filter(Officer.race == 'Black / African American') %>% nrow
+top.5.uof.num.hispanic <- top.5.officers.uof %>% filter(Officer.race == 'Hispanic') %>% nrow
+top.5.uof.num.native <- top.5.officers.uof %>% filter(Officer.race == 'Native American') %>% nrow
+top.5.uof.num.asian <- top.5.officers.uof %>% filter(Officer.race == 'Asian / Pacific Islander') %>% nrow
+top.5.uof.num.race <- top.5.officers.uof %>% filter(Officer.race == 'Unknown race') %>% nrow
+
+# Division
+top.5.officers.uof.division <- top.5.officers.uof %>% select(Officer.division) %>% group_by(Officer.division) %>% summarise(count = n())
+
+# Unit
+top.5.officers.uof.unit <- top.5.officers.uof %>% select(Officer.sub.division.A) %>% group_by(Officer.sub.division.A) %>% summarise(count = n())
+
+print(paste("Of the", inspect.rank, "officers responsible for the most UOF:"))
+print(paste("They account for", top.5.uof.pct, "% of all force"))
+print(paste("-", top.5.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD"))
+print(paste("-", top.5.uof.num.male, "are male"))
+print(paste("-", top.5.uof.min.age, "-", top.5.uof.max.age, "years old"))
+print(paste("-", top.5.uof.min.exp, "-", top.5.uof.max.exp, "years of experience"))
+print(paste("-", top.5.uof.num.white, "are white,", top.5.uof.num.black, "are black,", top.5.uof.num.hispanic, "are hispanic,", top.5.uof.num.asian, "are asian,", top.5.uof.num.native, "are native american,", top.5.uof.num.asian, "are asian, and", top.5.uof.num.race, "have an unknown race"))
+
+
+#ftn.count.per.officer
