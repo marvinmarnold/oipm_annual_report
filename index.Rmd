@@ -26,6 +26,7 @@ source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/force/uof_by_district_level.R")
 source("analysis/force/uof_by_effectiveness.R")
 source("analysis/force/uof_by_disposition.R")
+source("analysis/force/uof_by_injury.R")
 source("analysis/force/force_per_officer.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
@@ -361,6 +362,18 @@ Officers older than 31 tends to have over 5 years experience but continue to use
 
 ```{r, fig.width = 10, fig.height = 5}
 p.uof.by.officer.age.exp
+```
+
+Row
+-------------------------------------
+### Officer injuries during UOF
+```{r, fig.width = 5, fig.height = 4}
+p.uof.by.officer.injury
+```
+
+### Victim injuries during UOF
+```{r, fig.width = 5, fig.height = 4}
+p.uof.by.victim.injury
 ```
 
 Row
