@@ -1,43 +1,19 @@
-# Global constants
+check.vars(c("stops.csv", "year"))
 
-# Working directory
-wd <- "/media/sf_oipm/code/repo" 
-
-# File with all bookings
-stopsFile <- "data/data.nola.gov/stops_20180406.csv"
-
-# The year to analyze
-year <- 2017 
-
-########################################################################################################
-########################################################################################################
-
-# Set wor
-# Set working directory
-setwd(wd)
-
-# Load libraries
-library(plotly)
-library(dplyr)
-library(tidyr)
-
-# Actual keys stored in .Rkeys
-# Sys.setenv("plotly_username"="")
-# Sys.setenv("plotly_api_key"="")
+# How the date is formatted
+dateFormat <- "%d/%m/%Y %I:%M:%S %p"
 
 ########################################################################################################
 ########################################################################################################
 
 # Read data
-stopsAll <- read.csv(stopsFile)
-
-# How the date is formatted
-dateFormat <- "%d/%m/%Y %I:%M:%S %p"
+stops.all <- read.csv(stops.csv, stringsAsFactors = FALSE)
 
 # Parse date-time into year, date, day, and time
-stopsAll <- stopsAll %>% mutate(
+stops.all <- stops.all %>% mutate(
   event.year = sapply(EventDate, function (date) format(as.Date(date, format=dateFormat), "%Y")),
   event.month = sapply(EventDate, function (date) format(as.Date(date, format=dateFormat), "%b")),
+  month = match(event.month, months),
   event.date = sapply(EventDate, function (date) format(as.Date(date, format=dateFormat),"%b %d, %Y")),
   event.day = sapply(EventDate, function (date) weekdays(as.Date(date, format=dateFormat))),
   event.time = sapply(EventDate, function (date) format(as.Date(date, format=dateFormat),"%I:%M:%S %p")),
@@ -64,11 +40,31 @@ possible.actions <- c(
 # Instead, we loop over all the possible actions and extract a column for each individually
 for (action in possible.actions) {
   regex.for.action <- paste(action, ": ([\\w\\s]*)", sep = "")
-  stopsAll <- stopsAll %>% extract(ActionsTaken, c(action), regex.for.action, remove = FALSE)
+  stops.all <- stops.all %>% extract(ActionsTaken, c(action), regex.for.action, remove = FALSE)
 }
 
+normalize.race <- function(race) {
+  if (race == 'ASIAN') {
+    return(asian)
+  } else if (race == 'BLACK') {
+    return(black)
+  } else if (race == 'WHITE') {
+    return(white)
+  } else if (race == 'HISPANIC') {
+    return(hispanic)
+  } else if (race == 'AMER. IND.') {
+    return(native)
+  } else {
+    return(unknown.race)
+  }
+}
+
+stops.all <- stops.all %>% mutate(
+  SubjectRace = sapply(SubjectRace, normalize.race)
+)
+
 # 2017 analysis
-stops2017 <- stopsAll %>% filter(event.year == year)
+stops.for.year <- stops.all %>% filter(event.year == year)
 
 # Write data to file
 # write.csv(stopsAll, file = "data/data.nola.gov/Stops_DataNolaCom_Cleaned_20180406.csv")

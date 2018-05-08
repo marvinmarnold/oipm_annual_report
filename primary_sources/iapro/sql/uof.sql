@@ -194,10 +194,12 @@ end as "Citizen sex",
 
 -- Blank race -> Race-Unknown
 case
-when c.race is null or datalength(c.race) = 0 then 'Race-Unknown'
-when c.race = 'B' then 'Black'
-when c.race = 'W' then 'White'
-Else c.race
+when c.race = 'American Ind' then 'Native American'
+when c.race = 'Asian/Pacif' or c.race = 'Asian/Pacifi' then 'Asian / Pacific Islander'
+when c.race = 'Black' then 'Black / African American'
+when c.race = 'Hispanic' then 'Hispanic'
+when c.race = 'White' then 'White'
+Else 'Unknown race'
 end as "Citizen race",
 
 c.narrative as "Citizen narrative",

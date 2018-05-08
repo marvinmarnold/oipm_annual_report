@@ -28,6 +28,7 @@ source("analysis/force/uof_by_effectiveness.R")
 source("analysis/force/uof_by_disposition.R")
 source("analysis/force/uof_by_injury.R")
 source("analysis/force/force_per_officer.R")
+source("analysis/force/uof_against_blacks_comparison.R")
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
 source("analysis/complaints/complaints_allegations_by_year.R")
@@ -412,6 +413,13 @@ p.female.victim.uof.by.type
 ### Male victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
 p.male.victim.uof.by.type
+```
+
+Row
+-------------------------------------
+### UOF by victim gender and race
+```{r, fig.height = 6}
+p.black.by.month
 ```
 
 

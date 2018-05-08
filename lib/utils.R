@@ -4,6 +4,14 @@
 # Months of the year
 months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
+# Race
+asian <- "Asian / Pacific Islander"
+black <- "Black / African American"
+white <- "White"
+hispanic <- "Hispanic"
+native <- "Native American"
+unknown.race <- "Unknown race"
+
 source("lib/race.by.district.R")
 
 ########################################################################################################

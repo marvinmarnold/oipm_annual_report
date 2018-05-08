@@ -15,10 +15,16 @@ year <- 2017
 # Filenames relative to wd
 officers.csv <- "data/officers_201805012117.csv"
 all.officers.csv <- "data/all_officers_201805062014.csv"
-uof.csv <- "data/uof_201805061225.csv"
+uof.csv <- "data/uof_201805072046.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
 allegations.csv <- "data/allegations_201805061225.csv"
+
+# Bookings file from OPSO
+bookings.csv <- "data/OPSO/Marvin_Arnold/JFI12M.TXT"
+
+# Stops and searches from data.nola.gov
+stops.csv <- "data/data.nola.gov/Stop_and_Search__Field_Interviews_20180507.csv"
 
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################
@@ -48,3 +54,5 @@ source("primary_sources/iapro/officers_master.R")
 source("primary_sources/iapro/uof_ftn_master.R")
 source("primary_sources/uof2015.R")
 source("primary_sources/iapro/allegations_complaints_master.R")
+source("primary_sources/data.nola.gov/stops_master.R")
+source("primary_sources/opso/bookings_master.R")
