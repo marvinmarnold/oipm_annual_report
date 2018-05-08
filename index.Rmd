@@ -274,9 +274,21 @@ p.force.per.bucket
 
 Row
 -------------------------------------
+### Contribution to FTN by top 5 officers
+```{r, fig.height = 6}
+paste("They account for", top.5.ftn.pct, "% of all FTNs")
+paste(top.5.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+paste(top.5.ftn.num.male, "are male")
+paste(top.5.ftn.min.age, "-", top.5.ftn.max.age, "years old")
+paste(top.5.ftn.min.exp, "-", top.5.ftn.max.exp, "years of experience")
+paste(top.5.ftn.num.white, "are white,", top.5.ftn.num.black, "are black,", top.5.ftn.num.hispanic, "are hispanic,", top.5.ftn.num.asian, "are asian,", top.5.ftn.num.native, "are native american,", top.5.ftn.num.asian, "are asian, and", top.5.ftn.num.race, "have an unknown race")
+top.5.officers.ftn.division
+top.5.officers.ftn.unit
+```
+
 ### Contribution to UOF by top 5 officers
 ```{r, fig.height = 6}
-paste("They account for", top.5.uof.pct, "% of all force")
+paste("They account for", top.5.uof.pct, "% of all UOFs")
 paste(top.5.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
 paste(top.5.uof.num.male, "are male")
 paste(top.5.uof.min.age, "-", top.5.uof.max.age, "years old")
@@ -286,6 +298,57 @@ top.5.officers.uof.division
 top.5.officers.uof.unit
 ```
 
+Row
+-------------------------------------
+### Contribution to FTN by top 10 officers
+```{r, fig.height = 7}
+paste("They account for", top.10.ftn.pct, "% of all FTNs")
+paste(top.10.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+paste(top.10.ftn.num.male, "are male")
+paste(top.10.ftn.min.age, "-", top.10.ftn.max.age, "years old")
+paste(top.10.ftn.min.exp, "-", top.10.ftn.max.exp, "years of experience")
+paste(top.10.ftn.num.white, "are white,", top.10.ftn.num.black, "are black,", top.10.ftn.num.hispanic, "are hispanic,", top.10.ftn.num.asian, "are asian,", top.10.ftn.num.native, "are native american,", top.10.ftn.num.asian, "are asian, and", top.10.ftn.num.race, "have an unknown race")
+top.10.officers.ftn.division
+top.10.officers.ftn.unit
+```
+
+### Contribution to UOF by top 10 officers
+```{r, fig.height = 7}
+paste("They account for", top.10.uof.pct, "% of all UOFs")
+paste(top.10.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+paste(top.10.uof.num.male, "are male")
+paste(top.10.uof.min.age, "-", top.10.uof.max.age, "years old")
+paste(top.10.uof.min.exp, "-", top.10.uof.max.exp, "years of experience")
+paste(top.10.uof.num.white, "are white,", top.10.uof.num.black, "are black,", top.10.uof.num.hispanic, "are hispanic,", top.10.uof.num.asian, "are asian,", top.10.uof.num.native, "are native american,", top.10.uof.num.asian, "are asian, and", top.10.uof.num.race, "have an unknown race")
+top.10.officers.uof.division
+top.10.officers.uof.unit
+```
+
+Row
+-------------------------------------
+### Contribution to FTN by top 20 officers
+```{r, fig.height = 8}
+paste("They account for", top.20.ftn.pct, "% of all FTNs")
+paste(top.20.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+paste(top.20.ftn.num.male, "are male")
+paste(top.20.ftn.min.age, "-", top.20.ftn.max.age, "years old")
+paste(top.20.ftn.min.exp, "-", top.20.ftn.max.exp, "years of experience")
+paste(top.20.ftn.num.white, "are white,", top.20.ftn.num.black, "are black,", top.20.ftn.num.hispanic, "are hispanic,", top.20.ftn.num.asian, "are asian,", top.20.ftn.num.native, "are native american,", top.20.ftn.num.asian, "are asian, and", top.20.ftn.num.race, "have an unknown race")
+top.20.officers.ftn.division
+top.20.officers.ftn.unit
+```
+
+### Contribution to UOF by top 20 officers
+```{r, fig.height = 8}
+paste("They account for", top.20.uof.pct, "% of all UOFs")
+paste(top.20.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+paste(top.20.uof.num.male, "are male")
+paste(top.20.uof.min.age, "-", top.20.uof.max.age, "years old")
+paste(top.20.uof.min.exp, "-", top.20.uof.max.exp, "years of experience")
+paste(top.20.uof.num.white, "are white,", top.20.uof.num.black, "are black,", top.20.uof.num.hispanic, "are hispanic,", top.20.uof.num.asian, "are asian,", top.20.uof.num.native, "are native american,", top.20.uof.num.asian, "are asian, and", top.20.uof.num.race, "have an unknown race")
+top.20.officers.uof.division
+top.20.officers.uof.unit
+```
 Row
 -------------------------------------
 ### Force by officer age and experience 
