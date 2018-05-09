@@ -1,5 +1,4 @@
-library(leaflet)
-library(maptools)
+
 check.vars(c("active.officers.for.year"))
 title <- "Officers by zip"
 

@@ -1,20 +1,4 @@
 ########################################################################################################
-############################################# CONSTANTS ################################################
-
-# Months of the year
-months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-
-# Race
-asian <- "Asian / Pacific Islander"
-black <- "Black / African American"
-white <- "White"
-hispanic <- "Hispanic"
-native <- "Native American"
-unknown.race <- "Unknown race"
-
-source("lib/race.by.district.R")
-
-########################################################################################################
 ############################################### HELPERS ################################################
 
 check.var <- function(var.name) {
@@ -46,3 +30,14 @@ age.bucket.function <- function(age) {
     '51 or older'
   }
 }
+
+########################################################################################################
+############################################# CONSTANTS ################################################
+
+# Months of the year
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+# Police districts in New Orleans
+districts <- c("1st District", "2nd District", "3rd District", "4th District",
+               "5th District", "6th District", "7th District", "8th District")
+source("lib/race.R")

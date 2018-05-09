@@ -7,7 +7,7 @@ rm(list = ls())
 ########################################################################################################
 ######################################## GLOBAL VARIABLES ##############################################
 #setwd("/home/pili/MEGA/code/repo")
-setwd("/media/sf_oipm/code/repo/")
+#setwd("/media/sf_oipm/code/repo/")
 
 # The current year to analyze
 year <- 2017
@@ -34,6 +34,8 @@ library(plotly)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(leaflet)
+library(maptools)
 
 # You may also need to follow the three steps below if you want to use ggplot with plotly
 # install.packages('devtools')

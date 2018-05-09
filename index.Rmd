@@ -417,9 +417,14 @@ p.male.victim.uof.by.type
 
 Row
 -------------------------------------
-### UOF by victim gender and race
+### Force used disproportionately against black people by month
 ```{r, fig.height = 6}
 p.black.by.month
+```
+
+### Force used disproportionately against black people by district
+```{r, fig.height = 6}
+p.black.by.district
 ```
 
 
