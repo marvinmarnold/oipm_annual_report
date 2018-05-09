@@ -134,6 +134,11 @@ released.
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
 
+### Police districts
+```{r fig.width = 6, fig.height = 6}
+p.police.districts
+```
+
 Row 
 -------------------------------------
 ### FTN vs UOF
@@ -475,6 +480,11 @@ released.
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
+
+### Police districts
+```{r fig.width = 6, fig.height = 6}
+p.police.districts
+```
 
 Row
 -------------------------------------

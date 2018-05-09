@@ -1,9 +1,8 @@
-
 check.vars(c("active.officers.for.year"))
 title <- "Officers by zip"
 
-center.lat <- -90.078634
-center.long <- 29.942234
+center.long <- -90.078634
+center.lat <- 29.942234
 zoom <- 9 # higher numbers are more zoomed in
 
 bins <- c(0, 1, 2, 5, 10, 25, 50, 75, 100, Inf)
@@ -38,7 +37,7 @@ head(geo.zips.with.counts@data)
 pal <- colorBin("YlOrRd", domain = geo.zips.with.counts$la.zips.with.counts.officers.in.zip, bins = bins)
 
 m <- leaflet(geo.zips.with.counts) %>%
-  setView(center.lat, center.long, zoom) %>%
+  setView(center.long, center.lat, zoom) %>%
   addProviderTiles("MapBox", options = providerTileOptions(
     id = "mapbox.light",
     
