@@ -153,30 +153,32 @@ force used or multiple individuals that force was used on.
 This report will always clearly label whether FTN or UOF is being used for a particular
 analysis but the onus is on the reader to remain vigilant of the distinction.
 
-Row
+
+Row 
 -------------------------------------
-### Use of force by year
+### Use of force by year {data-height=800}
 
 Force jumps between 2014 and 2015 because of new rules about what constitutes force. 
 UOF has been rising but FTN about steady. More <officers, victims, types of force> used per force incident.
 2015 is the first year that the database that we access (IAPro) was used. Before then, we have to rely on
 historic numbers from NOPD.
 
-Furthermore, 2017 is the first year th OIPM has had access to the underlying database. Now that we have access
-we find discrepancies with what NOPD previously reported to us. 
+Furthermore, 2017 is the first year the OIPM has had access to the underlying database. We worked with NOPD to resolve discrepancies with historic numbers.
 
-As of this writing, there are no major differences in FTNs in 2015
+Force is flat from 2016 to 2017.
+
+**Still unclear where 2015 data came from**
 
 ```{r force.by.year, fig.width = 10, fig.height = 6}
 p.force.by.year
 ```
 
 
-### FTN & UOF in 2017 by month
-UOF and FTN both peak in Feb and Aug. This corresponds with Mardi Gras and the summer.
-UOF per FTN ranges from 2.6 - 4.5.
+### FTN & UOF in 2017 by month {data-height=800}
 
-TODO: What is driving UOF most: citizens, types of force, num officers
+- UOF and FTN peak in Feb and August, corresponding to Mardi Gras and summertime.
+- UOF has its third peak in Nov but FTN is low that month. This leads to a avg UOF/FTN of 4.5 which is around 2-3 the rest of the year.
+- What is driving UOF most: citizens, types of force, num officers
 
 ```{r, fig.width = 10, fig.height = 6}
 p.force.by.month
@@ -185,45 +187,83 @@ p.force.by.month
 Row
 -------------------------------------
 ### Level 1
+
+- L1 force decreasing.
+- Exhibiting firearms has not changed
+- Known that many officers unholster but don't point weapon which is not counted
+
 ```{r, fig.height = 3}
 p.lvl.by.year[[1]]
 ```
 
 ### Level 2
+
+- L2 grew after shrinking the year before
+- growth attributable to 66% growth in defense tech / take down.
+
 ```{r, fig.height = 3}
 p.lvl.by.year[[2]]
 ```
 
 ### Level 3
+
+- l3 doubled from 3 to 6
+
 ```{r, fig.height = 3}
 p.lvl.by.year[[3]]
 ```
 
 ### Level 4
+
+- l4 shrunk by 50%
+- driven by reduction of canine bites to 0
+- **where are taser hits??**
+
 ```{r, fig.height = 3}
 p.lvl.by.year[[4]]
 ```
 
 Row
 -------------------------------------
-### Force by level and type of force
-```{r, fig.width = 10, fig.height = 6}
+### Force by level and type of force 
+
+- L1 and L2 force account for the vast amount of force used
+- Exhibiting firearms accounts for as much force as all other types combined
+```{r, fig.width = 10, fig.height = 10}
 p.uof.by.type
 ```
 
-### Force by level and type of force
-```{r, fig.width = 10, fig.height = 6}
+### Force by level and district
+
+- 7th district and special operations have most force. 
+- 7th has more than special ops. last year it was reversed
+- 1st (mid city), 4th (algiers), 5th (bywater, treme, 9th ward) have only L1 and L2 force
+**add %lvl one force on another axis**
+
+```{r, fig.width = 10, fig.height = 10}
 p.uof.by.district.type
 ```
 
 Row
 -------------------------------------
-### Force by type and effectiveness
-```{r, fig.width = 10, fig.height = 4}
+### Force by type and effectiveness {data-height=1000}
+
+- Like last year, all forms of taser use stand out as being least effective
+- NOPD self determines effectiveness. Not clear what the guidelines are.
+- all firearm discharges were deemed effective
+- exhibiting firearms not effecive 8% = 59 instances where not effective
+- hands not effective 10% of the time 
+
+```{r, fig.width = 10, fig.height = 6}
 p.uof.by.effectiveness
 ```
 
-### NOPD's determination of unauthorized force
+### NOPD's determination of unauthorized force {data-height=1000}
+- 7 unauthorized instances of force. 
+- last year there was only one. 7 is more in line with expectation of 6.
+- 140, about 10% have outcomes that don't make sense
+
+**more details about these incidents**
 ```{r, fig.width = 10, fig.height = 4}
 p.uof.by.disposition
 ```
@@ -231,16 +271,29 @@ p.uof.by.disposition
 Row
 -------------------------------------
 ### Level 1
+
+- Exhibiting firearms the overwhelming reason for using force
+- combined with exhibiting tasers, accounts for 75% of low level force.
+- aka 3 times more likely to pull out a weapon than use hands
+- there are about as many l1 hands as l2 take down. 
+**why no taser hits??**
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[1]]
 ```
 
 ### Level 2
+
+- 77% take downs
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[2]]
 ```
 
 ### Level 3
+
+- is canine bite l3 or l4
+
 ```{r, fig.height = 3}
 uof.pies.each.type[[3]]
 ```
@@ -253,11 +306,18 @@ uof.pies.each.type[[4]]
 Row
 -------------------------------------
 ### Reason for force
+
+- other accounts for 19.4% of justifications for force. what is that?
+
 ```{r, fig.height = 3}
 p.uof.by.reason
 ```
 
 ### Reason for exhibiting firearms
+
+- 30.9% firearm exhibits are other.
+- this is still bigger than the overall other rate, but a decrease from last years staggering 50%
+
 ```{r, fig.height = 3}
 p.firearm.by.reason
 ```
@@ -270,11 +330,24 @@ p.uof.by.service.type
 Row
 -------------------------------------
 ### Average force per officer
+
+- almost identical to last year.
+- on average, an NOPD officer will be involved in a force incident once every other year.
+- but only considering officers who used force at least once in 2017, the rate is closer to 3 incidents every 2 years.
+
 ```{r, fig.height = 3}
 p.force.per.officer
 ```
 
 ### Percentage of force my officers using most force
+
+- these results also very similar to 2016
+- about 1/3 (~400+) of officers use force
+- of those, 20 officers account for 20% of force. 
+- not fair to say "bad apples" because many of those officers are in special ops (see below)
+- trend is that UOF is higher than FTN meaning of officers using force more often, they are also more forceful when they do (more victims + types)
+- there are many officers missing from IAPro. What's that about?
+
 ```{r, fig.height = 3}
 p.force.per.bucket
 ```
@@ -359,12 +432,13 @@ top.20.officers.uof.unit
 Row
 -------------------------------------
 ### Force by officer age and experience 
-As officers get older, they commit less force. Officers 31 - 35 make up 14% of the police department but are responsible for 
-over 500 incidents of force. In the next age bucket, officers 26 - 40 make up 35% of all police (nearly double the previous bucket)
-but amount of force decreases.
 
-Experience levels are not enough to explain use of force. 
-Officers older than 31 tends to have over 5 years experience but continue to use non-negligible amounts of force.
+- As officers get older, they commit less force. 
+- Officers 31 - 35 make up 14% of the police department but are responsible for over 350 incidents of force. 
+- In the next age bucket, officers 26 - 40 make up 35% of all police (nearly double the previous bucket) but amount of force decreases.
+- Experience levels are not enough to explain use of force. 
+- Officers older than 31 tends to have over 5 years experience but continue to use non-negligible amounts of force.
+- Not yet clear how assignment factors into this. Are older officers in admin roles where they are less likely to interact w/ publi?
 
 ```{r, fig.width = 10, fig.height = 5}
 p.uof.by.officer.age.exp
@@ -373,11 +447,18 @@ p.uof.by.officer.age.exp
 Row
 -------------------------------------
 ### Officer injuries during UOF
+
+- given most force is exhibiting weapons, the injuries when physical force exerted is higher
+
 ```{r, fig.width = 5, fig.height = 4}
 p.uof.by.officer.injury
 ```
 
 ### Victim injuries during UOF
+
+- victims more likely to be injured as a result of force.
+- both groups at non-trivial risk of injury
+
 ```{r, fig.width = 5, fig.height = 4}
 p.uof.by.victim.injury
 ```
@@ -385,10 +466,12 @@ p.uof.by.victim.injury
 Row
 -------------------------------------
 ### Analysis of UOF by victim gender and race
-Males have force used against them more often. Racial breakdown of how force is used almost identical for both males and females.
-Black people of both genders are victims of force about 79% of the time.
 
-Black and hispanic people are most exposed to Firearms but white people get hands. Asians have so little force, can't say much 
+- Males have force used against them more often. 
+- Black males are more often victims of force than black females.
+- Inversely, white females have more force used against them than white males.
+- Black people are most exposed to Firearms but white people get hands. 
+- Asians and native amer have so little force, can't say much 
 
 
 Row
@@ -423,11 +506,21 @@ p.male.victim.uof.by.type
 Row
 -------------------------------------
 ### Force used disproportionately against black people by month
+
+- Like last year, force against black people eclipses population, arrests, and stops 11 of 12 months.
+- january had a low 52% of force against black people
+- stops and arrests of black people pretty stable. but force has much more variablility and does not seem correlated with either.
+
 ```{r, fig.height = 6}
 p.black.by.month
 ```
 
 ### Force used disproportionately against black people by district
+
+- all districts except for 1st (mid city) use force against black people disproportionately to other metrics
+- 2nd (broadmore) and 3rd (lakeview) are most disproportionate
+- **waiting on arrest numbers by district**
+
 ```{r, fig.height = 6}
 p.black.by.district
 ```
@@ -437,8 +530,11 @@ Row
 -------------------------------------
 ### Analysis of UOF by officer gender and race
 
-TODO
-
+- males used more force
+- white males use more force than all other groups even though they only account for 
+- female officers use force proportional to their representation.
+- male officers have the specific disproportionality  of white males using a lot of force.
+- **add pie chart that includes officer race-sex in one large pie**
 
 Row
 -------------------------------------

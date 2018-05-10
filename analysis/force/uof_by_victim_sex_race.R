@@ -15,6 +15,7 @@ p.uof.by.victim.sex.race <- plot_ly(count.by.sex.race,
   layout(xaxis = list(showgrid = F), 
          yaxis = list(title = 'Number UOF'), 
          barmode = 'stack',
+         legend = list(x = 0, y = -.50),
          hovermode = 'compare')
 
 p.uof.by.victim.sex.race

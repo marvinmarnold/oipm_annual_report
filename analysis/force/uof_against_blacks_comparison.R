@@ -130,6 +130,11 @@ p.black.by.district <- plot_ly(black.by.district,
   
   add_trace(y = ~uof, name = "% force are gainst black ppl by district") %>%
   
+  # Add vertical line showing the year IAPro started being used
+  add_segments(name = "Black population of NO",
+               x = 1, xend = 12, 
+               y = 61, yend = 61, 
+               line = list(color = 'rgb(229, 221, 59)', dash = 'solid')) %>%
   
   layout(
     margin = list(b = 150),

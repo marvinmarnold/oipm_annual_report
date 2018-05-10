@@ -28,7 +28,8 @@ p.lvl.by.year <- lapply(lvls, function (lvl) {
                         showgrid = F, 
                         dtick = 1,
                         tick0 = 2016), 
-           yaxis = list(title = 'Number UOF'), 
+           yaxis = list(title = 'Number UOF'),
+           legend = list(x = 0, y = -.50), 
            barmode = 'stack',
            hovermode = 'compare')
 })
