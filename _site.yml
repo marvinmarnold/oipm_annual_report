@@ -1,7 +1,2 @@
-name: oipm-annual-report
-output_dir: '.'
-output:
-  html_document:
-    lib_dir: site_libs
-    self_contained: no
-
+name: "oipm-annual-report"
+output_dir: "."
