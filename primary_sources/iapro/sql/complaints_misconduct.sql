@@ -47,6 +47,7 @@ STUFF((
 case
 	-----    
 	-- Sustained
+	when alleg.final_dispo = 'BWC - Redirection' then 'DI-2'
 	when PATINDEX('SUSTAINED%', STUFF((
         SELECT N', ' + CAST([finding] AS VARCHAR(255))
         FROM allegation alleg2
@@ -401,4 +402,5 @@ where incident.INCIDENT_TYPE in (
 -- 'Forced entry', 'Integrity test', 'IPM Review', 'JPIP', 'K9 Utilization', 'MISC',
 -- 'PPEP', 'Protection Order', 'Stop', 'Vehicle pursuit'
 ) 
--- and FILENUM like '%2017%'
+
+-- and FILENUM like '%2016-0385-P%'

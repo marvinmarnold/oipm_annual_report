@@ -13,6 +13,13 @@ our.ftn <- our.ftn %>% mutate(
 setdiff(nopd.ftn$ftn, our.ftn$ftn)
 setdiff(our.ftn$ftn, nopd.ftn$ftn)
 
+nopd.uofs <- nopd.uof %>% group_by(PIB.File.Number) %>% summarise(num.uof = n()) %>% select(PIB.File.Number, num.uof)
+ipm.uof <- uof.for.year %>% group_by(FIT.Number) %>% summarise(num.uof = n()) %>% select(FIT.Number, num.uof)
+
+uof.for.year %>% filter(FIT.Number == "FTN2017-0649")
+
+uofs <- merge(nopd.uofs, ipm.uof, by.x = "PIB.File.Number", by.y = "FIT.Number") %>% filter(num.uof.x != num.uof.y)
+
 our.ftn %>% filter(ftn == "FTN2017-0097")
 uof.for.year %>% filter(FIT.Number == "FTN2017-0097") %>% select(Force.type)
 

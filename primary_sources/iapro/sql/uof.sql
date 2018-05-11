@@ -53,11 +53,11 @@ when uof.uof_force_type = 'L2-Force (Take Down)' then 'Defense Tech / Take-down'
 when uof.uof_force_type = 'L2-Other' then uof.uof_force_type
 when uof.uof_force_type = 'L2-Baton/PR-24(NonStrk)' then 'Baton Miss'
 when uof.uof_force_type = 'L2-Baton/PR-24 (Miss)' then 'Baton Miss'
-when uof.uof_force_type = 'L2-CEW Deployment' then 'Taser No-Hit'
+when uof.uof_force_type = 'L2-CEW Deployment' then 'L2-Taser'
 
-when uof.uof_force_type = 'L3-CEW' then 'Taser Hit'
+when uof.uof_force_type = 'L3-CEW' then 'L3-Taser'
 when uof.uof_force_type = 'L4-Handcuffed Subject' then 'Head strike while Hancuffed'
-when uof.uof_force_type = 'L4-CEW' then 'Taser while Handcuffed'
+when uof.uof_force_type = 'L4-CEW' then 'L4-Taser'
 when uof.uof_force_type = 'L4-Firearm (Discharged)' then 'Firearm Discharged'
 else substring(uof.uof_force_type, 4, 99)
 end as "Force type",
@@ -260,7 +260,7 @@ left join useOfForce as uof on ol.aio_num = uof.aio_num
 
 -- Filter
 where 
-incident.filenum LIKE 'FTN%' and
+incident.filenum LIKE '%FTN%' and
 
 --We do not want to include any forms that have not been submitted by a Commander to PIB.
 field_status not in ('Initial entry', 'In chain')

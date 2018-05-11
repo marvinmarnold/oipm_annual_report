@@ -4,7 +4,7 @@ title <- "Complaints and allegations by year"
 # Taken from 2016 annual report
 num.reported.complaints.2016 <- 850
 num.reported.allegations.2016 <- 1821
-num.reported.complaints.2017 <- 733
+num.reported.complaints.2017 <- 734
 num.reported.allegations.2017 <- 1505
 ########################################################################################################
 ########################################################################################################
