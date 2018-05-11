@@ -274,7 +274,6 @@ when alleg.alg_class IS NULL or datalength(alleg.alg_class) = 0 then 'Unknown Cl
 Else alleg.alg_class
 end as "Allegation class",
 
-
 alleg.finding_dt as "Allegation finding date",
 alleg.created_dt as "Allegation created on",
 alleg.alg_code as "Allegation code",
@@ -401,4 +400,5 @@ where incident.INCIDENT_TYPE in (
 -- 'Firearm discharge', 'Vehicle accident', 'Civil lawsuit', 'Criminal lawsuit', 'Discretionary arrest',
 -- 'Forced entry', 'Integrity test', 'IPM Review', 'JPIP', 'K9 Utilization', 'MISC',
 -- 'PPEP', 'Protection Order', 'Stop', 'Vehicle pursuit'
-)
+) 
+-- and FILENUM like '%2017%'

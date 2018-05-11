@@ -12,6 +12,8 @@ rm(list = ls())
 # The current year to analyze
 year <- 2017
 
+######### IAPro
+
 # Filenames relative to wd
 officers.csv <- "data/officers_201805012117.csv"
 all.officers.csv <- "data/all_officers_201805062014.csv"
@@ -20,8 +22,15 @@ uof.csv <- "data/uof_201805072046.csv"
 # File with all complaints <complainant, officers, id, allegation>
 allegations.csv <- "data/allegations_201805061225.csv"
 
+# Actions taken
+actions.csv <- "data/IAPro/actions_taken_201805110925.csv"
+
+######### OPSO
+
 # Bookings file from OPSO
 bookings.csv <- "data/OPSO/Marvin_Arnold/JFI12M.TXT"
+
+######### data.nola.gov
 
 # Stops and searches from data.nola.gov
 stops.csv <- "data/data.nola.gov/Stop_and_Search__Field_Interviews_20180507.csv"

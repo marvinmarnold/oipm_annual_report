@@ -37,6 +37,7 @@ source("analysis/complaints/allegations_by_type.R")
 source("analysis/complaints/complaints_by_outcome.R")
 source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
 source("analysis/complaints/complaints_by_disposition_officer_race.R")
+source("analysis/complaints/allegations_by_source.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -706,6 +707,13 @@ p.allegation.race.disposition
 ### How officer race impacts disposition
 ```{r, fig.width = 4, fig.height = 7}
 p.complaint.disposition.by.officer.race
+```
+
+Row
+-------------------------------------
+### Allegations by source
+```{r, fig.width = 8, fig.height = 7}
+p.alleg.by.source
 ```
 
 Officers
