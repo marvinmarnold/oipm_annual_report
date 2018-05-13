@@ -42,7 +42,7 @@ m <- leaflet(geo.zips.with.counts) %>%
     id = "mapbox.light",
     
     # Replace with your key
-    accessToken = 'pk.eyJ1IjoibWFydmluZ2Vla3kiLCJhIjoiY2pnMTkyMHVvMTJmZTJ3cDk1OGhjNjlwcyJ9.T6atnQVox1lO9tanVssIgA'))
+    accessToken = MAPBOX_KEY))
 
 labels <- sprintf(
   "<strong>%s officers</strong> in %s",

@@ -45,6 +45,7 @@ library(tidyr)
 library(ggplot2)
 library(leaflet)
 library(maptools)
+library(censusapi)
 
 # You may also need to follow the three steps below if you want to use ggplot with plotly
 # install.packages('devtools')
@@ -57,6 +58,8 @@ source("lib/utils.R")
 # Actual keys stored in .Rkeys
 # Sys.setenv("plotly_username"="")
 # Sys.setenv("plotly_api_key"="")
+# Sys.setenv("CENSUS_KEY"="")
+readRenviron("../.Renviron")
 
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################

@@ -166,7 +166,7 @@ cL.cit_role as "Citizen role",
 case
 when disposition = 'Use Of Force Authorized' then 'Authorized'
 when disposition = 'Use Of Force Not Authorized' then 'Not Authorized'
-ELSE 'Illigitimate outcome'
+ELSE disposition
 end as "Disposition",
 
 -- Normalize division

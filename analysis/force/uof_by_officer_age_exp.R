@@ -23,8 +23,8 @@ exp.bucket.function <- function(exp) {
 }
 
 uof.bucketed <- uof.for.year %>% mutate(
-  age.bucket = sapply(Officer.age.at.time.of.UOF, age.bucket.function),
-  exp.bucket = sapply(Officer.years.exp.at.time.of.UOF, exp.bucket.function)
+  age.bucket = age.bucket.function(Officer.age.at.time.of.UOF), 
+  exp.bucket = exp.bucket.function(Officer.years.exp.at.time.of.UOF)
 )
 
 # group by age and experience
