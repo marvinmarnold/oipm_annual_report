@@ -49,4 +49,12 @@ months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"
 # Police districts in New Orleans
 districts <- c("1st District", "2nd District", "3rd District", "4th District",
                "5th District", "6th District", "7th District", "8th District")
+
+district.nums <- 1:8
+
+district.num.names <- data.frame(
+  district.name = districts,
+  district.num = district.nums
+)
+
 source("lib/race.R")

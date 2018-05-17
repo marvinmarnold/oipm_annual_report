@@ -34,44 +34,31 @@ uof.for.year %>% filter(Force.type == "Taser while Handcuffed")
 
 ########################################################################################################
 ########################################################################################################
-nopd.allegs <- read.csv("data/Dante/Allegations_20180420.csv") 
+nopd.allegs <- read.csv("data/Dante/Allegations_20180420.csv", stringsAsFactors = FALSE) 
 nopd.complaints <- nopd.allegs %>% select(PIB.Control.Number) %>% distinct
-our.complaints <- allegations.for.year %>% select(FIT.Number) %>% distinct
-
-nopd.complaints <- nopd.complaints %>% mutate(
-  id = as.character(PIB.Control.Number)
-)
-
-our.complaints <- our.complaints %>% mutate(
-  id = as.character(FIT.Number)
-)
+our.complaints <- allegations.for.year %>% select(PIB.Control.Number) %>% distinct
 
 nrow(our.complaints)
 nrow(nopd.complaints)
-setdiff(nopd.complaints$id, our.complaints$id)
-setdiff(our.complaints$id, nopd.complaints$id)
+setdiff(nopd.complaints$PIB.Control.Number, our.complaints$PIB.Control.Number)
+setdiff(our.complaints$PIB.Control.Number, nopd.complaints$PIB.Control.Number)
 
 nrow(allegations.for.year)
 # Citizens can complain years after an incident actually occurs. 
 # how do we want to want report that? the year it happens or the year the complaint occurs
 
-nopd.allegs <- read.csv("data/Dante/AllAllegations_20180420.csv") 
+#nopd.allegs <- read.csv("data/Dante/AllAllegations_20180420.csv") 
 nrow(nopd.allegs)
 nopd.allegs.by.id <- nopd.allegs %>% group_by(PIB.Control.Number)
 nopd.alleg.count <- summarise(nopd.allegs.by.id, num.allegs = n())
-nopd.alleg.count <- nopd.alleg.count %>% mutate(
-  id = as.character(PIB.Control.Number)
-)
 
-oipm.2016.allegs <- allegations.all %>% filter(grepl("^2016", FIT.Number))
-oipm.2016.allegs.by.id <- oipm.2016.allegs %>% group_by(FIT.Number)
-oipm.alleg.count <- summarise(oipm.2016.allegs.by.id, num.allegs = n())
-oipm.alleg.count = oipm.alleg.count %>% mutate(
-  id = as.character(FIT.Number)
-)
+oipm.alleg.count <- allegations.for.year %>% 
+  group_by(PIB.Control.Number) %>% 
+  summarise(num.allegs = n())
+
 nrow(oipm.2016.allegs)
 
-alleg.counts <- merge(oipm.alleg.count, nopd.alleg.count, by = 'id')
+alleg.counts <- merge(oipm.alleg.count, nopd.alleg.count, by = 'PIB.Control.Number')
 alleg.counts %>% filter(num.allegs.x != num.allegs.y)
 
 oipm.2016.allegs %>% filter(FIT.Number == "2016-0084-P")

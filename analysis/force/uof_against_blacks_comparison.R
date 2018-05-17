@@ -1,5 +1,5 @@
 check.vars(c("uof.for.year", "bookings.for.year", "stops.for.year", "districts.by.race"))
-title <- "Force, Bookings, and Stops of Black people by month"
+title <- paste("Force, Bookings, & Stops of Black people by month in", year)
 
 ########################################################################################################
 ########################################################################################################
@@ -63,6 +63,12 @@ p.black.by.month <- plot_ly(black.by.month,
             mode = 'lines+markers',
             line = list(color = 'rgb(0, 255, 24)', width = 2, dash = 'solid')) %>%
   
+  # Add horizontal line showing black pop in new orleans
+  add_segments(name = "Black population of NO",
+               x = 0, xend = 13, 
+               y = 61, yend = 61, 
+               line = list(color = 'rgb(229, 221, 59)', dash = 'solid')) %>%
+  
   layout(title = title, xaxis = list(
       dtick = 1
     ),
@@ -114,7 +120,7 @@ count.stops.by.district <- count.stops.by.district %>% mutate(
 # Get data for black people
 black.uof.by.district <- count.uof.by.district %>% filter(Citizen.race == black)
 black.bookings.by.district <- count.bookings.by.district %>% filter(Race == black)
-black.stop.by.district <- count.stops.by.district %>% filter(SubjectRace == black)
+black.stops.by.district <- count.stops.by.district %>% filter(SubjectRace == black)
 pct.black.by.district <- districts.by.race %>% filter(race == black)
 
 # Put it all together
@@ -138,12 +144,6 @@ p.black.by.district <- plot_ly(black.by.district,
   
   add_trace(y = ~uof, name = "% force are gainst black ppl by district") %>%
   
-  # Add vertical line showing the year IAPro started being used
-  add_segments(name = "Black population of NO",
-               x = 1, xend = 12, 
-               y = 61, yend = 61, 
-               line = list(color = 'rgb(229, 221, 59)', dash = 'solid')) %>%
-  
   layout(
     margin = list(b = 150),
     xaxis = list(
@@ -157,3 +157,6 @@ p.black.by.district <- plot_ly(black.by.district,
     barmode = 'group')
 
 p.black.by.district
+
+
+

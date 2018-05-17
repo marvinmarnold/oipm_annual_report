@@ -21,7 +21,7 @@ p.police.districts <- leaflet(geo.police.districts) %>% setView(lng = center.lon
 
   addProviderTiles("MapBox", options = providerTileOptions(
     id = "mapbox.light",
-    accessToken = 'pk.eyJ1IjoibWFydmluZ2Vla3kiLCJhIjoiY2pnMTkyMHVvMTJmZTJ3cDk1OGhjNjlwcyJ9.T6atnQVox1lO9tanVssIgA')) %>% 
+    accessToken = Sys.getenv("MAPBOX_KEY"))) %>% 
   
   addPolygons(stroke = FALSE, 
               smoothFactor = 0.3, 

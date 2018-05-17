@@ -23,7 +23,7 @@ uof.csv <- "data/uof_201805072046.csv"
 allegations.csv <- "data/allegations_201805061225.csv"
 
 # Actions taken
-actions.csv <- "data/IAPro/actions_taken_201805110925.csv"
+actions.csv <- "data/IAPro/actions_taken_201805162155.csv"
 
 ######### OPSO
 
@@ -69,6 +69,8 @@ source("primary_sources/iapro/officers_master.R")
 source("primary_sources/iapro/uof_ftn_master.R")
 source("primary_sources/uof2015.R")
 source("primary_sources/iapro/allegations_complaints_master.R")
+source("primary_sources/iapro/actions_taken_master.R")
 source("primary_sources/data.nola.gov/stops_master.R")
 source("primary_sources/opso/bookings_master.R")
+source("primary_sources/opso/charges_master.R")
 source("primary_sources/data.nola.gov/police_districts.R")

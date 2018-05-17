@@ -38,6 +38,7 @@ source("analysis/complaints/complaints_by_outcome.R")
 source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
 source("analysis/complaints/complaints_by_disposition_officer_race.R")
 source("analysis/complaints/allegations_by_source.R")
+source("analysis/complaints/actions_taken_by_action.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -678,8 +679,13 @@ p.allegations.by.month
 Row
 -------------------------------------
 ### Individual allegations by outcome
-```{r, fig.width = 5, fig.height = 10}
+```{r, fig.width = 8, fig.height = 8}
 p.allegation.by.type.disposition
+```
+
+### Actions taken
+```{r, fig.width = 4, fig.height = 8}
+p.actions.taken
 ```
 
 Row

@@ -1,34 +1,48 @@
-uof.firearm.black <- uof.for.year %>% filter(Force.level == "L1")%>% mutate(
-  firearm = sapply(Force.type, function(type) {
-    if (type == "Firearm Exhibited" ) {
-      return(TRUE)
-    } else {
-      return(FALSE)
-    }
-  }),
-  isBlack = sapply(Citizen.race, function(race) {
-    if (race == black) {
-      return(TRUE)
-    } else {
-      return(FALSE)
-    }
-  }),
-  isWhite = sapply(Citizen.race, function(race) {
-    if (race == white) {
-      return(TRUE)
-    } else {
-      return(FALSE)
-    }
-  })
+# Statistical significance
+# glm(isL2 ~ isBlack + isHispanic + age + as.factor(Reason.for.force) + as.factor(Reason.for.stop), whatever for logit)
+# + district level crime + month
+
+# Questions
+# - Remind me what the "whatever for logit" is a placeholder for
+# - What is district level crime? If I use arrest data, is it the total number of arrests per district per month? 
+# Arrests per month/age/[isBlack+isHispanci]
+
+########################################################################################################
+########################################################################################################
+
+# Add firearm.exhibited, is.victim.black, and is.victim.hispanic to the uof data
+uof.recategorized <- uof.for.year %>% filter(Force.level == "L1")%>% mutate(
+  
+  # Was a firearm exhibited
+  firearm.exhibited = case_when(
+    Force.type == "Firearm Exhibited" ~ 1,
+    TRUE ~ 0
+  ),
+  
+  # Is the victim black
+  is.victim.black = case_when(
+    Citizen.race == black ~ 1,
+    TRUE ~ 0
+  ),
+  
+  # Is the victim hispanic
+  is.victim.hispanic = case_when(
+    Citizen.race == hispanic ~ 1,
+    TRUE ~ 0
+  )
 )
 
-uof.firearm.black %>% group_by(firearm) %>% summarise(count = n())
+# Add bookings
+bookings.by.district <- charges.for.year %>% 
+  select(Arrest.district, Folder.number, Race) %>% 
+  filter(Arrest.district %in% 1:8) %>%
+  distinct %>% 
+  merge(district.num.names, by.x = "Arrest.district", by.y = "district.num") %>%
+  group_by(Arrest.district, Race)
 
-m <- lm(firearm ~ isWhite, data = uof.firearm.black)
-m <- glm(firearm ~ isWhite, data = uof.firearm.black, family="binomial")
+count.bookings.by.district <- bookings.by.district %>% 
+  summarise(count = n())
 
-summary(m)
-
-colnames(uof.for.year)
-
-table(uof.for.year$Reason.for.force, uof.for.year$Force.level)
+# m <- lm(firearm ~ isWhite, data = uof.firearm.black)
+# m <- glm(firearm ~ isWhite, data = uof.firearm.black, family="binomial")
+# table(uof.for.year$Reason.for.force, uof.for.year$Force.level)

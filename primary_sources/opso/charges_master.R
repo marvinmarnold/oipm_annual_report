@@ -29,6 +29,5 @@ charges.all <- merge(charges.all, bookings.all, by = "Folder.number") %>% mutate
 
 charges.for.year <- charges.all %>% filter(In.Year == year)
 
-
 # Uncomment to create a new file that does not contain sensitive information
 # write.csv(arrests, file = "OPSO_Bookings_20160101_20171003_SANITIZED.csv")
