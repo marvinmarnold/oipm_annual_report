@@ -123,6 +123,8 @@ Then finally: `install.packages("geojsonio")`
 If you want to get map data for other states, check out: https://github.com/jgoodall/us-maps then convert with ogre.adc4gis.com.
 Use the entire ZIP that you download, when converting, don't need to extract. (Alternative = https://github.com/OpenDataDE/State-zip-code-GeoJSON)
 
+LA zip codes http://download.geonames.org/export/zip/
+
 Use of force {data-orientation=rows}
 ===================================== 
 

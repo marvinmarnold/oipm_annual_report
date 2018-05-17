@@ -28,7 +28,8 @@ actions.csv <- "data/IAPro/actions_taken_201805110925.csv"
 ######### OPSO
 
 # Bookings file from OPSO
-bookings.csv <- "data/OPSO/Marvin_Arnold/JFI12M.TXT"
+bookings.csv <- "data/OPSO/20180516/JFI15M.TXT"
+charges.csv <- "data/OPSO/20180516/JFI15MC.TXT"
 
 ######### data.nola.gov
 
