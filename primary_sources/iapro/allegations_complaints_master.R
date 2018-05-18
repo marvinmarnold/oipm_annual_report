@@ -9,7 +9,7 @@ allegations.all <- read.csv(allegations.csv, stringsAsFactors = FALSE)
 
 # 2017 analysis
 allegations.for.year <- allegations.all %>% filter(grepl("2017", PIB.Control.Number))
-
+nrow(allegations.for.year)
 # Function to recategorize an array of dispositions/findings to a single disposition
 SelectDisp <- function(disp) {
   if (any(disp == 'Sustained')) {

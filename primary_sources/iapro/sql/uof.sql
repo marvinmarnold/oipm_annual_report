@@ -239,10 +239,10 @@ o.STATUS as "Officer employment status",
 o.UDTEXT24A as "Officer department",
 o.UDTEXT24B as "Officer division",
 o.UDTEXT24C as "Officer sub-division A",
-o.UDTEXT24D as "Officer sub-division B",
-o.CITY1 as "Officer city",
-o.STATE1 as "Officer state",
-o.ZIPCODE1 as "Officer ZIP"
+o.UDTEXT24D as "Officer sub-division B"
+-- o.CITY1 as "Officer city",
+-- o.STATE1 as "Officer state",
+-- o.ZIPCODE1 as "Officer ZIP"
 
 -- SELECT FROM
 from iadata_oipm.ia_adm.incidents incident 

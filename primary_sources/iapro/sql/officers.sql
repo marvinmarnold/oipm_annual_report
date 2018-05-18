@@ -49,9 +49,9 @@ UDTEXT24D as "Officer sub-division B",
 unit_dt_assigned as "Assigned to unit on",
 
 -- Location
-city1 as "City",
-state1 as "State",
-zipcode1 as "Zip",
+-- city1 as "City",
+-- state1 as "State",
+-- zipcode1 as "Zip",
 -- Confidential
 
 -- fnam as "First name",

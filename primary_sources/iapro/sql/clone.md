@@ -1,5 +1,5 @@
 # Info
-The last full clone taken in Feb 2018 is 15097548800 (output of `ls -l` not sure of units).
+The last full clone taken in May 18 2018 is 15097548800 (output of `ls -l` not sure of units).
 
 # Commands for cloning the DB
 From the computer at NOPD, we only have read access to the DB. Without write access,
@@ -12,19 +12,17 @@ the convenient `BACKUP DATABASE` command. Instead, we have to:
 ## 1. Copy DB from host to VM
 1) Setup a virtual machine on the same computer.
 2) Install Microsoft Server on the VM https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu
-3) From the VM: Create a new DB (`sqlcmd -S localhost -U SA` then `create database DB_NAME_HERE` and finally `go`)
+3) From the VM: Create a new DB (`sqlcmd -S localhost -U SA` then `create database DB_NAME_HERE` and finally `go`. If there was already an existing DB, you may want to free up space first with `drop database DB_NAME_HERE`)
 4) From the host: Turn on port forwarding for the VM so it can communicate with the host machine. SQL is TCP port 1433.
 5) From the host: Open SSMS. Connect to the IAPro DB using Windows authentication.
-6) From the host: Find the IADATA_ADM schema. Right click on it -> Tasks -> Export Data...
-7) From the host: Select IADATA_ADM for the source.
-8) From the host: Get to the terminal and run `ipconfig` to find the IP address of the VM. It should be a local IP like 192.168.51.1.
-9) From the host: Enter that IP as the destination of the export.
+6) From the host: Find the IADATA_OIPM DB. Right click on it -> Tasks -> Export Data...
+7) From the host: Select SQL Server Native Client > Select IADATA_OIPM for the source.
+8) From the host: Repeat the same thing for the desination. Assuming you setup portforwarding, you should be able to use `localhost` as the destination host.
 10) From the host: Let that run. It will take about a half hour. It may report warnings and errors
+11) Run `integrity-check.sql` on the source and destination and ensure identical results.
 
 ## 2. Clone DB from VM to shared drive
-mkdir /home/oipm 
-chmod -R 0777 /home/oipm
-BACKUP DATABASE DB_NAME_HERE TO DISK = "/home/oipm/db.bak"
+BACKUP DATABASE DB_NAME_HERE TO DISK = "/media/MOUNTED_SHARED_DRIVE_PATH/db.bak"
 
 Note: Last time this ran, this took 11077sec (1.29 MB/sec). This is about 3h. It copied just over 15GB.
 
@@ -37,7 +35,12 @@ Mount exFAT on Ubuntu (to /media/exfat): `sudo mount -t exfat /dev/sdXX /media/e
 ### Get the names of the data and log files
 chmod -R 0777 /home/oipm
 sqlcmd -S localhost -U SA
+
+### Get filelist from DB backup
 RESTORE FILELISTONLY FROM DISK = '/home/oipm/db.bak';
+
+### Rename the existing DB 
+So you don't wind up with two IADATA_OIPM databases. Run script `change-name.sql` after altering it to use correct names.
 
 ### Restore
 RESTORE DATABASE IADATA_OIPM FROM DISK = '/home/oipm/db.bak' 

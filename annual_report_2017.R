@@ -17,10 +17,10 @@ year <- 2017
 # Filenames relative to wd
 officers.csv <- "data/officers_201805012117.csv"
 all.officers.csv <- "data/all_officers_201805062014.csv"
-uof.csv <- "data/uof_201805072046.csv"
+uof.csv <- "data/IAPro/uof_201805181504.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
-allegations.csv <- "data/allegations_201805061225.csv"
+allegations.csv <- "data/IAPro/allegations_201805181532.csv"
 
 # Actions taken
 actions.csv <- "data/IAPro/actions_taken_201805162155.csv"

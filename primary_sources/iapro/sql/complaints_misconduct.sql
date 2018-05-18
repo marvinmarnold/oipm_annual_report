@@ -378,10 +378,10 @@ o.STATUS as "Officer employment status",
 o.UDTEXT24A as "Officer department",
 o.UDTEXT24B as "Officer division",
 o.UDTEXT24C as "Officer sub-division A",
-o.UDTEXT24D as "Officer sub-division B",
-o.CITY1 as "Officer city",
-o.STATE1 as "Officer state",
-o.ZIPCODE1 as "Officer ZIP"
+o.UDTEXT24D as "Officer sub-division B"
+-- o.CITY1 as "Officer city",
+-- o.STATE1 as "Officer state",
+-- o.ZIPCODE1 as "Officer ZIP"
 
 from iadata_oipm.ia_adm.incidents incident 
 
@@ -397,7 +397,7 @@ left join cit c on c.CITNUM = cL.CITNUM
 left join allegation as alleg on alleg.AIO_NUM = oL.AIO_NUM
 
 where incident.INCIDENT_TYPE in (
-'Citizen Initiated', 'Rank Initiated'
+'Rank Initiated', 'Public Initiated'
 -- 'Firearm discharge', 'Vehicle accident', 'Civil lawsuit', 'Criminal lawsuit', 'Discretionary arrest',
 -- 'Forced entry', 'Integrity test', 'IPM Review', 'JPIP', 'K9 Utilization', 'MISC',
 -- 'PPEP', 'Protection Order', 'Stop', 'Vehicle pursuit'

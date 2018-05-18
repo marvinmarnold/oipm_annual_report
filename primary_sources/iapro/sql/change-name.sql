@@ -1,0 +1,3 @@
+USE master;  
+ALTER DATABASE IADATA_OIPM  
+Modify Name = IADATA_OIPM_20180228 ;  
