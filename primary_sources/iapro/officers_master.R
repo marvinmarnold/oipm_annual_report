@@ -1,14 +1,11 @@
-check.vars(c("officers.csv"))
+check.vars(c("officers.legacy.csv", "officers.oipm.csv", "officers.adp.csv"))
 
 ########################################################################################################
 ########################################################################################################
 
-active.officers.for.year <- read.csv(officers.csv, stringsAsFactors = FALSE)
-active.officers.for.year <- active.officers.for.year %>% mutate(
-  age.bucket = sapply(Age, age.bucket.function)
-)
+#officers.oipm <- read.csv(officers.oipm.csv, stringsAsFactors = FALSE)
+officers.adp.for.year <- read.csv(officers.adp.csv, stringsAsFactors = FALSE)
 
-all.officers <- read.csv(all.officers.csv, stringsAsFactors = FALSE)
-all.officers <- all.officers %>% mutate(
+officers.adp.for.year <- officers.adp.for.year %>% mutate(
   age.bucket = sapply(Age, age.bucket.function)
 )

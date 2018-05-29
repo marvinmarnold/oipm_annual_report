@@ -9,6 +9,9 @@ select
 
 -- Employment details
 offnum AS "Officer number",
+current_badge_no as "Badge number",
+usrnum as "User number",
+num_emp as "Employment number",
 title as "Title",
 emp_type as "Employee type",
 status as "Employment status",

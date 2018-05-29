@@ -53,6 +53,9 @@ released.
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
+**NOT MOBILE FRIENDLY**
+For the best experience, view this website on a desktop computer using full-screen.
+![alt text](img/phone.jpg "NOT MOBILE FRIENDLY")
 
 ### Navigating the report
 This website is an interactive version of the statiscal analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
@@ -71,12 +74,41 @@ released.
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
 
+
 ### Reproducing this report
 
 #### tl;dr
 ```
 git clone https://github.com/marvinmarnold/oipm_annual_report
+
+# Install pre-requisites
+
 Rscript run.R
+```
+
+***Installing on Ubuntu 16.04 pre-requisites***
+```
+# Dependencies
+sudo add-apt-repository -y ppa:opencpu/jq
+sudo add-apt-repository -y ppa:ubuntugis/ppa
+sudo apt-get update
+sudo apt-get install r-base-dev r-base-core libjq-dev libcurl4-openssl-dev libssl-dev libprotobuf-dev libjq-dev libv8-3.14-dev protobuf-compiler libgdal1-dev libgdal1i libproj-dev libudunits2-dev gdal-bin python-gdal python3-gdal libgstreamer-plugins-base0.10-0 libgstreamer0.10-0
+
+# link pandoc
+sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
+sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
+```
+
+```
+# Get newest versions 
+install.packages('devtools')
+library(devtools)
+devtools::install_github('hadley/ggplot2')
+devtools::install_github("hrecht/censusapi")
+devtools::install_github('rstudio/leaflet')
+
+# Get stable releases
+install.packages(c("dplyr", "tidyr", "ggplot2", "rmarkdown", "plotly", "flexdashboard", "maps", "pandoc", "leaflet", "maptools", "geojsonio"))
 ```
 
 #### Source
@@ -96,7 +128,7 @@ The report was written in Rmarkdown using Rstudio and has the following dependen
 - devtools::install_github('rstudio/leaflet')
 - geojsonio (on ubuntu, installation fails many times and instructs to install dependencies)
 
-e.g.: `install.packages(c("dplyr", "tidyr", "ggplot2", "rmarkdown", "plotly", "flexdashboard", "maps", "pandoc", "leaflet"))`
+e.g.: `install.packages(c("dplyr", "tidyr", "ggplot2", "rmarkdown", "plotly", "flexdashboard", "maps", "pandoc", "leaflet", "maptools", "devtools"))`
 
 #### Build and run
 Once you have all the dependencies installed, you can clone the repository and use Knit in Rstudio to compile `index.Rmd`
