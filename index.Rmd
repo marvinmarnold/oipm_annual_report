@@ -778,6 +778,18 @@ p.discipline.by.race
 
 Row
 -------------------------------------
+### Discipline by officer sex
+```{r, fig.width = 4, fig.height = 5}
+p.discipline.by.officer.sex
+```
+
+### Discipline by officer race
+```{r, fig.width = 4, fig.height = 5}
+p.discipline.by.officer.race
+```
+
+Row
+-------------------------------------
 ### Individual allegations by outcome
 ```{r, fig.width = 8, fig.height = 8}
 p.allegation.by.type.disposition
