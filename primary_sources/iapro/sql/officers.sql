@@ -63,11 +63,11 @@ unit_dt_assigned as "Assigned to unit on",
 current_sup_offnum as "Current supervisor"
 
 from iadata_oipm.ia_adm.officers
-where officers.emp_type in ('Commissioned') 
-AND
+-- where officers.emp_type in ('Commissioned') 
+-- AND
 
 -- This is inacurrate but pending a resolution to alternative below
-status = 'Active'
+-- status = 'Active'
 
 -- The code below won't work because end_employ_dt is often null
 -- Officers hired before the end of 2017

@@ -23,3 +23,5 @@ officers.adp.for.year <- officers.adp.for.year %>% mutate(
   ),
   Zip = zip
 )
+
+all.officers.oipm <- read.csv(all.officers.csv, stringsAsFactors = FALSE)

@@ -1,9 +1,9 @@
-check.vars(c("uof.for.year", "ftn.for.year", "active.officers.for.year"))
+check.vars(c("uof.for.year", "ftn.for.year", "officers.adp.for.year"))
 
 ########################################################################################################
 ########################################################################################################
 
-num.officers <- nrow(active.officers.for.year)
+num.officers <- nrow(officers.adp.for.year)
 num.officers.force <- uof.for.year %>% select(Officer.primary.key) %>% distinct %>% nrow
 
 num.ftn <- ftn.for.year %>% nrow
@@ -126,7 +126,7 @@ p.force.per.bucket
 inspect.rank <- 5
 
 top.5.uof <- uof.count.per.officer %>% filter(rank.bucket <= inspect.rank)
-top.5.officers.uof <- merge(top.5.uof, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+top.5.officers.uof <- merge(top.5.uof, all.officers.oipm, by.x = "Officer.primary.key", by.y = "Officer.number")
 
 # Number missing
 top.5.uof.num.missing <- inspect.rank - nrow(top.5.officers.uof)
@@ -138,12 +138,12 @@ top.5.uof.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank)
 top.5.uof.num.male <- top.5.officers.uof %>% filter(Officer.sex == 'M') %>% nrow
 
 # Age
-top.5.uof.min.age <- min(top.5.officers.uof$Age)
-top.5.uof.max.age <- max(top.5.officers.uof$Age)
+top.5.uof.min.age <- min(top.5.officers.uof$Age %>% na.omit())
+top.5.uof.max.age <- max(top.5.officers.uof$Age %>% na.omit())
 
 # Experience
-top.5.uof.min.exp <- min(top.5.officers.uof$Years.employed)
-top.5.uof.max.exp <- max(top.5.officers.uof$Years.employed)
+top.5.uof.min.exp <- min(top.5.officers.uof$Years.employed %>% na.omit())
+top.5.uof.max.exp <- max(top.5.officers.uof$Years.employed %>% na.omit())
 
 # Race
 #top.5.uof.races <- top.5.officers.uof %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())
@@ -163,7 +163,7 @@ top.5.officers.uof.unit <- top.5.officers.uof %>% select(Officer.sub.division.A)
 #### FTN
 
 top.5.ftn <- ftn.count.per.officer %>% filter(rank.bucket <= inspect.rank)
-top.5.officers.ftn <- merge(top.5.ftn, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+top.5.officers.ftn <- merge(top.5.ftn, all.officers.oipm, by.x = "Officer.primary.key", by.y = "Officer.number")
 
 # Number missing
 top.5.ftn.num.missing <- inspect.rank - nrow(top.5.officers.ftn)
@@ -175,12 +175,12 @@ top.5.ftn.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank)
 top.5.ftn.num.male <- top.5.officers.ftn %>% filter(Officer.sex == 'M') %>% nrow
 
 # Age
-top.5.ftn.min.age <- min(top.5.officers.ftn$Age)
-top.5.ftn.max.age <- max(top.5.officers.ftn$Age)
+top.5.ftn.min.age <- min(top.5.officers.ftn$Age %>% na.omit())
+top.5.ftn.max.age <- max(top.5.officers.ftn$Age %>% na.omit())
 
 # Experience
-top.5.ftn.min.exp <- min(top.5.officers.ftn$Years.employed)
-top.5.ftn.max.exp <- max(top.5.officers.ftn$Years.employed)
+top.5.ftn.min.exp <- min(top.5.officers.ftn$Years.employed %>% na.omit())
+top.5.ftn.max.exp <- max(top.5.officers.ftn$Years.employed %>% na.omit())
 
 # Race
 #top.5.ftn.races <- top.5.officers.ftn %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())
@@ -205,7 +205,7 @@ top.5.officers.ftn.unit <- top.5.officers.ftn %>% select(Officer.sub.division.A)
 inspect.rank <- 10
 
 top.10.uof <- uof.count.per.officer %>% filter(rank.bucket <= inspect.rank)
-top.10.officers.uof <- merge(top.10.uof, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+top.10.officers.uof <- merge(top.10.uof, all.officers.oipm, by.x = "Officer.primary.key", by.y = "Officer.number")
 
 # Number missing
 top.10.uof.num.missing <- inspect.rank - nrow(top.10.officers.uof)
@@ -217,12 +217,12 @@ top.10.uof.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank
 top.10.uof.num.male <- top.10.officers.uof %>% filter(Officer.sex == 'M') %>% nrow
 
 # Age
-top.10.uof.min.age <- min(top.10.officers.uof$Age)
-top.10.uof.max.age <- max(top.10.officers.uof$Age)
+top.10.uof.min.age <- min(top.10.officers.uof$Age %>% na.omit())
+top.10.uof.max.age <- max(top.10.officers.uof$Age %>% na.omit())
 
 # Experience
-top.10.uof.min.exp <- min(top.10.officers.uof$Years.employed)
-top.10.uof.max.exp <- max(top.10.officers.uof$Years.employed)
+top.10.uof.min.exp <- min(top.10.officers.uof$Years.employed %>% na.omit())
+top.10.uof.max.exp <- max(top.10.officers.uof$Years.employed %>% na.omit())
 
 # Race
 #top.10.uof.races <- top.10.officers.uof %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())
@@ -242,7 +242,7 @@ top.10.officers.uof.unit <- top.10.officers.uof %>% select(Officer.sub.division.
 #### FTN
 
 top.10.ftn <- ftn.count.per.officer %>% filter(rank.bucket <= inspect.rank)
-top.10.officers.ftn <- merge(top.10.ftn, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+top.10.officers.ftn <- merge(top.10.ftn, all.officers.oipm, by.x = "Officer.primary.key", by.y = "Officer.number")
 
 # Number missing
 top.10.ftn.num.missing <- inspect.rank - nrow(top.10.officers.ftn)
@@ -254,12 +254,12 @@ top.10.ftn.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank
 top.10.ftn.num.male <- top.10.officers.ftn %>% filter(Officer.sex == 'M') %>% nrow
 
 # Age
-top.10.ftn.min.age <- min(top.10.officers.ftn$Age)
-top.10.ftn.max.age <- max(top.10.officers.ftn$Age)
+top.10.ftn.min.age <- min(top.10.officers.ftn$Age %>% na.omit())
+top.10.ftn.max.age <- max(top.10.officers.ftn$Age %>% na.omit())
 
 # Experience
-top.10.ftn.min.exp <- min(top.10.officers.ftn$Years.employed)
-top.10.ftn.max.exp <- max(top.10.officers.ftn$Years.employed)
+top.10.ftn.min.exp <- min(top.10.officers.ftn$Years.employed %>% na.omit())
+top.10.ftn.max.exp <- max(top.10.officers.ftn$Years.employed %>% na.omit())
 
 # Race
 #top.10.ftn.races <- top.10.officers.ftn %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())
@@ -284,7 +284,7 @@ top.10.officers.ftn.unit <- top.10.officers.ftn %>% select(Officer.sub.division.
 inspect.rank <- 20
 
 top.20.uof <- uof.count.per.officer %>% filter(rank.bucket <= inspect.rank)
-top.20.officers.uof <- merge(top.20.uof, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+top.20.officers.uof <- merge(top.20.uof, all.officers.oipm, by.x = "Officer.primary.key", by.y = "Officer.number")
 
 # Number missing
 top.20.uof.num.missing <- inspect.rank - nrow(top.20.officers.uof)
@@ -296,12 +296,12 @@ top.20.uof.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank
 top.20.uof.num.male <- top.20.officers.uof %>% filter(Officer.sex == 'M') %>% nrow
 
 # Age
-top.20.uof.min.age <- min(top.20.officers.uof$Age)
-top.20.uof.max.age <- max(top.20.officers.uof$Age)
+top.20.uof.min.age <- min(top.20.officers.uof$Age %>% na.omit())
+top.20.uof.max.age <- max(top.20.officers.uof$Age %>% na.omit())
 
 # Experience
-top.20.uof.min.exp <- min(top.20.officers.uof$Years.employed)
-top.20.uof.max.exp <- max(top.20.officers.uof$Years.employed)
+top.20.uof.min.exp <- min(top.20.officers.uof$Years.employed %>% na.omit())
+top.20.uof.max.exp <- max(top.20.officers.uof$Years.employed %>% na.omit())
 
 # Race
 #top.20.uof.races <- top.20.officers.uof %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())
@@ -321,7 +321,7 @@ top.20.officers.uof.unit <- top.20.officers.uof %>% select(Officer.sub.division.
 #### FTN
 
 top.20.ftn <- ftn.count.per.officer %>% filter(rank.bucket <= inspect.rank)
-top.20.officers.ftn <- merge(top.20.ftn, all.officers, by.x = "Officer.primary.key", by.y = "Officer.number")
+top.20.officers.ftn <- merge(top.20.ftn, all.officers.oipm, by.x = "Officer.primary.key", by.y = "Officer.number")
 
 # Number missing
 top.20.ftn.num.missing <- inspect.rank - nrow(top.20.officers.ftn)
@@ -333,12 +333,12 @@ top.20.ftn.pct <- force.count.per.bucket %>% filter(rank.buckets == inspect.rank
 top.20.ftn.num.male <- top.20.officers.ftn %>% filter(Officer.sex == 'M') %>% nrow
 
 # Age
-top.20.ftn.min.age <- min(top.20.officers.ftn$Age)
-top.20.ftn.max.age <- max(top.20.officers.ftn$Age)
+top.20.ftn.min.age <- min(top.20.officers.ftn$Age %>% na.omit())
+top.20.ftn.max.age <- max(top.20.officers.ftn$Age %>% na.omit())
 
 # Experience
-top.20.ftn.min.exp <- min(top.20.officers.ftn$Years.employed)
-top.20.ftn.max.exp <- max(top.20.officers.ftn$Years.employed)
+top.20.ftn.min.exp <- min(top.20.officers.ftn$Years.employed %>% na.omit())
+top.20.ftn.max.exp <- max(top.20.officers.ftn$Years.employed %>% na.omit())
 
 # Race
 #top.20.ftn.races <- top.20.officers.ftn %>% select(Officer.race) %>% group_by(Officer.race) %>% summarise(count = n())

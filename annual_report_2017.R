@@ -18,7 +18,7 @@ year <- 2017
 officers.legacy.csv <- "data/IAPro/officers_201805012117.csv"
 officers.oipm.csv <- "data/IAPro/officers_oipm_201805291837.csv"
 officers.adp.csv <- "data/NOPD_20170511/officers_adp_20180507.csv"
-all.officers.csv <- "data/all_officers_201805062014.csv"
+all.officers.csv <- "data/IAPro/officers_all_201805300012.csv"
 
 # UOF
 uof.csv <- "data/IAPro/uof_201805291744.csv"
