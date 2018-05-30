@@ -17,7 +17,6 @@ actions.taken.all <- actions.taken.all %>% mutate(
     TRUE ~ "Other"
   )
 )
-
 actions.for.year <- actions.taken.all %>% filter(Action.taken.year == year)
 actions.for.year %>% select(Action.taken.OIPM) %>% distinct
 discipline.for.year <- actions.for.year %>% filter(

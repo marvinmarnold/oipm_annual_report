@@ -340,7 +340,15 @@ when c.sex = 'Female' or c.sex = 'F' then 'F'
 Else 'Unknown sex'
 end as "Citizen sex",
 
-c.race as "Citizen race",
+case
+when c.race = 'American Ind' then 'Native American'
+when c.race = 'Asian/Pacif' or c.race = 'Asian/Pacifi' then 'Asian / Pacific Islander'
+when c.race = 'Black' then 'Black / African American'
+when c.race = 'Hispanic' then 'Hispanic'
+when c.race = 'White' then 'White'
+Else 'Unknown race'
+end as "Citizen race",
+
 c.narrative as "Citizen narrative",
 c.dob as "Citizen dob",
 
