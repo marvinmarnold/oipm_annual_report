@@ -23,27 +23,29 @@ count.by.sex <- summarize(officers.by.sex, num.uof = n())
 count.by.sex
 
 p.officers.by.sex <- plot_ly(count.by.sex, labels = ~Officer.sex, values = ~num.uof, type = 'pie',
-             textposition = 'inside',
-             textinfo = 'label+value+percent',
-             insidetextfont = list(color = '#FFFFFF'),
-             hoverinfo = 'text') %>%
+                             textposition = 'inside',
+                             textinfo = 'label+value+percent',
+                             insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(showlegend = FALSE)
-
+  layout(hovermode = 'compare', showlegend = TRUE)
+  
 p.officers.by.sex
 
 ########################################################################################################
 ########################################################################################################
-officers.by.race <- officers.adp.for.year %>% group_by(Officer.race)
-count.by.race <- summarize(officers.by.race, num.uof = n())
+officers.by.race <- officers.adp.for.year %>% mutate(
+  Officer.race = as.character(Officer.race)
+  ) %>% group_by(Officer.race)
+count.by.race <- summarize(officers.by.race, num.officers = n())
 count.by.race
 
-p.officers.by.race <- plot_ly(count.by.race, labels = ~Officer.race, values = ~num.uof, type = 'pie',
-             textposition = 'inside',
-             textinfo = 'label+value+percent',
-             insidetextfont = list(color = '#FFFFFF'),
-             hoverinfo = 'text') %>%
+p.officers.by.race <- plot_ly(count.by.race, labels = ~Officer.race, 
+                              values = ~num.officers, 
+                              type = 'pie',
+                              textposition = 'inside',
+                              textinfo = 'label+value+percent',
+                              insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(showlegend = FALSE)
-
+  layout(hovermode = 'compare', showlegend = TRUE)
+  
 p.officers.by.race
