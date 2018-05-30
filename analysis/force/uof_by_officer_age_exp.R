@@ -1,4 +1,4 @@
-check.vars(c("uof.for.year", "active.officers.for.year"))
+check.vars(c("uof.for.year", "officers.adp.for.year"))
 title <- "Force by officer age and experience"
 
 ordered.age.buckets <- c('25 or younger', '26 - 30', '31 - 35', '36 - 40', '41 - 45', '46 - 50', '51 or older', 'Unknown age')
@@ -23,8 +23,8 @@ exp.bucket.function <- function(exp) {
 }
 
 uof.bucketed <- uof.for.year %>% mutate(
-  age.bucket = age.bucket.function(Officer.age.at.time.of.UOF), 
-  exp.bucket = exp.bucket.function(Officer.years.exp.at.time.of.UOF)
+  age.bucket = sapply(Officer.age.at.time.of.UOF, age.bucket.function),
+  exp.bucket = sapply(Officer.years.exp.at.time.of.UOF, exp.bucket.function)
 )
 
 # group by age and experience
@@ -32,27 +32,28 @@ uof.by.age.exp <- uof.bucketed %>% group_by(age.bucket, exp.bucket)
 count.by.age.exp <- summarise(uof.by.age.exp, num.uof = n())
 
 # pct of active officers in each age bucket
-num.officers <- nrow(active.officers.for.year)
+num.officers <- nrow(officers.adp.for.year)
 age.buckets <- uof.bucketed %>% select(age.bucket) %>% distinct
 age.buckets <- age.buckets %>% mutate(
   count = sapply(age.buckets$age.bucket, function(age.bucket) {
-    sum(active.officers.for.year$age.bucket == age.bucket)
+    sum(officers.adp.for.year$age.bucket == age.bucket)
   }),
   
   pct = count / num.officers * 100)
 
+ordered.pct.by.age.bucket <- merge(data.frame(age.bucket=ordered.age.buckets), age.buckets)
 p.uof.by.officer.age.exp <- plot_ly(count.by.age.exp) %>%
   
   # Stacked bars by exp
-  add_trace(x = ~age.bucket, 
-            y = ~num.uof, 
+  add_trace(x = count.by.age.exp$age.bucket, 
+            y = count.by.age.exp$num.uof, 
             type = 'bar',  
-            name = ~exp.bucket, 
-            color = ~exp.bucket) %>%
+            name = count.by.age.exp$exp.bucket, 
+            color = count.by.age.exp$exp.bucket) %>%
   
   # pct active officers at age
   add_trace(x = ordered.age.buckets, 
-            y = age.buckets$pct,
+            y = ordered.pct.by.age.bucket$pct,
             name = "% officers this age", 
             yaxis = 'y2',
             type = "scatter",

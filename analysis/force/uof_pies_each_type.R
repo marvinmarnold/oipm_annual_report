@@ -5,7 +5,7 @@ title <- "UOF by type"
 lvls <- c("L1", "L2", "L3", "L4")
 ########################################################################################################
 ########################################################################################################
-uof.count.by.type <- uof.all %>% filter(Year.Occurred == year) %>% group_by(Force.type, Force.level)
+uof.count.by.type <- uof.for.year %>% group_by(Force.type, Force.level)
 uof.count.by.type <- summarise(uof.count.by.type, count = n())
 
 uof.pies.each.type <- lapply(lvls, function (lvl) {

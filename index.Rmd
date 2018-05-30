@@ -17,17 +17,18 @@ source("annual_report_2017.R")
 
 # Force
 source("analysis/force/force_by_year.R")
-#source("analysis/force/force_by_month.R")
-#source("analysis/force/uof_by_type.R")
-#source("analysis/force/uof_by_reason.R")
-#source("analysis/force/uof_by_level_and_year.R")
-#source("analysis/force/uof_pies_each_type.R")
-#source("analysis/force/uof_by_officer_age_exp.R")
+source("analysis/force/force_by_month.R")
+source("analysis/force/uof_by_type.R")
+source("analysis/force/uof_by_reason.R")
+source("analysis/force/uof_by_level_and_year.R")
+source("analysis/force/uof_pies_each_type.R")
+source("analysis/force/uof_by_effectiveness.R")
+source("analysis/force/uof_by_district_level.R")
+source("analysis/force/uof_by_disposition.R")
+
+source("analysis/force/uof_by_officer_age_exp.R")
 #source("analysis/force/uof_by_victim_sex_race.R")
 #source("analysis/force/uof_by_officer_sex_race.R")
-#source("analysis/force/uof_by_district_level.R")
-#source("analysis/force/uof_by_effectiveness.R")
-#source("analysis/force/uof_by_disposition.R")
 #source("analysis/force/uof_by_injury.R")
 #source("analysis/force/force_per_officer.R")
 #source("analysis/force/uof_against_blacks_comparison.R")
@@ -259,7 +260,7 @@ p.force.by.year
 
 ### FTN & UOF in 2017 by month
 ```{r, fig.width = 10, fig.height = 6}
-#p.force.by.month
+p.force.by.month
 ```
 
 Row {data-height=300}
@@ -291,22 +292,22 @@ Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-#p.lvl.by.year[[1]]
+p.lvl.by.year[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-#p.lvl.by.year[[2]]
+p.lvl.by.year[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-#p.lvl.by.year[[3]]
+p.lvl.by.year[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-#p.lvl.by.year[[4]]
+p.lvl.by.year[[4]]
 ```
 
 Row {data-height=300}
@@ -328,12 +329,12 @@ Row
 -------------------------------------
 ### Force by level and type of force 
 ```{r, fig.width = 10, fig.height = 7}
-#p.uof.by.type
+p.uof.by.type
 ```
 
 ### Force by level and district
 ```{r, fig.width = 10, fig.height = 7}
-#p.uof.by.district.type
+p.uof.by.district.type
 ```
 
 Row {data-height=300}
@@ -346,6 +347,7 @@ Row {data-height=300}
 - all firearm discharges were deemed effective
 - exhibiting firearms not effecive 8% = 59 instances where not effective
 - hands not effective 10% of the time 
+- How can 'other' force always be effective?
 
 **NOPD's determination**
 
@@ -358,12 +360,12 @@ Row
 -------------------------------------
 ### Force by type and effectiveness 
 ```{r, fig.width = 10, fig.height = 6}
-#p.uof.by.effectiveness
+p.uof.by.effectiveness
 ```
 
 ### NOPD's determination of unauthorized force
 ```{r, fig.width = 10, fig.height = 4}
-#p.uof.by.disposition
+p.uof.by.disposition
 ```
 
 
@@ -390,22 +392,22 @@ Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-#uof.pies.each.type[[1]]
+uof.pies.each.type[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-#uof.pies.each.type[[2]]
+uof.pies.each.type[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-#uof.pies.each.type[[3]]
+uof.pies.each.type[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-#uof.pies.each.type[[4]]
+uof.pies.each.type[[4]]
 ```
 
 Row {data-height=300}
@@ -420,17 +422,17 @@ Row
 -------------------------------------
 ### Reason for force
 ```{r, fig.height = 3}
-#p.uof.by.reason
+p.uof.by.reason
 ```
 
 ### Reason for exhibiting firearms
 ```{r, fig.height = 3}
-#p.firearm.by.reason
+p.firearm.by.reason
 ```
 
 ### What preceded force
 ```{r, fig.height = 3}
-#p.uof.by.service.type
+p.uof.by.service.type
 ```
 
 Row {data-height=300}
@@ -557,7 +559,7 @@ Row
 - Not yet clear how assignment factors into this. Are older officers in admin roles where they are less likely to interact w/ publi?
 
 ```{r, fig.width = 10, fig.height = 5}
-#p.uof.by.officer.age.exp
+p.uof.by.officer.age.exp
 ```
 
 Row {data-height=150}

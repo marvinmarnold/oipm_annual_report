@@ -61,6 +61,7 @@ recategorize.force.level <- function(force.types, force.levels) {
 uof.reported.2015 <- uof.reported.2015 %>% mutate(
   Force.type = recategorize.force.type(Use.of.Force.Type, Use.of.Force.Level),
   Force.level = recategorize.force.level(Use.of.Force.Type, Use.of.Force.Level),
-  Year.Occurred = 2015
+  Year.Occurred = 2015,
+  year.of.record = 2015
 )
 
