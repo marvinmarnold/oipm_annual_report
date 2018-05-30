@@ -50,6 +50,7 @@ source("analysis/complaints/discipline_by_allegation.R")
 source("analysis/complaints/discipline_by_public_sex.R")
 source("analysis/complaints/discipline_by_race.R")
 source("analysis/complaints/complaints_by_rank_disposition.R")
+source("analysis/complaints/complaints_anonymous.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -769,8 +770,13 @@ p.discipline.by.allegation
 Row
 -------------------------------------
 ### Rank v public complaints
-```{r, fig.width = 4, fig.height = 5}
+```{r, fig.width = 4, fig.height = 7}
 p.complaints.by.rank.disposition
+```
+
+### Anonymous complaints
+```{r, fig.width = 4, fig.height = 5}
+p.anon.allegs
 ```
 
 Row

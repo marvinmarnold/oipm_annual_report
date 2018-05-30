@@ -335,6 +335,12 @@ cL.NUM_SHOTS as "Citizen num shots",
 cL.CIT_AFFECT_TYPE as "Citizen affect type",
 cL.INJ_CAUSED_BY as "Citizen injury caused by",
 
+CASE
+when c.FNAM is null or c.FNAM = '' then 'Anon - No name'
+when PATINDEX('%Anonymous%', c.FNAM) > 0 then 'Anon - Explicit'
+else 'Not anonymous' 
+end as "Is anonymous",
+
 -- Normalize citizen gender
 case
 when c.sex = 'Male' or c.sex = 'M' then 'M'
