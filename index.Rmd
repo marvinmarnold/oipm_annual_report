@@ -47,6 +47,8 @@ source("analysis/complaints/complaints_by_disposition_officer_race.R")
 source("analysis/complaints/allegations_by_source.R")
 source("analysis/complaints/actions_taken_by_action.R")
 source("analysis/complaints/discipline_by_allegation.R")
+source("analysis/complaints/discipline_by_public_sex.R")
+source("analysis/complaints/discipline_by_race.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -760,6 +762,18 @@ p.top.alleg
 ### Discipline by allegation
 ```{r, fig.width = 4, fig.height = 5}
 p.discipline.by.allegation
+```
+
+Row
+-------------------------------------
+### Discipline by complainant sex
+```{r, fig.width = 4, fig.height = 5}
+p.discipline.by.sex
+```
+
+### Discipline by complainant race
+```{r, fig.width = 4, fig.height = 5}
+p.discipline.by.race
 ```
 
 Row

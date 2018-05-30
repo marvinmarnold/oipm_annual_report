@@ -4,7 +4,7 @@ title <- "Discipline by complainant's sex"
 ########################################################################################################
 ########################################################################################################
 
-complainant.info <- allegations.all %>% select(Citizen.race, Citizen.sex, Allegation.primary.key) %>% distinct()
+complainant.info <- allegations.all %>% select(Citizen.sex, Allegation.primary.key) %>% distinct()
 detailed.actions.for.year <- merge(discipline.for.year, complainant.info, by = "Allegation.primary.key", all.x = TRUE)
 
 discipline.by.sex <- detailed.actions.for.year %>% group_by(Action.taken.OIPM, Citizen.sex)
