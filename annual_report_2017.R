@@ -73,6 +73,7 @@ readRenviron("../.Renviron")
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################
 
+source("primary_sources/data.nola.gov/police_districts.R")
 source("primary_sources/iapro/officers_master.R")
 #source("primary_sources/iapro/uof_ftn_master.R")
 #source("primary_sources/uof2015.R")
@@ -81,5 +82,3 @@ source("primary_sources/iapro/officers_master.R")
 #source("primary_sources/data.nola.gov/stops_master.R")
 #source("primary_sources/opso/bookings_master.R")
 #source("primary_sources/opso/charges_master.R")
-#source("primary_sources/data.nola.gov/police_districts.R")
-

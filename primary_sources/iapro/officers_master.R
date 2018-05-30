@@ -20,5 +20,6 @@ officers.adp.for.year <- officers.adp.for.year %>% mutate(
     Ethnic.Group.Desc == 'Hispanic' ~ hispanic,
     Ethnic.Group.Desc == 'White' ~ white,
     TRUE ~ unknown.race
-  )
+  ),
+  Zip = zip
 )

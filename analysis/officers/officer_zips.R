@@ -1,4 +1,4 @@
-check.vars(c("active.officers.for.year"))
+check.vars(c("officers.adp.for.year"))
 title <- "Officers by zip"
 
 center.long <- -90.078634
@@ -10,7 +10,7 @@ bins <- c(0, 1, 2, 5, 10, 25, 50, 75, 100, Inf)
 ########################################################################################################
 ########################################################################################################
 # Count officers by zip
-officers.with.zip <- active.officers.for.year %>% filter(!is.na(Zip))
+officers.with.zip <- officers.adp.for.year %>% filter(!is.na(Zip))
 officers.by.zip <- officers.with.zip %>% group_by(Zip)
 count.by.zip <- summarize(officers.by.zip, num.officers = n())
 
@@ -69,3 +69,4 @@ p.officer.map <- m %>% addPolygons(
     textsize = "15px",
     direction = "auto"))
 
+p.officer.map
