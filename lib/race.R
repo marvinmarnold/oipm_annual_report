@@ -6,8 +6,8 @@ check.vars(c("districts"))
 asian <- "Asian / Pacific Islander"
 black <- "Black / African American"
 white <- "White"
-hispanic <- "Hispanic"
-native <- "Native American"
+hispanic <- "Hispanic / Latinx"
+native <- "Native / Indigenous"
 unknown.race <- "Unknown race"
 
 ########################################################################################################

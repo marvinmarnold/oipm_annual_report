@@ -1,10 +1,11 @@
-check.vars(c("active.officers.for.year", "year"))
+check.vars(c("officers.adp.for.year", "year"))
 title <- "Officer demograthics"
 
+# From annual report
 active.officers.2016 <-1239
 ########################################################################################################
 ########################################################################################################
-active.officers.2017 <- nrow(active.officers.for.year)
+active.officers.2017 <- nrow(officers.adp.for.year)
 
 p.active.officers <- plot_ly(
   x = c("2016", "2017"),
@@ -17,7 +18,7 @@ p.active.officers
 
 ########################################################################################################
 ########################################################################################################
-officers.by.sex <- active.officers.for.year %>% group_by(Officer.sex)
+officers.by.sex <- officers.adp.for.year %>% group_by(Officer.sex)
 count.by.sex <- summarize(officers.by.sex, num.uof = n())
 count.by.sex
 
@@ -33,7 +34,7 @@ p.officers.by.sex
 
 ########################################################################################################
 ########################################################################################################
-officers.by.race <- active.officers.for.year %>% group_by(Officer.race)
+officers.by.race <- officers.adp.for.year %>% group_by(Officer.race)
 count.by.race <- summarize(officers.by.race, num.uof = n())
 count.by.race
 
