@@ -77,7 +77,7 @@ case
         
     -----       
     -- Mediation
-	when PATINDEX('%WITHDRAWN- MEDIATION%', STUFF((
+	when PATINDEX('%WITHDRAWN%', STUFF((
         SELECT N', ' + CAST([finding] AS VARCHAR(255))
         FROM allegation alleg2
         WHERE alleg.AIO_NUM = alleg2.AIO_NUM ---- string with grouping by AIO_NUM
@@ -173,7 +173,7 @@ case
         
     -----       
     -- Mediation
-	when PATINDEX('%WITHDRAWN- MEDIATION%', finding) > 0 then 'Mediation'    
+	when PATINDEX('%WITHDRAWN%', finding) > 0 then 'Mediation'    
         
     -----    
     -- DI-2
@@ -222,7 +222,9 @@ END as 'Allegation Finding OIPM',
 incident.status as "Status",
 	
 -- Disposition according to NOPD's classifications
-case when incident.status <> 'Completed' then 'Pending'
+case 
+
+when incident.status <> 'Completed' then 'Pending'
 Else 
 	case
 	when Disposition = 'Awaiting Hearing' then 'Other'

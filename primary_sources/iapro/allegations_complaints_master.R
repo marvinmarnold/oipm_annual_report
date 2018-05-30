@@ -19,12 +19,8 @@ allegations.all <- allegations.all %>% mutate(
   )
 )
 
-allegations.all %>% colnames
-#allegations.all <- allegations.all %>% filter(Allegation.final.disposition != "NFIM CASE")
-
 # 2017 analysis
 allegations.for.year <- allegations.all %>% filter(grepl("2017", PIB.Control.Number))
-allegations.for.year %>% select(Allegation.short) %>% distinct
 
 nrow(allegations.for.year)
 # Function to recategorize an array of dispositions/findings to a single disposition
@@ -69,5 +65,8 @@ oipm.dispositions <- complaints.by.officer.for.year %>%
 oipm.dispositions <- rename(oipm.dispositions, Disposition.OIPM = Disposition.OIPM.by.officer)
 
 complaints.for.year <- merge(complaints.for.year, oipm.dispositions, by = "PIB.Control.Number")
+mediation.for.year <- complaints.for.year %>% filter(Disposition.OIPM == "Mediation") 
+#write.csv(mediation.for.year, file = "mediation_2017.csv")
+
 colnames(complaints.for.year)
 
