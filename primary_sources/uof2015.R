@@ -1,9 +1,9 @@
-uof.2015.csv <- "data/Dante/2015UOF.csv"
+check.vars(c("uof.reported.2015.csv"))
 
 ########################################################################################################
 ########################################################################################################
 
-uof.2015 <- read.csv(uof.2015.csv, stringsAsFactors = FALSE)
+uof.reported.2015 <- read.csv(uof.reported.2015.csv, stringsAsFactors = FALSE)
 
 recategorize.force.type <- function(force.types, force.levels) {
   mapply(function (force.type, force.level) {
@@ -58,8 +58,9 @@ recategorize.force.level <- function(force.types, force.levels) {
 }
 
 
-uof.2015 <- uof.2015 %>% mutate(
+uof.reported.2015 <- uof.reported.2015 %>% mutate(
   Force.type = recategorize.force.type(Use.of.Force.Type, Use.of.Force.Level),
   Force.level = recategorize.force.level(Use.of.Force.Type, Use.of.Force.Level),
   Year.Occurred = 2015
 )
+

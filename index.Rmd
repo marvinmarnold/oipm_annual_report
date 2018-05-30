@@ -16,7 +16,7 @@ library(flexdashboard)
 source("annual_report_2017.R")
 
 # Force
-#source("analysis/force/force_by_year.R")
+source("analysis/force/force_by_year.R")
 #source("analysis/force/force_by_month.R")
 #source("analysis/force/uof_by_type.R")
 #source("analysis/force/uof_by_reason.R")
@@ -89,7 +89,7 @@ Rscript run.R
 #### Source
 The data and scripts used to generate this website are available [here](https://github.com/marvinmarnold/oipm_annual_report).
 
-#### Pre-requiites: Installing on Ubuntu 16.04***
+#### Pre-requiites: Installing on Ubuntu 16.04
 
 ```
 # Dependencies
@@ -163,6 +163,8 @@ Row
 ### Repo includes all data
 Clone this repo to download all data. Alternatively, use the links to download each individually.
 
+Row 
+-------------------------------------
 ### Active duty officers
 The IAPro DB that OIPM has access to contains officer information that is not always in a useable form or up-to-date.
 For the official count of active NOPD officers in 2017, we use data provided by NOPD. But for providing information about
@@ -177,6 +179,22 @@ officers involved in specific uses of force or complaints, we use information fr
 - Download: TODO
 - Source: NOPD pull from ADP on May 11, 2018
 - Issues: Can't cross reference with IAPro data
+
+Row 
+-------------------------------------
+### Use of Force
+2017 is the first year that OIPM has independent access to a copy of the database that contains force information.
+We have used the data on data.nola.gov to compare with NOPD's version and cross reference with previously reported numbers.
+We are unable to reproduce all of NOPD's previous figures, especially for 2015 where there is a large discrepancy.
+
+#### Direct database access
+- Download: TODO
+- Source: OIPM direct DB access on May 18, 2016
+- Issues: 2015 data mostly missing
+
+#### data.nola.gov
+- Download: TODO
+- Issues: Does not contain a unique way to identify officers.
 
 Use of force {data-orientation=rows}
 ===================================== 
@@ -217,6 +235,7 @@ Row {data-height=300}
 ### Analysis
 **Force by year**
 
+- OIPM has same data for 2017. 2015 and 2016 still need to be confirmed.
 - Force jumps between 2014 and 2015 because of new rules about what constitutes force. 
 - UOF has been rising but FTN about steady. More <officers, victims, types of force> used per force incident.
 - 2016 is the first year that the database that we access (IAPro) was used. Before then, we have to rely on
@@ -235,7 +254,7 @@ Row
 -------------------------------------
 ### Use of force by year
 ```{r force.by.year, fig.width = 10, fig.height = 6}
-#p.force.by.year
+p.force.by.year
 ```
 
 ### FTN & UOF in 2017 by month

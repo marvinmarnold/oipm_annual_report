@@ -1,4 +1,3 @@
-nopd.uof <- read.csv("data/data.nola.gov/NOPD_Use_of_Force_Incidents.csv") 
 nopd.ftn <- nopd.uof %>% filter(grepl("^FTN2017", PIB.File.Number)) %>% select(PIB.File.Number) %>% distinct
 our.ftn <- ftn.for.year %>% select(ftn) %>% distinct
 

@@ -14,12 +14,16 @@ year <- 2017
 
 ######### IAPro
 
-# Filenames relative to wd
+# Officers
 officers.legacy.csv <- "data/IAPro/officers_201805012117.csv"
 officers.oipm.csv <- "data/IAPro/officers_oipm_201805291837.csv"
 officers.adp.csv <- "data/NOPD_20170511/officers_adp_20180507.csv"
 all.officers.csv <- "data/all_officers_201805062014.csv"
+
+# UOF
 uof.csv <- "data/IAPro/uof_201805291744.csv"
+uof.reported.2015.csv <- "data/Dante/2015UOF.csv"
+uof.opendata.csv <- "data_public/data.nola.gov/NOPD_Use_of_Force_Incidents_20180529.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
 allegations.csv <- "data/IAPro/allegations_201805181532.csv"
@@ -75,8 +79,7 @@ readRenviron("../.Renviron")
 
 source("primary_sources/data.nola.gov/police_districts.R")
 source("primary_sources/iapro/officers_master.R")
-#source("primary_sources/iapro/uof_ftn_master.R")
-#source("primary_sources/uof2015.R")
+source("primary_sources/iapro/uof_ftn_master.R")
 #source("primary_sources/iapro/allegations_complaints_master.R")
 #source("primary_sources/iapro/actions_taken_master.R")
 #source("primary_sources/data.nola.gov/stops_master.R")
