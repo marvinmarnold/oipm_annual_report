@@ -49,6 +49,7 @@ source("analysis/complaints/actions_taken_by_action.R")
 source("analysis/complaints/discipline_by_allegation.R")
 source("analysis/complaints/discipline_by_public_sex.R")
 source("analysis/complaints/discipline_by_race.R")
+source("analysis/complaints/complaints_by_rank_disposition.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -754,14 +755,22 @@ p.allegations.by.month
 
 Row
 -------------------------------------
+
 ### Most common allegations (regardless of outcome)
 ```{r, fig.width = 4, fig.height = 5}
 p.top.alleg
 ```
 
 ### Discipline by allegation
-```{r, fig.width = 4, fig.height = 5}
+```{r, fig.width = 8, fig.height = 5}
 p.discipline.by.allegation
+```
+
+Row
+-------------------------------------
+### Rank v public complaints
+```{r, fig.width = 4, fig.height = 5}
+p.complaints.by.rank.disposition
 ```
 
 Row
