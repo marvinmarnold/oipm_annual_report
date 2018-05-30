@@ -9,7 +9,7 @@ title <- "Disposition of all complaints"
 p.complaint.by.outcome <- plot_ly(count.dispositions.for.year,  type = 'pie', name = title,
         labels = ~Disposition.OIPM, 
         values = ~num.complaints,
-        textposition = 'inside',
+        textposition = 'middle center',
         textinfo = 'label+value+percent',
         insidetextfont = list(color = '#FFFFFF')) %>%
   
@@ -26,7 +26,7 @@ title <- "Disposition of rank initiated complaints"
 p.rank.complaint.by.outcome <- plot_ly(count.rank.dispositions.for.year,  type = 'pie', name = title,
                                   labels = ~Disposition.OIPM, 
                                   values = ~num.complaints,
-                                  textposition = 'inside',
+                                  textposition = 'middle center',
                                   textinfo = 'label+value+percent',
                                   insidetextfont = list(color = '#FFFFFF')) %>%
   
@@ -36,14 +36,14 @@ p.rank.complaint.by.outcome
 
 ########################################################################################################
 ########################################################################################################
-citizen.dispositions.for.year <- complaints.for.year %>% filter(Incident.type == "Citizen Initiated") %>% group_by(Disposition.OIPM)
+citizen.dispositions.for.year <- complaints.for.year %>% filter(Incident.type == "Public Initiated") %>% group_by(Disposition.OIPM)
 count.citizen.dispositions.for.year <- summarise(citizen.dispositions.for.year, num.complaints = n())
 
 title <- "Disposition of citizen initiated complaints"
 p.citizen.complaint.by.outcome <- plot_ly(count.citizen.dispositions.for.year,  type = 'pie', name = title,
                                        labels = ~Disposition.OIPM, 
                                        values = ~num.complaints,
-                                       textposition = 'inside',
+                                       textposition = 'middle center',
                                        textinfo = 'label+value+percent',
                                        insidetextfont = list(color = '#FFFFFF')) %>%
   

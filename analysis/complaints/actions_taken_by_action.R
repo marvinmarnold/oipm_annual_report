@@ -10,7 +10,6 @@ relevant.actions <- actions.for.year %>%
 
 count.by.action <- relevant.actions %>% summarise(count = n())
 
-
 p.actions.taken <- plot_ly(count.by.action,  type = 'pie', 
         name = ~Action.taken.OIPM,
         labels = ~Action.taken.OIPM, 

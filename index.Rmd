@@ -37,14 +37,14 @@ source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
 
 # Allegations
-#source("analysis/complaints/complaints_allegations_by_year.R")
-#source("analysis/complaints/complaints_allegations_by_month.R")
-#source("analysis/complaints/allegations_by_type.R")
-#source("analysis/complaints/complaints_by_outcome.R")
-#source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
-#source("analysis/complaints/complaints_by_disposition_officer_race.R")
-#source("analysis/complaints/allegations_by_source.R")
-#source("analysis/complaints/actions_taken_by_action.R")
+source("analysis/complaints/complaints_allegations_by_year.R")
+source("analysis/complaints/complaints_allegations_by_month.R")
+source("analysis/complaints/allegations_by_type.R")
+source("analysis/complaints/complaints_by_outcome.R")
+source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
+source("analysis/complaints/complaints_by_disposition_officer_race.R")
+source("analysis/complaints/allegations_by_source.R")
+source("analysis/complaints/actions_taken_by_action.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -723,77 +723,77 @@ Row
 -------------------------------------
 ### Complaints by year
 ```{r, fig.width = 5, fig.height = 3}
-#p.complaints.by.year
+p.complaints.by.year
 ```
 
 ### Allegations by year
 ```{r, fig.width = 5, fig.height = 3}
-#p.allegations.by.year
+p.allegations.by.year
 ```
 
 Row
 -------------------------------------
 ### Complaints and allegations by month
 ```{r, fig.width = 5, fig.height = 5}
-#p.complaints.allegations.by.month
+p.complaints.allegations.by.month
 ```
 
 ### Complaints by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
-#p.complaints.by.month
+p.complaints.by.month
 ```
 
 ### Allegations by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
-#p.allegations.by.month
+p.allegations.by.month
 ```
 
 Row
 -------------------------------------
 ### Individual allegations by outcome
 ```{r, fig.width = 8, fig.height = 8}
-#p.allegation.by.type.disposition
+p.allegation.by.type.disposition
 ```
 
 ### Actions taken
 ```{r, fig.width = 4, fig.height = 8}
-#p.actions.taken
+p.actions.taken
 ```
 
 Row
 -------------------------------------
 ### All complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-#p.complaint.by.outcome
+p.complaint.by.outcome
 ```
 
 ### Rank complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-#p.rank.complaint.by.outcome
+p.rank.complaint.by.outcome
 ```
 
 ### Citizen complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-#p.citizen.complaint.by.outcome
+p.citizen.complaint.by.outcome
 ```
 
 Row
 -------------------------------------
 ### How officer race impacts disposition
 ```{r, fig.width = 8, fig.height = 7}
-#p.allegation.race.disposition
+p.allegation.race.disposition
 ```
 
 ### How officer race impacts disposition
 ```{r, fig.width = 4, fig.height = 7}
-#p.complaint.disposition.by.officer.race
+p.complaint.disposition.by.officer.race
 ```
 
 Row
 -------------------------------------
 ### Allegations by source
 ```{r, fig.width = 8, fig.height = 7}
-#p.alleg.by.source
+p.alleg.by.source
 ```
 
 Officers

@@ -1,9 +1,9 @@
-check.vars(c("actions.csv"))
+check.vars(c("actions.taken.csv"))
 
 ########################################################################################################
 ########################################################################################################
 
-actions.taken.all <- read.csv(actions.csv, stringsAsFactors = FALSE)
+actions.taken.all <- read.csv(actions.taken.csv, stringsAsFactors = FALSE)
 
 actions.for.year <- actions.taken.all %>% filter(Action.taken.year == year)
 

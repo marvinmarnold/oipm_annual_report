@@ -19,16 +19,16 @@ num.calculated.complaints.2016 <- complaints.2016 %>% nrow
 num.calculated.allegations.2016 <- allegations.2016 %>% nrow
 
 # Percent of complaints / allegations initiated by citizens
-pct.citizen.complaints.2016 <- complaints.2016 %>% filter(Incident.type == "Citizen Initiated") %>% nrow / 
+pct.citizen.complaints.2016 <- complaints.2016 %>% filter(Incident.type == "Public Initiated") %>% nrow / 
   num.calculated.complaints.2016 * 100
 
-pct.citizen.complaints.2017 <-complaints.for.year %>% filter(Incident.type == "Citizen Initiated") %>% nrow / 
+pct.citizen.complaints.2017 <-complaints.for.year %>% filter(Incident.type == "Public Initiated") %>% nrow / 
   num.complaints.2017 * 100
   
-pct.citizen.allegations.2016 <- allegations.2016 %>% filter(Incident.type == "Citizen Initiated") %>% nrow / 
+pct.citizen.allegations.2016 <- allegations.2016 %>% filter(Incident.type == "Public Initiated") %>% nrow / 
   num.calculated.allegations.2016 * 100
 
-pct.citizen.allegations.2017 <-allegations.for.year %>% filter(Incident.type == "Citizen Initiated") %>% nrow / 
+pct.citizen.allegations.2017 <-allegations.for.year %>% filter(Incident.type == "Public Initiated") %>% nrow / 
   num.allegations.2017 * 100
   
 # Construct vectors

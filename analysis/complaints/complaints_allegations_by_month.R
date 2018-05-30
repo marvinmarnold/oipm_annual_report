@@ -4,7 +4,7 @@ check.vars(c("year", "complaints.for.year", "allegations.for.year"))
 ########################################################################################################
 # Complaints by month initiated by citizens vs rank
 
-citizen.complaints <- complaints.for.year %>% filter(Incident.type == "Citizen Initiated")
+citizen.complaints <- complaints.for.year %>% filter(Incident.type == "Public Initiated")
 rank.complaints <- complaints.for.year %>% filter(Incident.type == "Rank Initiated")
 
 citizen.complaints.by.month <- citizen.complaints %>% group_by(Month.occurred) %>% summarize(num.complaints = n())
@@ -37,7 +37,7 @@ p.complaints.by.month
 ########################################################################################################
 # Allegations by month initiated by citizens vs rank
 
-citizen.allegations <- allegations.for.year %>% filter(Incident.type == "Citizen Initiated")
+citizen.allegations <- allegations.for.year %>% filter(Incident.type == "Public Initiated")
 rank.allegations <- allegations.for.year %>% filter(Incident.type == "Rank Initiated")
 
 citizen.allegations.by.month <- citizen.allegations %>% group_by(Month.occurred) %>% summarize(num.allegations = n())
@@ -47,7 +47,7 @@ df <- data.frame(month = months,
                  citizen.allegations.by.month = citizen.allegations.by.month$num.allegations, 
                  rank.allegations.by.month = rank.allegations.by.month$num.allegations)
 
-p.allegations.by.month <- plot_ly(df, x = ~month, y = ~citizen.allegations.by.month, name = 'Citizen allegations', type = 'scatter', 
+p.allegations.by.month <- plot_ly(df, x = ~month, y = ~citizen.allegations.by.month, name = 'Public allegations', type = 'scatter', 
                                  mode = 'lines+markers', 
                                  line = list(color = 'rgb(22, 96, 167)', width = 2, dash = 'solid')) %>%
   
