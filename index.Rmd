@@ -40,6 +40,7 @@ source("analysis/officers/officer_zips.R")
 source("analysis/complaints/complaints_allegations_by_year.R")
 source("analysis/complaints/complaints_allegations_by_month.R")
 source("analysis/complaints/allegations_by_type.R")
+source("analysis/complaints/top_allegations.R")
 source("analysis/complaints/complaints_by_outcome.R")
 source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
 source("analysis/complaints/complaints_by_disposition_officer_race.R")
@@ -746,6 +747,13 @@ p.complaints.by.month
 ### Allegations by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
 p.allegations.by.month
+```
+
+Row
+-------------------------------------
+### Most common allegations (regardless of outcome)
+```{r, fig.width = 4, fig.height = 5}
+p.top.alleg
 ```
 
 Row

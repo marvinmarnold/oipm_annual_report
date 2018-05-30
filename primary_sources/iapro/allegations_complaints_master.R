@@ -5,10 +5,25 @@ check.vars(c("year", "allegations.csv"))
 
 # Read data
 allegations.all <- read.csv(allegations.csv, stringsAsFactors = FALSE)
+allegations.all <- allegations.all %>% mutate(
+  Allegation.short = substring(trim(Allegation), 16, 999),
+  Allegation.simple = case_when(
+    Allegation.short == "NEGLECT OF DUTY" ~ "Neglect of duty",
+    Allegation.short == "Professionalism" ~ "Professionalism",
+    Allegation.short == "INSTRUCTIONS FROM AUTHORITATIVE SOURCE" ~ "Instructions from authoritative source",
+    Allegation.short == "ADHERENCE TO LAW" ~ "Adherence to law",
+    Allegation.short == "UNAUTHORIZED FORCE" ~ "Unauthorized force",
+    Allegation.short == "COURTESY" ~ "Courtesy",
+    Allegation.short == "VERBAL INTIMIDATION" ~ "Verbal intimidation",
+    TRUE ~ "Other"
+  )
+)
 #allegations.all <- allegations.all %>% filter(Allegation.final.disposition != "NFIM CASE")
 
 # 2017 analysis
 allegations.for.year <- allegations.all %>% filter(grepl("2017", PIB.Control.Number))
+allegations.for.year %>% select(Allegation.short) %>% distinct
+
 nrow(allegations.for.year)
 # Function to recategorize an array of dispositions/findings to a single disposition
 SelectDisp <- function(disp) {

@@ -57,4 +57,6 @@ district.num.names <- data.frame(
   district.num = district.nums
 )
 
+trim <- function (x) gsub("^\\s+|\\s+$", "", x)
+
 source("lib/race.R")

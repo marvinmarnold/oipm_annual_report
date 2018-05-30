@@ -3,9 +3,7 @@ title <- "Allegations by type"
 
 ########################################################################################################
 ########################################################################################################
-allegations.for.year <- allegations.for.year %>% mutate(
-  Allegation.short = substring(Allegation, 16, 999)
-)
+
 allegations.by.type.disposition <- allegations.for.year %>% group_by(Allegation.short, Allegation.Finding.OIPM)
 count.by.type.disposition <- summarize(allegations.by.type.disposition, num.allegations = n())
 
