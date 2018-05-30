@@ -18,6 +18,8 @@ allegations.all <- allegations.all %>% mutate(
     TRUE ~ "Other"
   )
 )
+
+allegations.all %>% colnames
 #allegations.all <- allegations.all %>% filter(Allegation.final.disposition != "NFIM CASE")
 
 # 2017 analysis

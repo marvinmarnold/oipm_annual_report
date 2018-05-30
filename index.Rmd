@@ -46,6 +46,7 @@ source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
 source("analysis/complaints/complaints_by_disposition_officer_race.R")
 source("analysis/complaints/allegations_by_source.R")
 source("analysis/complaints/actions_taken_by_action.R")
+source("analysis/complaints/discipline_by_allegation.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -754,6 +755,11 @@ Row
 ### Most common allegations (regardless of outcome)
 ```{r, fig.width = 4, fig.height = 5}
 p.top.alleg
+```
+
+### Discipline by allegation
+```{r, fig.width = 4, fig.height = 5}
+p.discipline.by.allegation
 ```
 
 Row
