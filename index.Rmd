@@ -27,11 +27,9 @@ source("analysis/force/uof_by_district_level.R")
 source("analysis/force/uof_by_disposition.R")
 source("analysis/force/uof_by_officer_age_exp.R")
 source("analysis/force/force_per_officer.R")
-
-#source("analysis/force/uof_by_victim_sex_race.R")
-#source("analysis/force/uof_by_officer_sex_race.R")
-#source("analysis/force/uof_by_injury.R")
-#
+source("analysis/force/uof_by_victim_sex_race.R")
+source("analysis/force/uof_by_officer_sex_race.R")
+source("analysis/force/uof_by_injury.R")
 #source("analysis/force/uof_against_blacks_comparison.R")
 
 # Officers
@@ -569,12 +567,12 @@ Row
 -------------------------------------
 ### Officer injuries during UOF
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.officer.injury
+p.uof.by.officer.injury
 ```
 
 ### Victim injuries during UOF
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.victim.injury
+p.uof.by.victim.injury
 ```
 
 Row {data-height=200}
@@ -592,29 +590,29 @@ Row
 -------------------------------------
 ### UOF by victim gender and race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.victim.sex.race
+p.uof.by.victim.sex.race
 ```
 
 ### UOF by female victim race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.female.victim.race
+p.uof.by.female.victim.race
 ```
 
 ### UOF by male victim race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.male.victim.race
+p.uof.by.male.victim.race
 ```
 
 Row
 -------------------------------------
 ### Female victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.female.victim.uof.by.type
+p.female.victim.uof.by.type
 ```
 
 ### Male victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.male.victim.uof.by.type
+p.male.victim.uof.by.type
 ```
 
 Row {data-height=300}
@@ -658,29 +656,29 @@ Row
 -------------------------------------
 ### UOF by officer gender and race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.officer.sex.race
+p.uof.by.officer.sex.race
 ```
 
 ### UOF by female officer race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.female.officer.race
+p.uof.by.female.officer.race
 ```
 
 ### UOF by male officer race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.male.officer.race
+p.uof.by.male.officer.race
 ```
 
 Row
 -------------------------------------
 ### Female officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.female.uof.by.type
+p.female.uof.by.type
 ```
 
 ### Male officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.male.uof.by.type
+p.male.uof.by.type
 ```
 
 Complaints
