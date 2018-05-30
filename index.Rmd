@@ -14,31 +14,37 @@ output:
 ```{r setup, echo = FALSE, cache = FALSE, include = FALSE}
 library(flexdashboard)
 source("annual_report_2017.R")
-source("analysis/force/force_by_year.R")
-source("analysis/force/force_by_month.R")
-source("analysis/force/uof_by_type.R")
-source("analysis/force/uof_by_reason.R")
-source("analysis/force/uof_by_level_and_year.R")
-source("analysis/force/uof_pies_each_type.R")
-source("analysis/force/uof_by_officer_age_exp.R")
-source("analysis/force/uof_by_victim_sex_race.R")
-source("analysis/force/uof_by_officer_sex_race.R")
-source("analysis/force/uof_by_district_level.R")
-source("analysis/force/uof_by_effectiveness.R")
-source("analysis/force/uof_by_disposition.R")
-source("analysis/force/uof_by_injury.R")
-source("analysis/force/force_per_officer.R")
-source("analysis/force/uof_against_blacks_comparison.R")
+
+# Force
+#source("analysis/force/force_by_year.R")
+#source("analysis/force/force_by_month.R")
+#source("analysis/force/uof_by_type.R")
+#source("analysis/force/uof_by_reason.R")
+#source("analysis/force/uof_by_level_and_year.R")
+#source("analysis/force/uof_pies_each_type.R")
+#source("analysis/force/uof_by_officer_age_exp.R")
+#source("analysis/force/uof_by_victim_sex_race.R")
+#source("analysis/force/uof_by_officer_sex_race.R")
+#source("analysis/force/uof_by_district_level.R")
+#source("analysis/force/uof_by_effectiveness.R")
+#source("analysis/force/uof_by_disposition.R")
+#source("analysis/force/uof_by_injury.R")
+#source("analysis/force/force_per_officer.R")
+#source("analysis/force/uof_against_blacks_comparison.R")
+
+# Officers
 source("analysis/officers/officer_demographics.R")
 source("analysis/officers/officer_zips.R")
-source("analysis/complaints/complaints_allegations_by_year.R")
-source("analysis/complaints/complaints_allegations_by_month.R")
-source("analysis/complaints/allegations_by_type.R")
-source("analysis/complaints/complaints_by_outcome.R")
-source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
-source("analysis/complaints/complaints_by_disposition_officer_race.R")
-source("analysis/complaints/allegations_by_source.R")
-source("analysis/complaints/actions_taken_by_action.R")
+
+# Allegations
+#source("analysis/complaints/complaints_allegations_by_year.R")
+#source("analysis/complaints/complaints_allegations_by_month.R")
+#source("analysis/complaints/allegations_by_type.R")
+#source("analysis/complaints/complaints_by_outcome.R")
+#source("analysis/complaints/complaints_allegation_sex_race_disposition.R")
+#source("analysis/complaints/complaints_by_disposition_officer_race.R")
+#source("analysis/complaints/allegations_by_source.R")
+#source("analysis/complaints/actions_taken_by_action.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -48,45 +54,43 @@ Column
 -------------------------------------
 
 ### ATTENTION: THIS IS A DRAFT!
+
+#### WORK IN PROGRESS
 OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
 released. 
 
-**WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
-**NOT MOBILE FRIENDLY**
+
+#### NOT MOBILE FRIENDLY
 For the best experience, view this website on a desktop computer using full-screen.
 ![alt text](img/phone.jpg "NOT MOBILE FRIENDLY")
 
 ### Navigating the report
 This website is an interactive version of the statiscal analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
 
+1. [Data Sources](#data-sources)
 1. [Use of Force](#use-of-force)
 2. [Complaints & Discipline](#complaints)
 3. [Officer Demographics](#officers)
 4. [Body-worn camera adherence](#bodyworn-cameras)
 
+
 Column
 -------------------------------------
-### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
-released. 
-
-**WORK IN PROGRESS**
-![alt text](img/wip.png "WORK IN PROGRESS")
-
-
 ### Reproducing this report
 
 #### tl;dr
 ```
 git clone https://github.com/marvinmarnold/oipm_annual_report
-
 # Install pre-requisites
-
 Rscript run.R
 ```
 
-***Installing on Ubuntu 16.04 pre-requisites***
+#### Source
+The data and scripts used to generate this website are available [here](https://github.com/marvinmarnold/oipm_annual_report).
+
+#### Pre-requiites: Installing on Ubuntu 16.04***
+
 ```
 # Dependencies
 sudo add-apt-repository -y ppa:opencpu/jq
@@ -97,9 +101,7 @@ sudo apt-get install r-base-dev r-base-core libjq-dev libcurl4-openssl-dev libss
 # link pandoc
 sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
 sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
-```
 
-```
 # Get newest versions 
 install.packages('devtools')
 library(devtools)
@@ -110,9 +112,6 @@ devtools::install_github('rstudio/leaflet')
 # Get stable releases
 install.packages(c("dplyr", "tidyr", "ggplot2", "rmarkdown", "plotly", "flexdashboard", "maps", "pandoc", "leaflet", "maptools", "geojsonio"))
 ```
-
-#### Source
-The data and scripts used to generate this website are available [here](https://github.com/marvinmarnold/oipm_annual_report).
 
 #### Dependencies
 The report was written in Rmarkdown using Rstudio and has the following dependencies that can be installed using `install.packages("LIBRARY_NAME")`:
@@ -127,8 +126,6 @@ The report was written in Rmarkdown using Rstudio and has the following dependen
 - maps
 - devtools::install_github('rstudio/leaflet')
 - geojsonio (on ubuntu, installation fails many times and instructs to install dependencies)
-
-e.g.: `install.packages(c("dplyr", "tidyr", "ggplot2", "rmarkdown", "plotly", "flexdashboard", "maps", "pandoc", "leaflet", "maptools", "devtools"))`
 
 #### Build and run
 Once you have all the dependencies installed, you can clone the repository and use Knit in Rstudio to compile `index.Rmd`
@@ -158,6 +155,29 @@ Use the entire ZIP that you download, when converting, don't need to extract. (A
 
 LA zip codes http://download.geonames.org/export/zip/
 
+Data sources {data-orientation=rows}
+===================================== 
+
+Row 
+-------------------------------------
+### Repo includes all data
+Clone this repo to download all data. Alternatively, use the links to download each individually.
+
+### Active duty officers
+The IAPro DB that OIPM has access to contains officer information that is not always in a useable form or up-to-date.
+For the official count of active NOPD officers in 2017, we use data provided by NOPD. But for providing information about
+officers involved in specific uses of force or complaints, we use information from the IAPro DB.
+
+#### Info about officers related to each incident
+- Download: TODO
+- Source: OIPM direct DB access on May 18, 2018
+- Issues: Does not have reliable dates of employment
+
+#### Official count of all active duty officers in 2017
+- Download: TODO
+- Source: NOPD pull from ADP on May 11, 2018
+- Issues: Can't cross reference with IAPro data
+
 Use of force {data-orientation=rows}
 ===================================== 
 
@@ -169,6 +189,9 @@ released.
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
+**NOT MOBILE FRIENDLY**
+For the best experience, view this website on a desktop computer using full-screen.
+![alt text](img/phone.jpg "NOT MOBILE FRIENDLY")
 
 ### Police districts
 ```{r fig.width = 6, fig.height = 6}
@@ -212,12 +235,12 @@ Row
 -------------------------------------
 ### Use of force by year
 ```{r force.by.year, fig.width = 10, fig.height = 6}
-p.force.by.year
+#p.force.by.year
 ```
 
 ### FTN & UOF in 2017 by month
 ```{r, fig.width = 10, fig.height = 6}
-p.force.by.month
+#p.force.by.month
 ```
 
 Row {data-height=300}
@@ -249,22 +272,22 @@ Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-p.lvl.by.year[[1]]
+#p.lvl.by.year[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-p.lvl.by.year[[2]]
+#p.lvl.by.year[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-p.lvl.by.year[[3]]
+#p.lvl.by.year[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-p.lvl.by.year[[4]]
+#p.lvl.by.year[[4]]
 ```
 
 Row {data-height=300}
@@ -286,12 +309,12 @@ Row
 -------------------------------------
 ### Force by level and type of force 
 ```{r, fig.width = 10, fig.height = 7}
-p.uof.by.type
+#p.uof.by.type
 ```
 
 ### Force by level and district
 ```{r, fig.width = 10, fig.height = 7}
-p.uof.by.district.type
+#p.uof.by.district.type
 ```
 
 Row {data-height=300}
@@ -316,12 +339,12 @@ Row
 -------------------------------------
 ### Force by type and effectiveness 
 ```{r, fig.width = 10, fig.height = 6}
-p.uof.by.effectiveness
+#p.uof.by.effectiveness
 ```
 
 ### NOPD's determination of unauthorized force
 ```{r, fig.width = 10, fig.height = 4}
-p.uof.by.disposition
+#p.uof.by.disposition
 ```
 
 
@@ -348,22 +371,22 @@ Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-uof.pies.each.type[[1]]
+#uof.pies.each.type[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-uof.pies.each.type[[2]]
+#uof.pies.each.type[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-uof.pies.each.type[[3]]
+#uof.pies.each.type[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-uof.pies.each.type[[4]]
+#uof.pies.each.type[[4]]
 ```
 
 Row {data-height=300}
@@ -378,17 +401,17 @@ Row
 -------------------------------------
 ### Reason for force
 ```{r, fig.height = 3}
-p.uof.by.reason
+#p.uof.by.reason
 ```
 
 ### Reason for exhibiting firearms
 ```{r, fig.height = 3}
-p.firearm.by.reason
+#p.firearm.by.reason
 ```
 
 ### What preceded force
 ```{r, fig.height = 3}
-p.uof.by.service.type
+#p.uof.by.service.type
 ```
 
 Row {data-height=300}
@@ -413,12 +436,12 @@ Row
 -------------------------------------
 ### Average force per officer
 ```{r, fig.height = 3}
-p.force.per.officer
+#p.force.per.officer
 ```
 
 ### Percentage of force my officers using most force
 ```{r, fig.height = 3}
-p.force.per.bucket
+#p.force.per.bucket
 ```
 
 Row {data-height=100}
@@ -430,78 +453,78 @@ Row
 -------------------------------------
 ### Contribution to FTN by top 5 officers
 ```{r, fig.height = 6}
-paste("They account for", top.5.ftn.pct, "% of all FTNs")
-paste(top.5.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
-paste(top.5.ftn.num.male, "are male")
-paste(top.5.ftn.min.age, "-", top.5.ftn.max.age, "years old")
-paste(top.5.ftn.min.exp, "-", top.5.ftn.max.exp, "years of experience")
-paste(top.5.ftn.num.white, "are white,", top.5.ftn.num.black, "are black,", top.5.ftn.num.hispanic, "are hispanic,", top.5.ftn.num.asian, "are asian,", top.5.ftn.num.native, "are native american,", top.5.ftn.num.asian, "are asian, and", top.5.ftn.num.race, "have an unknown race")
-top.5.officers.ftn.division
-top.5.officers.ftn.unit
+#paste("They account for", top.5.ftn.pct, "% of all FTNs")
+#paste(top.5.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+#paste(top.5.ftn.num.male, "are male")
+#paste(top.5.ftn.min.age, "-", top.5.ftn.max.age, "years old")
+#paste(top.5.ftn.min.exp, "-", top.5.ftn.max.exp, "years of experience")
+#paste(top.5.ftn.num.white, "are white,", top.5.ftn.num.black, "are black,", top.5.ftn.num.hispanic, "are hispanic,", top.5.ftn.num.asian, "are asian,", top.5.ftn.num.native, "are native american,", top.5.ftn.num.asian, "are asian, and", top.5.ftn.num.race, "have an unknown race")
+#top.5.officers.ftn.division
+#top.5.officers.ftn.unit
 ```
 
 ### Contribution to UOF by top 5 officers
 ```{r, fig.height = 6}
-paste("They account for", top.5.uof.pct, "% of all UOFs")
-paste(top.5.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
-paste(top.5.uof.num.male, "are male")
-paste(top.5.uof.min.age, "-", top.5.uof.max.age, "years old")
-paste(top.5.uof.min.exp, "-", top.5.uof.max.exp, "years of experience")
-paste(top.5.uof.num.white, "are white,", top.5.uof.num.black, "are black,", top.5.uof.num.hispanic, "are hispanic,", top.5.uof.num.asian, "are asian,", top.5.uof.num.native, "are native american,", top.5.uof.num.asian, "are asian, and", top.5.uof.num.race, "have an unknown race")
-top.5.officers.uof.division
-top.5.officers.uof.unit
+#paste("They account for", top.5.uof.pct, "% of all UOFs")
+#paste(top.5.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+#paste(top.5.uof.num.male, "are male")
+#paste(top.5.uof.min.age, "-", top.5.uof.max.age, "years old")
+#paste(top.5.uof.min.exp, "-", top.5.uof.max.exp, "years of experience")
+#paste(top.5.uof.num.white, "are white,", top.5.uof.num.black, "are black,", top.5.uof.num.hispanic, "are hispanic,", top.5.uof.num.asian, "are asian,", top.5.uof.num.native, "are native american,", top.5.uof.num.asian, "are asian, and", top.5.uof.num.race, "have an unknown race")
+#top.5.officers.uof.division
+#top.5.officers.uof.unit
 ```
 
 Row
 -------------------------------------
 ### Contribution to FTN by top 10 officers
 ```{r, fig.height = 7}
-paste("They account for", top.10.ftn.pct, "% of all FTNs")
-paste(top.10.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
-paste(top.10.ftn.num.male, "are male")
-paste(top.10.ftn.min.age, "-", top.10.ftn.max.age, "years old")
-paste(top.10.ftn.min.exp, "-", top.10.ftn.max.exp, "years of experience")
-paste(top.10.ftn.num.white, "are white,", top.10.ftn.num.black, "are black,", top.10.ftn.num.hispanic, "are hispanic,", top.10.ftn.num.asian, "are asian,", top.10.ftn.num.native, "are native american,", top.10.ftn.num.asian, "are asian, and", top.10.ftn.num.race, "have an unknown race")
-top.10.officers.ftn.division
-top.10.officers.ftn.unit
+#paste("They account for", top.10.ftn.pct, "% of all FTNs")
+#paste(top.10.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+#paste(top.10.ftn.num.male, "are male")
+#paste(top.10.ftn.min.age, "-", top.10.ftn.max.age, "years old")
+#paste(top.10.ftn.min.exp, "-", top.10.ftn.max.exp, "years of experience")
+#paste(top.10.ftn.num.white, "are white,", top.10.ftn.num.black, "are black,", top.10.ftn.num.hispanic, "are hispanic,", top.10.ftn.num.asian, "are asian,", top.10.ftn.num.native, "are native american,", top.10.ftn.num.asian, "are asian, and", top.10.ftn.num.race, "have an unknown race")
+#top.10.officers.ftn.division
+#top.10.officers.ftn.unit
 ```
 
 ### Contribution to UOF by top 10 officers
 ```{r, fig.height = 7}
-paste("They account for", top.10.uof.pct, "% of all UOFs")
-paste(top.10.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
-paste(top.10.uof.num.male, "are male")
-paste(top.10.uof.min.age, "-", top.10.uof.max.age, "years old")
-paste(top.10.uof.min.exp, "-", top.10.uof.max.exp, "years of experience")
-paste(top.10.uof.num.white, "are white,", top.10.uof.num.black, "are black,", top.10.uof.num.hispanic, "are hispanic,", top.10.uof.num.asian, "are asian,", top.10.uof.num.native, "are native american,", top.10.uof.num.asian, "are asian, and", top.10.uof.num.race, "have an unknown race")
-top.10.officers.uof.division
-top.10.officers.uof.unit
+#paste("They account for", top.10.uof.pct, "% of all UOFs")
+#paste(top.10.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+#paste(top.10.uof.num.male, "are male")
+#paste(top.10.uof.min.age, "-", top.10.uof.max.age, "years old")
+#paste(top.10.uof.min.exp, "-", top.10.uof.max.exp, "years of experience")
+#paste(top.10.uof.num.white, "are white,", top.10.uof.num.black, "are black,", top.10.uof.num.hispanic, "are hispanic,", #top.10.uof.num.asian, "are asian,", top.10.uof.num.native, "are native american,", top.10.uof.num.asian, "are asian, and", #top.10.uof.num.race, "have an unknown race")
+#top.10.officers.uof.division
+#top.10.officers.uof.unit
 ```
 
 Row
 -------------------------------------
 ### Contribution to FTN by top 20 officers
 ```{r, fig.height = 8}
-paste("They account for", top.20.ftn.pct, "% of all FTNs")
-paste(top.20.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
-paste(top.20.ftn.num.male, "are male")
-paste(top.20.ftn.min.age, "-", top.20.ftn.max.age, "years old")
-paste(top.20.ftn.min.exp, "-", top.20.ftn.max.exp, "years of experience")
-paste(top.20.ftn.num.white, "are white,", top.20.ftn.num.black, "are black,", top.20.ftn.num.hispanic, "are hispanic,", top.20.ftn.num.asian, "are asian,", top.20.ftn.num.native, "are native american,", top.20.ftn.num.asian, "are asian, and", top.20.ftn.num.race, "have an unknown race")
-top.20.officers.ftn.division
-top.20.officers.ftn.unit
+#paste("They account for", top.20.ftn.pct, "% of all FTNs")
+#paste(top.20.ftn.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+#paste(top.20.ftn.num.male, "are male")
+#paste(top.20.ftn.min.age, "-", top.20.ftn.max.age, "years old")
+#paste(top.20.ftn.min.exp, "-", top.20.ftn.max.exp, "years of experience")
+#paste(top.20.ftn.num.white, "are white,", top.20.ftn.num.black, "are black,", top.20.ftn.num.hispanic, "are hispanic,", top.20.ftn.num.asian, "are asian,", top.20.ftn.num.native, "are native american,", top.20.ftn.num.asian, "are asian, and", top.20.ftn.num.race, "have an unknown race")
+#top.20.officers.ftn.division
+#top.20.officers.ftn.unit
 ```
 
 ### Contribution to UOF by top 20 officers
 ```{r, fig.height = 8}
-paste("They account for", top.20.uof.pct, "% of all UOFs")
-paste(top.20.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
-paste(top.20.uof.num.male, "are male")
-paste(top.20.uof.min.age, "-", top.20.uof.max.age, "years old")
-paste(top.20.uof.min.exp, "-", top.20.uof.max.exp, "years of experience")
-paste(top.20.uof.num.white, "are white,", top.20.uof.num.black, "are black,", top.20.uof.num.hispanic, "are hispanic,", top.20.uof.num.asian, "are asian,", top.20.uof.num.native, "are native american,", top.20.uof.num.asian, "are asian, and", top.20.uof.num.race, "have an unknown race")
-top.20.officers.uof.division
-top.20.officers.uof.unit
+#paste("They account for", top.20.uof.pct, "% of all UOFs")
+#paste(top.20.uof.num.missing, "are mising from the DB suppied to OIPM from NOPD")
+#paste(top.20.uof.num.male, "are male")
+#paste(top.20.uof.min.age, "-", top.20.uof.max.age, "years old")
+#paste(top.20.uof.min.exp, "-", top.20.uof.max.exp, "years of experience")
+#paste(top.20.uof.num.white, "are white,", top.20.uof.num.black, "are black,", top.20.uof.num.hispanic, "are hispanic,", top.20.uof.num.asian, "are asian,", top.20.uof.num.native, "are native american,", top.20.uof.num.asian, "are asian, and", top.20.uof.num.race, "have an unknown race")
+#top.20.officers.uof.division
+#top.20.officers.uof.unit
 ```
 Row
 -------------------------------------
@@ -515,7 +538,7 @@ Row
 - Not yet clear how assignment factors into this. Are older officers in admin roles where they are less likely to interact w/ publi?
 
 ```{r, fig.width = 10, fig.height = 5}
-p.uof.by.officer.age.exp
+#p.uof.by.officer.age.exp
 ```
 
 Row {data-height=150}
@@ -530,12 +553,12 @@ Row
 -------------------------------------
 ### Officer injuries during UOF
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.officer.injury
+#p.uof.by.officer.injury
 ```
 
 ### Victim injuries during UOF
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.victim.injury
+#p.uof.by.victim.injury
 ```
 
 Row {data-height=200}
@@ -553,29 +576,29 @@ Row
 -------------------------------------
 ### UOF by victim gender and race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.victim.sex.race
+#p.uof.by.victim.sex.race
 ```
 
 ### UOF by female victim race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.female.victim.race
+#p.uof.by.female.victim.race
 ```
 
 ### UOF by male victim race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.male.victim.race
+#p.uof.by.male.victim.race
 ```
 
 Row
 -------------------------------------
 ### Female victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-p.female.victim.uof.by.type
+#p.female.victim.uof.by.type
 ```
 
 ### Male victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-p.male.victim.uof.by.type
+#p.male.victim.uof.by.type
 ```
 
 Row {data-height=300}
@@ -597,12 +620,12 @@ Row
 -------------------------------------
 ### Force used disproportionately against black people by month
 ```{r, fig.height = 6}
-p.black.by.month
+#p.black.by.month
 ```
 
 ### Force used disproportionately against black people by district
 ```{r, fig.height = 6}
-p.black.by.district
+#p.black.by.district
 ```
 
 Row {data-height=200}
@@ -619,29 +642,29 @@ Row
 -------------------------------------
 ### UOF by officer gender and race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.officer.sex.race
+#p.uof.by.officer.sex.race
 ```
 
 ### UOF by female officer race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.female.officer.race
+#p.uof.by.female.officer.race
 ```
 
 ### UOF by male officer race
 ```{r, fig.width = 5, fig.height = 4}
-p.uof.by.male.officer.race
+#p.uof.by.male.officer.race
 ```
 
 Row
 -------------------------------------
 ### Female officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-p.female.uof.by.type
+#p.female.uof.by.type
 ```
 
 ### Male officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-p.male.uof.by.type
+#p.male.uof.by.type
 ```
 
 Complaints
@@ -655,10 +678,13 @@ released.
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
+**NOT MOBILE FRIENDLY**
+For the best experience, view this website on a desktop computer using full-screen.
+![alt text](img/phone.jpg "NOT MOBILE FRIENDLY")
 
 ### Police districts
 ```{r fig.width = 6, fig.height = 6}
-p.police.districts
+#p.police.districts
 ```
 
 Row
@@ -683,77 +709,77 @@ Row
 -------------------------------------
 ### Complaints by year
 ```{r, fig.width = 5, fig.height = 3}
-p.complaints.by.year
+#p.complaints.by.year
 ```
 
 ### Allegations by year
 ```{r, fig.width = 5, fig.height = 3}
-p.allegations.by.year
+#p.allegations.by.year
 ```
 
 Row
 -------------------------------------
 ### Complaints and allegations by month
 ```{r, fig.width = 5, fig.height = 5}
-p.complaints.allegations.by.month
+#p.complaints.allegations.by.month
 ```
 
 ### Complaints by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
-p.complaints.by.month
+#p.complaints.by.month
 ```
 
 ### Allegations by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
-p.allegations.by.month
+#p.allegations.by.month
 ```
 
 Row
 -------------------------------------
 ### Individual allegations by outcome
 ```{r, fig.width = 8, fig.height = 8}
-p.allegation.by.type.disposition
+#p.allegation.by.type.disposition
 ```
 
 ### Actions taken
 ```{r, fig.width = 4, fig.height = 8}
-p.actions.taken
+#p.actions.taken
 ```
 
 Row
 -------------------------------------
 ### All complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-p.complaint.by.outcome
+#p.complaint.by.outcome
 ```
 
 ### Rank complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-p.rank.complaint.by.outcome
+#p.rank.complaint.by.outcome
 ```
 
 ### Citizen complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-p.citizen.complaint.by.outcome
+#p.citizen.complaint.by.outcome
 ```
 
 Row
 -------------------------------------
 ### How officer race impacts disposition
 ```{r, fig.width = 8, fig.height = 7}
-p.allegation.race.disposition
+#p.allegation.race.disposition
 ```
 
 ### How officer race impacts disposition
 ```{r, fig.width = 4, fig.height = 7}
-p.complaint.disposition.by.officer.race
+#p.complaint.disposition.by.officer.race
 ```
 
 Row
 -------------------------------------
 ### Allegations by source
 ```{r, fig.width = 8, fig.height = 7}
-p.alleg.by.source
+#p.alleg.by.source
 ```
 
 Officers
@@ -767,29 +793,32 @@ released.
 
 **WORK IN PROGRESS**
 ![alt text](img/wip.png "WORK IN PROGRESS")
+**NOT MOBILE FRIENDLY**
+For the best experience, view this website on a desktop computer using full-screen.
+![alt text](img/phone.jpg "NOT MOBILE FRIENDLY")
 
 Row
 -------------------------------------
 ### Total number active officers
 ```{r, fig.width = 5, fig.height = 5}
-p.active.officers
+#p.active.officers
 ```
 
 ### 2017 active officers by race
 ```{r, fig.width = 5, fig.height = 5}
-p.officers.by.race
+#p.officers.by.race
 ```
 
 ### 2017 active officers by sex
 ```{r, fig.width = 5, fig.height = 5}
-p.officers.by.sex
+#p.officers.by.sex
 ```
 
 Row
 -------------------------------------
 ### Where officers live by zip
 ```{r, fig.width = 5, fig.height = 5}
-p.officer.map
+#p.officer.map
 ```
 
 
