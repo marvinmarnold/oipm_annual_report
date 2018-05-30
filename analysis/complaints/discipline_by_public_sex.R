@@ -5,15 +5,15 @@ title <- "Discipline by complainant's sex"
 ########################################################################################################
 
 complainant.info <- allegations.all %>% select(Citizen.race, Citizen.sex, Allegation.primary.key) %>% distinct()
-detailed.actions.for.year <- merge(disci, complainant.info, by = "Allegation.primary.key", all.x = TRUE) %>% nrow
+detailed.actions.for.year <- merge(discipline.for.year, complainant.info, by = "Allegation.primary.key", all.x = TRUE)
 
-discipline.by.sex <- detailed.actions.for.year %>% group_by(Action.taken.OIPM, Se)
-discipline.count.by.allegation <- summarize(discipline.by.allegation, num.allegations = n())
+discipline.by.sex <- detailed.actions.for.year %>% group_by(Action.taken.OIPM, Citizen.sex)
+discipline.count.by.sex <- summarize(discipline.by.sex, num.allegations = n())
 
-p.discipline.by.allegation <- plot_ly(discipline.count.by.allegation, 
+p.discipline.by.sex <- plot_ly(discipline.count.by.sex, 
                                       x = ~Action.taken.OIPM, y = ~num.allegations, 
-                                      type = 'bar',  name = ~Allegation.short, 
-                                      color = ~Allegation.short) %>%
+                                      type = 'bar',  name = ~Citizen.sex, 
+                                      color = ~Citizen.sex) %>%
   
   layout(xaxis = list(title = "Type of allegation", 
                       showgrid = F), 
@@ -22,4 +22,4 @@ p.discipline.by.allegation <- plot_ly(discipline.count.by.allegation,
          hovermode = 'compare', 
          margin = list(r = 100, b = 100))
 
-p.discipline.by.allegation
+p.discipline.by.sex
