@@ -52,4 +52,4 @@ bookings.all <- bookings.all %>% mutate(
 bookings.for.year <- filter(bookings.all, In.Year == year) %>% select(safeNames)
 
 # Uncomment to create a new file that does not contain sensitive information
-# write.csv(arrests, file = "OPSO_Bookings_20160101_20171003_SANITIZED.csv")
+# write.csv(bookings.for.year, file = "data_public/opso/bookings_2017.csv")

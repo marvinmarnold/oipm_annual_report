@@ -30,7 +30,7 @@ source("analysis/force/force_per_officer.R")
 source("analysis/force/uof_by_victim_sex_race.R")
 source("analysis/force/uof_by_officer_sex_race.R")
 source("analysis/force/uof_by_injury.R")
-#source("analysis/force/uof_against_blacks_comparison.R")
+source("analysis/force/uof_against_blacks_comparison.R")
 
 # Officers
 source("analysis/officers/officer_demographics.R")
@@ -634,12 +634,12 @@ Row
 -------------------------------------
 ### Force used disproportionately against black people by month
 ```{r, fig.height = 6}
-#p.black.by.month
+p.black.by.month
 ```
 
 ### Force used disproportionately against black people by district
 ```{r, fig.height = 6}
-#p.black.by.district
+p.black.by.district
 ```
 
 Row {data-height=200}
@@ -698,7 +698,7 @@ For the best experience, view this website on a desktop computer using full-scre
 
 ### Police districts
 ```{r fig.width = 6, fig.height = 6}
-#p.police.districts
+p.police.districts
 ```
 
 Row
@@ -815,24 +815,24 @@ Row
 -------------------------------------
 ### Total number active officers
 ```{r, fig.width = 5, fig.height = 5}
-#p.active.officers
+p.active.officers
 ```
 
 ### 2017 active officers by race
 ```{r, fig.width = 5, fig.height = 5}
-#p.officers.by.race
+p.officers.by.race
 ```
 
 ### 2017 active officers by sex
 ```{r, fig.width = 5, fig.height = 5}
-#p.officers.by.sex
+p.officers.by.sex
 ```
 
 Row
 -------------------------------------
 ### Where officers live by zip
 ```{r, fig.width = 5, fig.height = 5}
-#p.officer.map
+p.officer.map
 ```
 
 

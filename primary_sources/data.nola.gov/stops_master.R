@@ -67,4 +67,4 @@ stops.all <- stops.all %>% mutate(
 stops.for.year <- stops.all %>% filter(event.year == year)
 
 # Write data to file
-# write.csv(stopsAll, file = "data/data.nola.gov/Stops_DataNolaCom_Cleaned_20180406.csv")
+write.csv(stops.for.year, file = "data_public/data.nola.gov/stops_2017.csv")

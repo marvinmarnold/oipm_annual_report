@@ -136,13 +136,13 @@ p.black.by.district <- plot_ly(black.by.district,
                               x = ~district, 
                               y = ~population, 
                               type = 'bar', 
-                              name = "% Black pop. by district") %>%
+                              name = "% black pop. by district") %>%
   
   add_trace(y = ~stops, name = "% stops are of black ppl by district") %>%
   
   add_trace(y = ~bookings, name = "% bookings are of black ppl by district") %>%
   
-  add_trace(y = ~uof, name = "% force are gainst black ppl by district") %>%
+  add_trace(y = ~uof, name = "% force against black ppl by district") %>%
   
   layout(
     margin = list(b = 150),
