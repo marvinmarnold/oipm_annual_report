@@ -53,6 +53,9 @@ source("analysis/complaints/complaints_by_rank_disposition.R")
 source("analysis/complaints/complaints_anonymous.R")
 source("analysis/complaints/allegations_fourth_amendment.R")
 source("analysis/complaints/allegations_retaliation.R")
+
+# Outreach
+source("analysis/oipm_survey.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -805,6 +808,87 @@ Row
 p.officer.map
 ```
 
+Community outreach {data-orientation=rows}
+===================================== 
+
+Row
+-------------------------------------
+### Concerned with homicide investigations
+What are your greatest concerns about NOPD?
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[1]]
+```
+
+### Concerned with treatment of juveniles
+What are your greatest concerns about NOPD?
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[2]]
+```
+
+### Concerned with response time
+What are your greatest concerns about NOPD?
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[3]]
+```
+
+Row
+-------------------------------------
+### Concerned with human rights violations
+What are your greatest concerns about NOPD?
+```{r, fig.width = 5, fig.height = 4}
+p.survey.pies[[4]]
+```
+
+### Concerned with crime victim
+What are your greatest concerns about NOPD?
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[5]]
+```
+
+### Concerned other
+What are your greatest concerns about NOPD?
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[6]]
+```
+
+Row
+-------------------------------------
+### Prioritize bad apples
+If you were the police monitor, what would your priorities be?
+***Cleaning out the “bad apples” and making sure NOPD officers are punished for wrongdoing***
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[7]]
+```
+
+### Prioritize helping public
+If you were the police monitor, what would your priorities be?
+***Helping the public understand NOPD better and identifying areas where NOPD could improve***
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[8]]
+```
+
+### Prioritize leadership
+If you were the police monitor, what would your priorities be?
+***Helping NOPD leadership see and correct problems***
+```{r, fig.width = 4, fig.height = 4}
+p.survey.pies[[9]]
+```
+
+Row 
+-------------------------------------
+### Prioritize communication of successes and failures
+If you were the police monitor, what would your priorities be?
+***Telling the public about all NOPD’s successes and mistakes***
+```{r, fig.width = 6, fig.height = 4}
+p.survey.pies[[10]]
+```
+
+### Prioritize other
+If you were the police monitor, what would your priorities be?
+***Other***
+```{r, fig.width = 6, fig.height = 4}
+p.survey.pies[[11]]
+```
 
 Bodyworn Cameras
 ===================================== 

@@ -49,6 +49,10 @@ stops.for.year.csv <- "data_public/data.nola.gov/stops_2017.csv"
 bwc.nopd.csv <- "data/NOPD_20170511/2017 BWC officer ID and category for IPM.csv"
 bwc.public.csv <- "data_public/data.nola.gov/NOPD_Body_Worn_Camera_Metadata_20180521.csv"
 
+######### OIPM
+oipm.survey.csv <- "data/oipm_survey_results_20180531.csv"
+
+
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################
 
