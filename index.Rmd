@@ -757,14 +757,25 @@ p.allegations.by.month
 
 Row
 -------------------------------------
-
 ### Most common allegations (regardless of outcome)
 ```{r, fig.width = 4, fig.height = 5}
 p.top.alleg
 ```
 
+### Most common sustained allegations
+```{r, fig.width = 4, fig.height = 5}
+p.top.sustained.alleg
+```
+
+### Most common DI-2 allegations
+```{r, fig.width = 4, fig.height = 5}
+p.top.di2.alleg
+```
+
+Row
+-------------------------------------
 ### Discipline by allegation
-```{r, fig.width = 8, fig.height = 5}
+```{r, fig.width = 12, fig.height = 5}
 p.discipline.by.allegation
 ```
 
