@@ -52,6 +52,7 @@ source("analysis/complaints/discipline_by_race.R")
 source("analysis/complaints/complaints_by_rank_disposition.R")
 source("analysis/complaints/complaints_anonymous.R")
 source("analysis/complaints/allegations_fourth_amendment.R")
+source("analysis/complaints/allegations_retaliation.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -105,9 +106,7 @@ sudo add-apt-repository -y ppa:ubuntugis/ppa
 sudo apt-get update
 sudo apt-get install r-base-dev r-base-core libjq-dev libcurl4-openssl-dev libssl-dev libprotobuf-dev libjq-dev libv8-3.14-dev protobuf-compiler libgdal1-dev libgdal1i libproj-dev libudunits2-dev gdal-bin python-gdal python3-gdal libgstreamer-plugins-base0.10-0 libgstreamer0.10-0
 
-# link pandoc
-sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
-sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
+# Install pandoc 2 from http://pandoc.org/installing.html#linux
 
 # Get newest versions 
 install.packages('devtools')
@@ -241,21 +240,10 @@ Row {data-height=300}
 -------------------------------------
 ### Analysis
 **Force by year**
-
-- OIPM has same data for 2017. 2015 and 2016 still need to be confirmed.
-- Force jumps between 2014 and 2015 because of new rules about what constitutes force. 
-- UOF has been rising but FTN about steady. More <officers, victims, types of force> used per force incident.
-- 2016 is the first year that the database that we access (IAPro) was used. Before then, we have to rely on
-historic numbers from NOPD.
-- Furthermore, 2017 is the first year the OIPM has had access to the underlying database. We worked with NOPD to resolve discrepancies with historic numbers.
-- Force is flat from 2016 to 2017.
-- *Still unclear where 2015 data came from*
+Coming soon
 
 **Force by month**
-
-- UOF and FTN peak in Feb and August, corresponding to Mardi Gras and summertime.
-- UOF has its third peak in Nov but FTN is low that month. This leads to a avg UOF/FTN of 4.5 which is around 2-3 the rest of the year.
-- What is driving UOF most: citizens, types of force, num officers
+Coming soon
 
 Row 
 -------------------------------------
@@ -272,27 +260,7 @@ p.force.by.month
 Row {data-height=300}
 -------------------------------------
 ### Analysis
-**Level 1**
-
-- L1 force decreasing.
-- Exhibiting firearms has not changed
-- Known that many officers unholster but don't point weapon which is not counted
-
-**Level 2**
-
-- L2 grew after shrinking the year before
-- growth attributable to 66% growth in defense tech / take down.
-
-**Level 3**
-
-- l3 doubled from 3 to 6
-
-**Level 4**
-
-- l4 shrunk by 50%
-- driven by reduction of canine bites to 0
-- **where are taser hits??**
-
+Coming soon
 
 Row
 -------------------------------------
@@ -319,17 +287,7 @@ p.lvl.by.year[[4]]
 Row {data-height=300}
 -------------------------------------
 ### Analysis
-**By level**
-
-- L1 and L2 force account for the vast amount of force used
-- Exhibiting firearms accounts for as much force as all other types combined
-
-**By district**
-
-- 7th district and special operations have most force. 
-- 7th has more than special ops. last year it was reversed
-- 1st (mid city), 4th (algiers), 5th (bywater, treme, 9th ward) have only L1 and L2 force
-- **add %lvl one force on another axis**
+Coming soon
 
 Row
 -------------------------------------
@@ -345,22 +303,7 @@ p.uof.by.district.type
 
 Row {data-height=300}
 -------------------------------------
-### Analysis
-**Effectiveness**
-
-- Like last year, all forms of taser use stand out as being least effective
-- NOPD self determines effectiveness. Not clear what the guidelines are.
-- all firearm discharges were deemed effective
-- exhibiting firearms not effecive 8% = 59 instances where not effective
-- hands not effective 10% of the time 
-- How can 'other' force always be effective?
-
-**NOPD's determination**
-
-- 7 unauthorized instances of force. 
-- last year there was only one. 7 is more in line with expectation of 6.
-- 140, about 10% have outcomes that don't make sense
-- **more details about these incidents**
+Coming soon
 
 Row
 -------------------------------------
@@ -378,21 +321,7 @@ p.uof.by.disposition
 Row {data-height=450}
 -------------------------------------
 ### Analysis
-**Level 1**
-
-- Exhibiting firearms the overwhelming reason for using force
-- combined with exhibiting tasers, accounts for 75% of low level force.
-- aka 3 times more likely to pull out a weapon than use hands
-- there are about as many l1 hands as l2 take down. 
-- **why no taser hits??**
-
-**Level 2**
-
-- 77% take downs
-
-**Level 3**
-
-- is canine bite l3 or l4
+Coming soon
 
 Row
 -------------------------------------
@@ -419,10 +348,7 @@ uof.pies.each.type[[4]]
 Row {data-height=300}
 -------------------------------------
 ### Analysis
-
-- other accounts for 19.4% of justifications for force. what is that?
-- 30.9% firearm exhibits are other.
-- this is still bigger than the overall other rate, but a decrease from last years staggering 50%
+Coming soon
 
 Row
 -------------------------------------
@@ -444,20 +370,7 @@ p.uof.by.service.type
 Row {data-height=300}
 -------------------------------------
 ### Analysis
-**Force per officer**
-
-- almost identical to last year.
-- on average, an NOPD officer will be involved in a force incident once every other year.
-- but only considering officers who used force at least once in 2017, the rate is closer to 3 incidents every 2 years.
-
-**% using force**
-
-- these results also very similar to 2016
-- about 1/3 (~400+) of officers use force
-- of those, 20 officers account for 20% of force. 
-- not fair to say "bad apples" because many of those officers are in special ops (see below)
-- trend is that UOF is higher than FTN meaning of officers using force more often, they are also more forceful when they do (more victims + types)
-- there are many officers missing from IAPro. What's that about?
+Coming soon
 
 Row
 -------------------------------------
@@ -474,7 +387,7 @@ p.force.per.bucket
 Row {data-height=100}
 -------------------------------------
 ### Analysis
-**MISSING MANY OFFICERS**
+Coming soon
 
 Row
 -------------------------------------
@@ -565,10 +478,7 @@ p.uof.by.officer.age.exp
 Row {data-height=150}
 -------------------------------------
 ### Analysis
-
-- given most force is exhibiting weapons, the injuries when physical force exerted is higher
-- victims more likely to be injured as a result of force.
-- both groups at non-trivial risk of injury
+Coming soon
 
 Row
 -------------------------------------
@@ -585,13 +495,7 @@ p.uof.by.victim.injury
 Row {data-height=200}
 -------------------------------------
 ### Analysis of UOF by victim gender and race
-
-- Males have force used against them more often. 
-- Black males are more often victims of force than black females.
-- Inversely, white females have more force used against them than white males.
-- Black people are most exposed to Firearms but white people get hands. 
-- Asians and native amer have so little force, can't say much 
-
+Coming soon
 
 Row
 -------------------------------------
@@ -625,17 +529,7 @@ p.male.victim.uof.by.type
 Row {data-height=300}
 -------------------------------------
 ### Analysis 
-**Excessive force against black people by month**
-
-- Like last year, force against black people eclipses population, arrests, and stops 11 of 12 months.
-- january had a low 52% of force against black people
-- stops and arrests of black people pretty stable. but force has much more variablility and does not seem correlated with either.
-
-**By district**
-
-- all districts except for 1st (mid city) use force against black people disproportionately to other metrics
-- 2nd (broadmore) and 3rd (lakeview) are most disproportionate
-- **waiting on arrest numbers by district**
+Coming soon
 
 Row
 -------------------------------------
@@ -652,12 +546,7 @@ p.black.by.district
 Row {data-height=200}
 -------------------------------------
 ### Analysis of UOF by officer gender and race
-
-- males used more force
-- white males use more force than all other groups even though they only account for 
-- female officers use force proportional to their representation.
-- male officers have the specific disproportionality  of white males using a lot of force.
-- **add pie chart that includes officer race-sex in one large pie**
+Coming soon
 
 Row
 -------------------------------------
@@ -716,6 +605,7 @@ When one or more individuals complain about an officer, a single tracking number
 Furthermore, its possible that each complaint/allegation is intiated by either a supervisor or anybody who is not their supervisor (including other officers). Complaints/allegations initiated by a superior are called "Rank Initiated" while all other complaints are "Citizen Initiated".
 
 When a complaint/case contains more than one finding, select disposition in this order:
+
 1. Sustained
 2. Withdrawn / mediated
 3. DI-2
@@ -867,6 +757,14 @@ p.alleg.by.source
 ```{r, fig.width = 7, fig.height = 7}
 p.fourth.viol
 ```
+
+Row
+-------------------------------------
+### Allegations by source
+```{r, fig.width = 5, fig.height = 4}
+p.retaliation
+```
+
 
 Officers
 ===================================== 

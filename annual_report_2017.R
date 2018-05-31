@@ -25,7 +25,7 @@ uof.reported.2015.csv <- "data/Dante/2015UOF.csv"
 uof.opendata.csv <- "data_public/data.nola.gov/NOPD_Use_of_Force_Incidents_20180529.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
-allegations.csv <- "data/IAPro/allegations_201805301716.csv"
+allegations.csv <- "data/IAPro/allegations_201805311533.csv"
 
 # Actions taken
 actions.taken.csv <- "data/IAPro/actions_taken_201805300118.csv"

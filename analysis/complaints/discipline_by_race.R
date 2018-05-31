@@ -1,8 +1,8 @@
 check.vars(c("year", "allegations.for.year"))
-title <- "Discipline by complainant's race"
 
 ########################################################################################################
 ########################################################################################################
+title <- "Discipline by Complainant's Race"
 
 complainant.info <- allegations.all %>% select(Citizen.race, Allegation.primary.key) %>% distinct()
 detailed.actions.for.year <- merge(discipline.for.year, complainant.info, by = "Allegation.primary.key", all.x = TRUE)
@@ -20,13 +20,14 @@ p.discipline.by.race <- plot_ly(discipline.count.by.race,
          yaxis = list(title = 'Number allegations'), 
          barmode = 'stack',
          hovermode = 'compare', 
-         margin = list(r = 100, b = 100))
+         margin = list(r = 100, b = 100),
+         title = title)
 
 p.discipline.by.race
 
 ########################################################################################################
 ########################################################################################################
-title <- "Discipline by officer's race"
+title <- "Discipline by Officer's Race"
 
 complainant.info <- allegations.all %>% select(Officer.Race, Allegation.primary.key) %>% distinct()
 detailed.actions.for.year <- merge(discipline.for.year, complainant.info, by = "Allegation.primary.key", all.x = TRUE)
@@ -44,6 +45,7 @@ p.discipline.by.officer.race <- plot_ly(discipline.count.by.race,
          yaxis = list(title = 'Number allegations'), 
          barmode = 'stack',
          hovermode = 'compare', 
-         margin = list(r = 100, b = 100))
+         margin = list(r = 100, b = 100),
+         title = title)
 
 p.discipline.by.officer.race
