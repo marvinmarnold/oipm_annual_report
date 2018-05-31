@@ -52,7 +52,6 @@ bwc.public.csv <- "data_public/data.nola.gov/NOPD_Body_Worn_Camera_Metadata_2018
 ######### OIPM
 oipm.survey.csv <- "data/oipm_survey_results_20180531.csv"
 
-
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################
 

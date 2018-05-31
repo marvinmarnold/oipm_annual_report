@@ -53,6 +53,7 @@ source("analysis/complaints/complaints_by_rank_disposition.R")
 source("analysis/complaints/complaints_anonymous.R")
 source("analysis/complaints/allegations_fourth_amendment.R")
 source("analysis/complaints/allegations_retaliation.R")
+source("analysis/complaints/allegations_mediation.R")
 
 # Outreach
 source("analysis/oipm_survey.R")
@@ -766,6 +767,11 @@ Row
 ### Allegations by source
 ```{r, fig.width = 5, fig.height = 4}
 p.retaliation
+```
+
+### Mediation misclassifications
+```{r, fig.width = 5, fig.height = 4}
+p.mediation
 ```
 
 
