@@ -51,6 +51,7 @@ source("analysis/complaints/discipline_by_public_sex.R")
 source("analysis/complaints/discipline_by_race.R")
 source("analysis/complaints/complaints_by_rank_disposition.R")
 source("analysis/complaints/complaints_anonymous.R")
+source("analysis/complaints/allegations_fourth_amendment.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -847,8 +848,13 @@ p.complaint.disposition.by.officer.race
 Row
 -------------------------------------
 ### Allegations by source
-```{r, fig.width = 8, fig.height = 7}
+```{r, fig.width = 5, fig.height = 7}
 p.alleg.by.source
+```
+
+### Fourth amendment violations
+```{r, fig.width = 7, fig.height = 7}
+p.fourth.viol
 ```
 
 Officers
