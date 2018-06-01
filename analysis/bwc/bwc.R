@@ -36,12 +36,47 @@ pct.epr.matched <- num.epr.matched / num.epr * 100
 pct.epr.missing <- 100 - pct.epr.matched
 
 print(paste(num.epr.missing, "epr are missing corresponding bwc entries, that's equivalent to", pct.epr.missing, "% missing"))
+p.bwc.matching.epr <- plot_ly(
+  x = c("Total EPR", "EPR with matching BWC"),
+  y = c(num.epr, num.epr.matched),
+  name = "EPR with matching BWC",
+  type = "bar"
+)
 
-# SORT BY SIGNAL DESCRIPTION
-#missing.bwc <- missing.bwc %>% arrange(Signal_Type)
-#write.csv(missing.bwc, paste0("missing_bwc", format(Sys.time(), "_%Y%m%d_%H%M%S"), ".csv"))
+p.bwc.matching.epr
+########################################################################################################
+########################################################################################################
+cad <- read.csv(cad.csv, stringsAsFactors = FALSE)
+cad <- cad %>% mutate(
+  ItemNumber = trimws(toupper(ItemNumber))
+) %>% distinct(ItemNumber)
 
-# matt
-# add more columns to epr
-# back the idea of gettin cad data
-# will analyze 30 cases 
+cad$ItemNumber %>% head
+
+# Select CAD without BWC
+cad.bwc.overlap.id <- merge(cad, bwc.potential, by.x = 'ItemNumber', by.y = 'id_external')
+cad.bwc.overlap.title <- merge(cad, bwc.potential, by.x = 'ItemNumber', by.y = 'title')
+cad.bwc.overlap <- rbind(
+  data.frame(matching.cad = cad.bwc.overlap.id$ItemNumber), 
+  data.frame(matching.cad = cad.bwc.overlap.title$ItemNumber)) %>% distinct()
+
+# Print basic stats
+num.cad <- cad %>% nrow()
+num.cad
+
+num.cad.matched <- cad.bwc.overlap %>% nrow()
+num.cad.matched
+num.cad.missing <- num.cad - num.cad.matched
+
+pct.cad.matched <- num.cad.matched / num.cad * 100
+pct.cad.missing <- 100 - pct.cad.matched
+
+print(paste(num.cad.missing, "cad are missing corresponding bwc entries, that's equivalent to", pct.cad.missing, "% missing"))
+p.bwc.matching.cad <- plot_ly(
+  x = c("Total Calls for Service", "Calls for Service with matching BWC"),
+  y = c(num.cad, num.cad.matched),
+  name = "Calls for Service with matching BWC",
+  type = "bar"
+)
+
+p.bwc.matching.cad

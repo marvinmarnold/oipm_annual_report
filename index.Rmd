@@ -57,6 +57,9 @@ source("analysis/complaints/allegations_mediation.R")
 
 # Outreach
 source("analysis/oipm_survey.R")
+
+# BWC
+source("analysis/bwc/bwc.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -926,8 +929,12 @@ Consequently, ***OIPM does not believe that results below are representative of 
 OIPM hopes that the publication of these initial results will encourage continued cooperation with NOPD so that we 
 can refine our process and produce more accurate analysis in the future. 
 
-### Methodology
+#### Results
 
+- 20,227 EPR are missing corresponding BWC entries, that's equivalent to 30% missing
+- 186,009 Calls for Service are missing corresponding BWC entries, that's equivalent to 41% missing
+
+### Methodology
 #### BWC Meta-data
 1. Use BWC metadata from data.nola.gov
 2. Only include entries with date_uploaded that contains '2017'
@@ -947,10 +954,12 @@ can refine our process and produce more accurate analysis in the future.
 Row
 -------------------------------------
 ### EPR based results
+```{r, fig.width = 6, fig.height = 4}
+p.bwc.matching.epr
+```
 
-
-Row
--------------------------------------
 ### Call for Service based results
-
+```{r, fig.width = 6, fig.height = 4}
+p.bwc.matching.cad
+```
 
