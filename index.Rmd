@@ -84,10 +84,12 @@ For the best experience, view this website on a desktop computer using full-scre
 This website is an interactive version of the statiscal analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
 
 1. [Data Sources](#data-sources)
-1. [Use of Force](#use-of-force)
-2. [Complaints & Discipline](#complaints)
-3. [Officer Demographics](#officers)
-4. [Body-worn camera adherence](#bodyworn-cameras)
+2. [Use of Force](#use-of-force)
+3. [Complaints & Discipline](#complaints)
+4. [Officer Demographics](#officers)
+5. [Community outreach](#community-outreach)
+6. [Body-worn camera adherence](#bodyworn-cameras)
+
 
 
 Column
@@ -186,12 +188,14 @@ officers involved in specific uses of force or complaints, we use information fr
 #### Info about officers related to each incident
 - Download: TODO
 - Source: OIPM direct DB access on May 18, 2018
-- Issues: Does not have reliable dates of employment
+- Issue: Does not have reliable dates of employment
 
 #### Official count of all active duty officers in 2017
 - Download: TODO
 - Source: NOPD pull from ADP on May 11, 2018
-- Issues: Can't cross reference with IAPro data
+- Issue: Can't cross reference with IAPro data
+- Issue: Need an independent way to access this information
+- Issue: Need rank over time
 
 Row 
 -------------------------------------
@@ -203,11 +207,42 @@ We are unable to reproduce all of NOPD's previous figures, especially for 2015 w
 #### Direct database access
 - Download: TODO
 - Source: OIPM direct DB access on May 18, 2016
-- Issues: 2015 data mostly missing
+- Issue: 2015 data mostly missing. 
+- Issue: Was arrested field does not appear to be reliable.
 
 #### data.nola.gov
 - Download: TODO
 - Issues: Does not contain a unique way to identify officers.
+
+Row 
+-------------------------------------
+### Complaints
+
+- Issue: How to identify anonymous complaints
+- Issue: How to identify 4th amendment violations.
+- Issue: Many things OIPM believes to be illigitimate outcomes.
+- Issue: Identifying complaints made by an officer.
+
+More coming soon
+
+Row 
+-------------------------------------
+### Bodyworn cameras
+Coming soon
+
+Row 
+-------------------------------------
+### Community outreach
+Coming soon
+
+Row 
+-------------------------------------
+### Arrest
+
+- Issue: NOPD should not have to rely on OPSO for arrest data
+
+More coming soon
+
 
 Use of force {data-orientation=rows}
 ===================================== 
@@ -470,13 +505,7 @@ top.20.officers.uof.unit
 Row
 -------------------------------------
 ### Force by officer age and experience 
-
-- As officers get older, they commit less force. 
-- Officers 31 - 35 make up 14% of the police department but are responsible for over 350 incidents of force. 
-- In the next age bucket, officers 26 - 40 make up 35% of all police (nearly double the previous bucket) but amount of force decreases.
-- Experience levels are not enough to explain use of force. 
-- Officers older than 31 tends to have over 5 years experience but continue to use non-negligible amounts of force.
-- Not yet clear how assignment factors into this. Are older officers in admin roles where they are less likely to interact w/ publi?
+Coming soon
 
 ```{r, fig.width = 10, fig.height = 5}
 p.uof.by.officer.age.exp
