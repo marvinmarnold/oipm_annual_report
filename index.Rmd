@@ -910,6 +910,47 @@ released later this year.
 
 Row
 -------------------------------------
-### Preliminary results
-27561 epr are missing corresponding bwc entries, that's equivalent to 22.7% missing
+### Overview
+NOPD's strict adherence to body-worn camera (BWC) policy is essential. In future years, OIPM hopes to 
+be able to estimate BWC adherence in an automated manner that yields more accurate results.
+
+For the time being, the closest estimate OIPM can make of NOPD's adherence to BWC policy is calculating
+the number of EPR and Calls for Service that do not have a corresponding BWC metadata entry.
+
+The methodology is detailed more below, but it is known to have inherent limitations that are likely 
+causing our results to significantly underestimate NOPD's adherence to BWC policy.
+
+#### Disclaimer
+Consequently, ***OIPM does not believe that results below are representative of NOPD's true BWC adherence***. We believe this method significantly underestimates NOPD's adherence to BWC policy.
+
+OIPM hopes that the publication of these initial results will encourage continued cooperation with NOPD so that we 
+can refine our process and produce more accurate analysis in the future. 
+
+### Methodology
+
+#### BWC Meta-data
+1. Use BWC metadata from data.nola.gov
+2. Only include entries with date_uploaded that contains '2017'
+2. Remove any BWC entries that do not contain a title or id_external in the format [letter]-[four digits]-[two digits]
+3. Also retain any entries that contain multiple IDs in a single cell
+
+#### Electronic Police Report
+1. Count the total number of entries
+2. Count the number of entries that can be found in BWC
+3. Divide the result of #2 / #1. This is the estimated adherence
+
+#### Calls for Service
+1. Count the total number of entries
+2. Count the number of entries that can be found in BWC
+3. Divide the result of #2 / #1. This is the estimated adherence
+
+Row
+-------------------------------------
+### EPR based results
+
+
+Row
+-------------------------------------
+### Call for Service based results
+
 

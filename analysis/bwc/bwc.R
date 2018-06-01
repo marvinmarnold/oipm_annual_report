@@ -1,46 +1,41 @@
+check.vars(c("bwc.potential.csv", "cad.csv", "epr.csv"))
 
-# Filenames relative to wd
-epr.2017.csv <- "data/data.nola.gov/Electronic_Police_Report_2017.csv"
+# % cad w/ BWC
+# % epr w/ BWC
 
 ########################################################################################################
-######################################## GLOBAL VARIABLES ##############################################
-epr.2017 <- read.csv(epr.2017.csv)
-epr.2017 %>% filter(grepl("18", Signal_Type)) %>% select(Signal_Description) %>% distinct 
-elect(Signal_Description) %>% distinct
-colnames(epr.2017)
-nrow(epr.2017)
-warning("This file is over 400GB and will take a long time to load into memory from CSV")
-bwc.w.officer.2017 <- read.csv(bwc.w.officer.2017.csv)
-colnames(bwc.w.officer.2017)
+########################################################################################################
+bwc.potential <- read.csv(bwc.potential.csv, stringsAsFactors = FALSE)
 
-# To make command below a little faster
-bwc.with.legible.id <- bwc.w.officer.2017 %>% 
-  filter((nchar(as.character(id_external)) == 10)) %>%
-  select(id_external) %>%
-  distinct
-
-# Convert factors to 
-bwc.with.legible.id <- bwc.with.legible.id %>% mutate(
-  id_external = toupper(as.character(id_external))
-)
-
-epr.2017 <- epr.2017 %>% mutate(
-  id_external = toupper(as.character(Item_Number))
-)
+epr <- read.csv(epr.csv, stringsAsFactors = FALSE)
+epr <- epr %>% mutate(
+  Item_Number = trimws(toupper(Item_Number))
+) %>% distinct(Item_Number)
 
 # Select EPR without BWC
-epr.bwc.overlap <- merge(epr.2017, bwc.with.legible.id, by = 'id_external')
+epr.bwc.overlap.id <- merge(epr, bwc.potential, by.x = 'Item_Number', by.y = 'id_external')
+epr.bwc.overlap.title <- merge(epr, bwc.potential, by.x = 'Item_Number', by.y = 'title')
+epr.bwc.overlap <- rbind(
+  data.frame(matching.epr = epr.bwc.overlap.id$Item_Number), 
+  data.frame(matching.epr = epr.bwc.overlap.title$Item_Number)) %>% distinct()
 
-epr.missing.bwc <- setdiff(epr.2017$id_external, epr.bwc.overlap$id_external)
-epr.missing.bwc <- data.frame(id_external = epr.missing.bwc)
-epr.missing.bwc <- unique(merge(epr.missing.bwc, epr.2017, by = 'id_external'))
-sample_n(missing.bwc, 1)
+#epr.missing.bwc <- setdiff(epr.2017$id_external, epr.bwc.overlap$id_external)
+#epr.missing.bwc <- data.frame(id_external = epr.missing.bwc)
+#epr.missing.bwc <- unique(merge(epr.missing.bwc, epr.2017, by = 'id_external'))
+#sample_n(missing.bwc, 1)
 
 # Print basic stats
-num.epr <- nrow(unique(epr.2017))
-num.mising <- nrow(epr.missing.bwc)
-pct.missing <- num.mising / num.epr * 100
-print(paste(num.mising, "epr are missing corresponding bwc entries, that's equivalent to", pct.missing, "% missing"))
+num.epr <- epr %>% nrow()
+num.epr
+
+num.epr.matched <- epr.bwc.overlap %>% nrow()
+num.epr.matched
+num.epr.missing <- num.epr - num.epr.matched
+
+pct.epr.matched <- num.epr.matched / num.epr * 100
+pct.epr.missing <- 100 - pct.epr.matched
+
+print(paste(num.epr.missing, "epr are missing corresponding bwc entries, that's equivalent to", pct.epr.missing, "% missing"))
 
 # SORT BY SIGNAL DESCRIPTION
 #missing.bwc <- missing.bwc %>% arrange(Signal_Type)

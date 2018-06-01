@@ -46,8 +46,13 @@ stops.csv <- "data/data.nola.gov/Stop_and_Search__Field_Interviews_20180507.csv"
 stops.for.year.csv <- "data_public/data.nola.gov/stops_2017.csv"
 
 ######### NOPD exports
-bwc.nopd.csv <- "data/NOPD_20170511/2017 BWC officer ID and category for IPM.csv"
-bwc.public.csv <- "data_public/data.nola.gov/NOPD_Body_Worn_Camera_Metadata_20180521.csv"
+bwc.nopd.csv <- "data/NOPD_20170511/bwc_2017.csv"
+bwc.w.id <- "data_public/bwc_w_id.csv"
+bwc.public.csv <- "data_public/data.nola.gov/NOPD_Body_Worn_Camera_Metadata_2017.csv"
+bwc.potential.csv <- "data_public/data.nola.gov/bwc_potential.csv"
+
+cad.csv <- "data/NOPD_20170511/cad_2017.csv"
+epr.csv <- "data_public/data.nola.gov/Electronic_Police_Report_2017.csv"
 
 ######### OIPM
 oipm.survey.csv <- "data/oipm_survey_results_20180531.csv"
@@ -100,3 +105,5 @@ source("primary_sources/opso/bookings_secondary.R")
 
 #source("primary_sources/opso/charges_master.R")
 source("primary_sources/opso/charges_secondary.R")
+
+#source("primary_sources/data.nola.gov/bwc_master.R")
