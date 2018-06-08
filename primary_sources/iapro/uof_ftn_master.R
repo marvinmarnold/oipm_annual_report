@@ -1,3 +1,5 @@
+check.vars(c("uof.csv"))
+
 source("primary_sources/uof2015.R")
 source("primary_sources/data.nola.gov/uof.R")
 
@@ -6,16 +8,6 @@ source("primary_sources/data.nola.gov/uof.R")
 
 # Read data
 uof.all <- read.csv(uof.csv, stringsAsFactors = FALSE)
-
-# Use the PIB number to determine the year
-uof.all <- uof.all %>% mutate(
-  year.of.record = as.integer(substr(FIT.Number, 4, 7))
-)
-
-uof.all <- uof.all %>% filter(Force.type != "No Force by Officer", Force.type != "Not reported")
-uof.all <- uof.all %>% mutate(
-  Force.type = as.character(Force.type)
-)
 
 # 2017 analysis
 uof.for.year <- uof.all %>% filter(year.of.record == year)

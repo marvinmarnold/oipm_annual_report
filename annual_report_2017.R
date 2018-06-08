@@ -12,18 +12,27 @@ rm(list = ls())
 # The current year to analyze
 year <- 2017
 
+############################################ RAW DATA ##################################################
 ######### ADP
 officers.adp.csv.dirty <- "data/NOPD_20170511/officers_adp_20180507.csv"
-officers.adp.csv <- "data_public/officers_adp_clean.csv"
 
 ######### IAPro
-
 # Officers
 all.officers.iapro.csv.dirty <- "data/IAPro/officers_all_201805300012.csv"
-all.officers.iapro.csv <- "data_public/officer_iapro_clean.csv"
 
 # UOF
-uof.csv <- "data/IAPro/uof_201805291744.csv"
+uof.csv.dirty <- "data/IAPro/uof_201805291744.csv"
+
+######################################### CLEANED DATA ##################################################
+######### ADP
+officers.adp.csv <- "data_public/clean/officers_adp_clean.csv"
+
+######### IAPro
+# Officers
+all.officers.iapro.csv <- "data_public/clean/officer_iapro_clean.csv"
+
+# UOF
+uof.csv <- "data_public/clean/uof_clean.csv"
 uof.reported.2015.csv <- "data/Dante/2015UOF.csv"
 uof.opendata.csv <- "data_public/data.nola.gov/NOPD_Use_of_Force_Incidents_20180529.csv"
 
@@ -87,6 +96,12 @@ source("lib/utils.R")
 # Sys.setenv("plotly_api_key"="")
 # Sys.setenv("CENSUS_KEY"="")
 readRenviron("../.Renviron")
+
+########################################################################################################
+########################################## DO CLEANING #################################################
+
+source("clean/clean_officers.R")
+source("clean/clean_uof.R")
 
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################
