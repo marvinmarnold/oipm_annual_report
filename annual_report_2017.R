@@ -12,12 +12,15 @@ rm(list = ls())
 # The current year to analyze
 year <- 2017
 
+######### ADP
+officers.adp.csv.dirty <- "data/NOPD_20170511/officers_adp_20180507.csv"
+officers.adp.csv <- "data_public/officers_adp_clean.csv"
+
 ######### IAPro
 
 # Officers
-officers.oipm.csv <- "data/IAPro/officers_oipm_201805291837.csv"
-officers.adp.csv <- "data/NOPD_20170511/officers_adp_20180507.csv"
-all.officers.csv <- "data/IAPro/officers_all_201805300012.csv"
+all.officers.iapro.csv.dirty <- "data/IAPro/officers_all_201805300012.csv"
+all.officers.iapro.csv <- "data_public/officer_iapro_clean.csv"
 
 # UOF
 uof.csv <- "data/IAPro/uof_201805291744.csv"

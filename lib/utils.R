@@ -1,6 +1,9 @@
 ########################################################################################################
 ############################################### HELPERS ################################################
 
+library(digest)
+vdigest <- Vectorize(digest)
+
 check.var <- function(var.name) {
   if (!exists(var.name)) {
     stop(paste("Variable name", var.name, "must be set."))
