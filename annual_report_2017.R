@@ -7,7 +7,7 @@ rm(list = ls())
 ########################################################################################################
 ######################################## GLOBAL VARIABLES ##############################################
 #setwd("/home/pili/MEGA/code/repo")
-#setwd("/media/sf_oipm/code/repo/")
+setwd("/Users/sstone-777/Documents/GitHub/oipm_annual_report/")
 
 # The current year to analyze
 year <- 2017
