@@ -100,28 +100,28 @@ readRenviron("../.Renviron")
 ########################################################################################################
 ########################################## DO CLEANING #################################################
 
-source("clean/clean_officers.R")
-source("clean/clean_uof.R")
+#source("clean/clean_officers.R")
+#source("clean/clean_uof.R")
 
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################
 
 source("primary_sources/data.nola.gov/police_districts.R")
-source("primary_sources/iapro/officers_master.R")
-source("primary_sources/iapro/uof_ftn_master.R")
-source("primary_sources/iapro/allegations_complaints_master.R")
-source("primary_sources/iapro/actions_taken_master.R")
+#source("primary_sources/iapro/officers_master.R")
+#source("primary_sources/iapro/uof_ftn_master.R")
+#source("primary_sources/iapro/allegations_complaints_master.R")
+#source("primary_sources/iapro/actions_taken_master.R")
 
 # Uncomment the master script to re-generated cached data
 # WARNING: This should be turned on when released
 
 #source("primary_sources/data.nola.gov/stops_master.R")
-source("primary_sources/data.nola.gov/stops_secondary.R")
+#source("primary_sources/data.nola.gov/stops_secondary.R")
 
 #source("primary_sources/opso/bookings_master.R")
-source("primary_sources/opso/bookings_secondary.R")
+#source("primary_sources/opso/bookings_secondary.R")
 
 #source("primary_sources/opso/charges_master.R")
-source("primary_sources/opso/charges_secondary.R")
+#source("primary_sources/opso/charges_secondary.R")
 
 #source("primary_sources/data.nola.gov/bwc_master.R")
