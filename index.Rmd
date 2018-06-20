@@ -33,8 +33,8 @@ source("annual_report_2017.R")
 #source("analysis/force/uof_against_blacks_comparison.R")
 
 # Officers
-#source("analysis/officers/officer_demographics.R")
-#source("analysis/officers/officer_zips.R")
+source("analysis/officers/officer_demographics.R")
+source("analysis/officers/officer_zips.R")
 
 # Allegations
 #source("analysis/complaints/complaints_allegations_by_year.R")
@@ -826,24 +826,24 @@ Row
 -------------------------------------
 ### Total number active officers
 ```{r, fig.width = 5, fig.height = 5}
-#p.active.officers
+p.active.officers
 ```
 
 ### 2017 active officers by race
 ```{r, fig.width = 5, fig.height = 5}
-#p.officers.by.race
+p.officers.by.race
 ```
 
 ### 2017 active officers by sex
 ```{r, fig.width = 5, fig.height = 5}
-#p.officers.by.sex
+p.officers.by.sex
 ```
 
 Row
 -------------------------------------
 ### Where officers live by zip
 ```{r, fig.width = 5, fig.height = 5}
-#p.officer.map
+p.officer.map
 ```
 
 Community outreach {data-orientation=rows}

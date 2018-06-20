@@ -12,15 +12,22 @@ rm(list = ls())
 # The current year to analyze
 year <- 2017
 
-############################################ RAW DATA ##################################################
-######### ADP
+# If source data is available, set to true.
+# If the only data available is coming from a public repository, this should probably be set to false.
+RECLEAN_DATA <- FALSE
+
+############################################ DATA ##################################################
+######### Officers
+
+# ADP
 officers.adp.csv.dirty <- "data/NOPD_20170511/officers_adp_20180507.csv"
+officers.adp.csv <- "data_public/clean/officers_adp_clean.csv"
 
-######### IAPro
-# Officers
+# IAPro
 all.officers.iapro.csv.dirty <- "data/IAPro/officers_all_201805300012.csv"
+all.officers.iapro.csv <- "data_public/clean/officer_iapro_clean.csv"
 
-# UOF
+######### UOF
 uof.csv.dirty <- "data/IAPro/uof_201805291744.csv"
 
 ######################################### CLEANED DATA ##################################################
@@ -29,7 +36,7 @@ officers.adp.csv <- "data_public/clean/officers_adp_clean.csv"
 
 ######### IAPro
 # Officers
-all.officers.iapro.csv <- "data_public/clean/officer_iapro_clean.csv"
+
 
 # UOF
 uof.csv <- "data_public/clean/uof_clean.csv"
@@ -100,28 +107,35 @@ readRenviron("../.Renviron")
 ########################################################################################################
 ########################################## DO CLEANING #################################################
 
-#source("clean/clean_officers.R")
+source("clean/clean_officers.R")
 #source("clean/clean_uof.R")
 
 ########################################################################################################
 ######################################## LOAD MASTER SCRIPTS ###########################################
 
+# Public data
 source("primary_sources/data.nola.gov/police_districts.R")
-#source("primary_sources/iapro/officers_master.R")
-#source("primary_sources/iapro/uof_ftn_master.R")
-#source("primary_sources/iapro/allegations_complaints_master.R")
-#source("primary_sources/iapro/actions_taken_master.R")
 
-# Uncomment the master script to re-generated cached data
-# WARNING: This should be turned on when released
+# Data coming from non-public sources
+if (RECLEAN_DATA) {
+  source("clean/clean_officers.R")
+  
+  #source("primary_sources/iapro/uof_ftn_master.R")
+  #source("primary_sources/iapro/allegations_complaints_master.R")
+  #source("primary_sources/iapro/actions_taken_master.R")
+  
 
-#source("primary_sources/data.nola.gov/stops_master.R")
-#source("primary_sources/data.nola.gov/stops_secondary.R")
+  #source("primary_sources/data.nola.gov/stops_master.R")
+  #source("primary_sources/data.nola.gov/stops_secondary.R")
+  
+  #source("primary_sources/opso/bookings_master.R")
+  #source("primary_sources/opso/bookings_secondary.R")
+  
+  #source("primary_sources/opso/charges_master.R")
+  #source("primary_sources/opso/charges_secondary.R")
+  
+  #source("primary_sources/data.nola.gov/bwc_master.R")
+} else {
+  source("primary_sources/iapro/officers_secondary.R")
+}
 
-#source("primary_sources/opso/bookings_master.R")
-#source("primary_sources/opso/bookings_secondary.R")
-
-#source("primary_sources/opso/charges_master.R")
-#source("primary_sources/opso/charges_secondary.R")
-
-#source("primary_sources/data.nola.gov/bwc_master.R")
