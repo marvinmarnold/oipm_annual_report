@@ -56,7 +56,7 @@ source("analysis/officers/officer_zips.R")
 #source("analysis/complaints/allegations_mediation.R")
 
 # Outreach
-#source("analysis/oipm_survey.R")
+source("analysis/oipm_survey.R")
 
 # BWC
 #source("analysis/bwc/bwc.R")
@@ -854,19 +854,19 @@ Row
 ### Concerned with homicide investigations
 What are your greatest concerns about NOPD?
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[1]]
+p.survey.pies[[1]]
 ```
 
 ### Concerned with treatment of juveniles
 What are your greatest concerns about NOPD?
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[2]]
+p.survey.pies[[2]]
 ```
 
 ### Concerned with response time
 What are your greatest concerns about NOPD?
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[3]]
+p.survey.pies[[3]]
 ```
 
 Row
@@ -874,19 +874,19 @@ Row
 ### Concerned with human rights violations
 What are your greatest concerns about NOPD?
 ```{r, fig.width = 5, fig.height = 4}
-#p.survey.pies[[4]]
+p.survey.pies[[4]]
 ```
 
 ### Concerned with crime victim
 What are your greatest concerns about NOPD?
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[5]]
+p.survey.pies[[5]]
 ```
 
 ### Concerned other
 What are your greatest concerns about NOPD?
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[6]]
+p.survey.pies[[6]]
 ```
 
 Row
@@ -895,21 +895,21 @@ Row
 If you were the police monitor, what would your priorities be?
 ***Cleaning out the “bad apples” and making sure NOPD officers are punished for wrongdoing***
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[7]]
+p.survey.pies[[7]]
 ```
 
 ### Prioritize helping public
 If you were the police monitor, what would your priorities be?
 ***Helping the public understand NOPD better and identifying areas where NOPD could improve***
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[8]]
+p.survey.pies[[8]]
 ```
 
 ### Prioritize leadership
 If you were the police monitor, what would your priorities be?
 ***Helping NOPD leadership see and correct problems***
 ```{r, fig.width = 4, fig.height = 4}
-#p.survey.pies[[9]]
+p.survey.pies[[9]]
 ```
 
 Row 
@@ -918,14 +918,14 @@ Row
 If you were the police monitor, what would your priorities be?
 ***Telling the public about all NOPD’s successes and mistakes***
 ```{r, fig.width = 6, fig.height = 4}
-#p.survey.pies[[10]]
+p.survey.pies[[10]]
 ```
 
 ### Prioritize other
 If you were the police monitor, what would your priorities be?
 ***Other***
 ```{r, fig.width = 6, fig.height = 4}
-#p.survey.pies[[11]]
+p.survey.pies[[11]]
 ```
 
 Bodyworn Cameras

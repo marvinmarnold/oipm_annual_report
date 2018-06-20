@@ -30,14 +30,15 @@ all.officers.iapro.csv <- "data_public/clean/officer_iapro_clean.csv"
 ######### UOF
 uof.csv.dirty <- "data/IAPro/uof_201805291744.csv"
 
+######### OIPM Survey
+oipm.survey.csv.dirty <- "data/oipm_survey_results_20180531.csv"
+oipm.survey.csv <- "data_public/clean/oipm_survey_clean.csv"
+
 ######################################### CLEANED DATA ##################################################
 ######### ADP
 officers.adp.csv <- "data_public/clean/officers_adp_clean.csv"
 
 ######### IAPro
-# Officers
-
-
 # UOF
 uof.csv <- "data_public/clean/uof_clean.csv"
 uof.reported.2015.csv <- "data/Dante/2015UOF.csv"
@@ -73,9 +74,6 @@ bwc.potential.csv <- "data_public/data.nola.gov/bwc_potential.csv"
 cad.csv <- "data/NOPD_20170511/cad_2017.csv"
 epr.csv <- "data_public/data.nola.gov/Electronic_Police_Report_2017.csv"
 
-######### OIPM
-oipm.survey.csv <- "data/oipm_survey_results_20180531.csv"
-
 ########################################################################################################
 ######################################## LOAD DEPENDENCIES #############################################
 
@@ -105,13 +103,7 @@ source("lib/utils.R")
 readRenviron("../.Renviron")
 
 ########################################################################################################
-########################################## DO CLEANING #################################################
-
-source("clean/clean_officers.R")
-#source("clean/clean_uof.R")
-
-########################################################################################################
-######################################## LOAD MASTER SCRIPTS ###########################################
+############################################# LOAD DATA ################################################
 
 # Public data
 source("primary_sources/data.nola.gov/police_districts.R")
@@ -119,11 +111,11 @@ source("primary_sources/data.nola.gov/police_districts.R")
 # Data coming from non-public sources
 if (RECLEAN_DATA) {
   source("clean/clean_officers.R")
+  source("clean/clean_oipm_survey.R")
   
   #source("primary_sources/iapro/uof_ftn_master.R")
   #source("primary_sources/iapro/allegations_complaints_master.R")
   #source("primary_sources/iapro/actions_taken_master.R")
-  
 
   #source("primary_sources/data.nola.gov/stops_master.R")
   #source("primary_sources/data.nola.gov/stops_secondary.R")
@@ -137,5 +129,6 @@ if (RECLEAN_DATA) {
   #source("primary_sources/data.nola.gov/bwc_master.R")
 } else {
   source("primary_sources/iapro/officers_secondary.R")
+  source("primary_sources/oipm_survey_secondary.R")
 }
 
