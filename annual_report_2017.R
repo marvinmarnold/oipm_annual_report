@@ -29,10 +29,21 @@ all.officers.iapro.csv <- "data_public/clean/officer_iapro_clean.csv"
 
 ######### UOF
 uof.csv.dirty <- "data/IAPro/uof_201805291744.csv"
+uof.csv <- "data_public/clean/uof_clean.csv"
+
+uof.reported.2015.csv.dirty <- "data/Dante/2015UOF.csv"
+uof.reported.2015.csv <- "data_public/clean/uof_2015_clean.csv"
+
+uof.opendata.csv <- "data_public/data.nola.gov/NOPD_Use_of_Force_Incidents_20180529.csv"
 
 ######### OIPM Survey
 oipm.survey.csv.dirty <- "data/oipm_survey_results_20180531.csv"
 oipm.survey.csv <- "data_public/clean/oipm_survey_clean.csv"
+
+######## OPSO
+bookings.csv.dirty <- "data/OPSO/20180516/JFI15M.TXT"
+bookings.for.year.csv <- "data_public/opso/bookings_2017.csv"
+
 
 ######################################### CLEANED DATA ##################################################
 ######### ADP
@@ -40,9 +51,6 @@ officers.adp.csv <- "data_public/clean/officers_adp_clean.csv"
 
 ######### IAPro
 # UOF
-uof.csv <- "data_public/clean/uof_clean.csv"
-uof.reported.2015.csv <- "data/Dante/2015UOF.csv"
-uof.opendata.csv <- "data_public/data.nola.gov/NOPD_Use_of_Force_Incidents_20180529.csv"
 
 # File with all complaints <complainant, officers, id, allegation>
 allegations.csv <- "data/IAPro/allegations_201805311533.csv"
@@ -53,8 +61,6 @@ actions.taken.csv <- "data/IAPro/actions_taken_201805300118.csv"
 ######### OPSO
 
 # Bookings file from OPSO
-bookings.csv <- "data/OPSO/20180516/JFI15M.TXT"
-bookings.for.year.csv <- "data_public/opso/bookings_2017.csv"
 
 charges.csv <- "data/OPSO/20180516/JFI15MC.TXT"
 charges.for.year.csv <- "data_public/opso/charges_2017.csv"
@@ -113,7 +119,10 @@ if (RECLEAN_DATA) {
   source("clean/clean_officers.R")
   source("clean/clean_oipm_survey.R")
   
-  #source("primary_sources/iapro/uof_ftn_master.R")
+  source("clean/clean_uof.R")
+  source("primary_sources/data.nola.gov/uof.R")
+  source("clean/clean_uof_2015.R")
+  
   #source("primary_sources/iapro/allegations_complaints_master.R")
   #source("primary_sources/iapro/actions_taken_master.R")
 
@@ -130,5 +139,9 @@ if (RECLEAN_DATA) {
 } else {
   source("primary_sources/iapro/officers_secondary.R")
   source("primary_sources/oipm_survey_secondary.R")
+  
+  source("primary_sources/data.nola.gov/uof.R")
+  source("primary_sources/iapro/uof_ftn_secondary.R")
+  source("primary_sources/uof2015_secondary.R")
 }
 

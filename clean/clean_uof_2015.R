@@ -1,9 +1,9 @@
-check.vars(c("uof.reported.2015.csv"))
+check.vars(c("uof.reported.2015.csv.dirty"))
 
 ########################################################################################################
 ########################################################################################################
 
-uof.reported.2015 <- read.csv(uof.reported.2015.csv, stringsAsFactors = FALSE)
+uof.reported.2015 <- read.csv(uof.reported.2015.csv.dirty, stringsAsFactors = FALSE)
 
 recategorize.force.type <- function(force.types, force.levels) {
   mapply(function (force.type, force.level) {
@@ -63,5 +63,11 @@ uof.reported.2015 <- uof.reported.2015 %>% mutate(
   Force.level = recategorize.force.level(Use.of.Force.Type, Use.of.Force.Level),
   Year.Occurred = 2015,
   year.of.record = 2015
+) %>% select(
+  Force.type, 
+  Force.level, 
+  year.of.record
 )
+
+write.csv(uof.reported.2015, "data_public/clean/uof_2015_clean.csv")
 
