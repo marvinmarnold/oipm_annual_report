@@ -14,7 +14,7 @@ year <- 2017
 
 # If source data is available, set to true.
 # If the only data available is coming from a public repository, this should probably be set to false.
-RECLEAN_DATA <- FALSE
+RECLEAN_DATA <- TRUE
 
 ############################################ DATA ##################################################
 ######### Officers
@@ -44,6 +44,8 @@ oipm.survey.csv <- "data_public/clean/oipm_survey_clean.csv"
 bookings.csv.dirty <- "data/OPSO/20180516/JFI15M.TXT"
 bookings.for.year.csv <- "data_public/opso/bookings_2017.csv"
 
+charges.csv.dirty <- "data/OPSO/20180516/JFI15MC.TXT"
+charges.for.year.csv <- "data_public/clean/charges_2017_clean.csv"
 
 ######################################### CLEANED DATA ##################################################
 ######### ADP
@@ -57,13 +59,6 @@ allegations.csv <- "data/IAPro/allegations_201805311533.csv"
 
 # Actions taken
 actions.taken.csv <- "data/IAPro/actions_taken_201805300118.csv"
-
-######### OPSO
-
-# Bookings file from OPSO
-
-charges.csv <- "data/OPSO/20180516/JFI15MC.TXT"
-charges.for.year.csv <- "data_public/opso/charges_2017.csv"
 
 ######### data.nola.gov
 
@@ -129,10 +124,9 @@ if (RECLEAN_DATA) {
   #source("primary_sources/data.nola.gov/stops_master.R")
   #source("primary_sources/data.nola.gov/stops_secondary.R")
   
-  #source("primary_sources/opso/bookings_master.R")
-  #source("primary_sources/opso/bookings_secondary.R")
+  source("primary_sources/opso/bookings_master.R")
   
-  #source("primary_sources/opso/charges_master.R")
+  source("primary_sources/opso/charges_master.R")
   #source("primary_sources/opso/charges_secondary.R")
   
   #source("primary_sources/data.nola.gov/bwc_master.R")
@@ -143,5 +137,8 @@ if (RECLEAN_DATA) {
   source("primary_sources/data.nola.gov/uof.R")
   source("primary_sources/iapro/uof_ftn_secondary.R")
   source("primary_sources/uof2015_secondary.R")
+  
+  source("primary_sources/opso/bookings_secondary.R")
+  
 }
 
