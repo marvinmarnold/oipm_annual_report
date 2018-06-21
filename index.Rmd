@@ -291,12 +291,12 @@ Row
 -------------------------------------
 ### Use of force by year
 ```{r force.by.year, fig.width = 10, fig.height = 6}
-#p.force.by.year
+p.force.by.year
 ```
 
 ### FTN & UOF in 2017 by month
 ```{r, fig.width = 10, fig.height = 6}
-#p.force.by.month
+p.force.by.month
 ```
 
 Row {data-height=300}
@@ -308,22 +308,22 @@ Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-#p.lvl.by.year[[1]]
+p.lvl.by.year[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-#p.lvl.by.year[[2]]
+p.lvl.by.year[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-#p.lvl.by.year[[3]]
+p.lvl.by.year[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-#p.lvl.by.year[[4]]
+p.lvl.by.year[[4]]
 ```
 
 Row {data-height=300}
@@ -335,12 +335,12 @@ Row
 -------------------------------------
 ### Force by level and type of force 
 ```{r, fig.width = 10, fig.height = 7}
-#p.uof.by.type
+p.uof.by.type
 ```
 
 ### Force by level and district
 ```{r, fig.width = 10, fig.height = 7}
-#p.uof.by.district.type
+p.uof.by.district.type
 ```
 
 Row {data-height=300}
@@ -351,12 +351,12 @@ Row
 -------------------------------------
 ### Force by type and effectiveness 
 ```{r, fig.width = 10, fig.height = 6}
-#p.uof.by.effectiveness
+p.uof.by.effectiveness
 ```
 
 ### NOPD's determination of unauthorized force
 ```{r, fig.width = 10, fig.height = 4}
-#p.uof.by.disposition
+p.uof.by.disposition
 ```
 
 
@@ -369,22 +369,22 @@ Row
 -------------------------------------
 ### Level 1
 ```{r, fig.height = 3}
-#uof.pies.each.type[[1]]
+uof.pies.each.type[[1]]
 ```
 
 ### Level 2
 ```{r, fig.height = 3}
-#uof.pies.each.type[[2]]
+uof.pies.each.type[[2]]
 ```
 
 ### Level 3
 ```{r, fig.height = 3}
-#uof.pies.each.type[[3]]
+uof.pies.each.type[[3]]
 ```
 
 ### Level 4
 ```{r, fig.height = 3}
-#uof.pies.each.type[[4]]
+uof.pies.each.type[[4]]
 ```
 
 Row {data-height=300}
@@ -396,17 +396,17 @@ Row
 -------------------------------------
 ### Reason for force
 ```{r, fig.height = 3}
-#p.uof.by.reason
+p.uof.by.reason
 ```
 
 ### Reason for exhibiting firearms
 ```{r, fig.height = 3}
-#p.firearm.by.reason
+p.firearm.by.reason
 ```
 
 ### What preceded force
 ```{r, fig.height = 3}
-#p.uof.by.service.type
+p.uof.by.service.type
 ```
 
 Row {data-height=300}
@@ -418,12 +418,12 @@ Row
 -------------------------------------
 ### Average force per officer
 ```{r, fig.height = 3}
-#p.force.per.officer
+p.force.per.officer
 ```
 
 ### Percentage of force my officers using most force
 ```{r, fig.height = 3}
-#p.force.per.bucket
+p.force.per.bucket
 ```
 
 Row {data-height=100}
@@ -435,72 +435,72 @@ Row
 -------------------------------------
 ### Contribution to FTN by top 5 officers
 ```{r, fig.height = 6}
-#paste("They account for", top.5.ftn.pct, "% of all FTNs")
-#paste(top.5.ftn.num.male, "are male")
-#paste(top.5.ftn.min.age, "-", top.5.ftn.max.age, "years old")
-#paste(top.5.ftn.min.exp, "-", top.5.ftn.max.exp, "years of experience")
-#paste(top.5.ftn.num.white, "are white,", top.5.ftn.num.black, "are black,", top.5.ftn.num.hispanic, "are hispanic,", top.5.ftn.num.asian, "are asian,", top.5.ftn.num.native, "are native american,", top.5.ftn.num.asian, "are asian, and", top.5.ftn.num.race, "have an unknown race")
-#top.5.officers.ftn.division
-#top.5.officers.ftn.unit
+paste("They account for", top.5.ftn.pct, "% of all FTNs")
+paste(top.5.ftn.num.male, "are male")
+paste(top.5.ftn.min.age, "-", top.5.ftn.max.age, "years old")
+paste(top.5.ftn.min.exp, "-", top.5.ftn.max.exp, "years of experience")
+paste(top.5.ftn.num.white, "are white,", top.5.ftn.num.black, "are black,", top.5.ftn.num.hispanic, "are hispanic,", top.5.ftn.num.asian, "are asian,", top.5.ftn.num.native, "are native american,", top.5.ftn.num.asian, "are asian, and", top.5.ftn.num.race, "have an unknown race")
+top.5.officers.ftn.division
+top.5.officers.ftn.unit
 ```
 
 ### Contribution to UOF by top 5 officers
 ```{r, fig.height = 6}
-#paste("They account for", top.5.uof.pct, "% of all UOFs")
-#paste(top.5.uof.num.male, "are male")
-#paste(top.5.uof.min.age, "-", top.5.uof.max.age, "years old")
-#paste(top.5.uof.min.exp, "-", top.5.uof.max.exp, "years of experience")
-#paste(top.5.uof.num.white, "are white,", top.5.uof.num.black, "are black,", top.5.uof.num.hispanic, "are hispanic,", top.5.uof.num.asian, "are asian,", top.5.uof.num.native, "are native american,", top.5.uof.num.asian, "are asian, and", top.5.uof.num.race, "have an unknown race")
-#top.5.officers.uof.division
-#top.5.officers.uof.unit
+paste("They account for", top.5.uof.pct, "% of all UOFs")
+paste(top.5.uof.num.male, "are male")
+paste(top.5.uof.min.age, "-", top.5.uof.max.age, "years old")
+paste(top.5.uof.min.exp, "-", top.5.uof.max.exp, "years of experience")
+paste(top.5.uof.num.white, "are white,", top.5.uof.num.black, "are black,", top.5.uof.num.hispanic, "are hispanic,", top.5.uof.num.asian, "are asian,", top.5.uof.num.native, "are native american,", top.5.uof.num.asian, "are asian, and", top.5.uof.num.race, "have an unknown race")
+top.5.officers.uof.division
+top.5.officers.uof.unit
 ```
 
 Row
 -------------------------------------
 ### Contribution to FTN by top 10 officers
 ```{r, fig.height = 7}
-#paste("They account for", top.10.ftn.pct, "% of all FTNs")
-#paste(top.10.ftn.num.male, "are male")
-#paste(top.10.ftn.min.age, "-", top.10.ftn.max.age, "years old")
-#paste(top.10.ftn.min.exp, "-", top.10.ftn.max.exp, "years of experience")
-#paste(top.10.ftn.num.white, "are white,", top.10.ftn.num.black, "are black,", top.10.ftn.num.hispanic, "are hispanic,", top.10.ftn.num.asian, "are asian,", top.10.ftn.num.native, "are native american,", top.10.ftn.num.asian, "are asian, and", top.10.ftn.num.race, "have an unknown race")
-#top.10.officers.ftn.division
-#top.10.officers.ftn.unit
+paste("They account for", top.10.ftn.pct, "% of all FTNs")
+paste(top.10.ftn.num.male, "are male")
+paste(top.10.ftn.min.age, "-", top.10.ftn.max.age, "years old")
+paste(top.10.ftn.min.exp, "-", top.10.ftn.max.exp, "years of experience")
+paste(top.10.ftn.num.white, "are white,", top.10.ftn.num.black, "are black,", top.10.ftn.num.hispanic, "are hispanic,", top.10.ftn.num.asian, "are asian,", top.10.ftn.num.native, "are native american,", top.10.ftn.num.asian, "are asian, and", top.10.ftn.num.race, "have an unknown race")
+top.10.officers.ftn.division
+top.10.officers.ftn.unit
 ```
 
 ### Contribution to UOF by top 10 officers
 ```{r, fig.height = 7}
-#paste("They account for", top.10.uof.pct, "% of all UOFs")
-#paste(top.10.uof.num.male, "are male")
-#paste(top.10.uof.min.age, "-", top.10.uof.max.age, "years old")
-#paste(top.10.uof.min.exp, "-", top.10.uof.max.exp, "years of experience")
-#paste(top.10.uof.num.white, "are white,", top.10.uof.num.black, "are black,", top.10.uof.num.hispanic, "are hispanic,", top.10.uof.num.asian, "are asian,", top.10.uof.num.native, "are native american,", top.10.uof.num.asian, "are asian, and", top.10.uof.num.race, "have an unknown race")
-#top.10.officers.uof.division
-#top.10.officers.uof.unit
+paste("They account for", top.10.uof.pct, "% of all UOFs")
+paste(top.10.uof.num.male, "are male")
+paste(top.10.uof.min.age, "-", top.10.uof.max.age, "years old")
+paste(top.10.uof.min.exp, "-", top.10.uof.max.exp, "years of experience")
+paste(top.10.uof.num.white, "are white,", top.10.uof.num.black, "are black,", top.10.uof.num.hispanic, "are hispanic,", top.10.uof.num.asian, "are asian,", top.10.uof.num.native, "are native american,", top.10.uof.num.asian, "are asian, and", top.10.uof.num.race, "have an unknown race")
+top.10.officers.uof.division
+top.10.officers.uof.unit
 ```
 
 Row
 -------------------------------------
 ### Contribution to FTN by top 20 officers
 ```{r, fig.height = 10}
-#paste("They account for", top.20.ftn.pct, "% of all FTNs")
-#paste(top.20.ftn.num.male, "are male")
-#paste(top.20.ftn.min.age, "-", top.20.ftn.max.age, "years old")
-#paste(top.20.ftn.min.exp, "-", top.20.ftn.max.exp, "years of experience")
-#paste(top.20.ftn.num.white, "are white,", top.20.ftn.num.black, "are black,", top.20.ftn.num.hispanic, "are hispanic,", top.20.ftn.num.asian, "are asian,", top.20.ftn.num.native, "are native american,", top.20.ftn.num.asian, "are asian, and", top.20.ftn.num.race, "have an unknown race")
-#top.20.officers.ftn.division
-#top.20.officers.ftn.unit
+paste("They account for", top.20.ftn.pct, "% of all FTNs")
+paste(top.20.ftn.num.male, "are male")
+paste(top.20.ftn.min.age, "-", top.20.ftn.max.age, "years old")
+paste(top.20.ftn.min.exp, "-", top.20.ftn.max.exp, "years of experience")
+paste(top.20.ftn.num.white, "are white,", top.20.ftn.num.black, "are black,", top.20.ftn.num.hispanic, "are hispanic,", top.20.ftn.num.asian, "are asian,", top.20.ftn.num.native, "are native american,", top.20.ftn.num.asian, "are asian, and", top.20.ftn.num.race, "have an unknown race")
+top.20.officers.ftn.division
+top.20.officers.ftn.unit
 ```
 
 ### Contribution to UOF by top 20 officers
 ```{r, fig.height = 10}
-#paste("They account for", top.20.uof.pct, "% of all UOFs")
-#paste(top.20.uof.num.male, "are male")
-#paste(top.20.uof.min.age, "-", top.20.uof.max.age, "years old")
-#paste(top.20.uof.min.exp, "-", top.20.uof.max.exp, "years of experience")
-#paste(top.20.uof.num.white, "are white,", top.20.uof.num.black, "are black,", top.20.uof.num.hispanic, "are hispanic,", top.20.uof.num.asian, "are asian,", top.20.uof.num.native, "are native american,", top.20.uof.num.asian, "are asian, and", top.20.uof.num.race, "have an unknown race")
-#top.20.officers.uof.division
-#top.20.officers.uof.unit
+paste("They account for", top.20.uof.pct, "% of all UOFs")
+paste(top.20.uof.num.male, "are male")
+paste(top.20.uof.min.age, "-", top.20.uof.max.age, "years old")
+paste(top.20.uof.min.exp, "-", top.20.uof.max.exp, "years of experience")
+paste(top.20.uof.num.white, "are white,", top.20.uof.num.black, "are black,", top.20.uof.num.hispanic, "are hispanic,", top.20.uof.num.asian, "are asian,", top.20.uof.num.native, "are native american,", top.20.uof.num.asian, "are asian, and", top.20.uof.num.race, "have an unknown race")
+top.20.officers.uof.division
+top.20.officers.uof.unit
 ```
 Row
 -------------------------------------
@@ -508,7 +508,7 @@ Row
 Coming soon
 
 ```{r, fig.width = 10, fig.height = 5}
-#p.uof.by.officer.age.exp
+p.uof.by.officer.age.exp
 ```
 
 Row {data-height=150}
@@ -520,12 +520,12 @@ Row
 -------------------------------------
 ### Officer injuries during UOF
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.officer.injury
+p.uof.by.officer.injury
 ```
 
 ### Victim injuries during UOF
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.victim.injury
+p.uof.by.victim.injury
 ```
 
 Row {data-height=200}
@@ -537,29 +537,29 @@ Row
 -------------------------------------
 ### UOF by victim gender and race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.victim.sex.race
+p.uof.by.victim.sex.race
 ```
 
 ### UOF by female victim race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.female.victim.race
+p.uof.by.female.victim.race
 ```
 
 ### UOF by male victim race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.male.victim.race
+p.uof.by.male.victim.race
 ```
 
 Row
 -------------------------------------
 ### Female victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.female.victim.uof.by.type
+p.female.victim.uof.by.type
 ```
 
 ### Male victim UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.male.victim.uof.by.type
+p.male.victim.uof.by.type
 ```
 
 Row {data-height=300}
@@ -571,12 +571,12 @@ Row
 -------------------------------------
 ### Force used disproportionately against black people by month
 ```{r, fig.height = 6}
-#p.black.by.month
+p.black.by.month
 ```
 
 ### Force used disproportionately against black people by district
 ```{r, fig.height = 6}
-#p.black.by.district
+p.black.by.district
 ```
 
 Row {data-height=200}
@@ -588,29 +588,29 @@ Row
 -------------------------------------
 ### UOF by officer gender and race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.officer.sex.race
+p.uof.by.officer.sex.race
 ```
 
 ### UOF by female officer race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.female.officer.race
+p.uof.by.female.officer.race
 ```
 
 ### UOF by male officer race
 ```{r, fig.width = 5, fig.height = 4}
-#p.uof.by.male.officer.race
+p.uof.by.male.officer.race
 ```
 
 Row
 -------------------------------------
 ### Female officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.female.uof.by.type
+p.female.uof.by.type
 ```
 
 ### Male officer UOF by type and race
 ```{r, fig.width = 5, fig.height = 5}
-#p.male.uof.by.type
+p.male.uof.by.type
 ```
 
 Complaints

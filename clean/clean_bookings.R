@@ -53,8 +53,11 @@ bookings.for.year <- filter(bookings.all, In.Year == year) %>%
   select(safeNames) %>% select(
     Folder.number,
     Race,
-    In.Year
+    In.Year,
+    In.Month
   )
 
 # Uncomment to create a new file that does not contain sensitive information
-#write.csv(bookings.for.year, file = "data_public/opso/bookings_2017.csv")
+write.csv(bookings.for.year %>% mutate(
+  Folder.number = vdigest(Folder.number)
+), file = "data_public/clean/bookings_2017_clean.csv")
