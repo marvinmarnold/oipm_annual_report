@@ -74,6 +74,6 @@ mediation.for.year <- complaints.for.year %>% filter(Disposition.OIPM == "Mediat
 colnames(complaints.for.year)
 colnames(allegations.all)
 
-write.csv(complaints.for.year, file = "data/export/oipm_complaints_2017.csv")
-write.csv(allegations.for.year, file = "data/export/oipm_allegations_2017.csv")
+#write.csv(complaints.for.year, file = "data/export/oipm_complaints_2017.csv")
+#write.csv(allegations.for.year, file = "data/export/oipm_allegations_2017.csv")
 
