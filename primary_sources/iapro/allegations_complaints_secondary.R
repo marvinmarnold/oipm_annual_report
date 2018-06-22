@@ -1,23 +1,10 @@
-check.vars(c("year", "allegations.csv"))
+check.vars(c("allegations.csv"))
 
 ########################################################################################################
 ########################################################################################################
 
 # Read data
 allegations.all <- read.csv(allegations.csv, stringsAsFactors = FALSE)
-allegations.all <- allegations.all %>% mutate(
-  Allegation.short = substring(trim(Allegation), 16, 999),
-  Allegation.simple = case_when(
-    Allegation.short == "NEGLECT OF DUTY" ~ "Neglect of duty",
-    Allegation.short == "Professionalism" ~ "Professionalism",
-    Allegation.short == "INSTRUCTIONS FROM AUTHORITATIVE SOURCE" ~ "Instructions from authoritative source",
-    Allegation.short == "ADHERENCE TO LAW" ~ "Adherence to law",
-    Allegation.short == "UNAUTHORIZED FORCE" ~ "Unauthorized force",
-    Allegation.short == "COURTESY" ~ "Courtesy",
-    Allegation.short == "VERBAL INTIMIDATION" ~ "Verbal intimidation",
-    TRUE ~ "Other"
-  )
-)
 
 # 2017 analysis
 allegations.for.year <- allegations.all %>% filter(grepl("2017", PIB.Control.Number))
@@ -52,7 +39,7 @@ complaints.by.officer.for.year <- allegations.for.year %>%
   select(PIB.Control.Number, Disposition.OIPM.by.officer, Disposition.NOPD, Assigned.department, Assigned.division, Assigned.unit, 
          Incident.type, Month.occurred, Officer.Race) %>% 
   distinct
-  
+
 complaints.for.year <- complaints.by.officer.for.year %>% 
   select(PIB.Control.Number, Disposition.NOPD, Assigned.department, Assigned.division, Assigned.unit, 
          Incident.type, Month.occurred) %>% 
@@ -62,11 +49,14 @@ oipm.dispositions <- complaints.by.officer.for.year %>%
   group_by(PIB.Control.Number) %>% 
   summarise_at(c("Disposition.OIPM.by.officer"), SelectDisp)
 
-oipm.dispositions <- rename(oipm.dispositions, Disposition.OIPM = Disposition.OIPM.by.officer)
+oipm.dispositions <- oipm.dispositions %>% mutate(
+  Disposition.OIPM = Disposition.OIPM.by.officer
+)
 
 complaints.for.year <- merge(complaints.for.year, oipm.dispositions, by = "PIB.Control.Number")
 mediation.for.year <- complaints.for.year %>% filter(Disposition.OIPM == "Mediation") 
 #write.csv(mediation.for.year, file = "mediation_2017.csv")
 
 colnames(complaints.for.year)
+colnames(allegations.all)
 

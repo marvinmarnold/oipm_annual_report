@@ -27,7 +27,7 @@ officers.adp.csv <- "data_public/clean/officers_adp_clean.csv"
 all.officers.iapro.csv.dirty <- "data/IAPro/officers_all_201805300012.csv"
 all.officers.iapro.csv <- "data_public/clean/officer_iapro_clean.csv"
 
-######### UOF
+######### Use of Force
 uof.csv.dirty <- "data/IAPro/uof_201805291744.csv"
 uof.csv <- "data_public/clean/uof_clean.csv"
 
@@ -40,7 +40,7 @@ uof.opendata.csv <- "data_public/data.nola.gov/NOPD_Use_of_Force_Incidents_20180
 oipm.survey.csv.dirty <- "data/oipm_survey_results_20180531.csv"
 oipm.survey.csv <- "data_public/clean/oipm_survey_clean.csv"
 
-######## OPSO
+######## Bookings
 bookings.csv.dirty <- "data/OPSO/20180516/JFI15M.TXT"
 bookings.for.year.csv <- "data_public/clean/bookings_2017_clean.csv"
 
@@ -51,10 +51,12 @@ charges.for.year.csv <- "data_public/clean/charges_2017_clean.csv"
 stops.csv <- "data/data.nola.gov/Stop_and_Search__Field_Interviews_20180507.csv"
 stops.for.year.csv <- "data_public/data.nola.gov/stops_2017.csv"
 
-########################################## NEED CLEANING ###############################################
-
+##### Complaints and misconduct
 # File with all complaints <complainant, officers, id, allegation>
-allegations.csv <- "data/IAPro/allegations_201805311533.csv"
+allegations.csv.dirty <- "data/IAPro/allegations_201805311533.csv"
+allegations.csv <- "data_public/clean/allegations_all_clean.csv"
+
+########################################## NEED CLEANING ###############################################
 
 # Actions taken
 actions.taken.csv <- "data/IAPro/actions_taken_201805300118.csv"
@@ -104,33 +106,50 @@ source("primary_sources/data.nola.gov/police_districts.R")
 
 # Data coming from non-public sources
 if (RECLEAN_DATA) {
+  # Officers
   source("clean/clean_officers.R")
+  
+  # OIPM survey
   source("clean/clean_oipm_survey.R")
   
+  # Use of force
   source("clean/clean_uof.R")
   source("primary_sources/data.nola.gov/uof.R")
   source("clean/clean_uof_2015.R")
   
-  #source("primary_sources/iapro/allegations_complaints_master.R")
+  # Allegations
+  source("clean/clean_allegations_complaints.R")
+  source("primary_sources/iapro/allegations_complaints_secondary.R")
   #source("primary_sources/iapro/actions_taken_master.R")
-
+  
+  # Stops and searches
   source("primary_sources/data.nola.gov/stops_master.R")
 
+  # Bookings
   source("clean/clean_bookings.R")
   source("clean/clean_charges.R")
   
   #source("primary_sources/data.nola.gov/bwc_master.R")
 } else {
+  # Officers
   source("primary_sources/iapro/officers_secondary.R")
+  
+  # OIPM survey
   source("primary_sources/oipm_survey_secondary.R")
   
+  # Use of force
   source("primary_sources/data.nola.gov/uof.R")
   source("primary_sources/iapro/uof_ftn_secondary.R")
   source("primary_sources/uof2015_secondary.R")
   
+  # Allegations
+  source("primary_sources/iapro/allegations_complaints_secondary.R")
+  
+  # Bookings
   source("primary_sources/opso/bookings_secondary.R")
   source("primary_sources/opso/charges_secondary.R")
   
+  # Stops
   source("primary_sources/data.nola.gov/stops_secondary.R")
 }
 
