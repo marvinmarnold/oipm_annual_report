@@ -37,6 +37,8 @@ fourth.violations <- ldply(relevant.directives, function(directive) {
 })
 detach("package:plyr", unload=FALSE)
 
+fourth.violations %>% select(PIB.Control.Number) %>% distinct %>% nrow
+write.csv(fourth.violations, file = "data/export/fourth_ammendment_complaints.csv")
 fourth.violations <- fourth.violations %>% select(PIB.Control.Number, Allegation.directive) %>% 
   distinct %>% 
   mutate(

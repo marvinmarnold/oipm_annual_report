@@ -18,7 +18,9 @@ allegations.all <- allegations.all %>% mutate(
     TRUE ~ "Other"
   )
 ) %>% mutate(
-  Allegation.primary.key = vdigest(Allegation.primary.key)
+  Allegation.primary.key = vdigest(Allegation.primary.key),
+  year.of.record = as.integer(str_match(PIB.Control.Number, "(\\d\\d\\d\\d)-")[,2]),
+  year.plus.month = (year.of.record - 2016) * 12 + Month.occurred
 ) %>%
   select(
     PIB.Control.Number,
@@ -41,8 +43,10 @@ allegations.all <- allegations.all %>% mutate(
     Citizen.sex,
     Allegation.primary.key,
     Officer.sex,
-    Citizen.race
+    Citizen.race,
+    year.of.record,
+    year.plus.month
   )
 
+colnames(allegations.all)
 write.csv(allegations.all, "data_public/clean/allegations_all_clean.csv")
-

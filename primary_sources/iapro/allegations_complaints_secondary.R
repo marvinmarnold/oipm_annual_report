@@ -36,13 +36,27 @@ SelectDisp <- function(disp) {
 # Complaints with the same PIB.Control.Number shuold have the same disposition and assignment, so should be 
 # effectively the same as getting allegations by unique PIB.Control.Number
 complaints.by.officer.for.year <- allegations.for.year %>% 
-  select(PIB.Control.Number, Disposition.OIPM.by.officer, Disposition.NOPD, Assigned.department, Assigned.division, Assigned.unit, 
-         Incident.type, Month.occurred, Officer.Race) %>% 
+  select(PIB.Control.Number, 
+         Disposition.OIPM.by.officer, 
+         Disposition.NOPD,
+         Assigned.department, 
+         Assigned.division, 
+         Assigned.unit, 
+         Incident.type,
+         Month.occurred, 
+         Officer.Race,
+         Source) %>% 
   distinct
 
 complaints.for.year <- complaints.by.officer.for.year %>% 
-  select(PIB.Control.Number, Disposition.NOPD, Assigned.department, Assigned.division, Assigned.unit, 
-         Incident.type, Month.occurred) %>% 
+  select(PIB.Control.Number, 
+         Disposition.NOPD, 
+         Assigned.department, 
+         Assigned.division, 
+         Assigned.unit, 
+         Incident.type, 
+         Month.occurred,
+         Source) %>% 
   distinct
 
 oipm.dispositions <- complaints.by.officer.for.year %>% 
@@ -59,4 +73,7 @@ mediation.for.year <- complaints.for.year %>% filter(Disposition.OIPM == "Mediat
 
 colnames(complaints.for.year)
 colnames(allegations.all)
+
+write.csv(complaints.for.year, file = "data/export/oipm_complaints_2017.csv")
+write.csv(allegations.for.year, file = "data/export/oipm_allegations_2017.csv")
 
