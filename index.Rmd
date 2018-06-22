@@ -61,7 +61,7 @@ source("analysis/complaints/discipline_by_race.R")
 source("analysis/oipm_survey.R")
 
 # BWC
-#source("analysis/bwc/bwc.R")
+source("analysis/bwc/bwc.R")
 ```
 
 Introduction {data-orientation=columns}
@@ -658,154 +658,154 @@ Row
 -------------------------------------
 ### Complaints by year
 ```{r, fig.width = 5, fig.height = 3}
-#p.complaints.by.year
+p.complaints.by.year
 ```
 
 ### Allegations by year
 ```{r, fig.width = 5, fig.height = 3}
-#p.allegations.by.year
+p.allegations.by.year
 ```
 
 Row
 -------------------------------------
 ### Complaints and allegations by month
 ```{r, fig.width = 5, fig.height = 5}
-#p.complaints.allegations.by.month
+p.complaints.allegations.by.month
 ```
 
 ### Complaints by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
-#p.complaints.by.month
+p.complaints.by.month
 ```
 
 ### Allegations by month and initiator
 ```{r, fig.width = 5, fig.height = 5}
-#p.allegations.by.month
+p.allegations.by.month
 ```
 
 Row
 -------------------------------------
 ### Most common allegations (regardless of outcome)
 ```{r, fig.width = 4, fig.height = 5}
-#p.top.alleg
+p.top.alleg
 ```
 
 ### Most common sustained allegations
 ```{r, fig.width = 4, fig.height = 5}
-#p.top.sustained.alleg
+p.top.sustained.alleg
 ```
 
 ### Most common DI-2 allegations
 ```{r, fig.width = 4, fig.height = 5}
-#p.top.di2.alleg
+p.top.di2.alleg
 ```
 
 Row
 -------------------------------------
 ### Discipline by allegation
 ```{r, fig.width = 12, fig.height = 5}
-#p.discipline.by.allegation
+p.discipline.by.allegation
 ```
 
 Row
 -------------------------------------
 ### Rank v public complaints
 ```{r, fig.width = 4, fig.height = 7}
-#p.complaints.by.rank.disposition
+p.complaints.by.rank.disposition
 ```
 
 ### Anonymous complaints
 ```{r, fig.width = 4, fig.height = 5}
-#p.anon.allegs
+p.anon.allegs
 ```
 
 Row
 -------------------------------------
 ### Discipline by complainant sex
 ```{r, fig.width = 4, fig.height = 5}
-#p.discipline.by.sex
+p.discipline.by.sex
 ```
 
 ### Discipline by complainant race
 ```{r, fig.width = 4, fig.height = 5}
-#p.discipline.by.race
+p.discipline.by.race
 ```
 
 Row
 -------------------------------------
 ### Discipline by officer sex
 ```{r, fig.width = 4, fig.height = 5}
-#p.discipline.by.officer.sex
+p.discipline.by.officer.sex
 ```
 
 ### Discipline by officer race
 ```{r, fig.width = 4, fig.height = 5}
-#p.discipline.by.officer.race
+p.discipline.by.officer.race
 ```
 
 Row
 -------------------------------------
 ### Individual allegations by outcome
 ```{r, fig.width = 8, fig.height = 8}
-#p.allegation.by.type.disposition
+p.allegation.by.type.disposition
 ```
 
 ### Actions taken
 ```{r, fig.width = 4, fig.height = 8}
-#p.actions.taken
+p.actions.taken
 ```
 
 Row
 -------------------------------------
 ### All complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-#p.complaint.by.outcome
+p.complaint.by.outcome
 ```
 
 ### Rank complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-#p.rank.complaint.by.outcome
+p.rank.complaint.by.outcome
 ```
 
 ### Citizen complaints by outcome
 ```{r, fig.width = 5, fig.height = 4}
-#p.citizen.complaint.by.outcome
+p.citizen.complaint.by.outcome
 ```
 
 Row
 -------------------------------------
 ### How officer race impacts disposition
 ```{r, fig.width = 8, fig.height = 7}
-#p.allegation.race.disposition
+p.allegation.race.disposition
 ```
 
 ### How officer race impacts disposition
 ```{r, fig.width = 4, fig.height = 7}
-#p.complaint.disposition.by.officer.race
+p.complaint.disposition.by.officer.race
 ```
 
 Row
 -------------------------------------
 ### Allegations by source
 ```{r, fig.width = 5, fig.height = 7}
-#p.alleg.by.source
+p.alleg.by.source
 ```
 
 ### Fourth amendment violations
 ```{r, fig.width = 7, fig.height = 7}
-#p.fourth.viol
+p.fourth.viol
 ```
 
 Row
 -------------------------------------
 ### Allegations by source
 ```{r, fig.width = 5, fig.height = 4}
-#p.retaliation
+p.retaliation
 ```
 
 ### Mediation misclassifications
 ```{r, fig.width = 5, fig.height = 4}
-#p.mediation
+p.mediation
 ```
 
 
@@ -986,11 +986,11 @@ Row
 -------------------------------------
 ### EPR based results
 ```{r, fig.width = 6, fig.height = 4}
-#p.bwc.matching.epr
+p.bwc.matching.epr
 ```
 
 ### Call for Service based results
 ```{r, fig.width = 6, fig.height = 4}
-#p.bwc.matching.cad
+p.bwc.matching.cad
 ```
 

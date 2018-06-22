@@ -59,15 +59,12 @@ allegations.csv <- "data_public/clean/allegations_all_clean.csv"
 actions.taken.csv.dirty <- "data/IAPro/actions_taken_201805300118.csv"
 actions.taken.csv <- "data_public/clean/actions_taken_clean.csv"
 
-########################################## NEED CLEANING ###############################################
-
-######### NOPD exports
-bwc.nopd.csv <- "data/NOPD_20170511/bwc_2017.csv"
-bwc.w.id <- "data_public/bwc_w_id.csv"
+######### Bodyworn cameras
 bwc.public.csv <- "data_public/data.nola.gov/NOPD_Body_Worn_Camera_Metadata_2017.csv"
 bwc.potential.csv <- "data_public/data.nola.gov/bwc_potential.csv"
 
-cad.csv <- "data/NOPD_20170511/cad_2017.csv"
+cad.csv.dirty <- "data/NOPD_20170511/cad_2017.csv"
+cad.csv <- "data_public/clean/cad_2017_clean.csv"
 epr.csv <- "data_public/data.nola.gov/Electronic_Police_Report_2017.csv"
 
 ########################################################################################################
@@ -114,6 +111,7 @@ if (RECLEAN_DATA) {
   
   # Use of force
   source("clean/clean_uof.R")
+  source("primary_sources/iapro/uof_ftn_secondary.R")
   source("primary_sources/data.nola.gov/uof.R")
   source("clean/clean_uof_2015.R")
   
@@ -131,7 +129,7 @@ if (RECLEAN_DATA) {
   source("clean/clean_bookings.R")
   source("clean/clean_charges.R")
   
-  #source("primary_sources/data.nola.gov/bwc_master.R")
+  source("clean/clean_bwc.R")
 } else {
   # Officers
   source("primary_sources/iapro/officers_secondary.R")
