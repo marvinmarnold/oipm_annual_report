@@ -1,9 +1,9 @@
-check.vars(c("actions.taken.csv"))
+check.vars(c("actions.taken.csv.dirty"))
 
 ########################################################################################################
 ########################################################################################################
 
-actions.taken.all <- read.csv(actions.taken.csv, stringsAsFactors = FALSE)
+actions.taken.all <- read.csv(actions.taken.csv.dirty, stringsAsFactors = FALSE)
 actions.taken.all <- actions.taken.all %>% mutate(
   Allegation.short = substring(trim(Allegation), 16, 999),
   Allegation.simple = case_when(
@@ -16,13 +16,15 @@ actions.taken.all <- actions.taken.all %>% mutate(
     Allegation.short == "VERBAL INTIMIDATION" ~ "Verbal intimidation",
     TRUE ~ "Other"
   )
+) %>% mutate(
+  Allegation.primary.key = vdigest(Allegation.primary.key)
+)  %>% select(
+  Action.taken.OIPM,
+  Action.taken.year,
+  Allegation.short,
+  Allegation.primary.key
 )
-actions.for.year <- actions.taken.all %>% filter(Action.taken.year == year)
-actions.for.year %>% select(Action.taken.OIPM) %>% distinct
-discipline.for.year <- actions.for.year %>% filter(
-  Action.taken.OIPM != "None",
-  Action.taken.OIPM != "Illegitimate outcome",
-  Action.taken.OIPM != "Resigned before disposition",
-  Action.taken.OIPM != "Pending Investigation",
-  Action.taken.OIPM != "Unknown action taken"
-)
+
+colnames(actions.taken.all)
+write.csv(actions.taken.all, file = "data_public/clean/actions_taken_clean.csv")
+

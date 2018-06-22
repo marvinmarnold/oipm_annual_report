@@ -17,6 +17,8 @@ allegations.all <- allegations.all %>% mutate(
     Allegation.short == "VERBAL INTIMIDATION" ~ "Verbal intimidation",
     TRUE ~ "Other"
   )
+) %>% mutate(
+  Allegation.primary.key = vdigest(Allegation.primary.key)
 ) %>%
   select(
     PIB.Control.Number,
@@ -35,7 +37,11 @@ allegations.all <- allegations.all %>% mutate(
     Source,
     Is.anonymous,
     Allegation.directive,
-    Allegation
+    Allegation,
+    Citizen.sex,
+    Allegation.primary.key,
+    Officer.sex,
+    Citizen.race
   )
 
 write.csv(allegations.all, "data_public/clean/allegations_all_clean.csv")

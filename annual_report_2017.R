@@ -56,10 +56,10 @@ stops.for.year.csv <- "data_public/data.nola.gov/stops_2017.csv"
 allegations.csv.dirty <- "data/IAPro/allegations_201805311533.csv"
 allegations.csv <- "data_public/clean/allegations_all_clean.csv"
 
-########################################## NEED CLEANING ###############################################
+actions.taken.csv.dirty <- "data/IAPro/actions_taken_201805300118.csv"
+actions.taken.csv <- "data_public/clean/actions_taken_clean.csv"
 
-# Actions taken
-actions.taken.csv <- "data/IAPro/actions_taken_201805300118.csv"
+########################################## NEED CLEANING ###############################################
 
 ######### NOPD exports
 bwc.nopd.csv <- "data/NOPD_20170511/bwc_2017.csv"
@@ -120,7 +120,9 @@ if (RECLEAN_DATA) {
   # Allegations
   source("clean/clean_allegations_complaints.R")
   source("primary_sources/iapro/allegations_complaints_secondary.R")
-  #source("primary_sources/iapro/actions_taken_master.R")
+  
+  source("clean/clean_actions_taken.R")
+  source("primary_sources/iapro/actions_taken_secondary.R")
   
   # Stops and searches
   source("primary_sources/data.nola.gov/stops_master.R")
@@ -144,6 +146,7 @@ if (RECLEAN_DATA) {
   
   # Allegations
   source("primary_sources/iapro/allegations_complaints_secondary.R")
+  source("primary_sources/iapro/actions_taken_secondary.R")
   
   # Bookings
   source("primary_sources/opso/bookings_secondary.R")

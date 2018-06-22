@@ -52,10 +52,10 @@ source("analysis/complaints/allegations_retaliation.R")
 source("analysis/complaints/allegations_mediation.R")
 
 # Actions taken
-#source("analysis/complaints/actions_taken_by_action.R")
-#source("analysis/complaints/discipline_by_allegation.R")
-#source("analysis/complaints/discipline_by_public_sex.R")
-#source("analysis/complaints/discipline_by_race.R")
+source("analysis/complaints/actions_taken_by_action.R")
+source("analysis/complaints/discipline_by_allegation.R")
+source("analysis/complaints/discipline_by_public_sex.R")
+source("analysis/complaints/discipline_by_race.R")
 
 # Outreach
 source("analysis/oipm_survey.R")
