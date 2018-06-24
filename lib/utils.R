@@ -34,6 +34,20 @@ age.bucket.function <- function(age) {
   }
 }
 
+exp.bucket.function <- function(exp) {
+  if (is.na(exp)) {
+    'Unknown experience'
+  } else  if (exp < 6) {
+    '00 - 5 yr exp'
+  } else if (exp >= 6 & exp < 11) {
+    '06 - 10 yr exp'
+  } else if (exp >= 11 & exp < 16) {
+    '11 - 15 yr exp'
+  } else {
+    '16+ yr exp'
+  }
+}
+
 ########################################################################################################
 ############################################# CONSTANTS ################################################
 

@@ -8,20 +8,6 @@ ordered.age.buckets <- c('25 or younger', '26 - 30', '31 - 35', '36 - 40', '41 -
 
 # Add columns containing officer age and experience in buckets
 
-exp.bucket.function <- function(exp) {
-  if (is.na(exp)) {
-    'Unknown experience'
-  } else  if (exp < 6) {
-    '00 - 5 yr exp'
-  } else if (exp >= 6 & exp < 11) {
-    '06 - 10 yr exp'
-  } else if (exp >= 11 & exp < 16) {
-    '11 - 15 yr exp'
-  } else {
-    '16+ yr exp'
-  }
-}
-
 uof.bucketed <- uof.for.year %>% mutate(
   age.bucket = sapply(Officer.age.at.time.of.UOF, age.bucket.function),
   exp.bucket = sapply(Officer.years.exp.at.time.of.UOF, exp.bucket.function)
