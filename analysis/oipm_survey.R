@@ -3,10 +3,6 @@ check.vars(c("oipm.survey.csv"))
 ########################################################################################################
 ########################################################################################################
 
-oipm.survey <- read.csv(oipm.survey.csv, header = TRUE)
-head(oipm.survey)
-oipm.survey %>% colnames
-
 survey.questions <- c(
   "Concerned.with.homicide.investigations",
   "Concerned.with.treatment.of.juveniles",
@@ -19,7 +15,6 @@ survey.questions <- c(
   "If.monitor.help.leadership",
   "If.monitor.communicate.success",
   "If.monitor.other")
-
 
 p.survey.pies <- lapply(survey.questions, function (question) {
   
