@@ -179,3 +179,21 @@ p.cases.nopd.district.count <- plot_ly(cases.nopd.district.count,
                                       insidetextfont = list(color = '#FFFFFF')) %>%
   
   layout(hovermode = "compare", title = title, showlegend = FALSE)
+
+# Experience
+cases.finding.count  <- matching.cases %>% 
+  distinct(Allegation.primary.key, .keep_all = TRUE) %>% 
+  group_by(Allegation.Finding.OIPM) %>% 
+  summarise(num.allegations = n())
+
+title <- "Allegation finding"
+p.cases.allegation.findings <- plot_ly(cases.finding.count,  
+                                  type = 'pie',
+                                  name = title,
+                                  labels = ~Allegation.Finding.OIPM, 
+                                  values = ~num.allegations,
+                                  textposition = 'inside',
+                                  textinfo = 'label+value+percent',
+                                  insidetextfont = list(color = '#FFFFFF')) %>%
+  
+  layout(hovermode = "compare", title = title, showlegend = FALSE)

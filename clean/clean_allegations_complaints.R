@@ -32,6 +32,8 @@ allegations.all <- allegations.all %>% mutate(
     PIB.Control.Number,
     Disposition.OIPM.by.officer,
     Disposition.NOPD,
+    Allegation.finding,
+    Allegation.Finding.OIPM,
     Assigned.department,
     Assigned.division,
     Assigned.unit, 

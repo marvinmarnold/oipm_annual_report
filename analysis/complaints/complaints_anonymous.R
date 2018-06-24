@@ -1,9 +1,13 @@
-check.vars(c("year", "complaints.for.year"))
+check.vars(c("year", "allegations.for.year"))
 
 ########################################################################################################
 ########################################################################################################
 
-num.anon.allegs <- allegations.for.year %>% group_by(Is.anonymous) %>% summarise(num.allegs = n())
+anon.allegs <-  allegations.for.year %>% 
+  distinct(Citizen.primary.key, PIB.Control.Number, .keep_all = TRUE) %>%
+  group_by(Is.anonymous)
+num.anon.allegs <- anon.allegs %>% summarise(num.allegs = n())
+
 p.anon.allegs <- plot_ly(num.anon.allegs,
   x = ~Is.anonymous,
   y = ~num.allegs,
@@ -12,3 +16,7 @@ p.anon.allegs <- plot_ly(num.anon.allegs,
 )
 
 p.anon.allegs
+write.csv(anon.allegs %>% select(
+  PIB.Control.Number,
+  Is.anonymous
+), file = "data/IAPro/anonymous_complaints.csv")

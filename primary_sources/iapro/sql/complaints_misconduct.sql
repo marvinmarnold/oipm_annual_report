@@ -337,8 +337,8 @@ cL.CIT_AFFECT_TYPE as "Citizen affect type",
 cL.INJ_CAUSED_BY as "Citizen injury caused by",
 
 CASE
-when c.FNAM is null or c.FNAM = '' then 'Anon - No name'
-when PATINDEX('%Anonymous%', c.FNAM) > 0 then 'Anon - Explicit'
+when (c.FNAM is null or c.FNAM = '') and (c.LNAM is null or c.LNAM = '') then 'Anon - No name'
+when (PATINDEX('%Anonymous%', c.FNAM) > 0) or (PATINDEX('%Anonymous%', c.LNAM) > 0) then 'Anon - Explicit'
 else 'Not anonymous' 
 end as "Is anonymous",
 

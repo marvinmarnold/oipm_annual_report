@@ -54,7 +54,7 @@ stops.for.year.csv <- "data_public/data.nola.gov/stops_2017.csv"
 
 ##### Complaints and misconduct
 # File with all complaints <complainant, officers, id, allegation>
-allegations.csv.dirty <- "data/IAPro/allegations_201805311533.csv"
+allegations.csv.dirty <- "data/IAPro/allegations_201806241816.csv"
 allegations.csv <- "data_public/clean/allegations_all_clean.csv"
 
 actions.taken.csv.dirty <- "data/IAPro/actions_taken_201805300118.csv"
