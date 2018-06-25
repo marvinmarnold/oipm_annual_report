@@ -786,14 +786,20 @@ p.complaint.disposition.by.officer.race
 Row
 -------------------------------------
 ### Allegations by source
-```{r, fig.width = 5, fig.height = 7}
+```{r, fig.width = 4, fig.height = 7}
 p.alleg.by.source
 ```
 
 ### Fourth amendment violations
-```{r, fig.width = 7, fig.height = 7}
+```{r, fig.width = 4, fig.height = 7}
 p.fourth.viol
 ```
+
+### Fourth amendment violations by outcome
+```{r, fig.width = 4, fig.height = 7}
+p.fourth.viol.outcomes
+```
+
 
 Row
 -------------------------------------

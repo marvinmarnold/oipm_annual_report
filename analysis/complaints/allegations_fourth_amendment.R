@@ -34,20 +34,18 @@ relevant.directives <- c(
 library(plyr)
 fourth.violations <- ldply(relevant.directives, function(directive) {
   allegations.for.year %>% filter(grepl(directive, Allegation.directive))
-})
+}) %>% mutate(
+  abbr.directive = substr(Allegation.directive, 1, 45)    
+)
 detach("package:plyr", unload=FALSE)
 
 fourth.violations %>% select(PIB.Control.Number) %>% distinct %>% nrow
 #write.csv(fourth.violations, file = "data/export/fourth_ammendment_complaints.csv")
-fourth.violations <- fourth.violations %>% select(PIB.Control.Number, Allegation.directive) %>% 
-  distinct %>% 
-  mutate(
-    abbr.directive = substr(Allegation.directive, 1, 45)    
-  ) %>%
-  select (abbr.directive) %>%
+grouped.fourth.violations <- fourth.violations %>% distinct(PIB.Control.Number, Allegation.directive, .keep_all = TRUE) %>% 
+  select(abbr.directive) %>%
   group_by(abbr.directive)
 
-count.fourth.violations <- fourth.violations %>% summarise(num.violations = n())
+count.fourth.violations <- grouped.fourth.violations %>% summarise(num.violations = n())
 count.fourth.violations
 
 p.fourth.viol <- plot_ly(count.fourth.violations,  type = 'pie', name = title,
@@ -58,6 +56,28 @@ p.fourth.viol <- plot_ly(count.fourth.violations,  type = 'pie', name = title,
                        insidetextfont = list(color = '#FFFFFF'))
 p.fourth.viol
 
+## Outcomes
+grouped.fourth.violations <- fourth.violations %>% group_by(abbr.directive, Allegation.finding)
+
+count.fourth.violations <- grouped.fourth.violations %>% summarise(num.allegs = n())
+count.fourth.violations
+
+p.fourth.viol.outcomes <- plot_ly(count.fourth.violations,
+                         x = ~abbr.directive,
+                         y = ~num.allegs,
+                         name = ~Allegation.finding,
+                         type = "bar",
+                         color = ~Allegation.finding
+) %>% 
+  
+  layout(xaxis = list(title = "4th amendment complaints by outcome", 
+                      showgrid = F), 
+         yaxis = list(title = 'Number of complaints'), 
+         barmode = 'stack',
+         hovermode = 'compare', 
+         margin = list(r = 100, b = 100))
+
+p.fourth.viol.outcomes
 
 
                                 
