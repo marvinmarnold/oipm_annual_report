@@ -5,6 +5,7 @@ check.vars(c("year", "allegations.for.year"))
 
 anon.allegs <-  allegations.for.year %>% 
   distinct(Citizen.primary.key, PIB.Control.Number, .keep_all = TRUE) %>%
+  filter(Is.anonymous == "Anon - Explicit") %>% 
   group_by(Is.anonymous, Disposition.OIPM.by.officer)
 num.anon.allegs <- anon.allegs %>% summarise(num.allegs = n())
 

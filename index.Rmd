@@ -38,7 +38,6 @@ source("analysis/officers/officer_zips.R")
 
 # Allegations
 source("analysis/complaints/complaints_allegations_by_year.R")
-source("analysis/complaints/complaints_allegations_by_month.R")
 source("analysis/complaints/allegations_by_type.R")
 source("analysis/complaints/top_allegations.R")
 source("analysis/complaints/complaints_by_outcome.R")
@@ -663,23 +662,6 @@ p.complaints.by.year
 ### Allegations by year
 ```{r, fig.width = 5, fig.height = 3}
 p.allegations.by.year
-```
-
-Row
--------------------------------------
-### Complaints and allegations by month
-```{r, fig.width = 5, fig.height = 5}
-p.complaints.allegations.by.month
-```
-
-### Complaints by month and initiator
-```{r, fig.width = 5, fig.height = 5}
-p.complaints.by.month
-```
-
-### Allegations by month and initiator
-```{r, fig.width = 5, fig.height = 5}
-p.allegations.by.month
 ```
 
 Row

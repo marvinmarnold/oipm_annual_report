@@ -19,9 +19,9 @@ p.complaints.by.rank.disposition <- plot_ly(count.by.rank.disposition,
                                             type = 'bar',  name = ~disposition.simple, 
                                             color = ~disposition.simple) %>%
   
-  layout(xaxis = list(title = "Type of allegation", 
+  layout(xaxis = list(title = "Type of complaint", 
                       showgrid = F), 
-         yaxis = list(title = 'Number allegations'), 
+         yaxis = list(title = 'Number complaints'), 
          barmode = 'stack',
          hovermode = 'compare', 
          margin = list(r = 100, b = 100))
