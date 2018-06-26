@@ -180,20 +180,27 @@ p.cases.nopd.district.count <- plot_ly(cases.nopd.district.count,
   
   layout(hovermode = "compare", title = title, showlegend = FALSE)
 
-# Experience
+# Allegation outcomes
 cases.finding.count  <- matching.cases %>% 
   distinct(Allegation.primary.key, .keep_all = TRUE) %>% 
-  group_by(Allegation.Finding.OIPM) %>% 
+  group_by(Allegation, Allegation.Finding.OIPM) %>% 
   summarise(num.allegations = n())
 
 title <- "Allegation finding"
-p.cases.allegation.findings <- plot_ly(cases.finding.count,  
-                                  type = 'pie',
-                                  name = title,
-                                  labels = ~Allegation.Finding.OIPM, 
-                                  values = ~num.allegations,
-                                  textposition = 'inside',
-                                  textinfo = 'label+value+percent',
-                                  insidetextfont = list(color = '#FFFFFF')) %>%
+p.cases.allegation.findings <- plot_ly(cases.finding.count, 
+                                            x = ~Allegation, 
+                                            y = ~num.allegations, 
+                                            type = 'bar', 
+                                            name = ~Allegation.Finding.OIPM, 
+                                            color = ~Allegation.Finding.OIPM) %>%
   
-  layout(hovermode = "compare", title = title, showlegend = FALSE)
+  layout(xaxis = list(title = "Type of allegation", 
+                      showgrid = F), 
+         yaxis = list(title = 'Number allegations'), 
+         barmode = 'stack',
+         hovermode = 'compare', 
+         margin = list(r = 100, b = 200))
+
+p.cases.allegation.findings
+#write.csv(cases.finding.count, file = "data/export/caselist_findings.csv")
+

@@ -844,17 +844,20 @@ Row
 -------------------------------------
 
 ### Experience of officers (unique by allegation+officer)
-```{r, fig.width = 4, fig.height = 3}
+```{r, fig.width = 6, fig.height = 3}
 p.cases.nopd.exp.count
 ```
 
 ### District of complaints (unique by case number)
-```{r, fig.width = 4, fig.height = 3}
+```{r, fig.width = 6, fig.height = 3}
 p.cases.nopd.district.count
 ```
 
+Row
+-------------------------------------
+
 ### Findings of individual allegations (unique by allegation)
-```{r, fig.width = 4, fig.height = 3}
+```{r, fig.width = 12, fig.height = 6}
 p.cases.allegation.findings
 ```
 
