@@ -38,10 +38,11 @@ title <- "Top DI2"
 di2.alleg.by.alleg <- allegations.for.year %>% filter(Disposition.OIPM.by.officer == "DI-2") %>% group_by(Allegation.simple)
 di2.count.by.alleg <- summarise(di2.alleg.by.alleg, count = n())
 
-p.top.di2.alleg <- plot_ly(di2.count.by.alleg,  type = 'pie', name = title,
+p.top.di2.alleg <- plot_ly(di2.count.by.alleg,  type = 'pie', name = title, showlegend = TRUE,
                                  labels = ~Allegation.simple, 
                                  values = ~count,
                                  textposition = 'inside',
                                  textinfo = 'label+value+percent',
-                                 insidetextfont = list(color = '#FFFFFF'))
+                                 insidetextfont = list(color = '#FFFFFF')) %>%
+                                layout(showlegend=TRUE)
 p.top.di2.alleg
