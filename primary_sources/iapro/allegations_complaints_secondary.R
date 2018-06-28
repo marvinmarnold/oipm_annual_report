@@ -36,28 +36,10 @@ SelectDisp <- function(disp) {
 # Complaints with the same PIB.Control.Number shuold have the same disposition and assignment, so should be 
 # effectively the same as getting allegations by unique PIB.Control.Number
 complaints.by.officer.for.year <- allegations.for.year %>% 
-  select(PIB.Control.Number, 
-         Disposition.OIPM.by.officer, 
-         Disposition.NOPD,
-         Assigned.department, 
-         Assigned.division, 
-         Assigned.unit, 
-         Incident.type,
-         Month.occurred, 
-         Officer.Race,
-         Source) %>% 
-  distinct
+  distinct(PIB.Control.Number, Officer.primary.key, .keep_all = TRUE)
 
 complaints.for.year <- complaints.by.officer.for.year %>% 
-  select(PIB.Control.Number, 
-         Disposition.NOPD, 
-         Assigned.department, 
-         Assigned.division, 
-         Assigned.unit, 
-         Incident.type, 
-         Month.occurred,
-         Source) %>% 
-  distinct
+  distinct(PIB.Control.Number, .keep_all = TRUE)
 
 oipm.dispositions <- complaints.by.officer.for.year %>% 
   group_by(PIB.Control.Number) %>% 
