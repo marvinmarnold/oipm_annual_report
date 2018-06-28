@@ -1,6 +1,6 @@
 case.list <- read.csv(file = "data_public/caselist.csv", header = FALSE)
 trimws(case.list$V1)
-
+allegations.for.year %>% distinct(PIB.Control.Number)
 matching.cases <- allegations.all %>% 
   filter(
     trimws(PIB.Control.Number) %in% trimws(case.list$V1)) %>% 
@@ -33,6 +33,24 @@ matching.cases <- allegations.all %>%
 #   ) %>% distinct()
 
 #write.csv(matching.cases, file = "data/case_demographics_v01.csv")
+
+# Num officers
+matching.cases %>% distinct(Officer.primary.key) %>% nrow()
+
+# Num cases
+matching.cases %>% distinct(PIB.Control.Number) %>% nrow()
+
+# Num sustained allegations
+matching.cases %>% filter(Allegation.Finding.OIPM == "Sustained") %>% nrow()
+
+# Num sustained cases
+matching.cases %>% distinct(PIB.Control.Number, .keep_all = TRUE) %>% filter(Disposition.NOPD == "Sustained") %>% nrow()
+
+# Num allegations
+matching.cases %>% nrow()
+
+# Pending
+matching.cases %>% filter(Allegation.Finding.OIPM == "Pending")
 
 # Race
 ## Public

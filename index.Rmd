@@ -49,7 +49,7 @@ source("analysis/complaints/complaints_anonymous.R")
 source("analysis/complaints/allegations_fourth_amendment.R")
 source("analysis/complaints/allegations_retaliation.R")
 source("analysis/complaints/allegations_mediation.R")
-source("analysis/caselist.R")
+#source("analysis/caselist.R")
 
 # Actions taken
 source("analysis/complaints/actions_taken_by_action.R")
@@ -795,71 +795,6 @@ p.retaliation
 p.mediation
 ```
 
-Row
--------------------------------------
-
-### vvvvvvvvvv Case list analysis below vvvvvvvvvv
-
-Row
--------------------------------------
-
-### Race of complainants (unique by allegation+complainant)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.public.race.count
-```
-
-### Race of officers  (unique by allegation+officer)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.officer.race.count
-```
-
-Row
--------------------------------------
-
-### Sex of complainants (unique by allegation+complainant)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.public.sex.count
-```
-
-### Sex of officers (unique by allegation+officer)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.nopd.sex.count
-```
-
-Row
--------------------------------------
-
-### Age of complainants  (unique by allegation+complainant)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.public.age.count
-```
-
-### Age of officers  (unique by allegation+officer)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.nopd.age.count
-```
-
-
-Row
--------------------------------------
-
-### Experience of officers (unique by allegation+officer)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.nopd.exp.count
-```
-
-### District of complaints (unique by case number)
-```{r, fig.width = 6, fig.height = 3}
-p.cases.nopd.district.count
-```
-
-Row
--------------------------------------
-
-### Findings of individual allegations (unique by allegation)
-```{r, fig.width = 12, fig.height = 6}
-p.cases.allegation.findings
-```
 
 
 Officers

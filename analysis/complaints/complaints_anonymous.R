@@ -26,10 +26,10 @@ p.anon.allegs <- plot_ly(num.anon.allegs,
 
 p.anon.allegs
 
-write.csv(anon.allegs %>% filter(
-  Is.anonymous != "Not anonymous"
-) %>%
-  select(
-    PIB.Control.Number,
-    Is.anonymous
-), file = "data/IAPro/anonymous_complaints.csv")
+#write.csv(anon.allegs %>% filter(
+#  Is.anonymous != "Not anonymous"
+#) %>%
+#  select(
+#    PIB.Control.Number,
+#    Is.anonymous
+#), file = "data/IAPro/anonymous_complaints.csv")
