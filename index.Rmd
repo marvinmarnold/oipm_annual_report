@@ -871,7 +871,7 @@ p.cases.allegation.findings
 ```
 
 
-Mediation {data-orientation=rows}
+Mediation
 ===================================== 
 2017 Annual Report: Community-Police Mediation Program 
 
