@@ -74,7 +74,7 @@ Row
 
 
 ### Navigating the Report
-This website is an interactive version of the statiscal analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
+This website is an interactive version of the statistical analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
 
 1. [Complaints & Discipline](#complaints)
 2. [Community - Police Mediation Program](#mediation)
@@ -222,7 +222,7 @@ Row {data-height=400}
 
 **NOT MOBILE FRIENDLY** *For the best experience, view this website on a desktop computer using full-screen.*
 
-### Police districts
+### Police Districts
 ```{r fig.width = 6, fig.height = 4}
 p.police.districts
 ```
@@ -482,7 +482,7 @@ Mediation {data-orientation=rows}
 
 Row
 -------------------------------------
-### **About the Community-Police Mediation Program**
+### **COMMUNITY-POLICE MEDIATION PROGRAM**
 
 The New Orleans Community-Police Mediation Program is a service provided by the OIPM to improve the relationships between the community and NOPD, allow the NOPD’s Public Integrity Bureau’s (PIB) to reallocate hours spent investigating lower risk complaint allegations to have more resources available to investigate higher risk complaint allegations, and to improve trust in NOPD’s services. The Office of the Independent Police Monitor (OIPM) is an independent, civilian police oversight agency created in August of 2009.  The mission of the OIPM is to improve police service to the community, civilian trust in the NOPD, and officer safety and working conditions. 
 
@@ -1134,7 +1134,7 @@ Officers
 
 Row 
 -------------------------------------
-### **Officer Demographics** 
+### **OFFICER DEMOGRAPHICS** 
 **NOT MOBILE FRIENDLY**
 For the best experience, view this website on a desktop computer using full-screen.
 
@@ -1259,7 +1259,7 @@ helping NOPD leadership see and correct problems.
 p.survey.pies[[9]]
 ```
 
-Row {data-height=400}
+Row {data-height=520}
 -------------------------------------
 ### Prioritize communication of successes and failures
 Of the 886 people that answered question #2 relating to telling the public about all NOPD’s
