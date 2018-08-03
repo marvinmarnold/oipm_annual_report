@@ -27,7 +27,7 @@ p.officers.by.sex <- plot_ly(count.by.sex, labels = ~Officer.sex, values = ~num.
                              textinfo = 'label+value+percent',
                              insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = 'compare', showlegend = TRUE)
+  layout(hovermode = 'compare', showlegend = TRUE, legend = list(x = 0, y = -.50))
   
 p.officers.by.sex
 
@@ -46,6 +46,6 @@ p.officers.by.race <- plot_ly(count.by.race, labels = ~Officer.race,
                               textinfo = 'label+value+percent',
                               insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = 'compare', showlegend = TRUE)
+  layout(hovermode = 'compare', showlegend = TRUE, legend = list(x = 0, y = -.50))
   
 p.officers.by.race

@@ -31,14 +31,14 @@ p.survey.pies <- lapply(survey.questions, function (question) {
   num.answered.no <- oipm.survey %>% nrow - num.answered.yes
     
   # Construct pie chart
-  plot_ly(oipm.survey,  type = 'pie', name = question.title,
+  plot_ly(oipm.survey,  type = 'pie',
           labels = c("Answered yes", "Answered no"), 
           values = c(num.answered.yes, num.answered.no),
           textposition = 'inside',
           textinfo = 'label+value+percent',
           insidetextfont = list(color = '#FFFFFF')) %>%
-    
-    layout(hovermode = "compare", title = question.title, showlegend = FALSE)
+          
+    layout(hovermode = "compare", showlegend = FALSE)
 })
 
 p.survey.pies[[1]]

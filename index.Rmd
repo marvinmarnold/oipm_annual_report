@@ -69,6 +69,9 @@ Introduction {data-orientation=rows}
 
 Row
 -------------------------------------
+### no title {.no-title}
+![](img/ipmlogo.png)
+
 
 ### Navigating the Report
 This website is an interactive version of the statiscal analysis from OIPM's 2017 annual report Annual Report. Analysis is divided into these sections:
@@ -213,7 +216,7 @@ Complaints
 Row {data-height=400}
 -------------------------------------
 
-### **COMPLAINTS AND DISCIPLINE**
+### **__COMPLAINTS AND DISCIPLINE__**
 
 **[Download the full Complaints and Discipline Report](http://nolaipm.gov/wp-content/uploads/2018/06/FINAL_2017-Complaints-and-Discipline-6-29-18-2.pdf)**
 
@@ -454,14 +457,6 @@ p.discipline.by.officer.sex
 p.discipline.by.officer.race
 ```
 
-Row
--------------------------------------
-### title {.no-title}
-
-**[Download the full Complaints and Discipline Report](http://nolaipm.gov/wp-content/uploads/2018/06/FINAL_2017-Complaints-and-Discipline-6-29-18-2.pdf)**
-
-
-<!--
 Row {data-height=400}
 -------------------------------------
 ### Actions taken
@@ -473,7 +468,15 @@ p.actions.taken
 ```{r, fig.width = 5, fig.height = 4}
 p.mediation
 ```
----> 
+
+Row
+-------------------------------------
+### title {.no-title}
+
+**[Download the full Complaints and Discipline Report](http://nolaipm.gov/wp-content/uploads/2018/06/FINAL_2017-Complaints-and-Discipline-6-29-18-2.pdf)**
+
+
+
 Mediation {data-orientation=rows}
 ===================================== 
 
@@ -621,6 +624,7 @@ Row {data-height=550}
 ### **STATISTICAL REVIEW OF NOPD'S USE OF FORCE**
 
 The analysis section of the UOF report is split into three sections:
+
 1. Analysis of details pertaining to the NOPD overall.
 2. Analysis of details pertaining to groupings of NOPD officers.
 3. Analysis of details pertaining to the individuals subjected to NOPD actions.
@@ -652,7 +656,7 @@ analysis but the onus is on the reader to remain vigilant of the distinction.
 
 
 
-Row {data-height=450}
+Row {data-height=390}
 -------------------------------------
 ### Use of Force by Year
 ```{r force.by.year, fig.width = 10, fig.height = 9}
@@ -785,13 +789,13 @@ Row {data-height=340}
 * All firearm discharges were deemed effective.
 * 59 instances of exhibiting firearms have not been effective. That equals 8%.
 * Use of hands not effective 10% of the time.
-* How can ‘other’ force always be effective?8
+* How can ‘other’ force always be effective?
 
 **NOPD'S DISPOSITION ON UOF**
 
 * 7 unauthorized instances of force.
 * Last year there was only one. 7 is more in line with expectation of 6.
-* 140, about 10% have outcomes that don’t make sense.9
+* 140, about 10% have outcomes that don’t make sense.
 
 Row
 -------------------------------------
@@ -846,12 +850,12 @@ p.firearm.by.reason
 p.uof.by.service.type
 ```
 
-Row {data-height=300}
+Row {data-height=275}
 -------------------------------------
 ### Analysis
 **Reason for Force**
 
-* Resisting arrest is the most common reasons for force at 28.2%10.
+* Resisting arrest is the most common reasons for force at 28.2%.
 * Other accounts for 18.9% of justifications for force. Other should not be so common. NOPD must be more specific.
 
 **Reason for Exhibiting Firearms**
@@ -889,7 +893,7 @@ Row
 
 * These results also very similar to 2016.
 * About 1/3 (~400+) of officers’ use force.
-* Of those, 20 officers account for 20% of force. Unfair to say “bad apples” because many of those officers are in special operations (see below).
+* Of those, 20 officers account for 20% of force. Unfair to say “bad apples” because many of those officers are in special operations.
 * Trend is that UOF is higher than FTN, meaning of officers using force more often, they are also more forceful when they do (more individuals + types). What’s that about?
 
 Row
@@ -972,7 +976,7 @@ p.uof.by.officer.age.exp
 ```
 
 
-Row {data-height=260}
+Row {data-height=225}
 -------------------------------------
 ### Analysis
 **Use of Force by Officer Age and Experience**
@@ -996,7 +1000,7 @@ p.uof.by.officer.injury
 p.uof.by.victim.injury
 ```
 
-Row {data-height=200}
+Row
 -------------------------------------
 ### Analysis
 
@@ -1027,7 +1031,7 @@ p.uof.by.female.victim.race
 p.uof.by.male.victim.race
 ```
 
-Row
+Row {data-height=100}
 -------------------------------------
 ### Analysis
 
@@ -1050,7 +1054,8 @@ p.male.victim.uof.by.type
 Row {data-height=80}
 -------------------------------------
 ### Analysis 
-• Black people are most exposed to firearms, but white people get hands.
+
+* Black people are most exposed to firearms, but white people get hands.
 
 Row
 -------------------------------------
@@ -1096,7 +1101,7 @@ p.uof.by.male.officer.race
 ```
 
 
-Row 
+Row {data-height=200}
 -------------------------------------
 ### Analysis
 
@@ -1119,8 +1124,10 @@ p.female.uof.by.type
 p.male.uof.by.type
 ```
 
-
-
+Row 
+-------------------------------------
+### title {.no-title}
+**[Download the Full Stastical Review of NOPD's Use of Force Report](http://nolaipm.gov/wp-content/uploads/2018/07/Final_OIPM-UOF-Stats-2017.pdf)**
 
 Officers
 ===================================== 
@@ -1179,7 +1186,7 @@ Row
 The first question listed six areas of concern that the community could choose was of the greatest concern to them. Those six areas were: “Quality of Homicide Investigations, The Treatment of Juveniles, Officer Response Time, Human Rights Violations, Treatment of Crime Victims, or Other.” Each area is discussed individually below:
 
 
-Row
+Row {data-height=520}
 -------------------------------------
 ### Concerned with homicide investigations
 Of the 886 people that answered question #1 relating to homicide investigations, 51.7% stated that homicide investigations are their greatest concern about NOPD.
@@ -1199,7 +1206,7 @@ Of the 886 people that answered question #1 relating to officer response time, 6
 p.survey.pies[[3]]
 ```
 
-Row {data-height=600}
+Row {data-height=540}
 -------------------------------------
 ### Concerned with human rights violations
 Of the 886 people that answered question #1 relating to human rights violations, 60.3% stated that human rights violations are their greatest concern about NOPD.
@@ -1214,7 +1221,7 @@ p.survey.pies[[5]]
 ```
 
 ### Concerned other
-Of the 886 people that answered question #1 relating to other areas, 10.2% stated that other areas were their greatest concern about NOPD. Of those “other” responses, some of the most common were “all of the above”, “Corruption”, “Everything”, “Need more police”, and “Treatment of…” different demographic groups including “youth”, “immigrants”, “blacks”, “women”, “domestic violence victims”.
+Of the 886 people that answered question #1 relating to other areas, 10.2% stated that other areas were their greatest concern about NOPD.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[6]]
 ```
@@ -1227,7 +1234,7 @@ Row
 The second question listed five priorities that the community could choose to focus on if they were Police Monitor. Those five priorities were: “Cleaning out the bad apples and making sure NOPD officers are punished for wrongdoing; Helping the public understand NOPD better and identifying areas where NOPD could improve; Helping NOPD leadership see and correct problems; Telling the public about all NOPD’s successes and mistakes; or other.” Each area is discussed individually below: 
 
 
-Row {data-height=600}
+Row {data-height=540}
 -------------------------------------
 ### Prioritize bad apples
 Of the 886 people that answered question #2, 68.1% stated that if they were Police Monitor their priority would be cleaning out the bad apples and making sure NOPD officers were punished for wrongdoing.
@@ -1252,14 +1259,14 @@ helping NOPD leadership see and correct problems.
 p.survey.pies[[9]]
 ```
 
-Row {data-height=600}
+Row {data-height=400}
 -------------------------------------
 ### Prioritize communication of successes and failures
 Of the 886 people that answered question #2 relating to telling the public about all NOPD’s
 successes and mistakes, 43.6% stated that if they were Police Monitor their priority would be
 telling the public about all NOPD’s successes and mistakes.
 <!--***Telling the public about all NOPD’s successes and mistakes***-->
-```{r, fig.width = 6, fig.height = 3}
+```{r, fig.width = 6, fig.height = 4}
 p.survey.pies[[10]]
 ```
 
@@ -1268,7 +1275,7 @@ Of the 886 people that answered question #2 relating to other priorities, 5.76% 
 they were Police Monitor their priorities would be something other than the answer choices.
 Of those who responded “other”, some recurring responses were as follows: “Everything”.
 <!--***Other***-->
-```{r, fig.width = 6, fig.height = 3}
+```{r, fig.width = 6, fig.height = 4}
 p.survey.pies[[11]]
 ```
 
