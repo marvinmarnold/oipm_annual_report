@@ -1369,12 +1369,10 @@ For the official count of active NOPD officers in 2017, we use data provided by 
 officers involved in specific uses of force or complaints, we use information from the IAPro DB.
 
 #### Info about officers related to each incident
-- Download: TODO
 - Source: OIPM direct DB access on May 18, 2018
 - Issue: Does not have reliable dates of employment
 
 #### Official count of all active duty officers in 2017
-- Download: TODO
 - Source: NOPD pull from ADP on May 11, 2018
 - Issue: Can't cross reference with IAPro data
 - Issue: Need an independent way to access this information
@@ -1388,107 +1386,34 @@ We have used the data on data.nola.gov to compare with NOPD's version and cross 
 We are unable to reproduce all of NOPD's previous figures, especially for 2015 where there is a large discrepancy.
 
 #### Direct database access
-- Download: TODO
 - Source: OIPM direct DB access on May 18, 2016
 - Issue: 2015 data mostly missing. 
 - Issue: Was arrested field does not appear to be reliable.
 
 #### data.nola.gov
-- Download: TODO
 - Issues: Does not contain a unique way to identify officers.
 
-Row 
+Row  {data-height=200}
 -------------------------------------
 ### Complaints
 
+#### Direct database access
+- Source: OIPM direct DB access on May 18, 2016
 - Issue: How to identify anonymous complaints
 - Issue: How to identify 4th amendment violations.
 - Issue: Many things OIPM believes to be illigitimate outcomes.
 - Issue: Identifying complaints made by an officer.
 
-More coming soon
-
-<!-- Row 
--------------------------------------
-### Bodyworn cameras
-Coming soon
---> 
-
-Row 
+Row {data-height=150}
 -------------------------------------
 ### Community outreach
-Coming soon
 
-Row 
+- Source: OIPM survey results
+
+Row {data-height=150}
 -------------------------------------
 ### Arrest
 
+#### OPSO
+- Source: OPSO booking information
 - Issue: NOPD should not have to rely on OPSO for arrest data
-
-More coming soon
-
-<!--- Bodyworn Cameras
-===================================== 
-Row 
--------------------------------------
-### ATTENTION: THIS IS A DRAFT!
-OIPM's 2017 annual report is currently a work in progress. All analysis and data contained on this website should not be relied on until the official report is
-released later this year.
-
-**WORK IN PROGRESS**
-![alt text](img/wip.png "WORK IN PROGRESS")
-
-
-Row
--------------------------------------
-### Overview
-NOPD's strict adherence to body-worn camera (BWC) policy is essential. In future years, OIPM hopes to 
-be able to estimate BWC adherence in an automated manner that yields more accurate results.
-
-For the time being, the closest estimate OIPM can make of NOPD's adherence to BWC policy is calculating
-the number of EPR and Calls for Service that do not have a corresponding BWC metadata entry.
-
-The methodology is detailed more below, but it is known to have inherent limitations that are likely 
-causing our results to significantly underestimate NOPD's adherence to BWC policy.
-
-#### Disclaimer
-Consequently, ***OIPM does not believe that results below are representative of NOPD's true BWC adherence***. We believe this method significantly underestimates NOPD's adherence to BWC policy.
-
-OIPM hopes that the publication of these initial results will encourage continued cooperation with NOPD so that we 
-can refine our process and produce more accurate analysis in the future. 
-
-#### Results
-
-- 20,227 EPR are missing corresponding BWC entries, that's equivalent to 30% missing
-- 186,009 Calls for Service are missing corresponding BWC entries, that's equivalent to 41% missing
-
-### Methodology
-#### BWC Meta-data
-1. Use BWC metadata from data.nola.gov
-2. Only include entries with date_uploaded that contains '2017'
-2. Remove any BWC entries that do not contain a title or id_external in the format [letter]-[four digits]-[two digits]
-3. Also retain any entries that contain multiple IDs in a single cell
-
-#### Electronic Police Report
-1. Count the total number of entries
-2. Count the number of entries that can be found in BWC
-3. Divide the result of #2 / #1. This is the estimated adherence
-
-#### Calls for Service
-1. Count the total number of entries
-2. Count the number of entries that can be found in BWC
-3. Divide the result of #2 / #1. This is the estimated adherence
-
-Row
--------------------------------------
-### EPR based results
-```{r, fig.width = 6, fig.height = 4}
-p.bwc.matching.epr
-```
-
-### Call for Service based results
-```{r, fig.width = 6, fig.height = 4}
-p.bwc.matching.cad
-```
-
--->  
