@@ -27,14 +27,14 @@ count.by.female.race <- count.by.sex.race %>% filter(Citizen.sex == 'F')
 
 # Construct pie chart
 title <- "UOF by female victim race"
-p.uof.by.female.victim.race <- plot_ly(count.by.female.race,  type = 'pie', name =title,
+p.uof.by.female.victim.race <- plot_ly(count.by.female.race,  type = 'pie',
         labels = ~Citizen.race, 
         values = ~num.uof,
         textposition = 'inside',
         textinfo = 'label+value+percent',
         insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = "compare", title = title, showlegend = FALSE)
+  layout(hovermode = "compare", showlegend = FALSE)
 
 p.uof.by.female.victim.race
 
@@ -45,14 +45,14 @@ count.by.male.race <- count.by.sex.race %>% filter(Citizen.sex == 'M')
 
 # Construct pie chart
 title <- "UOF by male victim race"
-p.uof.by.male.victim.race <- plot_ly(count.by.male.race,  type = 'pie', name =title,
+p.uof.by.male.victim.race <- plot_ly(count.by.male.race,  type = 'pie',
                                        labels = ~Citizen.race, 
                                        values = ~num.uof,
                                        textposition = 'inside',
                                        textinfo = 'label+value+percent',
                                        insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = "compare", title = title, showlegend = FALSE)
+  layout(hovermode = "compare", showlegend = FALSE)
 
 p.uof.by.male.victim.race
 

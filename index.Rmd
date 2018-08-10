@@ -982,8 +982,9 @@ Row {data-height=225}
 **Use of Force by Officer Age and Experience**
 
 * As officers get older, they commit less force.
-* Officers 31 - 35 make up 14% of the police department but are responsible for over 350 incidents of force.
+* Officers 31 - 35 make up 15.6% of the police department but are responsible for over 350 incidents of force.
 * In the next age bracket, officers 36 - 40 make up 35% of all police on the force (nearly double the previous bracket), but the amount of force decreases.
+* Officers 51 and older make up 28% of the police department but are only responsible for about 100 incidents of force.
 * Experience levels are not enough to explain use of force.
 * Officers older than 31 tend to have over 5 years of experience but continue to use nonnegligible amounts of force.
 * Not yet clear how assignment factors into this. Are older officers in administrative roles where they are less likely to answer calls for service and/or interact with the public?
@@ -1016,12 +1017,12 @@ are subjected to NOPD use of force.
 
 Row
 -------------------------------------
-### UOF by Indivdual Gender and Race
+### UOF by Individual Gender and Race
 ```{r, fig.width = 5, fig.height = 4}
 p.uof.by.victim.sex.race
 ```
 
-### UOF by Female Indivdiual Race
+### UOF by Female Individual Race
 ```{r, fig.width = 5, fig.height = 4}
 p.uof.by.female.victim.race
 ```
