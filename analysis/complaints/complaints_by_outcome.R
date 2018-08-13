@@ -6,14 +6,14 @@ dispositions.for.year <- complaints.for.year %>% group_by(Disposition.OIPM)
 count.dispositions.for.year <- summarise(dispositions.for.year, num.complaints = n())
 
 title <- "Disposition of all complaints"
-p.complaint.by.outcome <- plot_ly(count.dispositions.for.year,  type = 'pie', name = title,
+p.complaint.by.outcome <- plot_ly(count.dispositions.for.year,  type = 'pie',
         labels = ~Disposition.OIPM, 
         values = ~num.complaints,
         textposition = 'middle center',
         textinfo = 'label+value+percent',
         insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = "compare", title = title, showlegend = FALSE)
+  layout(hovermode = "compare", showlegend = FALSE)
 
 p.complaint.by.outcome
 
@@ -23,14 +23,14 @@ rank.dispositions.for.year <- complaints.for.year %>% filter(Incident.type == "R
 count.rank.dispositions.for.year <- summarise(rank.dispositions.for.year, num.complaints = n())
 
 title <- "Disposition of rank initiated complaints"
-p.rank.complaint.by.outcome <- plot_ly(count.rank.dispositions.for.year,  type = 'pie', name = title,
+p.rank.complaint.by.outcome <- plot_ly(count.rank.dispositions.for.year,  type = 'pie', 
                                   labels = ~Disposition.OIPM, 
                                   values = ~num.complaints,
                                   textposition = 'middle center',
                                   textinfo = 'label+value+percent',
                                   insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = "compare", title = title, showlegend = FALSE)
+  layout(hovermode = "compare", showlegend = FALSE)
 
 p.rank.complaint.by.outcome
 
@@ -40,13 +40,13 @@ citizen.dispositions.for.year <- complaints.for.year %>% filter(Incident.type ==
 count.citizen.dispositions.for.year <- summarise(citizen.dispositions.for.year, num.complaints = n())
 
 title <- "Disposition of citizen initiated complaints"
-p.citizen.complaint.by.outcome <- plot_ly(count.citizen.dispositions.for.year,  type = 'pie', name = title,
+p.citizen.complaint.by.outcome <- plot_ly(count.citizen.dispositions.for.year,  type = 'pie',
                                        labels = ~Disposition.OIPM, 
                                        values = ~num.complaints,
                                        textposition = 'middle center',
                                        textinfo = 'label+value+percent',
                                        insidetextfont = list(color = '#FFFFFF')) %>%
   
-  layout(hovermode = "compare", title = title, showlegend = FALSE)
+  layout(hovermode = "compare", showlegend = FALSE)
 
 p.citizen.complaint.by.outcome
