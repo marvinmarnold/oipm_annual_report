@@ -876,6 +876,9 @@ Row {data-height=275}
 * 12.4% of UOFs occur during a traffic stop, 27.8% during arrest, and 33.5% of UOFs
 occur during a call for service.
 
+**Percentage of Force by Officers Using the Most Force**
+How to read the graph: The vertical axis is percentage and horizontal axis is number of officers. The graph is cumulative, meaning that the top 10 officers includes the top 5 officers. From the graph, the top 10 officers are responsible for 10.38% of all FTN. The top 10 officers are responsible for 13.34% of UOF. There were about 400 officers that used force in 2017 so, the top 500 officers are responsible for 100% of force.
+
 Row
 -------------------------------------
 ### Average Force per Officer
