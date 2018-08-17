@@ -394,6 +394,14 @@ Row
 
 When reviewing all complaints filed, OIPM identified 45 complaints containing allegations that appeared to be related to complainants’ Fourth Amendment rights. These complaints were about improper searches, stops without reasonable suspicion, discrimination, and bias based policing.
 
+A brief description of the policies that were violated is below. For more information, you may reference [NOPD's official poilcies](https://www.nola.gov/getattachment/NOPD/Policies/NOPD-Policy-Manual-(1).pdf/). 
+
+
+- ***Chapter 1.2.4: Search and Seizure***: The federal and state Constitutions both provide every person with the right to be free from unreasonable searches and seizures. This Chapter requires that New Orleans Police Department officers abide by these legal protections when dealing with search and seizure issues, as well as searches of persons in custody.
+- ***Chapter 1.3.1.1: Hancuffing and Restraint Devices***: This Chapter governs handcuffing and otherwise restraining suspects during detentions and arrests to provide adequately for the safety and security of the suspect being detained or in custody, the transporting officer, and the public.
+- ***Policy 440: Contacts, Detentions and Photographing Detainees***: The purpose of this policy is to establish guidelines for conducting field interviews (FI) and the taking and retention of photographs of persons detained in the field but not arrested.
+- ***Policy 402: Discriminatory Policing, Racial Bias-Based Profiling, LGBT Community***
+
 The dispositions of these investigations are detailed as follows:
 
 Row {data-height=600}

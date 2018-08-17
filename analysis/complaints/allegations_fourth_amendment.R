@@ -40,16 +40,30 @@ fourth.violations <- ldply(relevant.directives, function(directive) {
 detach("package:plyr", unload=FALSE)
 
 fourth.violations %>% select(PIB.Control.Number) %>% distinct %>% nrow
+
+# Give friendly names to each policy violation
+# Give friendly names to each policy violation
+fourth.violations <- fourth.violations %>% mutate(
+  friendly.name = case_when(
+    grepl("1.2.4", Allegation.directive) ~ "Search & Seizure (1.2.4)",
+    grepl("1.3.1.1", Allegation.directive) ~ "Handcuffing & Restraint (1.3.1.1)",
+    grepl("440", Allegation.directive) ~ "Photos of Detainees (440)",
+    grepl("402", Allegation.directive) ~ "Race & LGBT Discrimination (440)",
+    TRUE ~ abbr.directive
+  )
+)
+fourth.violations
+
 #write.csv(fourth.violations, file = "data/export/fourth_ammendment_complaints.csv")
 grouped.fourth.violations <- fourth.violations %>% distinct(PIB.Control.Number, Allegation.directive, .keep_all = TRUE) %>% 
-  select(abbr.directive) %>%
-  group_by(abbr.directive)
+  select(friendly.name) %>%
+  group_by(friendly.name)
 
 count.fourth.violations <- grouped.fourth.violations %>% summarise(num.violations = n())
 count.fourth.violations
 
 p.fourth.viol <- plot_ly(count.fourth.violations,  type = 'pie', name = title,
-                       labels = ~abbr.directive, 
+                       labels = ~friendly.name, 
                        values = ~num.violations,
                        textposition = 'inside',
                        textinfo = 'label+value+percent',
@@ -57,25 +71,25 @@ p.fourth.viol <- plot_ly(count.fourth.violations,  type = 'pie', name = title,
 p.fourth.viol
 
 ## Outcomes
-grouped.fourth.violations <- fourth.violations %>% group_by(abbr.directive, Allegation.finding)
+grouped.fourth.violations <- fourth.violations %>% group_by(friendly.name, Allegation.finding)
 
 count.fourth.violations <- grouped.fourth.violations %>% summarise(num.allegs = n())
 count.fourth.violations
 
 p.fourth.viol.outcomes <- plot_ly(count.fourth.violations,
-                         x = ~abbr.directive,
+                         x = ~friendly.name,
                          y = ~num.allegs,
                          name = ~Allegation.finding,
                          type = "bar",
                          color = ~Allegation.finding
 ) %>% 
   
-  layout(xaxis = list(title = "4th amendment complaints by outcome", 
+  layout(xaxis = list(title = "4th amendment complaints", 
                       showgrid = F), 
          yaxis = list(title = 'Number of complaints'), 
          barmode = 'stack',
          hovermode = 'compare', 
-         margin = list(r = 100, b = 100))
+         margin = list(r = 100, b = 135))
 
 p.fourth.viol.outcomes
 
