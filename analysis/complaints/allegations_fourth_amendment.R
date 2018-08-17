@@ -48,7 +48,7 @@ fourth.violations <- fourth.violations %>% mutate(
     grepl("1.2.4", Allegation.directive) ~ "Search & Seizure (1.2.4)",
     grepl("1.3.1.1", Allegation.directive) ~ "Handcuffing & Restraint (1.3.1.1)",
     grepl("440", Allegation.directive) ~ "Photos of Detainees (440)",
-    grepl("402", Allegation.directive) ~ "Race & LGBT Discrimination (440)",
+    grepl("402", Allegation.directive) ~ "Race & LGBT Discrimination (402)",
     TRUE ~ abbr.directive
   )
 )
