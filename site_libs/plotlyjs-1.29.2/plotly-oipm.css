@@ -1,0 +1,24 @@
+/*
+just here so that plotly works
+correctly with ioslides.
+see https://github.com/ropensci/plotly/issues/463
+*/
+
+slide:not(.current) .plotly.html-widget{
+  display: none;
+}
+
+div.svg-container {
+    outline: 0;
+}
+
+body{
+    padding: 0px !important;
+}
+
+#htmlwidget_container{
+    top: 0px !important;
+    bottom: 0px !important;
+    right: 0px !important;
+    left: 0px !important;
+}

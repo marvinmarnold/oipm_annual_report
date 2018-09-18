@@ -132,6 +132,17 @@ on three main activities: complaint and disciplinary system monitoring and revie
 force monitoring and review; and subject-specific analyses or audits. The IPM’s
 recommendations to improve NOPD’s accountability systems originate from these activities.
 
+Row
+-------------------------------------
+
+### Clarifications and corrections (9/17/18)
+
+Since the original publication of this report, several sections have been updated for clarity and correctness.
+
+- Complaints: Removed the word "only" from: "A review of 'Disposition of Rank Complaints' and 'Disposition of Citizen Initiated Complaints' illustrates that, while over 50% of rank complaints are sustained, **only** 15% of complaints initiated by the public are."
+- Use of Force: Use "increase" and "decrease" consistently instead of approximating trends as "flat". Ho longer assert that the increase in force between 2014 to 2015 is solely attributable to new reporting rules given that rise continues for UOF through 2016.
+- Community Outreach: Respondents could choose multiple concerns, not only one. Consequently the term "greatest concern" has been changed to emphasize that options were not mutually exclusive.
+
 <!-- Column
 -------------------------------------
 ### Reproducing this report
@@ -331,7 +342,7 @@ Sustained complaints were the greatest proportion of all complaints because 29% 
 them were sustained. The next largest group of outcomes was complaints marked
 “unfounded” at 18.3%. The greatest portion of complaints, 29%, are sustained. A
 review of “Disposition of Rank Complaints and “Disposition of Citizen Initiated
-Complaints” illustrates that, while over 50% of rank complaints are sustained, only,
+Complaints” illustrates that, while over 50% of rank complaints are sustained,
 15% of complaints initiated by the public are. It is also worthy to note that 6% of
 public initiated complaints are mediated by the OIPM’s Community Police Mediation
 Program. 
@@ -682,18 +693,18 @@ Row {data-height=300}
 -------------------------------------
 ### Analysis
 
-* There were 604 FTNs in 2017, up by 15 FTNs from the previous year. UOFs also
-increased from 1,563 to 1,574.
-* OIPM has same data for 2017. 2015 and 2016 still need to be confirmed.
-* Force jumps between 2014 and 2015 because of new rules about what constitutes force.
-* UOF has been rising but FTN about steady. More officers, individuals, types of force
+FTN & UOF by year
+* There were 604 FTNs in 2017, up by 15 FTNs from the previous year. UOFs decreased from 1,592 to 1,574.
+* OIPM & NOPD have identical data for 2017. 2015 and 2016 still need to be confirmed.
+* Force jumps between 2014 and 2015. The next year, UOF continues to climb but FTN does not.
+* UOF has been rising but FTN about steady. This means more officers, individuals, types of force
 used per force incident.
-* 2016 is the first year that the database that we access (IAPro) was used. Before then,
-we must rely on historic numbers from NOPD.
+* 2016 is the first year that the database that OIPM accesses (IAPro) was used. Before then,
+historic numbers from NOPD are relied on.
 * Furthermore, 2017 is the first year the OIPM has had access to the underlying
 database. We worked with NOPD to resolve discrepancies with historic numbers.
-* UOF is flat from 2016 to 2017.
 
+FTN & UOF by month
 * Figure 2 clarifies the relationship between FTN and UOF.
 * There is high variability between the number of FTN and the resulting UOF.
 * UOF and FTN peak in Feb and August, corresponding to Mardi Gras and
@@ -1195,25 +1206,25 @@ Row
 -------------------------------------
 ### **Question 1. What are your greatest concerns about NOPD?**
 
-The first question listed six areas of concern that the community could choose was of the greatest concern to them. Those six areas were: “Quality of Homicide Investigations, The Treatment of Juveniles, Officer Response Time, Human Rights Violations, Treatment of Crime Victims, or Other.” Each area is discussed individually below:
+The first question listed six areas of concern. Each respondent was allowed to select zero or more concerns that applied to them. Those six areas were: “Quality of Homicide Investigations, The Treatment of Juveniles, Officer Response Time, Human Rights Violations, Treatment of Crime Victims, or Other.” Each area is discussed individually below:
 
 
 Row {data-height=520}
 -------------------------------------
 ### Concerned with homicide investigations
-Of the 886 people that answered question #1 relating to homicide investigations, 51.7% stated that homicide investigations are their greatest concern about NOPD.
+Of the 886 people that answered question #1 relating to homicide investigations, 51.7% stated that they are concerned with NOPD's homicide investigations.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[1]]
 ```
 
 ### Concerned with treatment of juveniles
-Of the 886 people that answered question #1 relating to treatment of juveniles, 56.5% stated that the treatment of juveniles is their greatest concern about NOPD.
+Of the 886 people that answered question #1 relating to treatment of juveniles, 56.5% stated that they are concerned with NOPD's treatment of juveniles.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[2]]
 ```
 
 ### Concerned with response time
-Of the 886 people that answered question #1 relating to officer response time, 65% stated that Officer Response Time is their greatest concern about NOPD.
+Of the 886 people that answered question #1 relating to officer response time, 65% stated they are concerned with NOPD's officer response time.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[3]]
 ```
@@ -1221,19 +1232,19 @@ p.survey.pies[[3]]
 Row {data-height=540}
 -------------------------------------
 ### Concerned with human rights violations
-Of the 886 people that answered question #1 relating to human rights violations, 60.3% stated that human rights violations are their greatest concern about NOPD.
+Of the 886 people that answered question #1 relating to human rights violations, 60.3% stated that they are concerned with NOPD's human rights violations.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[4]]
 ```
 
 ### Concerned with crime victim
-Of the 886 people that answered question #1 relating to treatment of crime victims, 45.6% stated that treatment of crime victims is their greatest concern about NOPD.
+Of the 886 people that answered question #1 relating to treatment of crime victims, 45.6% stated that they are concerned with NOPD's treatment of crime victims.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[5]]
 ```
 
 ### Concerned other
-Of the 886 people that answered question #1 relating to other areas, 10.2% stated that other areas were their greatest concern about NOPD.
+Of the 886 people that answered question #1 relating to other areas, 10.2% stated that they have other areas of concern that were not listed.
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[6]]
 ```
@@ -1249,14 +1260,14 @@ The second question listed five priorities that the community could choose to fo
 Row {data-height=540}
 -------------------------------------
 ### Prioritize bad apples
-Of the 886 people that answered question #2, 68.1% stated that if they were Police Monitor their priority would be cleaning out the bad apples and making sure NOPD officers were punished for wrongdoing.
+Of the 886 people that answered question #2, 68.1% stated that if they were Police Monitor, one of their priorities would be cleaning out the bad apples and making sure NOPD officers were punished for wrongdoing.
 <!--***Cleaning out the “bad apples” and making sure NOPD officers are punished for wrongdoing***-->
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[7]]
 ```
 
 ### Prioritize helping public
-Of the 886 people that answered question #2 relating to helping the public understand NOPD better and identifying areas of NOPD improvement, 60.5% stated that if they were Police Monitor their priority would be helping the public understand NOPD better and identifying areas of NOPD improvement.
+Of the 886 people that answered question #2 relating to helping the public understand NOPD better and identifying areas of NOPD improvement, 60.5% stated that if they were Police Monitor, one of their priorities would be helping the public understand NOPD better and identifying areas of NOPD improvement.
 <!---***Helping the public understand NOPD better and identifying areas where NOPD could improve***--> 
 ```{r, fig.width = 3, fig.height = 3}
 p.survey.pies[[8]]
@@ -1264,7 +1275,7 @@ p.survey.pies[[8]]
 
 ### Prioritize leadership
 Of the 886 people that answered question #2 relating to helping NOPD leadership see and
-correct problems, 59.3% stated that if they were Police Monitor their priority would be
+correct problems, 59.3% stated that if they were Police Monitor, one of their priorities would be
 helping NOPD leadership see and correct problems.
 <!--***Helping NOPD leadership see and correct problems***-->
 ```{r, fig.width = 3, fig.height = 3}
@@ -1275,7 +1286,7 @@ Row {data-height=520}
 -------------------------------------
 ### Prioritize communication of successes and failures
 Of the 886 people that answered question #2 relating to telling the public about all NOPD’s
-successes and mistakes, 43.6% stated that if they were Police Monitor their priority would be
+successes and mistakes, 43.6% stated that if they were Police Monitor, one of their priorities would be
 telling the public about all NOPD’s successes and mistakes.
 <!--***Telling the public about all NOPD’s successes and mistakes***-->
 ```{r, fig.width = 6, fig.height = 4}
@@ -1284,7 +1295,7 @@ p.survey.pies[[10]]
 
 ### Prioritize other
 Of the 886 people that answered question #2 relating to other priorities, 5.76% stated that if
-they were Police Monitor their priorities would be something other than the answer choices.
+they were Police Monitor, one of their priorities would be something other than the options provided
 Of those who responded “other”, some recurring responses were as follows: “Everything”.
 <!--***Other***-->
 ```{r, fig.width = 6, fig.height = 4}
@@ -1407,7 +1418,7 @@ We are unable to reproduce all of NOPD's previous figures, especially for 2015 w
 #### Direct database access
 - Source: OIPM direct DB access on May 18, 2016
 - Issue: 2015 data mostly missing. 
-- Issue: Was arrested field does not appear to be reliable.
+- Issue: "Was arrested" field does not appear to be reliable.
 
 #### data.nola.gov
 - Issues: Does not contain a unique way to identify officers.
