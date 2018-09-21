@@ -135,12 +135,12 @@ recommendations to improve NOPD’s accountability systems originate from these 
 Row
 -------------------------------------
 
-### Clarifications and corrections (9/17/18)
+### Updates & Clarifications (9/17/18)
 
-Since the original publication of this report, several sections have been updated for clarity and correctness.
+Since the original publication of this report, several sections have been updated for clarity and clarification.
 
 - Complaints: Removed the word "only" from: "A review of 'Disposition of Rank Complaints' and 'Disposition of Citizen Initiated Complaints' illustrates that, while over 50% of rank complaints are sustained, **only** 15% of complaints initiated by the public are."
-- Use of Force: Use "increase" and "decrease" consistently instead of approximating trends as "flat". Ho longer assert that the increase in force between 2014 to 2015 is solely attributable to new reporting rules given that rise continues for UOF through 2016.
+- Use of Force: Now using "increase" and "decrease" consistently instead of approximating trends as "flat". No longer assert that the increase in force between 2014 to 2015 is solely attributable to new reporting rules given that the rise continues for UOF through 2016.
 - Community Outreach: Respondents could choose multiple concerns, not only one. Consequently the term "greatest concern" has been changed to emphasize that options were not mutually exclusive.
 
 <!-- Column
