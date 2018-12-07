@@ -1206,47 +1206,17 @@ Row
 -------------------------------------
 ### **Question 1. What are your greatest concerns about NOPD?**
 
-The first question listed six areas of concern. Each respondent was allowed to select zero or more concerns that applied to them. Those six areas were: “Quality of Homicide Investigations, The Treatment of Juveniles, Officer Response Time, Human Rights Violations, Treatment of Crime Victims, or Other.” Each area is discussed individually below:
+The first question listed six areas of concern. Each respondent was allowed to select zero or more concerns that applied to them. Those six areas were: “Quality of Homicide Investigations, The Treatment of Juveniles, Officer Response Time, Human Rights Violations, Treatment of Crime Victims, or Other.”
+Of the 886 people that answered question #1 relating to homicide investigations:
+- 51.7% stated that they are concerned with NOPD's homicide investigations
+- 56.5% stated that they are concerned with NOPD's treatment of juveniles
+- 65% stated they are concerned with NOPD's officer response time
+- 60.3% stated that they are concerned with NOPD's human rights violation
+- 45.6% stated that they are concerned with NOPD's treatment of crime victims
+- 10.2% stated that they have other areas of concern that were not listed
 
-
-Row {data-height=520}
--------------------------------------
-### Concerned with homicide investigations
-Of the 886 people that answered question #1 relating to homicide investigations, 51.7% stated that they are concerned with NOPD's homicide investigations.
 ```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[1]]
-```
-
-### Concerned with treatment of juveniles
-Of the 886 people that answered question #1 relating to treatment of juveniles, 56.5% stated that they are concerned with NOPD's treatment of juveniles.
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[2]]
-```
-
-### Concerned with response time
-Of the 886 people that answered question #1 relating to officer response time, 65% stated they are concerned with NOPD's officer response time.
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[3]]
-```
-
-Row {data-height=540}
--------------------------------------
-### Concerned with human rights violations
-Of the 886 people that answered question #1 relating to human rights violations, 60.3% stated that they are concerned with NOPD's human rights violations.
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[4]]
-```
-
-### Concerned with crime victim
-Of the 886 people that answered question #1 relating to treatment of crime victims, 45.6% stated that they are concerned with NOPD's treatment of crime victims.
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[5]]
-```
-
-### Concerned other
-Of the 886 people that answered question #1 relating to other areas, 10.2% stated that they have other areas of concern that were not listed.
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[6]]
+p.survey.concerned
 ```
 
 
@@ -1254,55 +1224,19 @@ Row
 -------------------------------------
 ### **Question 2: If you were the Police Monitor, what would your priorities be?**
 
-The second question listed five priorities that the community could choose to focus on if they were Police Monitor. Those five priorities were: “Cleaning out the bad apples and making sure NOPD officers are punished for wrongdoing; Helping the public understand NOPD better and identifying areas where NOPD could improve; Helping NOPD leadership see and correct problems; Telling the public about all NOPD’s successes and mistakes; or other.” Each area is discussed individually below: 
+The second question listed five priorities that the community could choose to focus on if they were Police Monitor. Those five priorities were: “Cleaning out the bad apples and making sure NOPD officers are punished for wrongdoing; Helping the public understand NOPD better and identifying areas where NOPD could improve; Helping NOPD leadership see and correct problems; Telling the public about all NOPD’s successes and mistakes; or other.” 
+
+Of the 886 people that answered question #2:
+- 68.1% stated that if they were Police Monitor, one of their priorities would be cleaning out the bad apples and making sure NOPD officers were punished for wrongdoing
+- 60.5% stated that if they were Police Monitor, one of their priorities would be helping the public understand NOPD better and identifying areas of NOPD improvement
+- 59.3% stated that if they were Police Monitor, one of their priorities would be helping NOPD leadership see and correct problems
+- 43.6% stated that if they were Police Monitor, one of their priorities would be telling the public about all NOPD’s successes and mistakes
+- 5.76% stated that if they were Police Monitor, one of their priorities would be something other than the options provided
 
 
-Row {data-height=540}
--------------------------------------
-### Prioritize bad apples
-Of the 886 people that answered question #2, 68.1% stated that if they were Police Monitor, one of their priorities would be cleaning out the bad apples and making sure NOPD officers were punished for wrongdoing.
-<!--***Cleaning out the “bad apples” and making sure NOPD officers are punished for wrongdoing***-->
 ```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[7]]
+p.survey.if.monitor
 ```
-
-### Prioritize helping public
-Of the 886 people that answered question #2 relating to helping the public understand NOPD better and identifying areas of NOPD improvement, 60.5% stated that if they were Police Monitor, one of their priorities would be helping the public understand NOPD better and identifying areas of NOPD improvement.
-<!---***Helping the public understand NOPD better and identifying areas where NOPD could improve***--> 
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[8]]
-```
-
-### Prioritize leadership
-Of the 886 people that answered question #2 relating to helping NOPD leadership see and
-correct problems, 59.3% stated that if they were Police Monitor, one of their priorities would be
-helping NOPD leadership see and correct problems.
-<!--***Helping NOPD leadership see and correct problems***-->
-```{r, fig.width = 3, fig.height = 3}
-p.survey.pies[[9]]
-```
-
-Row {data-height=520}
--------------------------------------
-### Prioritize communication of successes and failures
-Of the 886 people that answered question #2 relating to telling the public about all NOPD’s
-successes and mistakes, 43.6% stated that if they were Police Monitor, one of their priorities would be
-telling the public about all NOPD’s successes and mistakes.
-<!--***Telling the public about all NOPD’s successes and mistakes***-->
-```{r, fig.width = 6, fig.height = 4}
-p.survey.pies[[10]]
-```
-
-### Prioritize other
-Of the 886 people that answered question #2 relating to other priorities, 5.76% stated that if
-they were Police Monitor, one of their priorities would be something other than the options provided
-Of those who responded “other”, some recurring responses were as follows: “Everything”.
-<!--***Other***-->
-```{r, fig.width = 6, fig.height = 4}
-p.survey.pies[[11]]
-```
-
-
 
 Data Sources {data-orientation=rows}
 ===================================== 

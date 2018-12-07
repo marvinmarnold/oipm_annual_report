@@ -16,29 +16,47 @@ survey.questions <- c(
   "If.monitor.communicate.success",
   "If.monitor.other")
 
-p.survey.pies <- lapply(survey.questions, function (question) {
-  
-  # Set title
-  question.title <- question
-  
-  # How many people answered each
-  oipm.survey <- oipm.survey %>% mutate(
-    answered.yes = !!as.name(question) != ""
+
+head(oipm.survey)
+colnames(oipm.survey)
+
+oipm.survey.concerned <- data.frame(
+  response.time = sum(oipm.survey$Concerned.with.response.time != ""),
+  homicide = sum(oipm.survey$Concerned.with.homicide.investigations != ""),
+  juveniles = sum(oipm.survey$Concerned.with.treatment.of.juveniles != ""),
+  human.rights = sum(oipm.survey$Concerned.with.human.rights != ""),
+  victim = sum(oipm.survey$Concerned.with.crime.victim != ""),
+  other = sum(oipm.survey$Concerned.other != "")
+)
+oipm.survey.concerned <- data.frame(
+  question = rownames(t(oipm.survey.concerned)),
+  answered.yes = as.numeric(oipm.survey.concerned[1,])
+)
+
+oipm.survey.if.monitor <- data.frame(
+  bad.apples = sum(oipm.survey$If.monitor.bad.apples != ""),
+  help.public = sum(oipm.survey$If.monitor.help.public != ""),
+  help.leadership = sum(oipm.survey$If.monitor.help.leadership != ""),
+  communicate.success = sum(oipm.survey$If.monitor.communicate.success != ""),
+  other = sum(oipm.survey$If.monitor.other != "")
+)
+oipm.survey.if.monitor <- data.frame(
+  question = rownames(t(oipm.survey.if.monitor)),
+  answered.yes = as.numeric(oipm.survey.if.monitor[1,])
+)
+oipm.survey.if.monitor
+
+p.survey.concerned <- plot_ly(oipm.survey.concerned, x = ~question, y = ~answered.yes, type = "bar") %>%
+  layout(
+    xaxis = list(title=FALSE),
+    yaxis = list(title=FALSE)
   )
+p.survey.concerned
 
-  # Filter UOF by year
-  num.answered.yes <- oipm.survey %>% filter(answered.yes == TRUE) %>% nrow()
-  num.answered.no <- oipm.survey %>% nrow - num.answered.yes
-    
-  # Construct pie chart
-  plot_ly(oipm.survey,  type = 'pie',
-          labels = c("Answered yes", "Answered no"), 
-          values = c(num.answered.yes, num.answered.no),
-          textposition = 'inside',
-          textinfo = 'label+value+percent',
-          insidetextfont = list(color = '#FFFFFF')) %>%
-          
-    layout(hovermode = "compare", showlegend = FALSE)
-})
+p.survey.if.monitor <- plot_ly(oipm.survey.if.monitor, x = ~question, y = ~answered.yes, type = "bar") %>%
+  layout(
+    xaxis = list(title=FALSE),
+    yaxis = list(title=FALSE)
+  )
+p.survey.if.monitor
 
-p.survey.pies[[1]]
