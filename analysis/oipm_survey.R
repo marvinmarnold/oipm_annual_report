@@ -49,14 +49,16 @@ oipm.survey.if.monitor
 p.survey.concerned <- plot_ly(oipm.survey.concerned, x = ~question, y = ~answered.yes, type = "bar") %>%
   layout(
     xaxis = list(title=FALSE),
-    yaxis = list(title=FALSE)
+    yaxis = list(title=FALSE),
+    margin = list(b=250)
   )
 p.survey.concerned
 
 p.survey.if.monitor <- plot_ly(oipm.survey.if.monitor, x = ~question, y = ~answered.yes, type = "bar") %>%
   layout(
     xaxis = list(title=FALSE),
-    yaxis = list(title=FALSE)
+    yaxis = list(title=FALSE),
+    margin = list(b=250)
   )
 p.survey.if.monitor
 
