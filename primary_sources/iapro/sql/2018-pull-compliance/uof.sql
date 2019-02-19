@@ -24,7 +24,7 @@ useOfForce as (
 select 
 
 -- Incident info
-TRIM(filenum) as "FIT Number",
+filenum as "FIT Number",
 SUBSTRING(filenum, 4, 4) as "Year reported",
 year(occurred_dt) as "Year Occurred",
 occurred_dt as "Occurred date",
